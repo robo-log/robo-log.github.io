@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    WordpressをロリポップからDigital Oceanに移した | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/1072/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>WordpressをロリポップからDigital Oceanに移した</h1>
+      <div class="meta">
+        Apr 12, 2015 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．</p>
+
+<p>そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．</p>
+
+<p>まずはDigitalOceanに登録してDropletを作成する必要がある．今回は</p>
+
+<p>512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64</p>
+
+<p>のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．</p>
+
+<h2>SSHの鍵の登録</h2>
+
+<p>DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>ssh-keygen</p>
+
+<p>[/bash]</p>
+
+<p>で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&gt;Securityより設定しておく．</p>
+
+<h2>Apache 導入</h2>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>yum install -y httpd httpd-devel</p>
+
+<p>chkconfig httpd on</p>
+
+<p>service httpd start</p>
+
+<p>[/bash]</p>
+
+<h2>PHP 導入</h2>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>rpm -Uvh <a href="http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm">http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></p>
+
+<p>rpm -Uvh <a href="http://rpms.famillecollet.com/enterprise/remi-release-6.rpm">http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</a></p>
+
+<p>yum &ndash;enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd</p>
+
+<p>[/bash]</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>vi /etc/php.ini</p>
+
+<p>vi /etc/httpd/conf.d/php.conf</p>
+
+<p>[/bash]</p>
+
+<h2>MySQL 導入</h2>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>yum install mysql-community-release-el6-5.noarch.rpm</p>
+
+<p>yum install -y mysql-community-client mysql-community-devel mysql-community-server</p>
+
+<p>[/bash]</p>
+
+<p>Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo dd if=/dev/zero of=/swapfile bs=1M count=1024</p>
+
+<p>mkswap /swapfile</p>
+
+<p>swapon /swapfile</p>
+
+<p>sudo sh -c &quot;echo &lsquo;/swapfile swap swap defaults 0 0&rsquo; &amp;gt;&amp;gt; /etc/fstab&quot;</p>
+
+<p>chkconfig mysqld on</p>
+
+<p>service mysqld start</p>
+
+<p>[/bash]</p>
+
+<p>MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>mysql_secure_installation</p>
+
+<p>[/bash]</p>
+
+<h2>ムームードメインで取得したドメインを管理</h2>
+
+<p>ムームードメインのメニューのネームサーバー設定変更より</p>
+
+<p><a href="/images/2015/04/name_server.png"><img class="alignnone size-full wp-image-1079" src="/images/2015/04/name_server.png" alt="name_server"   /></p>
+
+<p></a></p>
+
+<p>こんな感じにする．</p>
+
+<p>ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．</p>
+
+<p>Digital OceanのDNS設定メニューより，</p>
+
+<p><a href="/images/2015/04/DO_domain.png"><img class="alignnone size-full wp-image-1078" src="/images/2015/04/DO_domain.png" alt="DO_domain"   /></a></p>
+
+<p>Aレコードにサブドメインを追加する．あとはApache側の設定が要る．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>vim /etc/httpd/conf/httpd.conf</p>
+
+<p>[/bash]</p>
+
+<p>以下の部分を編集してポート指定．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>NameVirtualHost *:80</p>
+
+<p>[/bash]</p>
+
+<p>あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>&lt;VirtualHost *:80&gt;</p>
+
+<pre><code>ServerName syundo.org
+
+DocumentRoot /var/www/html/
+</code></pre>
+
+<p>&lt;Directory /var/www/html/&gt;</p>
+
+<pre><code>AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+</code></pre>
+
+<p>&lt;/Directory&gt;</p>
+
+<p>&lt;/VirtualHost&gt;</p>
+
+<p>&lt;VirtualHost *:80&gt;</p>
+
+<pre><code>ServerName blog.syundo.org
+
+DocumentRoot /var/www/html/blog/
+</code></pre>
+
+<p>&lt;Directory /var/www/html/blog/&gt;</p>
+
+<pre><code>AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+</code></pre>
+
+<p>&lt;/Directory&gt;</p>
+
+<p>&lt;/VirtualHost&gt;</p>
+
+<p>[/bash]</p>
+
+<h2>PHPmyadmin導入</h2>
+
+<p>Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>yum -y install &ndash;enablerepo=remi ImageMagick-last</p>
+
+<p>yum -y install &ndash;enablerepo=remi-php55 phpMyAdmin</p>
+
+<p>[/bash]</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>vim /etc/httpd/conf.d/phpMyAdmin.conf</p>
+
+<p>[/bash]</p>
+
+<p>を編集．内容は忘れた．</p>
+
+<h2>データの移行</h2>
+
+<p>MySQLで作業する．ログインしてパスワード設定する．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>mysql -u root</p>
+
+<p>set password for root@localhost=password(&lsquo;hogehoge&rsquo;);</p>
+
+<p>[/bash]</p>
+
+<p>データベース作る．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>create database database_name</p>
+
+<p>[/bash]</p>
+
+<p>作業ユーザを作っておく</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>grant all on database_name.* to dbuser@localhost identified by &lsquo;piyopiyo&rsquo;;</p>
+
+<p>[/bash]</p>
+
+<p>以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．<a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a></p>
+
+<p>worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>vim wp-config.php</p>
+
+<p>[/bash]</p>
+
+<p>Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo chown -R apache:apache myblogdir</p>
+
+<p>[/bash]</p>
+
+<p>どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>User apache</p>
+
+<p>Group apache</p>
+
+<p>[/bash]</p>
+
+<p>の部分を見ればわかる．</p>
+
+<h2>追記：</h2>
+
+<p>トップページからのリンクがすべて404となってしまった．</p>
+
+<p>例えばカテゴリごとに飛ぼうとしてもエラーになる．</p>
+
+<p>ダッシュボードの 「設定 -&gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．</p>
+
+<h2>参考：</h2>
+
+<p><a href="http://nekopunch.hatenablog.com/entry/2014/03/22/020507">http://nekopunch.hatenablog.com/entry/2014/03/22/020507</a></p>
+
+<p><a href="http://wp.fsv.jp/guide/server-shift/">http://wp.fsv.jp/guide/server-shift/</a></p>
+
+<p><a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a></p>
+
+<p><a href="http://javatechnology.net/service/apache-sub-domain/">http://javatechnology.net/service/apache-sub-domain/</a></p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/1033/" rel="prev">Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/1090/" rel="next">機械学習プロフェッショナルシリーズ第1弾から2冊買った</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

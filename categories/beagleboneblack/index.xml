@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Beagleboneblack on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/beagleboneblack/</link>
+    <description>Recent content in Beagleboneblack on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 17 Oct 2014 23:57:16 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/beagleboneblack/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</title>
+      <link>http://syundo0730.github.io/post/1033/</link>
+      <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1033/</guid>
+      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．&lt;/p&gt;
+
+&lt;p&gt;そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
+
+&lt;p&gt;今回使うカメラはこれ．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．&lt;/p&gt;
+
+&lt;p&gt;何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;lsusb&lt;/p&gt;
+
+&lt;p&gt;ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install xawtv&lt;/p&gt;
+
+&lt;p&gt;xawtv -c /dev/video0&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．&lt;/p&gt;
+
+&lt;p&gt;ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
+
+&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．&lt;/p&gt;
+
+&lt;p&gt;OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
+
+&lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．&lt;/p&gt;
+
+&lt;p&gt;サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;//cam.cpp&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+
+&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+
+&lt;p&gt;#endif&lt;/p&gt;
+
+&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
+
+
+
+cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+
+cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+
+
+
+cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+
+
+
+while ( 1 ) {
+
+    cv::Mat img1;
+
+    cap1 &amp;amp;gt;&amp;amp;gt; img1 ;
+
+    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img1 );
+
+    char ch = cv::waitKey(100);
+
+    if ( ch == 27 ) break;
+
+}
+
+return 0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;コンパイルする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
+
+&lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+
+&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+
+&lt;p&gt;#endif&lt;/p&gt;
+
+&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
+
+
+
+cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+
+cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+
+
+
+cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+
+
+
+std::string cascadeName = &amp;amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;amp;quot;;
+
+cv::CascadeClassifier cascade;
+
+if(!cascade.load(cascadeName)) return -1;
+
+
+
+double scale = 4.0;
+
+cv::Mat img, gray;
+
+
+
+while ( 1 ) {
+
+    cap1 &amp;amp;gt;&amp;amp;gt; img;
+
+
+
+    //Trans to glay scale
+
+    cv::cvtColor(img, gray, CV_BGR2GRAY);
+
+    cv::Mat smallImg(cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.rows/scale), cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.cols/scale), CV_8UC1);
+
+    // 処理時間短縮のために画像を縮小
+
+    cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
+
+    cv::equalizeHist( smallImg, smallImg);
+
+
+
+    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt; faces;
+
+    /// マルチスケール（顔）探索xo
+
+    // 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
+
+    cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+
+    // 結果の描画
+
+    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt;::const_iterator r = faces.begin();
+
+    for(; r != faces.end(); ++r) {
+
+        cv::Point center;
+
+        int radius;
+
+        center.x = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;x + r-&amp;amp;gt;width*0.5)*scale);
+
+        center.y = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;y + r-&amp;amp;gt;height*0.5)*scale);
+
+        radius = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;width + r-&amp;amp;gt;height)*0.25*scale);
+
+        cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
+
+    }
+
+    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img );
+
+    char ch = cv::waitKey(30);
+
+    if ( ch == 27 ) break;
+
+}
+
+return 0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;コンパイルする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．&lt;/p&gt;
+
+&lt;p&gt;とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
+
+&lt;p&gt;おわり&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</title>
+      <link>http://syundo0730.github.io/post/971/</link>
+      <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/971/</guid>
+      <description>
+
+&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
+
+&lt;p&gt;まずGetting Started(&lt;a href=&#34;http://beagleboard.org/Getting%20Started&#34;&gt;http://beagleboard.org/Getting%20Started&lt;/a&gt;)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．&lt;/p&gt;
+
+&lt;p&gt;リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://beagleboard.org/latest-images&#34;&gt;http://beagleboard.org/latest-images&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)&lt;/p&gt;
+
+&lt;p&gt;をmicroSDカードに書き込む．&lt;/p&gt;
+
+&lt;p&gt;Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．&lt;/p&gt;
+
+&lt;p&gt;以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．&lt;/p&gt;
+
+&lt;p&gt;作業環境：VMware Player，64bit Ubuntu 14.04&lt;/p&gt;
+
+&lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．&lt;/p&gt;
+
+&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;wget &lt;a href=&#34;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&#34;&gt;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
+
+&lt;p&gt;tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
+
+&lt;p&gt;cd ubuntu-14.04-console-armhf-2014-05-06&lt;/p&gt;
+
+&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;probe-mmc&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;mmc /dev/sdX &amp;ndash;uboot bone&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
+
+&lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;ssh ubuntu@192.168.7.2&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
+
+&lt;p&gt;さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）&lt;/p&gt;
+
+&lt;p&gt;今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．&lt;/p&gt;
+
+&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme&lt;/p&gt;
+
+&lt;p&gt;sudo reboot&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．&lt;/p&gt;
+
+&lt;p&gt;結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
+
+&lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install vnc4server&lt;/p&gt;
+
+&lt;p&gt;vncserver&lt;/p&gt;
+
+&lt;p&gt;vncserver -kill :1&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
+
+&lt;p&gt;[bash]&lt;/p&gt;
+
+&lt;h1 id=&#34;bin-sh:732fd3103795c9dc70583b77fae9af7e&#34;&gt;!/bin/sh&lt;/h1&gt;
+
+&lt;h1 id=&#34;uncomment-the-following-two-lines-for-normal-desktop:732fd3103795c9dc70583b77fae9af7e&#34;&gt;Uncomment the following two lines for normal desktop:&lt;/h1&gt;
+
+&lt;h1 id=&#34;unset-session-manager:732fd3103795c9dc70583b77fae9af7e&#34;&gt;unset SESSION_MANAGER&lt;/h1&gt;
+
+&lt;h1 id=&#34;exec-etc-x11-xinit-xinitrc:732fd3103795c9dc70583b77fae9af7e&#34;&gt;exec /etc/X11/xinit/xinitrc&lt;/h1&gt;
+
+&lt;p&gt;/usr/bin/lxsession &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup&lt;/p&gt;
+
+&lt;p&gt;[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb $HOME/.Xresources&lt;/p&gt;
+
+&lt;p&gt;xsetroot -solid grey&lt;/p&gt;
+
+&lt;p&gt;vncconfig -iconic &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;$VNCDESKTOP Desktop&amp;quot; &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;x-window-manager &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vncserver :1 -geometry 1024x768&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．&lt;/p&gt;
+
+&lt;p&gt;リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install remmina&lt;/p&gt;
+
+&lt;p&gt;remmina&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;おわり．&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

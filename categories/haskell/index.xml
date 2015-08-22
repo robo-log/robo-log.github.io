@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haskell on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/haskell/</link>
+    <description>Recent content in Haskell on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 21 May 2015 22:27:54 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Haskellで高階関数を組み合わせて部分文字列を作る例が全然わからなかったから考えた</title>
+      <link>http://syundo0730.github.io/post/1162/</link>
+      <pubDate>Thu, 21 May 2015 22:27:54 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1162/</guid>
+      <description>&lt;p&gt;最近、Haskellの勉強のために「&lt;a href=&#34;http://www.amazon.co.jp/%E9%96%A2%E6%95%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80-%E2%94%80%E2%94%80%E7%B0%A1%E6%BD%94%E3%81%A7%E3%80%81%E6%AD%A3%E3%81%97%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AB-WEB-PRESS-plus/dp/4774169269&#34;&gt;関数プログラミング実践入門&lt;/a&gt;」を読んでいる。&lt;/p&gt;
+
+&lt;p&gt;高階関数のところまでいったけど僕の頭がクソ雑魚だから例題が全然理解出来なかった…。&lt;/p&gt;
+
+&lt;p&gt;Qiitaに記事を移しました。&lt;/p&gt;
+
+&lt;p&gt;続きはこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&#34;&gt;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Haskellを入れる</title>
+      <link>http://syundo0730.github.io/post/1128/</link>
+      <pubDate>Tue, 12 May 2015 02:04:29 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1128/</guid>
+      <description>&lt;p&gt;&amp;lt;aHaskellをやってみようと思った。&lt;/p&gt;
+
+&lt;p&gt;環境：Ubuntu12.04 64bit&lt;/p&gt;
+
+&lt;p&gt;記事をQiitaに移動した。&lt;/p&gt;
+
+&lt;p&gt;続きはこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

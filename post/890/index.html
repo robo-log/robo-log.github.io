@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    ルネサスHEWの使い方 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/890/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>ルネサスHEWの使い方</h1>
+      <div class="meta">
+        Jan 28, 2011 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p><H3>目次</H3></p>
+
+<p><strong>・HEWとは</p>
+
+<p>・ワークスペース、プロジェクトの新規作成</p>
+
+<p>・HEWの生成するファイル群</p>
+
+<p>・メイン関数のありか</p>
+
+<p>・IOレジスタを操作する！！</p>
+
+<p>・割り込み処理はどこに？</p>
+
+<p>・math.hが使えない！？</p>
+
+<p>・スタック領域を変える</p>
+
+<p>・最適化オプション</p>
+
+<p>・ルネサスコンパイラ固有の関数など</p>
+
+<p>・割り込みが動かない！？</p>
+
+<p>・プロジェクトの複製</p>
+
+<p>・プロジェクトの追加</strong></p>
+
+<h3>HEWとは</h3>
+
+<p>　HEW（High-performance Embedded Workshop）はルネサスが提供しているエディタ、コンパイラ、エミュレータといったツールを、使いやすくまとめてくれている統合開発環境です。</p>
+
+<p>コンパイラ、リンカなど、各工程ごとに用意された複数のツールを、 あたかも多機能な一つのツールであるかのように 操作できます。</p>
+
+<p>　HEWをインストールすればコンパイラもリンカも入っているので、HEWがあればルネサスエレクトロニクスのマイコンの開発はできるということになります。</p>
+
+<h3>プロジェクトの新規作成</h3>
+
+<p>　プロジェクトの作成についてはこのサイト↓に詳しく解説されています。</p>
+
+<p><a href="http://wave.iobb.net/doc/summary/h8wiki/wifky.cgi?p=HEW%A4%C7AKI-H8%2F3048F%A4%CE%A5%D7%A5%ED%A5%B0%A5%E9%A5%DF%A5%F3%A5%B0">HEWでAKI-H8/3048Fのプログラミング</a></p>
+
+<p>　色々な設定のうち、プロジェクト生成後に変更できないのはCPUの種類と、「Use Heap Memory」、「Use I/O Library」にチェックを入れるかどうかというところです。メモリ管理ライブラリや入出力関連のライブラリが要らない場合はいいです。しかしライブラリを生成しておいても後でプロジェクトから外すこともできますからチェックを入れてもいいかもしれません。</p>
+
+<h3>HEWの生成するファイル群</h3>
+
+<p>　HEWは初期設定が終わった段階で、ターゲットに合わせたファイルを自動的に生成します。以下のようなファイルです。</p>
+
+<p>　初期設定の時にチェックマークを付けなければ生成されないものもあります。sbrk.c、sbrk.h、lowlvl.src、lowsrc.c、lowsrc.hは必ずしも要りません。</p>
+
+<blockquote><p><u>dbsct.c</u>･･･_初期値がある変数、初期値がない変数のセクション初期化テーブルの設定。
+
+<u>○○○.c</u>（○○○はプロジェクト名）･･･メイン関数がある。
+
+<u>intprg.c</u>･･･割り込み関数がある。
+
+<u>resetprg.c</u>･･･パワーオンリセット時の処理が記述してある。
+
+<u>sbrk.c</u>･･･メモリ管理ライブラリの低水準インターフェースルーチンなど。「Use Heap Memory」にチェックを入れると生成される。
+
+<u>sbrk.h</u>
+
+<u>lowlvl.src</u>･･･入出力関連の低水準インターフェースルーチン。「Use I/O Library」にチェックを入れると生成される。
+
+<u>lowsrc.c</u>
+
+<u>lowsrc.h</u>
+
+<u>vecttble.c</u>･･･ベクタテーブルがある。
+
+<u>vect.h</u>･･･vecttble.cにある関数のプロトタイプ宣言
+
+<u>stacksct.h</u>･･･スタックサイズが記述してある。ここは直接触らない。
+
+<u>typedefine.h</u>･･･typedefを使って変数の型に別の名前をつけている。他のファイルでインクルードされて使われている。
+
+<u>iodefine.h</u>･･･IO操作用の構造体などが定義されている。</p></blockquote>
+
+<p>　初心者の方は特にファイルの細部については気にしなくていいと思います。そのためのHEWなんですから。</p>
+
+<p>でも一応、詳細はここにあります↓</p>
+
+<p><a href="http://documentation.renesas.com/jpn/products/tool/rjj10j0929_hew_s.pdf">http://documentation.renesas.com/jpn/products/tool/rjj10j0929_hew_s.pdf</a></p>
+
+<h3>メイン関数のありか</h3>
+
+<p>　HEWでプログラミングするとき、メイン関数はどこに書けばいいのでしょう？実はメイン関数は○○○.c（○○○はプロジェクト名）に自動生成で用意されています。では中身を見てみましょう。</p>
+
+<p>○○○.c（○○○はプロジェクト名）を見ると、以下のようになっています。</p>
+
+<blockquote><p>//○○○.c
+
+//#include "typedefine.h"
+
+#ifdef __cplusplus
+
+//#include <ios>                        // Remove the comment when you use ios
+
+//_SINT ios_base::Init::init_cnt;       // Remove the comment when you use ios
+
+#endif
+
+void main(void);
+
+#ifdef __cplusplus
+
+extern "C" {
+
+void abort(void);
+
+}
+
+#endif
+
+void main(void)
+
+{
+
+}
+
+#ifdef __cplusplus
+
+void abort(void)
+
+{
+
+}
+
+#endif</ios></p></blockquote>
+
+<p>　C++で開発するときのためのマクロなどが設定されていますが、Cで開発するときは見にくければmain関数のプロトタイプ宣言とmain関数本体を残して他は消しても良いです。シンプルになります↓</p>
+
+<blockquote><p>//○○○.c
+
+void main(void);
+
+void main(void)
+
+{
+
+//ここにメインの処理を書いてください。
+
+}</p></blockquote>
+
+<p>　このメイン関数の中にメインの処理を書いていきます。</p>
+
+<p>　組み込みプログラミングでは必ずしもメイン関数からプログラムが始まるとは限りません。自動生成されたメイン関数にメインの内容を書いていい根拠はどこにあるのでしょう？resetprg.cを見ればわかります。</p>
+
+<p>resetprg.cの中を見てみます。</p>
+
+<blockquote><p>//resetprg.c
+
+void PowerON_Reset_PC(void)
+
+{
+
+set_vbr((void *)((_UBYTE *)&amp;INT_Vectors - INT_OFFSET));
+
+_INITSCT();
+
+//  _CALL_INIT();                   // Remove the comment when you use global class object
+
+//  _INIT_IOLIB();                  // Enable I/O in the application(both SIM I/O and hardware I/O)
+
+//  errno=0;                        // Remove the comment when you use errno
+
+//  srand((_UINT)1);                    // Remove the comment when you use rand()
+
+//  _s1ptr=NULL;                    // Remove the comment when you use strtok()
+
+//  HardwareSetup();                // Use Hardware Setup
+
+set_cr(SR_Init);
+
+<span style="color: red;">main();</span>
+
+//  _CLOSEALL();                    // Close I/O in the application(both SIM I/O andhardware I/O)
+
+//  _CALL_END();                    // Remove the comment when you use global class object
+
+sleep();
+
+}</p></blockquote>
+
+<p>　void PowerON_Reset_PC(void)という関数がありますが、これは電源が入った時に実行される関数です。このPowerON_Reset_PC()関数の中でmain()が呼び出されているので、電源が入ったときにmain()が実行されるわけです。　これがmain関数にメインの処理を書けばいいことの根拠です。</p>
+
+<p>　mainという名前が嫌な人はここの名前を書き換えればいいのです。</p>
+
+<h3>IOレジスタを操作する！！</h3>
+
+<p>　iodefine.hというヘッダファイルには、ターゲットに応じたIOレジスタ操作のための構造体（及び共用体、ビットフィールド）が宣言されています。ずらーっと構造体が並んでいて、一番下のところで、構造体の先頭アドレスが決められてています。</p>
+
+<blockquote><p>struct st_sci {&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /* struct SCI&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; union {&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /* SCSMR&#160;&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char BYTE;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160; Byte Access */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; struct {&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160; Bit&#160; Access */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char CA&#160; :1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; C/A&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char CHR :1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; CHR&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char _PE :1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; PE&#160;&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char OE&#160; :1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; O/E&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char STOP:1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; STOP&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char MP&#160; :1;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; MP&#160;&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; unsigned char CKS :2;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160; CKS&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; }&#160;&#160;&#160;&#160;&#160; BIT;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; }&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; SCSMR;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; /*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */
+
+//～～～～～省略～～～～～～～～～～～～～～～～～～～～～～～～
+
+#define SCI0   (*(volatile struct st_sci   *)0xFFFFC000)/* SCI0  Address*/
+
+#define SCI1   (*(volatile struct st_sci   *)0xFFFFC080)/* SCI1  Address*/
+
+#define SCI2   (*(volatile struct st_sci   *)0xFFFFC100)/* SCI2  Address*/
+
+#define MTU2   (*(volatile struct st_mtu2  *)0xFFFFC20A)/* MTU2  Address*/
+
+//～～～～～省略～～～～～～～～～～～～～～～～～～～～～～～～</p></blockquote>
+
+<blockquote><p>#define SCI0   (*(volatile struct st_sci   *)0xFFFFC000)</p></blockquote>という記述ですが，これは構造体の先頭アドレスを分かりやすい単語として定義しているところです。
+
+　まず、
+
+(volatile struct st_sci   *)0xFFFFC000
+
+で0xFFFFC000が構造体を指すポインタ型に変換されています。
+
+　それを間接参照演算子で括って
+
+(*(volatile struct st_sci   *)0xFFFFC000)
+
+となっているわけです。これを#defineでそれぞれ適当な名前に置き換えています。
+
+　SCI0のCAビットの値を操作したければ
+
+<blockquote><p>SCI0.SCSMR.BIT.CA=1;</p></blockquote>という風にすればいいです。
+
+　ビットサイズを操作したいときに、&amp;や|演算子を使ってアクセスする流儀もありますが、ルネサスのコンパイラにおいては全く違いはありません。可読性を優先してビットフィールドを使ったほうがいいかもしれません。
+
+<h3>割り込み処理はどこに？</h3>
+
+　intprg.cに割り込み時の処理を書き込みます。
+
+　例えば、CMTの割り込みを使いたければ以下の部分を使います。
+
+<blockquote><p>void INT_CMT0_CMI0(void){
+
+///* sleep(); */を消去してここに処理を書く
+
+}</p></blockquote>
+
+<p>　ちなみに、ルネサスの中の人の本<a href="http://px.a8.net/svt/ejp?a8mat=1TK69F+GAG0EY+249K+BWGDT&a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2FSuperH%25E3%2583%2595%25E3%2582%25A1%25E3%2583%259F%25E3%2583%25AA%25E3%2581%25AEC%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0-%25E9%25B9%25BF%25E5%258F%2596-%25E7%25A5%2590%25E4%25BA%258C%2Fdp%2F4274205940%253FSubscriptionId%253DAKIAJG4HK2PMU5Z4Q6YQ%2526tag%253Da8-affi-23712-22%2526linkCode%253Dxm2%2526camp%253D2025%2526creative%253D165953%2526creativeASIN%253D4274205940">SuperHファミリのCプログラミング（香取祐二　著）</a>によると</p>
+
+<blockquote><p>今から紹介する割り込み関数内での関数呼び出しはシステムに多大な影響を与えます。（中略）割り込み関数内で他の関数を呼び出した場合、無駄なCPU内部レジスタの待避・復旧が行われることになります。</p></blockquote>
+
+<p>とあり、割り込み関数内で他の関数を呼び出さないほうがいいことが言われています。</p>
+
+<p>　必要なら、マクロを利用したりルネサスコンパイラのインライン展開を利用することが推奨されてます。</p>
+
+<p>　ここらへんはコンパイラがうまいことやってはくれないところというわけです。</p>
+
+<h3>math.hが使えない！？</h3>
+
+<p>　プロジェクトの生成時にチェックを入れておかないと数学関数やその他関数が使えないことがあります。後からヘッダファイルを追加するには、</p>
+
+<p>メニューの<u>ビルド</u>→<u>SuperH RISC engine toolchein</u>→<u>標準ライブラリ</u></p>
+
+<p>からカテゴリ：<u>標準ライブラリ</u>を選びます。</p>
+
+<p>　そして、math.hのとこにチェックを入れてOK押せばいいです。その他ライブラリについても同様です。</p>
+
+<h3>スタック領域を変える</h3>
+
+<p>　これもプロジェクト生成時に決めてありますが、当然、後から変更できます。</p>
+
+<p>メニューの<u>プロジェックト</u>→<u>構成の編集</u>→<u>スタック</u></p>
+
+<p>のところで変えます。</p>
+
+<h3>最適化オプション</h3>
+
+<h3>ルネサスコンパイラ固有の関数など</h3>
+
+<p>　ルネサスコンパイラではC言語だけでは記述できない部分について組み込み関数を用意しています。普通はアセンブラで書くとこですね。よく目にするものを一部紹介します。</p>
+
+<p>SRを操作する関数</p>
+
+<table cellspacing="1" cellpadding="1" border="1" style="width: 250px; height: 138px;"><tbody><tr><td>void set_imask(int)</td><td>割り込みマスクの設定</td></tr><tr><td>int get_imask(void)</td><td>割り込みマスクの参照</td></tr><tr><td>void set_cr(int)</td><td>SRの設定</td></tr><tr><td>int get_cr(void)</td><td>SRの参照</td></tr><tr><td>void set_vbr(void*)</td><td>VBRの設定</td></tr><tr><td>void *get_vbr(void)</td><td>VBRの参照</td></tr><tr><td>void sleep(void)</td><td>SLEEP命令</td></tr></tbody></table>
+
+<p>#pragmaを使った拡張機能もあります。</p>
+
+<table cellspacing="1" cellpadding="1" border="1" style="width: 550px; height: 79px;"><tbody><tr><td>#pragma interrupt(関数名[割り込み仕様])</td><td>割り込み処理関数を指定</td></tr><tr><td>#pragma section 名前or数値</td><td>セクション名の変更、名前の指定無しでデフォルトに戻る</td></tr><tr><td>#pragma inline(関数名)</td><td>関数をインライン展開</td></tr><tr><td>#pragma stacksize 定数</td><td>セクションSを指定した領域で確保</td></tr></tbody></table>
+
+<h3>割り込みが動かない！？</h3>
+
+<p>　割り込みマスクレベルが最高になったままだからでは無いでしょうか？</p>
+
+<p>　ともかく割り込みマスクレベルを0にしてやればどんな割り込み優先度の割り込みも実行されます。</p>
+
+<p>　割り込み優先度をゼロにするには</p>
+
+<p>resetprg.cの20行目あたりにある、</p>
+
+<p>#define SR_Init    0x000000Fを</p>
+
+<p>#define SR_Init　　0</p>
+
+<p>に変えてやればいいです。</p>
+
+<p>　ファイルに手を加えたくない場合はset_imask()関数を使えばいいです。</p>
+
+<p>set_imask(0);</p>
+
+<p>をmain関数の初期化部分に書いておきます。</p>
+
+<h3>プロジェクトの複製</h3>
+
+<p>　現状正常に動いているプロジェクトに手を加えたくなく、プロジェクトを複製したい場面があると思います。</p>
+
+<p>プロジェクトを複製する方法として最初に思いつくのはWorkSpaceフォルダの中身のプロジェクトのフォルダをコピーして名前変更して複製することではないでしょうか。しかしこの方法ではHEWには新しいプロジェクトとして認識してもらえません。プロジェクトとファイルの依存関係が.hwpファイルに記述されており、その内容を変えないままコピーしてもダメなのです。ただ、この.hwpファイルをテキストエディタなどで編集するのはちょっと面倒です。変更し忘れる箇所もあるかも知れません。ですから、HEWの機能を使ってプロジェクトを複製するに越したことはないのです。</p>
+
+<p>　しかしながら、HEWにはずばり複製というコマンドがありません。ちょっと手順を踏む必要があります(大したことは無いんですけど)</p>
+
+<p>　まず、複製元のプロジェクトを開いた状態で<u>プロジェクト</u>→<u>プロジェクトタイプの作成</u>を選択します。</p>
+
+<p>「新規プロジェクトタイプで使用する名前を入力してください」</p>
+
+<p>とあるので、好きな名前を入力して<u>完了</u>をクリックします。</p>
+
+<p>これで下準備はOKです</p>
+
+<p>　あとは普通にプロジェクトを生成するときと同じようにプロジェクトを生成しますが、ここで<u>プロジェクトタイプ</u>の項目に先ほど作成したプロジェクトタイプが追加されています。それを選択しプロジェクトを生成すると、複製ができあがります。</p>
+
+<p>　不満なのは、ただコピーするためだけに新しいプロジェクトタイプなるものが追加登録されてしまうことです。</p>
+
+<h3>プロジェクトの追加</h3>
+
+<p>　1つのワークスペースには複数個のプロジェクトを含めることが出来ます。新しくプロジェクトを作りたいときにワークスペースも新しく作ってしまうのではなく、関連するワークスペース上に追加して作ったほうが後々プロジェクトどうしを連携させることなどできて便利です。何よりちょっと整理されて気持ちがいいです。</p>
+
+<p>　</p>
+
+<p>プロジェクトを追加するには<u>プロジェクト</u>→<u>プロジェクトの挿入</u>を選んで、あとは普通にプロジェクトを作成すればOKです。</p>
+
+<p>左に表示されているプロジェクトウィンドウのツリーにプロジェクトが追加されていると思います。</p>
+
+<p>複数のプロジェクトのうち、どのプロジェクトで作業するかは</p>
+
+<p><u>プロジェクト</u>→<u>アクティブプロジェクトに設定</u></p>
+
+<p>から選択するか、左のプロジェクトウィンドウで右クリックして<u>アクティブプロジェクトに設定</u>で決められます。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/887/" rel="prev">6足ロボット「X-RHex」</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/891/" rel="next">正直舐めてた「X-RHex」</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

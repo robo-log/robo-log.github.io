@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/hugo/</link>
+    <description>Recent content in Hugo on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 14 May 2015 01:27:58 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ブログも静的ページにしたらどうか</title>
+      <link>http://syundo0730.github.io/post/1140/</link>
+      <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1140/</guid>
+      <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。&lt;/p&gt;
+
+&lt;p&gt;ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。&lt;/p&gt;
+
+&lt;p&gt;あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。&lt;/p&gt;
+
+&lt;p&gt;DBやらphpやら準備しなくて良いので環境の構築は楽だろう。&lt;/p&gt;
+
+&lt;p&gt;静的ページだけなので非力なサーバでも運用できるだろう。&lt;/p&gt;
+
+&lt;p&gt;俄然興味が湧いてきた。&lt;/p&gt;
+
+&lt;p&gt;こういったツールは色々あって&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://staticsitegenerators.net/&#34;&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ここを見るとどれが人気があるのかわかる。&lt;/p&gt;
+
+&lt;p&gt;だが私は今のところ&lt;a href=&#34;http://golang-jp.org/&#34;&gt;golang&lt;/a&gt;で動く&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;に興味がある。&lt;/p&gt;
+
+&lt;p&gt;機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。&lt;/p&gt;
+
+&lt;p&gt;ソースはGitHubで管理するのが良かろう。&lt;/p&gt;
+
+&lt;p&gt;werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。&lt;/p&gt;
+
+&lt;p&gt;werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。&lt;/p&gt;
+
+&lt;p&gt;Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
+
+&lt;p&gt;ちなみにちょっと文脈が違うがWebサイトに数式を含めるならば&lt;a href=&#34;http://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;が良いという電波をキャッチした。&lt;/p&gt;
+
+&lt;h2&gt;参考にしたところ&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&#34;&gt;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cnc on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/cnc/</link>
+    <description>Recent content in Cnc on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 19 Apr 2015 22:46:39 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/cnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ロボットを吊るアームを作った</title>
+      <link>http://syundo0730.github.io/post/1111/</link>
+      <pubDate>Sun, 19 Apr 2015 22:46:39 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1111/</guid>
+      <description>&lt;p&gt;作業をしやすくするために、棚に固定できるロボット用のアームを作りました。こんなんです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1114&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34; alt=&#34;DSC_1486&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1118&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34; alt=&#34;DSC_1488&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;ワイヤーで吊ります。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;ちなみに現在の作業環境はこんな感じです。&lt;/p&gt;
+
+&lt;p&gt;CNC&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1116&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34; alt=&#34;DSC_1490&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ボール盤と折り曲げ機&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1115&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34; alt=&#34;DSC_1489&#34;   /&gt;&lt;/a&gt;CNCに関しては防音箱の性能向上を図る必要があると考えています。&lt;/p&gt;
+
+&lt;p&gt;10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。&lt;/p&gt;
+
+&lt;p&gt;吸音材をヤフオクで買って貼りつけようと思います。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　USBCNCで使う</title>
+      <link>http://syundo0730.github.io/post/1009/</link>
+      <pubDate>Mon, 13 Apr 2015 01:19:34 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1009/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34;&gt;&lt;img class=&#34;alignnone wp-image-1012 size-full&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34; alt=&#34;&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.youtube.com/embed/-hakv_o5bQE&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　設定編2</title>
+      <link>http://syundo0730.github.io/post/852/</link>
+      <pubDate>Sat, 08 Dec 2012 03:21:56 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/852/</guid>
+      <description>&lt;p&gt;前回：&lt;a title=&#34;中華CNC CNC3020導入記 設定編&#34; href=&#34;http://blog.syundo.org/2012/11/14/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%A8%AD%E5%AE%9A%E7%B7%A8/&#34; target=&#34;_blank&#34;&gt;中華CNC CNC3020導入記 設定編&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;LinuxCNCの設定&lt;/h3&gt;
+
+&lt;p&gt;一応，送られてきたCNCの箱の中にはA4一枚のMach3での設定方法が入っていたのですが，LinuxCNC(EMC2)のものはありません．設定についてはメールで問い合わせよ，と商品ページには書いてあったものの，とてもLinuxCNC用の資料が貰える気はしません．ですのでMach3の説明を見ながら推測してLinuxCNCでの設定値を決めていきます．&lt;/p&gt;
+
+&lt;p&gt;CNCタブから「Setting」を選んでCNCの設定を始めます．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshots.png&#34; alt=&#34;Screenshot.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;設定の名前はCNC-3020T-DJにしました．自由です．&lt;/p&gt;
+
+&lt;p&gt;First Parport Addressのところには前に調べたPCIExpress-パラレル変換ボードに割り当てられたアドレスを指定します．&lt;/p&gt;
+
+&lt;p&gt;Base Period Max…のところは，「Test Base Period Jitter」を押した後，ブラウザ開いたり動画見たり数分間PCに負荷を与えて出た値よりちょっとだけ大きい値に設定します．&lt;/p&gt;
+
+&lt;p&gt;次です．これはそのままで次行きます．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-1.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-1s.png&#34; alt=&#34;Screenshot-1.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;パラレルポートのピンの割り当てをします．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-2.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-2s.png&#34; alt=&#34;Screenshot-2.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このように設定しました．今のところうまく動いているので間違いは無いようです．&lt;/p&gt;
+
+&lt;p&gt;各軸のステッピングモータの回転数と軸方向への移動距離を対応づけます．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-3.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-3s.png&#34; alt=&#34;Screenshot-3.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;台形ネジの精度が良くなく，ピッチが実測で3.965くらいらしいのでそのように設定します．&lt;/p&gt;
+
+&lt;p&gt;Table Travelは実際の可動範囲の2倍に設定しました．これはデータによって可動範囲外に出たぞ，という警告が出てきて作業が進まなくなったからです．データの作り方や原点の合わせ方が間違っている可能性があるのでここは要検討です．&lt;/p&gt;
+
+&lt;p&gt;Y軸はTable Travelは-300～300に設定し，それ以外はX軸と同じように設定しました．&lt;/p&gt;
+
+&lt;p&gt;Z軸はこのようにしました．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-5.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-5s.png&#34; alt=&#34;Screenshot-5.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;「Test This Axis」というボタンを押して，移動量を決めてから試験的に各軸を動かしてみることができます．&lt;/p&gt;
+
+&lt;p&gt;ちなみにY軸に関しては，ノギスを当てて移動距離を測ってみました．何回か繰り返しましたが，無負荷の状態では指令値との誤差は±0.02mm以下でした．ホントか？バックラッシを作るように動かしてから測っても同じでした．まぁ切削しながら測ってないからわからないです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0161.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0161s.jpg&#34; alt=&#34;sIMAG0161.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;設定はこれで終わりです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-6.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/Screenshot-6s.png&#34; alt=&#34;Screenshot-6.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;適用押します．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　設定編</title>
+      <link>http://syundo0730.github.io/post/849/</link>
+      <pubDate>Wed, 14 Nov 2012 02:14:07 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/849/</guid>
+      <description>&lt;p&gt;前回：&lt;a title=&#34;CNC3020購入編&#34; href=&#34;http://blog.syundo.org/2012/10/09/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%B3%BC%E5%85%A5%E7%B7%A8/&#34; target=&#34;_blank&#34;&gt;中華CNC CNC3020導入記　購入編&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;組み立て終わったので，動かしてみたいと思います．&lt;/p&gt;
+
+&lt;h3&gt;まず基板を見てみる&lt;/h3&gt;
+
+&lt;p&gt;とりあえず，一度見てみないと心配なので，コントロールBOXを開けてみました．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0151.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0151s.jpg&#34; alt=&#34;sIMAG0151.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大きなトランスと，電源基板，ステッピングモータ制御基板が入ってました．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0152.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/sIMAG0152s.jpg&#34; alt=&#34;sIMAG0152.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;モータドライバは東芝 TB6560AHQでした．アルミの放熱板に固定されています．&lt;/p&gt;
+
+&lt;p&gt;基板をよく見ると，&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;LIMIT X Y Z&lt;/p&gt;
+
+&lt;p&gt;GND PWM VCC&lt;/p&gt;
+
+&lt;p&gt;PROBE&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;などと書かれているピンがありました．リミットスイッチや，スピンドルの回転数の操作，切削Z軸センサの追加が可能なのかもしれません．&lt;/p&gt;
+
+&lt;p&gt;コントロールBOX内で見つけた不具合なんですが，&lt;span style=&#34;color: #ff0000;&#34;&gt;EMERGENCY STOPのスイッチに繋がる配線が抜けていたのでESTOPと書いてあるピンに差し直しました．&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;それ以外はハンダ付けもきれいですし，問題ないようです．&lt;/p&gt;
+
+&lt;h3&gt;パラレルポートの増設&lt;/h3&gt;
+
+&lt;p&gt;コントロールボードはPCのD-sub25pinのパラレルポートに繋がなければなりません．しかし，そんなもの手持ちのPCに付いてないので，PCI Express接続のパラレルポート変換基板を用いました．&lt;/p&gt;
+
+&lt;p&gt;変換基板は&lt;a title=&#34;これに似たもの&#34; href=&#34;http://www.aliexpress.com/store/product/pci-express-parallel-pci-express-serial-card-pci-express-serial-parallel-PCIE-PCI-express-to-serial/302075_311030773.html&#34; target=&#34;_blank&#34;&gt;これに似たもの&lt;/a&gt;をヤフオクで買いました．「PCI-Express　パラレル」とヤフオクで検索して出品されていればそれです&lt;a title=&#34;http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;amp;auccat=&amp;amp;aq=-1&amp;amp;oq=&amp;amp;ei=UTF-8&amp;amp;tab_ex=commerce&amp;amp;slider=0&#34; href=&#34;http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;amp;auccat=&amp;amp;aq=-1&amp;amp;oq=&amp;amp;ei=UTF-8&amp;amp;tab_ex=commerce&amp;amp;slider=0&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;amp;auccat=&amp;amp;aq=-1&amp;amp;oq=&amp;amp;ei=UTF-8&amp;amp;tab_ex=commerce&amp;amp;slider=0&#34;&gt;http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;amp;auccat=&amp;amp;aq=-1&amp;amp;oq=&amp;amp;ei=UTF-8&amp;amp;tab_ex=commerce&amp;amp;slider=0&lt;/a&gt;&lt;/a&gt;．Ubuntuの入ったPCで使うので，Linux対応と書いてあるのがポイントでした．&lt;/p&gt;
+
+&lt;h3&gt;OSについて&lt;/h3&gt;
+
+&lt;p&gt;CNC制御用のPCのOSにはUbuntu10.04を使います．&lt;/p&gt;
+
+&lt;p&gt;この理由なんですが，&lt;/p&gt;
+
+&lt;p&gt;・手持ちのPCでPCIExpressポートが空いてるのがたまたまUbuntuの入ってるPCだった．&lt;/p&gt;
+
+&lt;p&gt;・Windowsで使えるCNC制御ソフトのMach3は32bitOSでないと使えなくて，しかもXP推奨だが，手持ちのWindowsは64bit版のWindows7しかない→Linuxしかない&lt;/p&gt;
+
+&lt;p&gt;・せっかく激安CNCなんだからフリーのソフトにこだわりたい．&lt;/p&gt;
+
+&lt;p&gt;・Ubuntuで使えるCNC制御ソフトのLinuxCNCがUbuntu10.04じゃないとだめだった．&lt;/p&gt;
+
+&lt;p&gt;という感じです．&lt;/p&gt;
+
+&lt;p&gt;Ubuntu10.04をインストールしていなければ，&lt;a title=&#34;Ubuntu10.04&#34; href=&#34;http://www.ubuntulinux.jp/download/ja-remix&#34; target=&#34;_blank&#34;&gt;ここ&lt;/a&gt;から日本語Remix版のISOを入手して，インストールしてください．&lt;/p&gt;
+
+&lt;p&gt;さて，UbuntuをインストールしたPCの，PCI(Express)スロットに変換ボードを挿したら，端末より&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;$ lspci -v&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;と入力してパラレルポートのアドレスを調べます．私の場合は1000と1008の二つ出てきたんですが，どちらが使えるのかやってみないとわかりません．&lt;/p&gt;
+
+&lt;p&gt;後で使うのでアドレスをメモしておきます．&lt;/p&gt;
+
+&lt;h3&gt;LinuxCNCのインストール&lt;/h3&gt;
+
+&lt;p&gt;LinuxCNCを&lt;a title=&#34;http://www.linuxcnc.org/&#34; href=&#34;http://www.linuxcnc.org/&#34; target=&#34;_blank&#34;&gt;linuxcnc.org/&lt;/a&gt;からダウンロードします．&lt;/p&gt;
+
+&lt;p&gt;HOME&amp;gt;Download&amp;gt;Other Installation Options　と進んでいって，&lt;/p&gt;
+
+&lt;p&gt;If you prefer to start with the distributed Ubuntu CD, you can install LinuxCNC yourself with these instructions:&lt;/p&gt;
+
+&lt;p&gt;と書いてあるところから，「&lt;a title=&#34;lucid-install&#34; href=&#34;http://www.linuxcnc.org/install-scripts/lucid/linuxcnc-install.sh&#34; target=&#34;_blank&#34;&gt;lucid-install&lt;/a&gt;」をクリックしてダウンロードします．lucidというのはUbuntu10.04の別名です．&lt;/p&gt;
+
+&lt;p&gt;保存フォルダに移動して端末より以下のように入力してインストールします．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;$ chmod a+x linuxcnc-install.sh&lt;/p&gt;
+
+&lt;p&gt;$ sudo ./linuxcnc-install.sh&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;最終確認に「はい」と答えるとインストールされ，再起動すれば「アプリケーション」メニューに「CNC」が追加されているはずです．&lt;/p&gt;
+
+&lt;h3&gt;ブートローダの設定&lt;/h3&gt;
+
+&lt;p&gt;LinuxCNCをインストールし，再起動すると，リアルタイムカーネルも追加されます．OS起動時にこのRTカーネルを選択しないと，LinuxCNCは動作しません(エラーダイアログが出ます)．&lt;/p&gt;
+
+&lt;p&gt;起動時のカーネルの設定のため，まず，StartUp-Managerで設定します．StartUp-Managerはシステム&amp;gt;システム管理&amp;gt;Synapticパッケージマネージャーからインストールできます．インストールしたら，システム&amp;gt;システム管理&amp;gt;StartUp-Managerを立ち上げ，カーネル選択の待ち時間と，デフォルトのカーネルを設定します．&lt;/p&gt;
+
+&lt;p&gt;次に端末で&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;$ sudo gedit ../../etc/default/grub&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;と入力し，ブートローダーの設定ファイルに変更を加えます．変更は&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;GRUB_HIDDEN_TIMEOUT=0&lt;/p&gt;
+
+&lt;p&gt;GRUB_HIDDEN_TIMEOUT_QUIET=true&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;と書いてあるところを，&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;#GRUB_HIDDEN_TIMEOUT=0&lt;/p&gt;
+
+&lt;p&gt;GRUB_HIDDEN_TIMEOUT_QUIET=false&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;に修正します．&lt;/p&gt;
+
+&lt;p&gt;以上の設定を終え，OSを再起動すると，カーネル選択画面が出てくるようになります．kernel 2.6.31-11-rtaiを選択してOSを起動します．&lt;/p&gt;
+
+&lt;p&gt;続き：&lt;a title=&#34;中華CNC CNC3020導入記 設定編2&#34; href=&#34;http://blog.syundo.org/2012/12/08/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%A8%AD%E5%AE%9A%E7%B7%A82/&#34; target=&#34;_blank&#34;&gt;中華CNC CNC3020導入記 設定編2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　購入編</title>
+      <link>http://syundo0730.github.io/post/848/</link>
+      <pubDate>Tue, 09 Oct 2012 00:14:50 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/848/</guid>
+      <description>&lt;h3&gt;CNCが欲しい！&lt;/h3&gt;
+
+&lt;p&gt;最近作りたいものが増える一方で，実際に工作する時間が無くなってきて，CNCが欲しいなぁと思うようになってきました．&lt;a title=&#34;ろぼとま&#34; href=&#34;http://www.robotma.com/user_data/shienservice.php&#34; target=&#34;_blank&#34;&gt;ろぼとま&lt;/a&gt;，&lt;a title=&#34;ロボスポット&#34; href=&#34;http://robospot.jp/html2/robospot_service_rf.html&#34; target=&#34;_blank&#34;&gt;ロボスポット&lt;/a&gt;，&lt;a title=&#34;ヴィストン&#34; href=&#34;http://www.vstone.co.jp/robotshop/index.php?main_page=index&amp;amp;cPath=46_47&#34; target=&#34;_blank&#34;&gt;ヴィストン&lt;/a&gt;，&lt;a title=&#34;アミエ&#34; href=&#34;http://robot.umie-marine.jp/serviceNCCUT.html&#34; target=&#34;_blank&#34;&gt;アミエ&lt;/a&gt;などで加工サービスがありますが，板厚に制限があったりして案外作れるものが少なく感じます．加工サービスにも一回1万円程度かかりますので，それならばいっそCNCを買ってしまおうと決断しました．&lt;/p&gt;
+
+&lt;h3&gt;何を買うか&lt;/h3&gt;
+
+&lt;p&gt;現在ホビー向けに小型CNCがいくつか売られています．&lt;/p&gt;
+
+&lt;p&gt;ローランド：　&lt;a title=&#34;MODELAシリーズ&#34; href=&#34;http://www.rolanddg.co.jp/product/3d/3d/mdx-20_15.htm&#34; target=&#34;_blank&#34;&gt;MODELAシリーズ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;オリジナルマインド：　&lt;a title=&#34;KitMillシリーズ&#34; href=&#34;http://www.originalmind.co.jp/products/kitmill&#34; target=&#34;_blank&#34;&gt;KitMillシリーズ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;秘密基地：　&lt;a title=&#34;黒い奴&#34; href=&#34;http://item.rakuten.co.jp/auc-himitsukichi/l-cncbs2/&#34; target=&#34;_blank&#34;&gt;黒い奴&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;中国製(不明)：　&lt;a title=&#34;Sable-2015&#34; href=&#34;http://cncmill.web.fc2.com/&#34; target=&#34;_blank&#34;&gt;Sable-2015&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;中国製(不明)：　&lt;a title=&#34;CNC3020，3040，6040&#34; href=&#34;http://www.aliexpress.com/wholesale?SearchText=cnc3020&amp;amp;catId=0&amp;amp;manual=y&#34; target=&#34;_blank&#34;&gt;CNC3020，3040，6040&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Edward氏：　&lt;a title=&#34;Shapeoko&#34; href=&#34;https://www.inventables.com/technologies/cnc-mill-kits-shapeoko&#34; target=&#34;_blank&#34;&gt;Shapeoko&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;etc…&lt;/p&gt;
+
+&lt;p&gt;今回は値段の安さや，人柱的チャレンジ精神から，中華製のCNC～シリーズの中から購入しようと決めました．&lt;/p&gt;
+
+&lt;p&gt;この中華CNCには3040Tとか3040Nとか，命名規則のほどはよく分かりませんが，種類がいろいろあります．3040とかいう数字はX,Yの加工範囲を表しています．3020はDCモータ，台形ネジ駆動です．3040，6040にはDCモータ，台形ネジ駆動のものと，ACモータ，ボールネジ駆動のものがあって，後者のほうがお値段が高いです．またACモータのものにはインバータがセットになっていて，大抵AC200Vが必要になります．&lt;/p&gt;
+
+&lt;p&gt;今回はサイズや値段を考えて，2012年新モデルのCNC3020T-DJを購入しました．&lt;/p&gt;
+
+&lt;h3&gt;中華CNC3020T-DJ&lt;/h3&gt;
+
+&lt;p&gt;CNC3020T-DJのスペックは以下の通りです．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CNC3020T-DJスペック&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;X,Y,Z 加工範囲: 300×200×45mm&lt;/p&gt;
+
+&lt;p&gt;最大材料高さ: ≤60mm&lt;/p&gt;
+
+&lt;p&gt;外形n: 520×400×370mm&lt;/p&gt;
+
+&lt;p&gt;テーブルサイズ: 440×240mm&lt;/p&gt;
+
+&lt;p&gt;構造材: &lt;sup&gt;6061&lt;/sup&gt;&amp;frasl;&lt;sub&gt;6063&lt;/sub&gt; アルミニウム合金&lt;/p&gt;
+
+&lt;p&gt;ステッピングモータ: 2相(バイポーラ型) &lt;sup&gt;57&lt;/sup&gt;&amp;frasl;&lt;sub&gt;1&lt;/sub&gt;.8A&lt;/p&gt;
+
+&lt;p&gt;ドライブユニット: 1204 2条台形ネジ&lt;/p&gt;
+
+&lt;p&gt;スライドユニット: Chromeplate shaft&lt;/p&gt;
+
+&lt;p&gt;最大速度: 4000mm/min&lt;/p&gt;
+
+&lt;p&gt;切削速度: 300-3000mm/min&lt;/p&gt;
+
+&lt;p&gt;繰り返し位置精度: 0.05mm&lt;/p&gt;
+
+&lt;p&gt;主軸モータ: 230W DC スピンドルモータ&lt;/p&gt;
+
+&lt;p&gt;主軸速度: 11000RPM/MIN&lt;/p&gt;
+
+&lt;p&gt;ツールホルダ: ER11/3.175mm&lt;/p&gt;
+
+&lt;p&gt;インターフェース:パラレルポート&lt;/p&gt;
+
+&lt;p&gt;利用可能なソフト:Mach3/Emc2,(Type3,Wentai, ArtCAM)&lt;/p&gt;
+
+&lt;p&gt;コマンド: G code/.nc/.ncc/.tab/.txt&lt;/p&gt;
+
+&lt;p&gt;重量: 21kg(梱包含む)&lt;/p&gt;
+
+&lt;p&gt;AliExpressに出品してる会社のうちここ&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;CNC3020T-DJ&#34; href=&#34;http://www.aliexpress.com/item/110V-230W-CNC-3020T-DJ-upgrade-from-3020T-3020-Router-Engraver-Milling-Drilling-Machine/434982856.html&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;http://www.aliexpress.com/item/110V-230W-CNC-3020T-DJ-upgrade-from-3020T-3020-Router-Engraver-Milling-Drilling-Machine/434982856.html&#34;&gt;http://www.aliexpress.com/item/110V-230W-CNC-3020T-DJ-upgrade-from-3020T-3020-Router-Engraver-Milling-Drilling-Machine/434982856.html&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;から購入しました．購入時最安でした．&lt;/p&gt;
+
+&lt;p&gt;購入時は本体535.00ドル，送料153.97ドルでした． AliExpressからの請求は，クレジットカードの明細を見ると，&lt;strong&gt;54677円&lt;/strong&gt;でした．安い！また，荷物到着から1週間後くらいにFedEXから封筒が届き，消費税/付加価値税　500円，関税・消費税特別手数料　500円の計1000円を請求されました．コンビニや銀行で払えます．&lt;/p&gt;
+
+&lt;p&gt;購入日は9月14日でしたが，発送は9月26日だったようです．発送から到着までの詳細は以下のようでした．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/aliex.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/aliexs.png&#34; alt=&#34;aliex.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なかなか発送の連絡がなかったので問い合わせしようかなと思っていたころに届きました．結局最後まで連絡はなかったです．到着の1日前に日本のFedEXから電話があり，関税のためにフルネームが要るのだが，書いていないので教えて欲しいとのことでした．名字が無く，名前だけ書かれていたようです．あと中身についても聞かれたので工作機械と答えました．&lt;/p&gt;
+
+&lt;p&gt;翌日，FedEXの配達員が荷物を持ってきました．&lt;/p&gt;
+
+&lt;p&gt;結構しっかり梱包してあります．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0071.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0071s.jpg&#34; alt=&#34;IMAG0071.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本体&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0076.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0076s.jpg&#34; alt=&#34;IMAG0076.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コントロールBOX&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0074.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0074s.jpg&#34; alt=&#34;IMAG0074.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ステッピングモータ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0078.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0078s.jpg&#34; alt=&#34;IMAG0078.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;細かい傷は何カ所かありましたが，サビなどはありませんでした．でも結構埃が付いていたので，最初に拭きました．ステッピングモータ側の取り付け穴がちょっときつくて，どのモータもネジ4本のうち1本が入りませんでした．2種類のカップリングがありますが，切れ目の少ないものをZ軸に使うそうです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0162.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0162s.jpg&#34; alt=&#34;IMAG0162.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コントロールBOX&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0160.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0160s.jpg&#34; alt=&#34;IMAG0160.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;主電源スイッチと，スピンドルのスイッチ，回転速度，緊急停止ボタンがあります．&lt;/p&gt;
+
+&lt;p&gt;裏側&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0158.jpg&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/IMAG0158s.jpg&#34; alt=&#34;IMAG0158.jpg&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;X,Y,Z軸，スピンドルへとケーブルが繋がっています．PCとはDsub25pinのパラレルケーブルと繋げます．&lt;/p&gt;
+
+&lt;p&gt;インターフェイスは結構洗練されてるなぁと感じました．&lt;/p&gt;
+
+&lt;p&gt;続き：&lt;a title=&#34;CNC3020設定編&#34; href=&#34;http://blog.syundo.org/2012/11/14/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%A8%AD%E5%AE%9A%E7%B7%A8/&#34; target=&#34;_blank&#34;&gt;中華CNC CNC3020導入記　設定編&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

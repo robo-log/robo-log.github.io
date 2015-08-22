@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/apache/</link>
+    <description>Recent content in Apache on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 12 Apr 2015 23:19:51 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/apache/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>WordpressをロリポップからDigital Oceanに移した</title>
+      <link>http://syundo0730.github.io/post/1072/</link>
+      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1072/</guid>
+      <description>&lt;p&gt;今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．&lt;/p&gt;
+
+&lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
+
+&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は&lt;/p&gt;
+
+&lt;p&gt;512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64&lt;/p&gt;
+
+&lt;p&gt;のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
+
+&lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
+
+&lt;p&gt;DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;ssh-keygen&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．&lt;/p&gt;
+
+&lt;h2&gt;Apache 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum install -y httpd httpd-devel&lt;/p&gt;
+
+&lt;p&gt;chkconfig httpd on&lt;/p&gt;
+
+&lt;p&gt;service httpd start&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;PHP 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&#34;&gt;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&#34;&gt;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;yum &amp;ndash;enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vi /etc/php.ini&lt;/p&gt;
+
+&lt;p&gt;vi /etc/httpd/conf.d/php.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;MySQL 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum install mysql-community-release-el6-5.noarch.rpm&lt;/p&gt;
+
+&lt;p&gt;yum install -y mysql-community-client mysql-community-devel mysql-community-server&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo dd if=/dev/zero of=/swapfile bs=1M count=1024&lt;/p&gt;
+
+&lt;p&gt;mkswap /swapfile&lt;/p&gt;
+
+&lt;p&gt;swapon /swapfile&lt;/p&gt;
+
+&lt;p&gt;sudo sh -c &amp;quot;echo &amp;lsquo;/swapfile swap swap defaults 0 0&amp;rsquo; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;chkconfig mysqld on&lt;/p&gt;
+
+&lt;p&gt;service mysqld start&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;mysql_secure_installation&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
+
+&lt;p&gt;ムームードメインのメニューのネームサーバー設定変更より&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こんな感じにする．&lt;/p&gt;
+
+&lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．&lt;/p&gt;
+
+&lt;p&gt;Digital OceanのDNS設定メニューより，&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim /etc/httpd/conf/httpd.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;NameVirtualHost *:80&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ServerName syundo.org
+
+DocumentRoot /var/www/html/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;Directory /var/www/html/&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ServerName blog.syundo.org
+
+DocumentRoot /var/www/html/blog/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;Directory /var/www/html/blog/&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
+
+&lt;p&gt;Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi ImageMagick-last&lt;/p&gt;
+
+&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi-php55 phpMyAdmin&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
+
+&lt;h2&gt;データの移行&lt;/h2&gt;
+
+&lt;p&gt;MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;mysql -u root&lt;/p&gt;
+
+&lt;p&gt;set password for root@localhost=password(&amp;lsquo;hogehoge&amp;rsquo;);&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;データベース作る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;create database database_name&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;grant all on database_name.* to dbuser@localhost identified by &amp;lsquo;piyopiyo&amp;rsquo;;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim wp-config.php&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo chown -R apache:apache myblogdir&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;User apache&lt;/p&gt;
+
+&lt;p&gt;Group apache&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
+
+&lt;h2&gt;追記：&lt;/h2&gt;
+
+&lt;p&gt;トップページからのリンクがすべて404となってしまった．&lt;/p&gt;
+
+&lt;p&gt;例えばカテゴリごとに飛ぼうとしてもエラーになる．&lt;/p&gt;
+
+&lt;p&gt;ダッシュボードの 「設定 -&amp;gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．&lt;/p&gt;
+
+&lt;h2&gt;参考：&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&#34;&gt;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XAMPPのエイリアス設定</title>
+      <link>http://syundo0730.github.io/post/948/</link>
+      <pubDate>Sun, 29 Dec 2013 15:49:55 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/948/</guid>
+      <description>&lt;p&gt;C:/xampp/apache/conf/httpd.confに以下を追記．&lt;/p&gt;
+
+&lt;p&gt;Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．&lt;/p&gt;
+
+&lt;p&gt;[html]&lt;/p&gt;
+
+&lt;p&gt;Alias /(エイリアス名)/ &amp;quot;(ディレクトリ)/&amp;quot;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt;
+
+           Options Indexes FollowSymLinks Includes ExecCGI
+
+           AllowOverride All
+
+           Require all granted
+
+           Order allow,deny
+
+           Allow from all
+
+&amp;amp;lt;/Directory&amp;amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/html]&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

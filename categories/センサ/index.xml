@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>センサ on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/%E3%82%BB%E3%83%B3%E3%82%B5/</link>
+    <description>Recent content in センサ on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 04 Jun 2011 03:59:32 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/%E3%82%BB%E3%83%B3%E3%82%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ひずみゲージとその利用法</title>
+      <link>http://syundo0730.github.io/post/895/</link>
+      <pubDate>Sat, 04 Jun 2011 03:59:32 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/895/</guid>
+      <description>&lt;p&gt;材料試験などによく使われるひずみゲージについて情報をまとめます。ロボットに貼り付けてもフレームの変形などが検知できるので軸力センサのような使い方もできるかもしれませんね。&lt;/p&gt;
+
+&lt;h3&gt;ひずみゲージの測定原理&lt;/h3&gt;
+
+&lt;p&gt;ひずみゲージには主にワイヤゲージと箔ゲージ(フォイルゲージ)があります。&lt;/p&gt;
+
+&lt;p&gt;ワイヤゲージは薄い台紙の上に細い抵抗線をくねらせながら貼ったもので、箔ゲージは抵抗部に線ではなくエッチング技術で製造したパターンを用いたものです。最近は半導体製造ラインで製造でき安価なので、箔ゲージが主流となっています。&lt;/p&gt;
+
+&lt;p&gt;しかしながらワイヤゲージも箔ゲージもその測定原理は同じで、伸びによって変化する導線の抵抗値を読み取ってひずみを測定するというものです。&lt;/p&gt;
+
+&lt;p&gt;ひずみとひずみゲージの抵抗値の変化には以下の関係が見られます。抵抗値の式から考えれば当たり前かと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?\frac{\Delta R}{R}=Ks\frac{\Delta L}{L}&#34; title=&#34;\frac{\Delta R}{R}=Ks\frac{\Delta L}{L}&#34; /&gt;･･･(1)&lt;/p&gt;
+
+&lt;p&gt;Rはひずみゲージの抵抗値、Lはひずみゲージの長さです。また、Ksはゲージ率と呼ばれ、ひずみゲージ固有の値です。&lt;/p&gt;
+
+&lt;p&gt;ひずみゲージの抵抗値の変化はホイートストーンブリッジ回路で測定されることが多いです。ホイートストーンブリッジは原理的に測定量が平衡点にあるどうかで測定量を知る「零位法」という区分の測定をしているため、測定精度が高く、微少な抵抗値変化も検知できるからです。&lt;/p&gt;
+
+&lt;p&gt;ホイートストーンブリッジの回路図は以下の図のようになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/201110150017003f1.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/201110150017003f1.png&#34; alt=&#34;ホイートストーン&#34; border=&#34;0&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;図　ホイートストーンブリッジ回路&lt;/p&gt;
+
+&lt;p&gt;キルヒホッフの法則から以下の式が導き出されます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?e=\frac{R1R3-R2R4}{(R1+R2)(R3+R4)}E&#34; title=&#34;e=\frac{R1R3-R2R4}{(R1+R2)(R3+R4)}E&#34; /&gt;･･･(2)&lt;/p&gt;
+
+&lt;p&gt;例えば、抵抗R1をひずみゲージだとみなして、R1→R1+ΔR1と変化したとし、他の抵抗値を合わせてR1=R2=R3=R4=Rとします。すると&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?e=\frac{\Delta R}{2(2R+\Delta R)}E&#34; title=&#34;e=\frac{\Delta R}{2(2R+\Delta R)}E&#34; /&gt;･･･(3)&lt;/p&gt;
+
+&lt;p&gt;となります。&lt;/p&gt;
+
+&lt;p&gt;ΔＲ＜＜Ｒであるので分母のΔRを無視すると&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?e=\frac{1}{4}\cdot \frac{\Delta R}{R}E&#34; title=&#34;e=\frac{1}{4}\cdot \frac{\Delta R}{R}E&#34; /&gt;･･･(4)&lt;/p&gt;
+
+&lt;p&gt;この式(4)と式(1)より&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?e=\frac{1}{4}Ks \frac{\Delta L}{L}E&#34; title=&#34;e=\frac{1}{4}Ks \frac{\Delta L}{L}E&#34; /&gt;･･･(5)&lt;/p&gt;
+
+&lt;p&gt;ひずみεは&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?\varepsilon =\frac{\Delta L}{L}&#34; title=&#34;\varepsilon =\frac{\Delta L}{L}&#34; /&gt;･･･(6)&lt;/p&gt;
+
+&lt;p&gt;であるので&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/gif.latex?\varepsilon =\frac{4e}{Ks E}&#34; title=&#34;\varepsilon =\frac{4e}{Ks E}&#34; /&gt;･･･(7)&lt;/p&gt;
+
+&lt;p&gt;とひずみを表すことができます。&lt;/p&gt;
+
+&lt;p&gt;以上のようにひずみゲージと、それと抵抗値の等しい抵抗器3つを用いたホイートストーンブリッジ回路で、電圧の変化からひずみを求めることができるのです。&lt;/p&gt;
+
+&lt;h3&gt;ロゼット解析&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>距離センサ</title>
+      <link>http://syundo0730.github.io/post/843/</link>
+      <pubDate>Fri, 21 Jan 2011 19:33:25 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/843/</guid>
+      <description>&lt;h3&gt;・距離センサ&lt;/h3&gt;
+
+&lt;p&gt;赤外線を使った近接センサやPSD距離センサ、超音波センサなどがある。&lt;/p&gt;
+
+&lt;h3&gt;近接センサ&lt;/h3&gt;
+
+&lt;p&gt;ほぼ触れるかどうかという近距離の物体の存在を検知する。&lt;/p&gt;
+
+&lt;h3&gt;PSD距離センサ&lt;/h3&gt;
+
+&lt;p&gt;10～80cm程度の距離を測る。距離に応じた電圧を出力する。&lt;/p&gt;
+
+&lt;h3&gt;超音波センサ&lt;/h3&gt;
+
+&lt;p&gt;音波を発して、それが反射して帰ってくるまでの時間を計って距離を測る。基本的に時間を計る処理は自前でする必要がある。&lt;/p&gt;
+
+&lt;h3&gt;・距離センサリンク&lt;/h3&gt;
+
+&lt;p&gt;&lt;a title=&#34;近接センサー　AS-PROX&#34; target=&#34;_blank&#34; href=&#34;http://shop.robotsfx.com/shopdetail/002002000004/order/&#34;&gt;近接センサー　AS-PROX&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;シャープ測距モジュール　ＧＰ２Ｙ０Ａ２１ＹＫ&#34; target=&#34;_blank&#34; href=&#34;http://akizukidenshi.com/catalog/g/gI-02551/&#34;&gt;シャープ測距モジュール　ＧＰ２Ｙ０Ａ２１ＹＫ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;超音波センサ（送受信セット）&#34; target=&#34;_blank&#34; href=&#34;http://akizukidenshi.com/catalog/g/gI-00120/&#34;&gt;超音波センサ（送受信セット）&lt;/a&gt;&lt;/h3&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ジャイロセンサ</title>
+      <link>http://syundo0730.github.io/post/882/</link>
+      <pubDate>Fri, 21 Jan 2011 18:39:41 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/882/</guid>
+      <description>&lt;p&gt;ジャイロセンサは計測対象の動き、特に回転方向の動きを検出するのに用いられるセンサです。一昔前は‘ジャイロ’と言われればコマのジャイロ効果を用いた機器、だと考えれば良かったのですが、近年ではMEMS技術の発達などにより小型化が進み、他の方式のジャイロが主流になりつつあります。&lt;/p&gt;
+
+&lt;h3&gt;・ジャイロセンサの測定原理&lt;/h3&gt;
+
+&lt;p&gt;ジャイロセンサとは角速度を検知するセンサである。&lt;/p&gt;
+
+&lt;p&gt;一般にジャイロセンサは角速度に比例した電圧を出力端子から出力する。&lt;/p&gt;
+
+&lt;p&gt;しかし、ホビーロボット界ではRCジャイロのことも単にジャイロと呼ぶことがある。&lt;/p&gt;
+
+&lt;p&gt;RCジャイロは入力されたパルス幅に検知した角速度に比例した幅を加減して出力するものである。&lt;/p&gt;
+
+&lt;p&gt;RCジャイロで角速度を検知するにはRCジャイロに特定のパルス幅の信号を入力し、出力信号ともとの信号の差を取ればよい。&lt;/p&gt;
+
+&lt;p&gt;RCジャイロでない普通のジャイロセンサでは、角速度に応じた電圧が出力されるわけだが、角速度に対する電圧の変化の割合、すなわち感度はデータシートを読めば分かる。&lt;/p&gt;
+
+&lt;h3&gt;・使い方&lt;/h3&gt;
+
+&lt;p&gt;このジャイロセンサの使い方として主に２つ考えられる。&lt;/p&gt;
+
+&lt;p&gt;１．「角速度をゲインを通してフィードバックする」&lt;/p&gt;
+
+&lt;p&gt;電圧を読み取ってそれに適当な値を乗じた物をサーボ信号値に加える。&lt;/p&gt;
+
+&lt;p&gt;２．「積分して角度を求める」&lt;/p&gt;
+
+&lt;p&gt;出力電圧を読み取って、感度を参考にして、角速度を正確に求める。それを一定周期の割り込みで積分していけば角度が求まる。&lt;/p&gt;
+
+&lt;p&gt;その場合、温度ドリフトや積分誤差が問題になってくる。&lt;/p&gt;
+
+&lt;h3&gt;・ジャイロセンサリンク&lt;/h3&gt;
+
+&lt;p&gt;RCジャイロ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-02555/&#34;&gt;ＧＷＳジャイロユニット&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ジャイロ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-02758/&#34;&gt;AE-GYRO-SMD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://strawberry-linux.com/catalog/items?code=18026&#34;&gt;ＩＤＧ－３００&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mecharoboshop.com/Products/STLJapan/tukasa21&#34;&gt;司21:HS-EG3&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>加速度センサ</title>
+      <link>http://syundo0730.github.io/post/881/</link>
+      <pubDate>Wed, 19 Jan 2011 15:44:34 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/881/</guid>
+      <description>&lt;p&gt;加速度センサについて&lt;/p&gt;
+
+&lt;h3&gt;・加速度センサ&lt;/h3&gt;
+
+&lt;p&gt;加速度センサは加速度を検知するセンサである。&lt;/p&gt;
+
+&lt;p&gt;検知した加速度に対応した電圧を出力したり、1バイト程度のデジタルデータを出力するものなどがある。&lt;/p&gt;
+
+&lt;p&gt;加速度センサデバイスには1軸～3軸まで他種類ある。&lt;/p&gt;
+
+&lt;h3&gt;・使いどころ&lt;/h3&gt;
+
+&lt;p&gt;１．｢衝撃を検知する｣&lt;/p&gt;
+
+&lt;p&gt;なんらかの衝撃を与えられると、速度が変化して加速度が発生する。これを検知できる。&lt;/p&gt;
+
+&lt;p&gt;人間の場合、座っているときや、走っているときに誰かにぶつかられると衝撃を感じて、受け身の体勢に入ったりする。これをロボットにやらせることができる。&lt;/p&gt;
+
+&lt;p&gt;２．｢ロボットの傾斜角度を検知できる」&lt;/p&gt;
+
+&lt;p&gt;地球上の物体は常に重力加速度で地面方向に移動しようとする。加速度センサの値を見ると、実はこの重力による加速度も検知している。重力加速度はいつでも物体に働き、常に地面方向に向いているから、ロボットの姿勢が地面に対して(重力方向に対して)何度傾いているかが分かる。&lt;/p&gt;
+
+&lt;p&gt;加速度センサは以下のサイトで入手しやすい。&lt;/p&gt;
+
+&lt;h3&gt;・加速度センサリンク&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gI-01425/&#34;&gt;３軸加速度センサモジュール　ＫＸＭ５２－１０５０&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;color:#0000FF&#34;&gt;加速度とは速度の時間変化率のこと。&lt;/p&gt;
+
+&lt;p&gt;速度が単位時間あたり(例えば1秒)の距離の変化を表しているのと同じように、加速度は単位時間あたりの速度の変化を表している。&lt;/p&gt;
+
+&lt;p&gt;速度の例：&lt;/p&gt;
+
+&lt;p&gt;1秒の間に、ある物体の位置が5ｍ変化する→5m/s(5メートル毎秒)&lt;/p&gt;
+
+&lt;p&gt;加速度の例：&lt;/p&gt;
+
+&lt;p&gt;1秒の間に、ある物体の速度が3m/sだけ変化する→3m/ss(3メートル毎秒毎秒)&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

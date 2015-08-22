@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    できるだけconstexprを使おう | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/1143/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>できるだけconstexprを使おう</h1>
+      <div class="meta">
+        May 15, 2015 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <h1>Effective Modern C++メモ (Moving to Modern C++ : Item 15)</h1>
+
+<p>constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。</p>
+
+<h2>constexprオブジェクトについて</h2>
+
+<p>constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。</p>
+
+<p>[cpp]</p>
+
+<p>int sz;   // コンパイル時に存在しない</p>
+
+<p>&hellip;</p>
+
+<p>constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。</p>
+
+<p>std::array&lt;int, sz&gt; data1; // 同様なエラー</p>
+
+<p>constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。</p>
+
+<p>std::array&lt;int, arraySize&gt; data2; // 良い。</p>
+
+<p>[/cpp]</p>
+
+<p>constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。</p>
+
+<h2>constexpr関数について</h2>
+
+<p>引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。</p>
+
+<h3>C++11の場合</h3>
+
+<p>関数内に1行、return文があるだけしか認められない。</p>
+
+<p>[cpp]</p>
+
+<p>constexpr int pow(int base, int exp) noexcept {</p>
+
+<pre><code>return (exp == 0 ? 1 : base*pow(base, exp-1));
+</code></pre>
+
+<p>}</p>
+
+<p>[/cpp]</p>
+
+<h3>C++14の場合</h3>
+
+<p>複数行にわたって記述できる</p>
+
+<p>[cpp]</p>
+
+<p>constexpr int pow(int base, int exp) noexcept {</p>
+
+<pre><code>auto result = 1;
+
+for(int i = 0; i &amp;lt; exp; ++i) result *= base;
+
+
+
+return result;
+</code></pre>
+
+<p>}</p>
+
+<p>[/cpp]</p>
+
+<h2>気をつけるべきこと</h2>
+
+<p>constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</p>
+
+<p>もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/1140/" rel="prev">ブログも静的ページにしたらどうか</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/1154/" rel="next">C&#43;&#43;初心者会に参加してきた</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

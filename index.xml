@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROBO LOG</title>
+    <link>http://syundo0730.github.io/</link>
+    <description>Recent content on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 21 May 2015 22:27:54 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Haskellで高階関数を組み合わせて部分文字列を作る例が全然わからなかったから考えた</title>
+      <link>http://syundo0730.github.io/post/1162/</link>
+      <pubDate>Thu, 21 May 2015 22:27:54 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1162/</guid>
+      <description>&lt;p&gt;最近、Haskellの勉強のために「&lt;a href=&#34;http://www.amazon.co.jp/%E9%96%A2%E6%95%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80-%E2%94%80%E2%94%80%E7%B0%A1%E6%BD%94%E3%81%A7%E3%80%81%E6%AD%A3%E3%81%97%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AB-WEB-PRESS-plus/dp/4774169269&#34;&gt;関数プログラミング実践入門&lt;/a&gt;」を読んでいる。&lt;/p&gt;
+
+&lt;p&gt;高階関数のところまでいったけど僕の頭がクソ雑魚だから例題が全然理解出来なかった…。&lt;/p&gt;
+
+&lt;p&gt;Qiitaに記事を移しました。&lt;/p&gt;
+
+&lt;p&gt;続きはこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&#34;&gt;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;初心者会に参加してきた</title>
+      <link>http://syundo0730.github.io/post/1154/</link>
+      <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1154/</guid>
+      <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;初めて勉強会での発表ということもした（ただしLT)&lt;/p&gt;
+
+&lt;p&gt;発表資料はこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/syundo/c-48237620&#34;&gt;http://www.slideshare.net/syundo/c-48237620&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ニコ生はこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://live.nicovideo.jp/gate/lv220960718&#34;&gt;http://live.nicovideo.jp/gate/lv220960718&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;メモを取って即時公開してくださっているひとがいた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.shigemk2.com/archive/category/C%2B%2B&#34;&gt;http://www.shigemk2.com/archive/category/C%2B%2B&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういう仕事の早さは敵う気がしない。&lt;/p&gt;
+
+&lt;p&gt;私はLTでC++を使って開発できるマイコンボードの例としてmbedを紹介した。&lt;/p&gt;
+
+&lt;p&gt;だが、問題はmbedのコンパイラにあった。&lt;/p&gt;
+
+&lt;p&gt;C++界隈の人たちの興味はC++11，14、さらにはC++17にあるのだ。&lt;/p&gt;
+
+&lt;p&gt;対してmbedオンラインコンパイラはC++98だ。&lt;/p&gt;
+
+&lt;p&gt;C++98のことなんてもう忘却の彼方にあるし、取るに足りないことなのだ（実際僕もそう思う）。&lt;/p&gt;
+
+&lt;p&gt;mbedの開発環境は不自由だ。&lt;/p&gt;
+
+&lt;p&gt;ネット環境がないとコンパイルできないとかザコだ。&lt;/p&gt;
+
+&lt;p&gt;なぜそんな環境に拘っているのか？&lt;/p&gt;
+
+&lt;p&gt;そのご指摘はまさにその通りだと思う。&lt;/p&gt;
+
+&lt;p&gt;arm向けの自由なコンパイラがあるんだから、mbedはオンラインコンパイラに頼るエコシステムにすべきじゃなかったのだ。&lt;/p&gt;
+
+&lt;p&gt;オンラインコンパイラが無ければmbedは広まらなかったか？&lt;/p&gt;
+
+&lt;p&gt;僕はそうは思わない。Arduinoの開発環境はローカルの開発環境だが超流行っているじゃないか。&lt;/p&gt;
+
+&lt;p&gt;Coretex-M3の強い計算機能力を発揮して楽しくC++開発できることがmbedの強みだ。&lt;/p&gt;
+
+&lt;p&gt;Arduinoなんて目じゃない。&lt;/p&gt;
+
+&lt;p&gt;それなのにコンパイラがC++98/03準拠というのはあんまりじゃないか。&lt;/p&gt;
+
+&lt;p&gt;mbedのコミュニティのことを考え、自分のしたい開発のことを考え、もやもやしている&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;C++界隈の人たちというのは濃い、強い。&lt;/p&gt;
+
+&lt;p&gt;自分ももっと技術力を高めて本当のプログラマになりたいと思った。&lt;/p&gt;
+
+&lt;p&gt;これまで聞いたこと無いキーワードや，聞いたことあったがよく知らないことをたくさん知れた。&lt;/p&gt;
+
+&lt;p&gt;調べて勉強してもっとC++をわかりたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>できるだけconstexprを使おう</title>
+      <link>http://syundo0730.github.io/post/1143/</link>
+      <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1143/</guid>
+      <description>&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
+
+&lt;p&gt;constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
+
+&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
+
+&lt;p&gt;constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;int sz;   // コンパイル時に存在しない&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。&lt;/p&gt;
+
+&lt;p&gt;std::array&amp;lt;int, sz&amp;gt; data1; // 同様なエラー&lt;/p&gt;
+
+&lt;p&gt;constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。&lt;/p&gt;
+
+&lt;p&gt;std::array&amp;lt;int, arraySize&amp;gt; data2; // 良い。&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
+
+&lt;h2&gt;constexpr関数について&lt;/h2&gt;
+
+&lt;p&gt;引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。&lt;/p&gt;
+
+&lt;h3&gt;C++11の場合&lt;/h3&gt;
+
+&lt;p&gt;関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return (exp == 0 ? 1 : base*pow(base, exp-1));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;h3&gt;C++14の場合&lt;/h3&gt;
+
+&lt;p&gt;複数行にわたって記述できる&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;auto result = 1;
+
+for(int i = 0; i &amp;amp;lt; exp; ++i) result *= base;
+
+
+
+return result;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
+
+&lt;p&gt;constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
+
+&lt;p&gt;もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ブログも静的ページにしたらどうか</title>
+      <link>http://syundo0730.github.io/post/1140/</link>
+      <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1140/</guid>
+      <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。&lt;/p&gt;
+
+&lt;p&gt;ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。&lt;/p&gt;
+
+&lt;p&gt;あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。&lt;/p&gt;
+
+&lt;p&gt;DBやらphpやら準備しなくて良いので環境の構築は楽だろう。&lt;/p&gt;
+
+&lt;p&gt;静的ページだけなので非力なサーバでも運用できるだろう。&lt;/p&gt;
+
+&lt;p&gt;俄然興味が湧いてきた。&lt;/p&gt;
+
+&lt;p&gt;こういったツールは色々あって&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://staticsitegenerators.net/&#34;&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ここを見るとどれが人気があるのかわかる。&lt;/p&gt;
+
+&lt;p&gt;だが私は今のところ&lt;a href=&#34;http://golang-jp.org/&#34;&gt;golang&lt;/a&gt;で動く&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;に興味がある。&lt;/p&gt;
+
+&lt;p&gt;機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。&lt;/p&gt;
+
+&lt;p&gt;ソースはGitHubで管理するのが良かろう。&lt;/p&gt;
+
+&lt;p&gt;werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。&lt;/p&gt;
+
+&lt;p&gt;werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。&lt;/p&gt;
+
+&lt;p&gt;Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
+
+&lt;p&gt;ちなみにちょっと文脈が違うがWebサイトに数式を含めるならば&lt;a href=&#34;http://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;が良いという電波をキャッチした。&lt;/p&gt;
+
+&lt;h2&gt;参考にしたところ&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&#34;&gt;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Haskellを入れる</title>
+      <link>http://syundo0730.github.io/post/1128/</link>
+      <pubDate>Tue, 12 May 2015 02:04:29 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1128/</guid>
+      <description>&lt;p&gt;&amp;lt;aHaskellをやってみようと思った。&lt;/p&gt;
+
+&lt;p&gt;環境：Ubuntu12.04 64bit&lt;/p&gt;
+
+&lt;p&gt;記事をQiitaに移動した。&lt;/p&gt;
+
+&lt;p&gt;続きはこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ドコモを解約してIIJのみおふぉんにMNP転入した</title>
+      <link>http://syundo0730.github.io/post/1131/</link>
+      <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1131/</guid>
+      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。&lt;/p&gt;
+
+&lt;p&gt;ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
+
+&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。&lt;/p&gt;
+
+&lt;p&gt;月3G音声通話つきで1600円のものを選んだ。&lt;/p&gt;
+
+&lt;p&gt;容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
+
+&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。&lt;/p&gt;
+
+&lt;p&gt;今回は5月4日 am9:54にドコモsimが停止&lt;/p&gt;
+
+&lt;p&gt;翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。&lt;/p&gt;
+
+&lt;p&gt;都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
+
+&lt;p&gt;通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。&lt;/p&gt;
+
+&lt;p&gt;音声通話は&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/dial.jsp&#34;&gt;みおふぉんダイアル&lt;/a&gt;を使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。&lt;/p&gt;
+
+&lt;p&gt;こうしてドコモは通信を流すだけの土管になるのだ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ロボットを吊るアームを作った</title>
+      <link>http://syundo0730.github.io/post/1111/</link>
+      <pubDate>Sun, 19 Apr 2015 22:46:39 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1111/</guid>
+      <description>&lt;p&gt;作業をしやすくするために、棚に固定できるロボット用のアームを作りました。こんなんです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1114&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34; alt=&#34;DSC_1486&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1118&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34; alt=&#34;DSC_1488&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;ワイヤーで吊ります。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;ちなみに現在の作業環境はこんな感じです。&lt;/p&gt;
+
+&lt;p&gt;CNC&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1116&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34; alt=&#34;DSC_1490&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ボール盤と折り曲げ機&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1115&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34; alt=&#34;DSC_1489&#34;   /&gt;&lt;/a&gt;CNCに関しては防音箱の性能向上を図る必要があると考えています。&lt;/p&gt;
+
+&lt;p&gt;10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。&lt;/p&gt;
+
+&lt;p&gt;吸音材をヤフオクで買って貼りつけようと思います。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>最近どうしているかということとROBO－ONEはどうだったかという話</title>
+      <link>http://syundo0730.github.io/post/1068/</link>
+      <pubDate>Mon, 13 Apr 2015 02:12:29 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1068/</guid>
+      <description>&lt;p&gt;お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．&lt;/p&gt;
+
+&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．&lt;/p&gt;
+
+&lt;p&gt;大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．&lt;/p&gt;
+
+&lt;h2&gt;ROBO-ONEまでにうちのヴァニラがどう変わったか&lt;/h2&gt;
+
+&lt;p&gt;こちらが改造に使った部品たちです．一部組み上がってますが…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1101&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34; alt=&#34;2014-11-08 21.12.58&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1102&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34; alt=&#34;2014-11-08 21.14.27&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1106&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34; alt=&#34;2014-11-08 21.14.06&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;バリ取りとか塗装が間に合わなくてボツにしたんですが，腕カバーとか腰カバーを3Dプリントで作ったりしてました．ABSがテーブルから剥がれて反ることといったらもう泣けました．&lt;/p&gt;
+
+&lt;p&gt;これは腕カバー反らなければそれなりに使えそうなものができます．外装なので中身はスカスカ，充填率は10%です．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1104&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34; alt=&#34;2015-02-19 04.07.08&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こちらは腰カバー．設計ミスがあってうまく嵌りませんでした…．焦ってやる仕事は良くないです…フィラメントがかなり無駄に…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1105&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34; alt=&#34;2015-02-22 20.43.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1107&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34; alt=&#34;2015-02-28 12.34.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．&lt;/p&gt;
+
+&lt;p&gt;予選の結果&lt;/p&gt;
+
+&lt;p&gt;40cm&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/dyA7645_rA4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;敗因&lt;/p&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた．&lt;/li&gt;
+
+    &lt;li&gt;シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった．&lt;/li&gt;
+
+    &lt;li&gt;上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった．&lt;/li&gt;
+
+    &lt;li&gt;数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった．&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　USBCNCで使う</title>
+      <link>http://syundo0730.github.io/post/1009/</link>
+      <pubDate>Mon, 13 Apr 2015 01:19:34 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1009/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34;&gt;&lt;img class=&#34;alignnone wp-image-1012 size-full&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34; alt=&#34;&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.youtube.com/embed/-hakv_o5bQE&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>機械学習プロフェッショナルシリーズ第1弾から2冊買った</title>
+      <link>http://syundo0730.github.io/post/1090/</link>
+      <pubDate>Sun, 12 Apr 2015 23:42:54 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1090/</guid>
+      <description>&lt;p&gt;今月から，機械学習プロフェッショナルシリーズというものの発刊が始まる．今月は全29巻のうち，4冊が発売された．私はそのうち，&lt;a href=&#34;http://www.amazon.co.jp/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A1%E8%B0%B7-%E8%B2%B4%E4%B9%8B/dp/4061529021&#34;&gt;岡谷 貴之「深層学習」&lt;/a&gt;と，&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%88%E3%83%94%E3%83%83%E3%82%AF%E3%83%A2%E3%83%87%E3%83%AB-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A9%E7%94%B0-%E5%85%B7%E6%B2%BB/dp/4061529048/&#34;&gt;岩田 具治「トピックモデル」&lt;/a&gt;を購入した．&lt;/p&gt;
+
+&lt;p&gt;まだ深層学習のほうしか読めていないが，Deep Learningの日本語で読める資料は人工知能学会の特集しかなかったりしてなかなか勉強しづらかったこともあって，色々な情報が纏まっている本書はとても意義があると思う．&lt;/p&gt;
+
+&lt;p&gt;DeepNNを使って何かやってみたい．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordpressをロリポップからDigital Oceanに移した</title>
+      <link>http://syundo0730.github.io/post/1072/</link>
+      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1072/</guid>
+      <description>&lt;p&gt;今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．&lt;/p&gt;
+
+&lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
+
+&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は&lt;/p&gt;
+
+&lt;p&gt;512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64&lt;/p&gt;
+
+&lt;p&gt;のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
+
+&lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
+
+&lt;p&gt;DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;ssh-keygen&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．&lt;/p&gt;
+
+&lt;h2&gt;Apache 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum install -y httpd httpd-devel&lt;/p&gt;
+
+&lt;p&gt;chkconfig httpd on&lt;/p&gt;
+
+&lt;p&gt;service httpd start&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;PHP 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&#34;&gt;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&#34;&gt;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;yum &amp;ndash;enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vi /etc/php.ini&lt;/p&gt;
+
+&lt;p&gt;vi /etc/httpd/conf.d/php.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;MySQL 導入&lt;/h2&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum install mysql-community-release-el6-5.noarch.rpm&lt;/p&gt;
+
+&lt;p&gt;yum install -y mysql-community-client mysql-community-devel mysql-community-server&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo dd if=/dev/zero of=/swapfile bs=1M count=1024&lt;/p&gt;
+
+&lt;p&gt;mkswap /swapfile&lt;/p&gt;
+
+&lt;p&gt;swapon /swapfile&lt;/p&gt;
+
+&lt;p&gt;sudo sh -c &amp;quot;echo &amp;lsquo;/swapfile swap swap defaults 0 0&amp;rsquo; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;chkconfig mysqld on&lt;/p&gt;
+
+&lt;p&gt;service mysqld start&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;mysql_secure_installation&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
+
+&lt;p&gt;ムームードメインのメニューのネームサーバー設定変更より&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こんな感じにする．&lt;/p&gt;
+
+&lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．&lt;/p&gt;
+
+&lt;p&gt;Digital OceanのDNS設定メニューより，&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim /etc/httpd/conf/httpd.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;NameVirtualHost *:80&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ServerName syundo.org
+
+DocumentRoot /var/www/html/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;Directory /var/www/html/&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ServerName blog.syundo.org
+
+DocumentRoot /var/www/html/blog/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;Directory /var/www/html/blog/&amp;gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AllowOverride All
+
+Options FollowSymLinks
+
+Order allow,deny
+
+Allow from all
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
+
+&lt;p&gt;Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi ImageMagick-last&lt;/p&gt;
+
+&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi-php55 phpMyAdmin&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
+
+&lt;h2&gt;データの移行&lt;/h2&gt;
+
+&lt;p&gt;MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;mysql -u root&lt;/p&gt;
+
+&lt;p&gt;set password for root@localhost=password(&amp;lsquo;hogehoge&amp;rsquo;);&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;データベース作る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;create database database_name&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;grant all on database_name.* to dbuser@localhost identified by &amp;lsquo;piyopiyo&amp;rsquo;;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vim wp-config.php&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo chown -R apache:apache myblogdir&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;User apache&lt;/p&gt;
+
+&lt;p&gt;Group apache&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
+
+&lt;h2&gt;追記：&lt;/h2&gt;
+
+&lt;p&gt;トップページからのリンクがすべて404となってしまった．&lt;/p&gt;
+
+&lt;p&gt;例えばカテゴリごとに飛ぼうとしてもエラーになる．&lt;/p&gt;
+
+&lt;p&gt;ダッシュボードの 「設定 -&amp;gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．&lt;/p&gt;
+
+&lt;h2&gt;参考：&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&#34;&gt;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</title>
+      <link>http://syundo0730.github.io/post/1033/</link>
+      <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1033/</guid>
+      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．&lt;/p&gt;
+
+&lt;p&gt;そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
+
+&lt;p&gt;今回使うカメラはこれ．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．&lt;/p&gt;
+
+&lt;p&gt;何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;lsusb&lt;/p&gt;
+
+&lt;p&gt;ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install xawtv&lt;/p&gt;
+
+&lt;p&gt;xawtv -c /dev/video0&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．&lt;/p&gt;
+
+&lt;p&gt;ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
+
+&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．&lt;/p&gt;
+
+&lt;p&gt;OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
+
+&lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．&lt;/p&gt;
+
+&lt;p&gt;サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;//cam.cpp&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+
+&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+
+&lt;p&gt;#endif&lt;/p&gt;
+
+&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
+
+
+
+cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+
+cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+
+
+
+cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+
+
+
+while ( 1 ) {
+
+    cv::Mat img1;
+
+    cap1 &amp;amp;gt;&amp;amp;gt; img1 ;
+
+    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img1 );
+
+    char ch = cv::waitKey(100);
+
+    if ( ch == 27 ) break;
+
+}
+
+return 0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;コンパイルする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
+
+&lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+
+&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+
+&lt;p&gt;#endif&lt;/p&gt;
+
+&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
+
+
+
+cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+
+cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+
+
+
+cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+
+
+
+std::string cascadeName = &amp;amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;amp;quot;;
+
+cv::CascadeClassifier cascade;
+
+if(!cascade.load(cascadeName)) return -1;
+
+
+
+double scale = 4.0;
+
+cv::Mat img, gray;
+
+
+
+while ( 1 ) {
+
+    cap1 &amp;amp;gt;&amp;amp;gt; img;
+
+
+
+    //Trans to glay scale
+
+    cv::cvtColor(img, gray, CV_BGR2GRAY);
+
+    cv::Mat smallImg(cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.rows/scale), cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.cols/scale), CV_8UC1);
+
+    // 処理時間短縮のために画像を縮小
+
+    cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
+
+    cv::equalizeHist( smallImg, smallImg);
+
+
+
+    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt; faces;
+
+    /// マルチスケール（顔）探索xo
+
+    // 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
+
+    cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
+
+    // 結果の描画
+
+    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt;::const_iterator r = faces.begin();
+
+    for(; r != faces.end(); ++r) {
+
+        cv::Point center;
+
+        int radius;
+
+        center.x = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;x + r-&amp;amp;gt;width*0.5)*scale);
+
+        center.y = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;y + r-&amp;amp;gt;height*0.5)*scale);
+
+        radius = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;width + r-&amp;amp;gt;height)*0.25*scale);
+
+        cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
+
+    }
+
+    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img );
+
+    char ch = cv::waitKey(30);
+
+    if ( ch == 27 ) break;
+
+}
+
+return 0;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;コンパイルする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．&lt;/p&gt;
+
+&lt;p&gt;とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
+
+&lt;p&gt;おわり&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</title>
+      <link>http://syundo0730.github.io/post/971/</link>
+      <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/971/</guid>
+      <description>
+
+&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
+
+&lt;p&gt;まずGetting Started(&lt;a href=&#34;http://beagleboard.org/Getting%20Started&#34;&gt;http://beagleboard.org/Getting%20Started&lt;/a&gt;)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．&lt;/p&gt;
+
+&lt;p&gt;リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://beagleboard.org/latest-images&#34;&gt;http://beagleboard.org/latest-images&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)&lt;/p&gt;
+
+&lt;p&gt;をmicroSDカードに書き込む．&lt;/p&gt;
+
+&lt;p&gt;Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．&lt;/p&gt;
+
+&lt;p&gt;以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．&lt;/p&gt;
+
+&lt;p&gt;作業環境：VMware Player，64bit Ubuntu 14.04&lt;/p&gt;
+
+&lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．&lt;/p&gt;
+
+&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;wget &lt;a href=&#34;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&#34;&gt;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
+
+&lt;p&gt;tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
+
+&lt;p&gt;cd ubuntu-14.04-console-armhf-2014-05-06&lt;/p&gt;
+
+&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;probe-mmc&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;mmc /dev/sdX &amp;ndash;uboot bone&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
+
+&lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;ssh ubuntu@192.168.7.2&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
+
+&lt;p&gt;さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）&lt;/p&gt;
+
+&lt;p&gt;今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．&lt;/p&gt;
+
+&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme&lt;/p&gt;
+
+&lt;p&gt;sudo reboot&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．&lt;/p&gt;
+
+&lt;p&gt;結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
+
+&lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install vnc4server&lt;/p&gt;
+
+&lt;p&gt;vncserver&lt;/p&gt;
+
+&lt;p&gt;vncserver -kill :1&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
+
+&lt;p&gt;[bash]&lt;/p&gt;
+
+&lt;h1 id=&#34;bin-sh:732fd3103795c9dc70583b77fae9af7e&#34;&gt;!/bin/sh&lt;/h1&gt;
+
+&lt;h1 id=&#34;uncomment-the-following-two-lines-for-normal-desktop:732fd3103795c9dc70583b77fae9af7e&#34;&gt;Uncomment the following two lines for normal desktop:&lt;/h1&gt;
+
+&lt;h1 id=&#34;unset-session-manager:732fd3103795c9dc70583b77fae9af7e&#34;&gt;unset SESSION_MANAGER&lt;/h1&gt;
+
+&lt;h1 id=&#34;exec-etc-x11-xinit-xinitrc:732fd3103795c9dc70583b77fae9af7e&#34;&gt;exec /etc/X11/xinit/xinitrc&lt;/h1&gt;
+
+&lt;p&gt;/usr/bin/lxsession &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup&lt;/p&gt;
+
+&lt;p&gt;[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb $HOME/.Xresources&lt;/p&gt;
+
+&lt;p&gt;xsetroot -solid grey&lt;/p&gt;
+
+&lt;p&gt;vncconfig -iconic &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;$VNCDESKTOP Desktop&amp;quot; &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;x-window-manager &amp;amp;&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;vncserver :1 -geometry 1024x768&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．&lt;/p&gt;
+
+&lt;p&gt;リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
+
+&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install remmina&lt;/p&gt;
+
+&lt;p&gt;remmina&lt;/p&gt;
+
+&lt;p&gt;[/bash]&lt;/p&gt;
+
+&lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;おわり．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pepper Tech Festival 2014に行ってきた</title>
+      <link>http://syundo0730.github.io/post/984/</link>
+      <pubDate>Sun, 21 Sep 2014 23:49:55 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/984/</guid>
+      <description>&lt;p&gt;昨日9月20日に開催されたPepper Tech Festival(&lt;a href=&#34;http://www.softbank.jp/robot/special/techfes/live/&#34;&gt;http://www.softbank.jp/robot/special/techfes/live/&lt;/a&gt;)に当選したので行ってきました．&lt;/p&gt;
+
+&lt;p&gt;当日の12時にpepperが開発者向けに予約開始されるということで，Pepperやその開発環境に関する情報が紹介されるという触れ込みのイベントでした．&lt;/p&gt;
+
+&lt;p&gt;当日説明された，開発者向けのパックの内容についてはすでにこのサイトにて公開されています．&lt;/p&gt;
+
+&lt;p&gt;(&lt;a href=&#34;http://www.softbank.jp/robot/special/tech/&#34;&gt;http://www.softbank.jp/robot/special/tech/&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;開演時間の30分前に会場に入るとすでに席の半分以上が埋まっていました．ベルサールのWEBサイトによると1000人～1600人が入る部屋らしいです．マジでこれだけの人間がpepperのためだけに来たのか！？浮かれすぎじゃないか！？そしてソフトバンクはどれだけ本気なんだ！？ととにかく興奮しました．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-10.12.02.jpg&#34;&gt;&lt;img class=&#34;alignnone wp-image-999 size-full&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-10.12.02.jpg&#34; alt=&#34;2014-09-20 10.12.02&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;会場まで行った人への特典は，PepperTechFesのTシャツ，ステッカー，缶バッジ，そしてUSBに入ったPepper開発用の先行公開SDKでした．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-21-22.54.01.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1002&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-21-22.54.01.jpg&#34; alt=&#34;2014-09-21 22.54.01&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ただしSDKは先行公開版なので，デフォルトのロボットがNAOになっていたり，Pepper相当のモデルの名前が開発中のコードネーム（Juliet）だったりします．SDKについてはすでに会場で作業を進めた人の報告(&lt;a href=&#34;http://qiita.com/Cocominap/items/93f9f9b8806f9ddaa513&#34;&gt;http://qiita.com/Cocominap/items/93f9f9b8806f9ddaa513&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;や，秋葉原アトリエの中の人からの説明が出ています．(&lt;a href=&#34;http://qiita.com/Atelier-Akihabara/items/c5f57358a7b333eef397&#34;&gt;http://qiita.com/Atelier-Akihabara/items/c5f57358a7b333eef397&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;イベント会場は講演会場と展示会場に分かれていて，それぞれ楽しめました．&lt;/p&gt;
+
+&lt;p&gt;講演では，Androidアプリの開発者　安生 真 さん，大阪大学基礎工学研究科　石黒 浩 教授，チームラボ代表　猪子 寿之 さん，明和電機　土佐 信道 社長によるパネルディスカッションが興味深かったです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-13.49.45.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1004&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-13.49.45.jpg&#34; alt=&#34;2014-09-20 13.49.45&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1→10designが製作し展示会場でも稼働していた，2台のpepperと人間の3人で会話できるデモについて石黒先生が言及されたのがきっかけでロボットと社会性について話が展開していきました．石黒先生が仰るには人間とロボットの会話があまりうまくいっていなくても，ロボット同士が流暢に会話していれば，場としては会話が成立している感じが高まり，会話の違和感が少なくなるとのことです．石黒先生自身も同様な実験を行われているようで（ちゃんと論文を追ってないのでわからないすいません），先生のトークの勢いが止まりませんでした．&lt;/p&gt;
+
+&lt;p&gt;猪子さんが，pepperだけ100台くらい居る部屋を作って眺めたいと話すと，水槽の中に居る金魚を外から見るより，中に入って見たほうが楽しいに違いないというような話になっていき，道端でpepper同士が会ったりしたら挨拶するようにしたらおもしろい，などという話に発展していきました．会場のみなが大爆笑の素晴らしいディスカッションでした．&lt;/p&gt;
+
+&lt;p&gt;私も実際に1→10designさんのデモを体験してみました．pepperは1台でもわりと勝手に話を進めていく傾向があるように思いますが，2台になるともう完全にトークの主導権を握られてしまい，敗北感を感じました．アニメ攻殻機動隊において，群れて勝手に話しているタチコマに対して人間が少し苛ついた感じで接しているシーンを思い起こしました．仲間外れにされているのがつらいと同時に，pepperにはpepperの生活があるから仕方ないと自然にロボットの人格（ロボ格）を認めることができるようでした．ロボットに社会を形成させたらどうなるか，という話はロボットの知能に深く関わっている話であります．私もpepperに期待しているのは社会性からくる知性とはどんなものか検証してほしいということです．pepperほどの性能のロボットがとりあえず数百台日本に流通するということで，成果が出てきそうな気がします．&lt;/p&gt;
+
+&lt;p&gt;展示の中で私が面白いと思ったのはユカイ工学株式会社さんの「マホウノツエ」というデモです．&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-12.55.30.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1000&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-12.55.30.jpg&#34; alt=&#34;2014-09-20 12.55.30&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;pepperに学習赤外線リモコン（IR kit）を内蔵した魔法の杖を持たせることで，pepperに話しかけて家電を操作することができます．このような使い方は誰でも思いつくものですし，「ロビ」もデモでやっていたりするのですが，実際に人間大のロボットが自分の命令で動く様子を見るとインターフェースとしてのヒューマノイドは喧伝されている程度には役に立つのかもしれないと思いました．こういう用途ではスマホに話しかけるのでは駄目なのか？という問題がありますが，少なくとも人間に依頼するように自然に操作できるのはヒューマノイドの持つ力だと思います．それに今後赤外線リモコンだけでなく，ゲームのコントローラでも掃除機でも，なんでも持たせられるようになると更にpepperの価値が高まってくるでしょう．一般物体のマニピュレーションなんてとんでもなく難しい問題ですが，みんなでやれば誰かがなんとかしてくれるんじゃないですかねぇ！？（無責任&lt;/p&gt;
+
+&lt;p&gt;TechFesに参加した１日は朝の10時半から19時半までpepperだらけの一日でした．あれだけ高機能なロボットであっても，近くに何台も居るとだんだん慣れてきました．懇親会の間，ビールを片手に何度もpepperの頭をパンパン叩き，体をどつき，指をグニグニしてると，ロボットの居る生活がそんなに遠くないようにさえ思えてきたのでした．&lt;/p&gt;
+
+&lt;h1&gt;その他に思ったこと，メモなど&lt;/h1&gt;
+
+&lt;h2&gt;１，無意識をプログラムするのが重要なんじゃないですかね！&lt;/h2&gt;
+
+&lt;p&gt;→pepperの内部でバックグラウンド動作しているプログラムとしては，外乱に耐えてバランスをとるもの，周囲の状況と自分の姿勢を把握して衝突回避するもの，などがあるようですが，この手のバックグラウンド動作するプログラムをどんどん増やしていくことがロボットの賢さを高めるのに効果的なんだろうなと思いました．&lt;/p&gt;
+
+&lt;p&gt;例えば音声認識に関していえば，会話のある時点のセンテンスを認識するだけでなく，それ以前の人間対人間の会話を聞いていたり，テレビの音をなんとなく聞いていたりというのが自然な会話に役立つんじゃないかと思います．画像認識なども同様なことが言えます．これは意識とは何かということにも繋がっていくと思うのですが&amp;hellip;．現時点のSDKでは内部でバックグラウンド動作するソフトの開発はできないらしいです．今後の展開を期待します．&lt;/p&gt;
+
+&lt;h2&gt;２．pepperの人工知能って何？&lt;/h2&gt;
+
+&lt;p&gt;→pepperの文脈で人工知能と言っているのは，ひとつは音声，画像を入力とするニューラルネットワークのことのようです．Deep Learningで学習しているらしいです．例えば，怒った顔を見せれば，怒っているという判定が出るようなユニットです．&lt;/p&gt;
+
+&lt;p&gt;その他に人工知能っぽいものとしてはSLAMが実装されているようです．部屋のマップを作って自己位置同定をしているようだ&amp;hellip;&amp;hellip;という話を聞きました．&lt;/p&gt;
+
+&lt;h2&gt;３．pepperの開発をすれば最先端の職業であるロボットクリエーターになれるんですよ！！あなたたちが第一人者ですよ！&lt;/h2&gt;
+
+&lt;p&gt;→共通ハードウェアで開発していく形がロボットの開発速度を高めていくことは間違いなく，このサイズのロボットが流通することにはものすごい意味を感じています．でも，いちユーザーが職業にできるような盛り上がりになるかはわかりません．&lt;/p&gt;
+
+&lt;h2&gt;４．ロボット作るのが趣味な僕らはどうしたらいい？&lt;/h2&gt;
+
+&lt;p&gt;pepper登場以前：&lt;/p&gt;
+
+&lt;p&gt;あの大学でやってるあれみたいなのやりたい，アシモみたいなのやりたい，etc.→欲しい→でも高くて買えない→じゃあ自分でつくろう！&lt;/p&gt;
+
+&lt;p&gt;pepperが現れた後の世界：&lt;/p&gt;
+
+&lt;p&gt;君のロボットがやってるそれ，pepperなら簡単にできるよ！pepper買えばいいじゃん！！&lt;/p&gt;
+
+&lt;p&gt;あああああああああああああああああああああああああ！&lt;/p&gt;
+
+&lt;p&gt;僕「pepperなんか知らねぇよ！俺は俺のロボットを作るんじゃい！」&lt;/p&gt;
+
+&lt;p&gt;そしてpepperを手にした皆はコミュニティの力を集結して素晴らしいロボットを作っていくのでしためでたしめでたし．&lt;/p&gt;
+
+&lt;p&gt;僕「（真顔）」&lt;/p&gt;
+
+&lt;h2&gt;５．値段について&lt;/h2&gt;
+
+&lt;p&gt;→pepperを買うには，本体価格213840円+使用料9800円×36ヶ月=566640円支払う必要があります．さすがに使用料含めると部品代よりかは安いと言えないと思いますが，アルデバランのNAOの価格が97万であるのと比べると安いと思います．&lt;/p&gt;
+
+&lt;p&gt;みなさんどうですか！？先着順じゃないから抽選で200人に選ばれれば買えますよ！&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&#34;http://www.softbank.jp/robot/special/tech/reserve/&#34;&gt;http://www.softbank.jp/robot/special/tech/reserve/&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-17.04.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1001&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-17.04.50.jpg&#34; alt=&#34;2014-09-20 17.04.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;おわり．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>あけましておめでとうございます</title>
+      <link>http://syundo0730.github.io/post/961/</link>
+      <pubDate>Wed, 01 Jan 2014 20:46:21 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/961/</guid>
+      <description>&lt;p&gt;皆様，あけましておめでとうございます．&lt;/p&gt;
+
+&lt;p&gt;旧年中はお世話になしました．&lt;/p&gt;
+
+&lt;p&gt;本年もよろしくお願い致します．&lt;/p&gt;
+
+&lt;p&gt;今年の目標は大晦日エントリに書いた技術的にやりたいことをクリアして夏のROBO-ONEに出場することです．&lt;/p&gt;
+
+&lt;p&gt;2月のは行けない予定です&amp;hellip;．&lt;/p&gt;
+
+&lt;p&gt;目の前にある課題をじゃんじゃんクリアしていって高みを目指したいです．&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

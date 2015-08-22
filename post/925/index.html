@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    第23回ROBO-ONEに行ってきました | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/925/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>第23回ROBO-ONEに行ってきました</h1>
+      <div class="meta">
+        Sep 25, 2013 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>9月14日、第23回ROBO-ONE(予選)にヴァニラで参加してきました。</p>
+
+<p>控え室でのヴァニラ</p>
+
+<p><a href="/images/2013/09/DSC_0015.jpg"><img class="alignnone size-medium wp-image-936" alt="DSC_0015" src="/images/2013/09/DSC_0015-168x300.jpg"   /></a></p>
+
+<p><a href="http://marionette.mtlab.jp/">人形つかいさん</a>の茉莉花ちゃんと</p>
+
+<p><a href="/images/2013/09/DSC_0023.jpg"><img class="alignnone size-medium wp-image-937" alt="DSC_0023" src="/images/2013/09/DSC_0023-300x168.jpg"   /></a></p>
+
+<p><a href="http://9daihitogata.blog.fc2.com/blog-entry-21.html#more">九州大学さん</a>のサクさんと</p>
+
+<p><a href="/images/2013/09/DSC_0011.jpg"><img class="alignnone size-medium wp-image-935" alt="DSC_0011" src="/images/2013/09/DSC_0011-300x168.jpg"   /></a></p>
+
+<p>女の子ロボがいてくれると楽しい･･･</p>
+
+<p><a href="/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2.png"><img class="alignnone size-medium wp-image-938" alt="ヴァニラ予選" src="/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2-300x276.png"   /></a></p>
+
+<p>予選の結果は2.9mで59位(散財さん調べ)だったようです。</p>
+
+<p>今回は半分を超えてゴムがあるゾーンの上も歩くことができて、大変嬉しかったです。</p>
+
+<p>ただ、残り20秒の時点で転倒してしまったのは残念でした･･･。実はあの瞬間、予想外の安定ぶりにいい気になって歩幅を5mm増やすコマンドを送ってしまい、それが原因でコケました。片足支持期にバランスを崩してコケるより速く倒れたように見え、しかも後ろに倒れたので、コマンドが適用されたタイミングが悪く、両足接地時に歩幅が上昇してしまい、脚をゴムに引っ掛けてバランスを崩したのだと思います。</p>
+
+<p>倒れてしまいましたが、それなりにまっすぐ歩けたのは良かったです。これは東京行きの新幹線の中で書いた、なんちゃってスラローム歩行が効きました。なんちゃってというのは逆キネ計算に股ヨー軸の回転を考慮していないのに無理矢理脚を回しているからです。足を摺ることになるので今回のようなゴムのある地形では良くないです。</p>
+
+<p>忘れないうちにヨー軸の回転も入れ込もうと思います。</p>
+
+<p>今後の方針としては、ROBO-ONE時点では飾りだった、足裏に搭載した感圧センサを生かした歩行を研究していこうと思っています。</p>
+
+<p>感圧センサの使い途としては、バランス制御のようなことは考えておらず、歩行の周期のタイミング合わせのようなものに使おうと思っています。</p>
+
+<p>歩容を生成するいわゆるCPGの周期を足裏から得られる実際の歩行周期に漸近させていきます。</p>
+
+<p>物理シミュレーションでテストしてみた動画はこんな感じです。<iframe src="//www.youtube.com/embed/YDDVGxIdXZ8" height="315" width="560" allowfullscreen="" frameborder="0"></iframe></p>
+
+<p>元ネタは以下の論文です。</p>
+
+<p><a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=1641932&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1641932">Modulation of simple sinusoidal patterns by a coupled oscillator model for biped walking</a></p>
+
+<p><a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=4456756&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756">Modulation of Sinusoidal Patterns by a Coupled Oscillator Model</a></p>
+
+<p>ロボット学会のセミナーで紹介され、やってみようと思いました。<a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;arnumber=4456756&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756"></p>
+
+<p></a></p>
+
+<p>この方法だけでは、歩き始め、終わりの加減速が実現されないので、受動歩行規範の歩行パターンを用いたりできないかなと思っています･･･。</p>
+
+<p>実機で足踏みできることを確認して、あとの開発はしばらくシミュレーションかな。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/page/2/" rel="prev">About</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/948/" rel="next">XAMPPのエイリアス設定</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

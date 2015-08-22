@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hew on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/hew/</link>
+    <description>Recent content in Hew on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 28 Jan 2011 14:14:35 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/hew/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ルネサスHEWの使い方</title>
+      <link>http://syundo0730.github.io/post/890/</link>
+      <pubDate>Fri, 28 Jan 2011 14:14:35 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/890/</guid>
+      <description>&lt;p&gt;&lt;H3&gt;目次&lt;/H3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・HEWとは&lt;/p&gt;
+
+&lt;p&gt;・ワークスペース、プロジェクトの新規作成&lt;/p&gt;
+
+&lt;p&gt;・HEWの生成するファイル群&lt;/p&gt;
+
+&lt;p&gt;・メイン関数のありか&lt;/p&gt;
+
+&lt;p&gt;・IOレジスタを操作する！！&lt;/p&gt;
+
+&lt;p&gt;・割り込み処理はどこに？&lt;/p&gt;
+
+&lt;p&gt;・math.hが使えない！？&lt;/p&gt;
+
+&lt;p&gt;・スタック領域を変える&lt;/p&gt;
+
+&lt;p&gt;・最適化オプション&lt;/p&gt;
+
+&lt;p&gt;・ルネサスコンパイラ固有の関数など&lt;/p&gt;
+
+&lt;p&gt;・割り込みが動かない！？&lt;/p&gt;
+
+&lt;p&gt;・プロジェクトの複製&lt;/p&gt;
+
+&lt;p&gt;・プロジェクトの追加&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;HEWとは&lt;/h3&gt;
+
+&lt;p&gt;　HEW（High-performance Embedded Workshop）はルネサスが提供しているエディタ、コンパイラ、エミュレータといったツールを、使いやすくまとめてくれている統合開発環境です。&lt;/p&gt;
+
+&lt;p&gt;コンパイラ、リンカなど、各工程ごとに用意された複数のツールを、 あたかも多機能な一つのツールであるかのように 操作できます。&lt;/p&gt;
+
+&lt;p&gt;　HEWをインストールすればコンパイラもリンカも入っているので、HEWがあればルネサスエレクトロニクスのマイコンの開発はできるということになります。&lt;/p&gt;
+
+&lt;h3&gt;プロジェクトの新規作成&lt;/h3&gt;
+
+&lt;p&gt;　プロジェクトの作成についてはこのサイト↓に詳しく解説されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wave.iobb.net/doc/summary/h8wiki/wifky.cgi?p=HEW%A4%C7AKI-H8%2F3048F%A4%CE%A5%D7%A5%ED%A5%B0%A5%E9%A5%DF%A5%F3%A5%B0&#34;&gt;HEWでAKI-H8/3048Fのプログラミング&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;　色々な設定のうち、プロジェクト生成後に変更できないのはCPUの種類と、「Use Heap Memory」、「Use I/O Library」にチェックを入れるかどうかというところです。メモリ管理ライブラリや入出力関連のライブラリが要らない場合はいいです。しかしライブラリを生成しておいても後でプロジェクトから外すこともできますからチェックを入れてもいいかもしれません。&lt;/p&gt;
+
+&lt;h3&gt;HEWの生成するファイル群&lt;/h3&gt;
+
+&lt;p&gt;　HEWは初期設定が終わった段階で、ターゲットに合わせたファイルを自動的に生成します。以下のようなファイルです。&lt;/p&gt;
+
+&lt;p&gt;　初期設定の時にチェックマークを付けなければ生成されないものもあります。sbrk.c、sbrk.h、lowlvl.src、lowsrc.c、lowsrc.hは必ずしも要りません。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;u&gt;dbsct.c&lt;/u&gt;･･･_初期値がある変数、初期値がない変数のセクション初期化テーブルの設定。
+
+&lt;u&gt;○○○.c&lt;/u&gt;（○○○はプロジェクト名）･･･メイン関数がある。
+
+&lt;u&gt;intprg.c&lt;/u&gt;･･･割り込み関数がある。
+
+&lt;u&gt;resetprg.c&lt;/u&gt;･･･パワーオンリセット時の処理が記述してある。
+
+&lt;u&gt;sbrk.c&lt;/u&gt;･･･メモリ管理ライブラリの低水準インターフェースルーチンなど。「Use Heap Memory」にチェックを入れると生成される。
+
+&lt;u&gt;sbrk.h&lt;/u&gt;
+
+&lt;u&gt;lowlvl.src&lt;/u&gt;･･･入出力関連の低水準インターフェースルーチン。「Use I/O Library」にチェックを入れると生成される。
+
+&lt;u&gt;lowsrc.c&lt;/u&gt;
+
+&lt;u&gt;lowsrc.h&lt;/u&gt;
+
+&lt;u&gt;vecttble.c&lt;/u&gt;･･･ベクタテーブルがある。
+
+&lt;u&gt;vect.h&lt;/u&gt;･･･vecttble.cにある関数のプロトタイプ宣言
+
+&lt;u&gt;stacksct.h&lt;/u&gt;･･･スタックサイズが記述してある。ここは直接触らない。
+
+&lt;u&gt;typedefine.h&lt;/u&gt;･･･typedefを使って変数の型に別の名前をつけている。他のファイルでインクルードされて使われている。
+
+&lt;u&gt;iodefine.h&lt;/u&gt;･･･IO操作用の構造体などが定義されている。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;　初心者の方は特にファイルの細部については気にしなくていいと思います。そのためのHEWなんですから。&lt;/p&gt;
+
+&lt;p&gt;でも一応、詳細はここにあります↓&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://documentation.renesas.com/jpn/products/tool/rjj10j0929_hew_s.pdf&#34;&gt;http://documentation.renesas.com/jpn/products/tool/rjj10j0929_hew_s.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;メイン関数のありか&lt;/h3&gt;
+
+&lt;p&gt;　HEWでプログラミングするとき、メイン関数はどこに書けばいいのでしょう？実はメイン関数は○○○.c（○○○はプロジェクト名）に自動生成で用意されています。では中身を見てみましょう。&lt;/p&gt;
+
+&lt;p&gt;○○○.c（○○○はプロジェクト名）を見ると、以下のようになっています。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;//○○○.c
+
+//#include &#34;typedefine.h&#34;
+
+#ifdef __cplusplus
+
+//#include &lt;ios&gt;                        // Remove the comment when you use ios
+
+//_SINT ios_base::Init::init_cnt;       // Remove the comment when you use ios
+
+#endif
+
+void main(void);
+
+#ifdef __cplusplus
+
+extern &#34;C&#34; {
+
+void abort(void);
+
+}
+
+#endif
+
+void main(void)
+
+{
+
+}
+
+#ifdef __cplusplus
+
+void abort(void)
+
+{
+
+}
+
+#endif&lt;/ios&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;　C++で開発するときのためのマクロなどが設定されていますが、Cで開発するときは見にくければmain関数のプロトタイプ宣言とmain関数本体を残して他は消しても良いです。シンプルになります↓&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;//○○○.c
+
+void main(void);
+
+void main(void)
+
+{
+
+//ここにメインの処理を書いてください。
+
+}&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;　このメイン関数の中にメインの処理を書いていきます。&lt;/p&gt;
+
+&lt;p&gt;　組み込みプログラミングでは必ずしもメイン関数からプログラムが始まるとは限りません。自動生成されたメイン関数にメインの内容を書いていい根拠はどこにあるのでしょう？resetprg.cを見ればわかります。&lt;/p&gt;
+
+&lt;p&gt;resetprg.cの中を見てみます。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;//resetprg.c
+
+void PowerON_Reset_PC(void)
+
+{
+
+set_vbr((void *)((_UBYTE *)&amp;amp;INT_Vectors - INT_OFFSET));
+
+_INITSCT();
+
+//  _CALL_INIT();                   // Remove the comment when you use global class object
+
+//  _INIT_IOLIB();                  // Enable I/O in the application(both SIM I/O and hardware I/O)
+
+//  errno=0;                        // Remove the comment when you use errno
+
+//  srand((_UINT)1);                    // Remove the comment when you use rand()
+
+//  _s1ptr=NULL;                    // Remove the comment when you use strtok()
+
+//  HardwareSetup();                // Use Hardware Setup
+
+set_cr(SR_Init);
+
+&lt;span style=&#34;color: red;&#34;&gt;main();&lt;/span&gt;
+
+//  _CLOSEALL();                    // Close I/O in the application(both SIM I/O andhardware I/O)
+
+//  _CALL_END();                    // Remove the comment when you use global class object
+
+sleep();
+
+}&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;　void PowerON_Reset_PC(void)という関数がありますが、これは電源が入った時に実行される関数です。このPowerON_Reset_PC()関数の中でmain()が呼び出されているので、電源が入ったときにmain()が実行されるわけです。　これがmain関数にメインの処理を書けばいいことの根拠です。&lt;/p&gt;
+
+&lt;p&gt;　mainという名前が嫌な人はここの名前を書き換えればいいのです。&lt;/p&gt;
+
+&lt;h3&gt;IOレジスタを操作する！！&lt;/h3&gt;
+
+&lt;p&gt;　iodefine.hというヘッダファイルには、ターゲットに応じたIOレジスタ操作のための構造体（及び共用体、ビットフィールド）が宣言されています。ずらーっと構造体が並んでいて、一番下のところで、構造体の先頭アドレスが決められてています。&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;struct st_sci {&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /* struct SCI&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; union {&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /* SCSMR&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char BYTE;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160; Byte Access */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; struct {&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160; Bit&amp;#160; Access */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char CA&amp;#160; :1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; C/A&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char CHR :1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; CHR&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char _PE :1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; PE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char OE&amp;#160; :1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; O/E&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char STOP:1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; STOP&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char MP&amp;#160; :1;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; MP&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unsigned char CKS :2;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160; CKS&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; }&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; BIT;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; }&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SCSMR;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /*&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; */
+
+//～～～～～省略～～～～～～～～～～～～～～～～～～～～～～～～
+
+#define SCI0   (*(volatile struct st_sci   *)0xFFFFC000)/* SCI0  Address*/
+
+#define SCI1   (*(volatile struct st_sci   *)0xFFFFC080)/* SCI1  Address*/
+
+#define SCI2   (*(volatile struct st_sci   *)0xFFFFC100)/* SCI2  Address*/
+
+#define MTU2   (*(volatile struct st_mtu2  *)0xFFFFC20A)/* MTU2  Address*/
+
+//～～～～～省略～～～～～～～～～～～～～～～～～～～～～～～～&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;blockquote&gt;&lt;p&gt;#define SCI0   (*(volatile struct st_sci   *)0xFFFFC000)&lt;/p&gt;&lt;/blockquote&gt;という記述ですが，これは構造体の先頭アドレスを分かりやすい単語として定義しているところです。
+
+　まず、
+
+(volatile struct st_sci   *)0xFFFFC000
+
+で0xFFFFC000が構造体を指すポインタ型に変換されています。
+
+　それを間接参照演算子で括って
+
+(*(volatile struct st_sci   *)0xFFFFC000)
+
+となっているわけです。これを#defineでそれぞれ適当な名前に置き換えています。
+
+　SCI0のCAビットの値を操作したければ
+
+&lt;blockquote&gt;&lt;p&gt;SCI0.SCSMR.BIT.CA=1;&lt;/p&gt;&lt;/blockquote&gt;という風にすればいいです。
+
+　ビットサイズを操作したいときに、&amp;amp;や|演算子を使ってアクセスする流儀もありますが、ルネサスのコンパイラにおいては全く違いはありません。可読性を優先してビットフィールドを使ったほうがいいかもしれません。
+
+&lt;h3&gt;割り込み処理はどこに？&lt;/h3&gt;
+
+　intprg.cに割り込み時の処理を書き込みます。
+
+　例えば、CMTの割り込みを使いたければ以下の部分を使います。
+
+&lt;blockquote&gt;&lt;p&gt;void INT_CMT0_CMI0(void){
+
+///* sleep(); */を消去してここに処理を書く
+
+}&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;　ちなみに、ルネサスの中の人の本&lt;a href=&#34;http://px.a8.net/svt/ejp?a8mat=1TK69F+GAG0EY+249K+BWGDT&amp;a8ejpredirect=http%3A%2F%2Fwww.amazon.co.jp%2FSuperH%25E3%2583%2595%25E3%2582%25A1%25E3%2583%259F%25E3%2583%25AA%25E3%2581%25AEC%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0-%25E9%25B9%25BF%25E5%258F%2596-%25E7%25A5%2590%25E4%25BA%258C%2Fdp%2F4274205940%253FSubscriptionId%253DAKIAJG4HK2PMU5Z4Q6YQ%2526tag%253Da8-affi-23712-22%2526linkCode%253Dxm2%2526camp%253D2025%2526creative%253D165953%2526creativeASIN%253D4274205940&#34;&gt;SuperHファミリのCプログラミング（香取祐二　著）&lt;/a&gt;によると&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;今から紹介する割り込み関数内での関数呼び出しはシステムに多大な影響を与えます。（中略）割り込み関数内で他の関数を呼び出した場合、無駄なCPU内部レジスタの待避・復旧が行われることになります。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;とあり、割り込み関数内で他の関数を呼び出さないほうがいいことが言われています。&lt;/p&gt;
+
+&lt;p&gt;　必要なら、マクロを利用したりルネサスコンパイラのインライン展開を利用することが推奨されてます。&lt;/p&gt;
+
+&lt;p&gt;　ここらへんはコンパイラがうまいことやってはくれないところというわけです。&lt;/p&gt;
+
+&lt;h3&gt;math.hが使えない！？&lt;/h3&gt;
+
+&lt;p&gt;　プロジェクトの生成時にチェックを入れておかないと数学関数やその他関数が使えないことがあります。後からヘッダファイルを追加するには、&lt;/p&gt;
+
+&lt;p&gt;メニューの&lt;u&gt;ビルド&lt;/u&gt;→&lt;u&gt;SuperH RISC engine toolchein&lt;/u&gt;→&lt;u&gt;標準ライブラリ&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;からカテゴリ：&lt;u&gt;標準ライブラリ&lt;/u&gt;を選びます。&lt;/p&gt;
+
+&lt;p&gt;　そして、math.hのとこにチェックを入れてOK押せばいいです。その他ライブラリについても同様です。&lt;/p&gt;
+
+&lt;h3&gt;スタック領域を変える&lt;/h3&gt;
+
+&lt;p&gt;　これもプロジェクト生成時に決めてありますが、当然、後から変更できます。&lt;/p&gt;
+
+&lt;p&gt;メニューの&lt;u&gt;プロジェックト&lt;/u&gt;→&lt;u&gt;構成の編集&lt;/u&gt;→&lt;u&gt;スタック&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;のところで変えます。&lt;/p&gt;
+
+&lt;h3&gt;最適化オプション&lt;/h3&gt;
+
+&lt;h3&gt;ルネサスコンパイラ固有の関数など&lt;/h3&gt;
+
+&lt;p&gt;　ルネサスコンパイラではC言語だけでは記述できない部分について組み込み関数を用意しています。普通はアセンブラで書くとこですね。よく目にするものを一部紹介します。&lt;/p&gt;
+
+&lt;p&gt;SRを操作する関数&lt;/p&gt;
+
+&lt;table cellspacing=&#34;1&#34; cellpadding=&#34;1&#34; border=&#34;1&#34; style=&#34;width: 250px; height: 138px;&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;void set_imask(int)&lt;/td&gt;&lt;td&gt;割り込みマスクの設定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;int get_imask(void)&lt;/td&gt;&lt;td&gt;割り込みマスクの参照&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;void set_cr(int)&lt;/td&gt;&lt;td&gt;SRの設定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;int get_cr(void)&lt;/td&gt;&lt;td&gt;SRの参照&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;void set_vbr(void*)&lt;/td&gt;&lt;td&gt;VBRの設定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;void *get_vbr(void)&lt;/td&gt;&lt;td&gt;VBRの参照&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;void sleep(void)&lt;/td&gt;&lt;td&gt;SLEEP命令&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;#pragmaを使った拡張機能もあります。&lt;/p&gt;
+
+&lt;table cellspacing=&#34;1&#34; cellpadding=&#34;1&#34; border=&#34;1&#34; style=&#34;width: 550px; height: 79px;&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;#pragma interrupt(関数名[割り込み仕様])&lt;/td&gt;&lt;td&gt;割り込み処理関数を指定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#pragma section 名前or数値&lt;/td&gt;&lt;td&gt;セクション名の変更、名前の指定無しでデフォルトに戻る&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#pragma inline(関数名)&lt;/td&gt;&lt;td&gt;関数をインライン展開&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;#pragma stacksize 定数&lt;/td&gt;&lt;td&gt;セクションSを指定した領域で確保&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h3&gt;割り込みが動かない！？&lt;/h3&gt;
+
+&lt;p&gt;　割り込みマスクレベルが最高になったままだからでは無いでしょうか？&lt;/p&gt;
+
+&lt;p&gt;　ともかく割り込みマスクレベルを0にしてやればどんな割り込み優先度の割り込みも実行されます。&lt;/p&gt;
+
+&lt;p&gt;　割り込み優先度をゼロにするには&lt;/p&gt;
+
+&lt;p&gt;resetprg.cの20行目あたりにある、&lt;/p&gt;
+
+&lt;p&gt;#define SR_Init    0x000000Fを&lt;/p&gt;
+
+&lt;p&gt;#define SR_Init　　0&lt;/p&gt;
+
+&lt;p&gt;に変えてやればいいです。&lt;/p&gt;
+
+&lt;p&gt;　ファイルに手を加えたくない場合はset_imask()関数を使えばいいです。&lt;/p&gt;
+
+&lt;p&gt;set_imask(0);&lt;/p&gt;
+
+&lt;p&gt;をmain関数の初期化部分に書いておきます。&lt;/p&gt;
+
+&lt;h3&gt;プロジェクトの複製&lt;/h3&gt;
+
+&lt;p&gt;　現状正常に動いているプロジェクトに手を加えたくなく、プロジェクトを複製したい場面があると思います。&lt;/p&gt;
+
+&lt;p&gt;プロジェクトを複製する方法として最初に思いつくのはWorkSpaceフォルダの中身のプロジェクトのフォルダをコピーして名前変更して複製することではないでしょうか。しかしこの方法ではHEWには新しいプロジェクトとして認識してもらえません。プロジェクトとファイルの依存関係が.hwpファイルに記述されており、その内容を変えないままコピーしてもダメなのです。ただ、この.hwpファイルをテキストエディタなどで編集するのはちょっと面倒です。変更し忘れる箇所もあるかも知れません。ですから、HEWの機能を使ってプロジェクトを複製するに越したことはないのです。&lt;/p&gt;
+
+&lt;p&gt;　しかしながら、HEWにはずばり複製というコマンドがありません。ちょっと手順を踏む必要があります(大したことは無いんですけど)&lt;/p&gt;
+
+&lt;p&gt;　まず、複製元のプロジェクトを開いた状態で&lt;u&gt;プロジェクト&lt;/u&gt;→&lt;u&gt;プロジェクトタイプの作成&lt;/u&gt;を選択します。&lt;/p&gt;
+
+&lt;p&gt;「新規プロジェクトタイプで使用する名前を入力してください」&lt;/p&gt;
+
+&lt;p&gt;とあるので、好きな名前を入力して&lt;u&gt;完了&lt;/u&gt;をクリックします。&lt;/p&gt;
+
+&lt;p&gt;これで下準備はOKです&lt;/p&gt;
+
+&lt;p&gt;　あとは普通にプロジェクトを生成するときと同じようにプロジェクトを生成しますが、ここで&lt;u&gt;プロジェクトタイプ&lt;/u&gt;の項目に先ほど作成したプロジェクトタイプが追加されています。それを選択しプロジェクトを生成すると、複製ができあがります。&lt;/p&gt;
+
+&lt;p&gt;　不満なのは、ただコピーするためだけに新しいプロジェクトタイプなるものが追加登録されてしまうことです。&lt;/p&gt;
+
+&lt;h3&gt;プロジェクトの追加&lt;/h3&gt;
+
+&lt;p&gt;　1つのワークスペースには複数個のプロジェクトを含めることが出来ます。新しくプロジェクトを作りたいときにワークスペースも新しく作ってしまうのではなく、関連するワークスペース上に追加して作ったほうが後々プロジェクトどうしを連携させることなどできて便利です。何よりちょっと整理されて気持ちがいいです。&lt;/p&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;p&gt;プロジェクトを追加するには&lt;u&gt;プロジェクト&lt;/u&gt;→&lt;u&gt;プロジェクトの挿入&lt;/u&gt;を選んで、あとは普通にプロジェクトを作成すればOKです。&lt;/p&gt;
+
+&lt;p&gt;左に表示されているプロジェクトウィンドウのツリーにプロジェクトが追加されていると思います。&lt;/p&gt;
+
+&lt;p&gt;複数のプロジェクトのうち、どのプロジェクトで作業するかは&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;プロジェクト&lt;/u&gt;→&lt;u&gt;アクティブプロジェクトに設定&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;から選択するか、左のプロジェクトウィンドウで右クリックして&lt;u&gt;アクティブプロジェクトに設定&lt;/u&gt;で決められます。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

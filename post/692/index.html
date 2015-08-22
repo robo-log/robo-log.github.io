@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    うまくいきました・・・・・・が | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/692/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>うまくいきました・・・・・・が</h1>
+      <div class="meta">
+        Nov 21, 2007 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>えまのんさん。コメントしてくださり、ありがとうございます。<br />感謝感謝でいっぱいです！！涙<br />やっぱり受信バッファクリアするとこがおかしかったみたいです。<br />2バイト受信毎にクリアしないと前のキー入力が残るという現象があったので、そうしていたんですが（受信データ確認するifを入れるまではこれでうまくいってた）、消してみても、問題なくいきました。受信のタイミングがずれたとき、1バイト読み取るようにもしてみました。<br />さて、晴れて思い通りの信号を送ることに成功したわけですが、どうもRCB-1の反応が良くない・・・・・・RCB-1よ。お前は一体何なんだ！！あと何が足りない！！ツンデレ？<br />こんなときオシロスコープなんかがあったらいいのかなあと思ったのであった・・・・・・。<br />メイン関数だけ載っけてみます。</p>
+
+<p>void main(void)// メイン関数<br />{<br />&nbsp; rs_init (br2400, txb, sizeof(txb), rxb, sizeof(rxb));<br />&nbsp; fdevopen(rs_putchar, rs_getchar, 0);<br />&nbsp; SREG |= (1&lt;&lt;SREG_I); <br />&nbsp; unsigned char a,b;//受信データ用<br />&nbsp; rs_rx_purge ();//一応受信バッファクリア<br />&nbsp; <br />&nbsp; while(1){<br />&nbsp; &nbsp; if (rs_rx_buff ()) {//受信バイト数が０でなければ真<br />&nbsp; &nbsp;&nbsp; &nbsp;a=rs_getc();//前１バイト受信<br />&nbsp; &nbsp;&nbsp; &nbsp;b=rs_getc();//後１バイト受信<br />&nbsp; &nbsp;&nbsp; &nbsp;<br />&nbsp; &nbsp;&nbsp; &nbsp;switch(a){//前一バイトチェック<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf1 :<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; switch(b){//後一バイトチェック<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;case 0x01 :send_command(0xf1,0x01);//２バイト送信<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;break;<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;case 0x02 :send_command(0xf1,0x02);<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}break;<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf2 :<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf4 :<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf8 :<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf0 :break;<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; default :rs_getc();<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; }<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }<br />&nbsp; &nbsp; <br />&nbsp; &nbsp; else{//受信データ無し<br />&nbsp; &nbsp;&nbsp; &nbsp;send_command(0xf0,0x00);//RCB-1にデータ無しを伝える<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }<br />}<br />}</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/691/" rel="prev">うんざり</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/693/" rel="next">帯鋸</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

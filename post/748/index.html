@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    絶望した | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/748/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>絶望した</h1>
+      <div class="meta">
+        Apr 4, 2010 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>久しぶりの更新。弟よ。見ているかｗｗｗ<br />進捗具合を報告。</p>
+
+<p>PCからサーボの角度を調整したり、サーボを等角速度または加減速して動かす仕組みは出来ました。出来ています。<br />といっても吉野さんの60日で（ryのサンプルプログラムをほぼ流用させていただいたんですが。（あ、加減速で思い出しましたがこのサンプルに動作には影響しない間違いを発見しましたです。servo_data.directionのとこ。もう訂正されているのか？）</p>
+
+<p>それはともかく、モーションを作れば歩ける可能性が高くなってきたわけです。<br />となると計算歩行について始めなきゃということになります（理由は不明ｗｗ</p>
+
+<p>計算歩行と言っても、今までは単に3次元線形倒立振子規範の動作をさせることを考えていました。解析解が分かってるのでプログラムに組み込むだけで楽チンだからです。すぐ出来ます。<br />この方向性が合っているのか検討したくてしまけんさんのラムダロボ研（別に面識は無いです汗）の過去ログを読ませていただきました。</p>
+
+<p>しまけんさんは画像処理とか受け身とか色々取り組んでいらっしゃいますが、歩行に関して変遷を追えば<br />線形3次元倒立振子規範→y軸(左右方向)だけ普通の倒立振子→股関節ロール軸は固定で足首を回す→二重倒立振子→更に剛体振り子？相当単振子？で考える→ZMP規範の歩行→関節負荷？動力学フィルタとかその関連？なのか？の考慮<br />という感じではないかと思います。</p>
+
+<p>これを受けて、将来的に難しいことをやろうとは思うけどひとまず線形倒立振子かなというふうに考えていたんですが、まともに歩けないようならそれに拘るのは危険かなというように考えるようになりました。<br />つまり、うまくいかなかった場合、しまけんさんのようにモデルを変えていったりZMP規範にしたりするのはあまりにもツライだろうと。今まではそれに立ち向かうだけの心づもりはあったんですが、いつまでもマイロボットが完成しない状況が恐ろしいのです。<br />そういうことに取り組むのは自分の能力が十分上がってからとかもっと良い開発環境が出てからにするべきでしょう。<br /><br />ですからひとまず線形倒立振子規範のを試してからある程度パラメーター変えても駄目なら諦めて、モーション決めうち歩行にすることもやむ無しかもですね。<br /><br />計算で出したy軸方向の重心位置↓</p>
+
+<p><img border="0" src="/images/robolog/photos/uncategorized/2010/04/04/photo.jpg" title="Photo" alt="Photo" /> </p>
+
+<p>これにポテンシャルの山を越えてるかどうかとかの問題が含まれてるかが不明。<br />全然想像と違う動きなんですもん。<br />もう一度ヒューマノイドロボット読まねば。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/746/" rel="prev">ロボットのためのC言語</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/749/" rel="next">軌道戦士バンナム</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

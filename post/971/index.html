@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/971/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</h1>
+      <div class="meta">
+        Oct 16, 2014 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)</p>
+
+<p>まずGetting Started(<a href="http://beagleboard.org/Getting%20Started">http://beagleboard.org/Getting%20Started</a>)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．</p>
+
+<p>リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．</p>
+
+<p><a href="http://beagleboard.org/latest-images">http://beagleboard.org/latest-images</a></p>
+
+<p>にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)</p>
+
+<p>をmicroSDカードに書き込む．</p>
+
+<p>Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．</p>
+
+<p>以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．</p>
+
+<p>作業環境：VMware Player，64bit Ubuntu 14.04</p>
+
+<p>下準備が終わったら，次にUbuntuのboot用SDカードを作成する．</p>
+
+<p>以下のサイトを参考にして作業を進める．</p>
+
+<p><a href="http://elinux.org/BeagleBoardUbuntu">http://elinux.org/BeagleBoardUbuntu</a></p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>wget <a href="https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz">https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz</a></p>
+
+<p>md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz</p>
+
+<p>tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz</p>
+
+<p>cd ubuntu-14.04-console-armhf-2014-05-06</p>
+
+<p>sudo ./setup_sdcard.sh &ndash;probe-mmc</p>
+
+<p>[/bash]</p>
+
+<p>以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo ./setup_sdcard.sh &ndash;mmc /dev/sdX &ndash;uboot bone</p>
+
+<p>[/bash]</p>
+
+<p>SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．</p>
+
+<p>とりあえずBBBにSSHでログインする．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>ssh ubuntu@192.168.7.2</p>
+
+<p>[/bash]</p>
+
+<p>BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．</p>
+
+<p>さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）</p>
+
+<p>今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．</p>
+
+<p>以下のサイトを参考にして作業を進める．</p>
+
+<p><a href="http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring">http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring</a></p>
+
+<p>BBBにLXDE関係のものをインストールして再起動する．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo apt-get -y install lxde lxde-core lxde-icon-theme</p>
+
+<p>sudo reboot</p>
+
+<p>[/bash]</p>
+
+<p>さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．</p>
+
+<p>結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．</p>
+
+<p>BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo apt-get install vnc4server</p>
+
+<p>vncserver</p>
+
+<p>vncserver -kill :1</p>
+
+<p>[/bash]</p>
+
+<p>~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．</p>
+
+<p>[bash]</p>
+
+<h1 id="bin-sh:732fd3103795c9dc70583b77fae9af7e">!/bin/sh</h1>
+
+<h1 id="uncomment-the-following-two-lines-for-normal-desktop:732fd3103795c9dc70583b77fae9af7e">Uncomment the following two lines for normal desktop:</h1>
+
+<h1 id="unset-session-manager:732fd3103795c9dc70583b77fae9af7e">unset SESSION_MANAGER</h1>
+
+<h1 id="exec-etc-x11-xinit-xinitrc:732fd3103795c9dc70583b77fae9af7e">exec /etc/X11/xinit/xinitrc</h1>
+
+<p>/usr/bin/lxsession &amp;</p>
+
+<p>[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup</p>
+
+<p>[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources</p>
+
+<p>xsetroot -solid grey</p>
+
+<p>vncconfig -iconic &amp;</p>
+
+<p>x-terminal-emulator -geometry 80x24+10+10 -ls -title &quot;$VNCDESKTOP Desktop&quot; &amp;</p>
+
+<p>x-window-manager &amp;</p>
+
+<p>[/bash]</p>
+
+<p>設定が終わればvncserverを立ち上げる</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>vncserver :1 -geometry 1024x768</p>
+
+<p>[/bash]</p>
+
+<p>そして母艦のほうでBBBにリモートデスクトップ接続する．</p>
+
+<p>リモートデスクトップクライアントにはRemminaを使った．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>sudo apt-get install remmina</p>
+
+<p>remmina</p>
+
+<p>[/bash]</p>
+
+<p>新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．</p>
+
+<p><a href="/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png"><img class="alignnone size-full wp-image-1027" src="/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png" alt="スクリーンショット 2014-10-16 21.20.09"   /></a></p>
+
+<p>そうするとこんな感じでBBBの中のデスクトップを見ることができた．</p>
+
+<p><a href="/images/2014/10/ebc1490b3de746708328967224fac359.png"><img class="alignnone size-full wp-image-1028" src="/images/2014/10/ebc1490b3de746708328967224fac359.png" alt="スクリーンショット 2014-10-16 21.30.31"   /></a></p>
+
+<p>おわり．</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/984/" rel="prev">Pepper Tech Festival 2014に行ってきた</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/1033/" rel="next">Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+

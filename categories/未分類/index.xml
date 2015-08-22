@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未分類 on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</link>
+    <description>Recent content in 未分類 on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 07 May 2015 00:30:10 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ドコモを解約してIIJのみおふぉんにMNP転入した</title>
+      <link>http://syundo0730.github.io/post/1131/</link>
+      <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1131/</guid>
+      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。&lt;/p&gt;
+
+&lt;p&gt;ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
+
+&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。&lt;/p&gt;
+
+&lt;p&gt;月3G音声通話つきで1600円のものを選んだ。&lt;/p&gt;
+
+&lt;p&gt;容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
+
+&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。&lt;/p&gt;
+
+&lt;p&gt;今回は5月4日 am9:54にドコモsimが停止&lt;/p&gt;
+
+&lt;p&gt;翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。&lt;/p&gt;
+
+&lt;p&gt;都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
+
+&lt;p&gt;通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。&lt;/p&gt;
+
+&lt;p&gt;音声通話は&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/dial.jsp&#34;&gt;みおふぉんダイアル&lt;/a&gt;を使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。&lt;/p&gt;
+
+&lt;p&gt;こうしてドコモは通信を流すだけの土管になるのだ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>最近どうしているかということとROBO－ONEはどうだったかという話</title>
+      <link>http://syundo0730.github.io/post/1068/</link>
+      <pubDate>Mon, 13 Apr 2015 02:12:29 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1068/</guid>
+      <description>&lt;p&gt;お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．&lt;/p&gt;
+
+&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．&lt;/p&gt;
+
+&lt;p&gt;大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．&lt;/p&gt;
+
+&lt;h2&gt;ROBO-ONEまでにうちのヴァニラがどう変わったか&lt;/h2&gt;
+
+&lt;p&gt;こちらが改造に使った部品たちです．一部組み上がってますが…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1101&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34; alt=&#34;2014-11-08 21.12.58&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1102&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34; alt=&#34;2014-11-08 21.14.27&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1106&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34; alt=&#34;2014-11-08 21.14.06&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;バリ取りとか塗装が間に合わなくてボツにしたんですが，腕カバーとか腰カバーを3Dプリントで作ったりしてました．ABSがテーブルから剥がれて反ることといったらもう泣けました．&lt;/p&gt;
+
+&lt;p&gt;これは腕カバー反らなければそれなりに使えそうなものができます．外装なので中身はスカスカ，充填率は10%です．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1104&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34; alt=&#34;2015-02-19 04.07.08&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こちらは腰カバー．設計ミスがあってうまく嵌りませんでした…．焦ってやる仕事は良くないです…フィラメントがかなり無駄に…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1105&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34; alt=&#34;2015-02-22 20.43.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1107&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34; alt=&#34;2015-02-28 12.34.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．&lt;/p&gt;
+
+&lt;p&gt;予選の結果&lt;/p&gt;
+
+&lt;p&gt;40cm&lt;/p&gt;
+
+&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/dyA7645_rA4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;敗因&lt;/p&gt;
+
+&lt;ul&gt;
+
+    &lt;li&gt;コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた．&lt;/li&gt;
+
+    &lt;li&gt;シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった．&lt;/li&gt;
+
+    &lt;li&gt;上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった．&lt;/li&gt;
+
+    &lt;li&gt;数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった．&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>機械学習プロフェッショナルシリーズ第1弾から2冊買った</title>
+      <link>http://syundo0730.github.io/post/1090/</link>
+      <pubDate>Sun, 12 Apr 2015 23:42:54 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1090/</guid>
+      <description>&lt;p&gt;今月から，機械学習プロフェッショナルシリーズというものの発刊が始まる．今月は全29巻のうち，4冊が発売された．私はそのうち，&lt;a href=&#34;http://www.amazon.co.jp/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A1%E8%B0%B7-%E8%B2%B4%E4%B9%8B/dp/4061529021&#34;&gt;岡谷 貴之「深層学習」&lt;/a&gt;と，&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%88%E3%83%94%E3%83%83%E3%82%AF%E3%83%A2%E3%83%87%E3%83%AB-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A9%E7%94%B0-%E5%85%B7%E6%B2%BB/dp/4061529048/&#34;&gt;岩田 具治「トピックモデル」&lt;/a&gt;を購入した．&lt;/p&gt;
+
+&lt;p&gt;まだ深層学習のほうしか読めていないが，Deep Learningの日本語で読める資料は人工知能学会の特集しかなかったりしてなかなか勉強しづらかったこともあって，色々な情報が纏まっている本書はとても意義があると思う．&lt;/p&gt;
+
+&lt;p&gt;DeepNNを使って何かやってみたい．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2013年の振り返り</title>
+      <link>http://syundo0730.github.io/post/955/</link>
+      <pubDate>Tue, 31 Dec 2013 21:46:52 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/955/</guid>
+      <description>&lt;p&gt;今年ももう終わるので振り返ってみたいと思います．&lt;/p&gt;
+
+&lt;p&gt;・2月&lt;/p&gt;
+
+&lt;p&gt;-卒論発表を終える．&lt;/p&gt;
+
+&lt;p&gt;-第22回ROBO-ONE予選に出場するも5歩目でコケる→ウィッグ転落．&lt;/p&gt;
+
+&lt;p&gt;・3月&lt;/p&gt;
+
+&lt;p&gt;-ドイツ旅行に行く．無事大学を卒業．&lt;/p&gt;
+
+&lt;p&gt;～8月&lt;/p&gt;
+
+&lt;p&gt;-大学院の授業をやたら沢山受講する．研究にも猛烈に追われ，休みのない日々を過ごす．&lt;/p&gt;
+
+&lt;p&gt;合意形成フォーメーション制御の課題　&lt;a href=&#34;https://github.com/syundo0730/VoidsModel&#34;&gt;https://github.com/syundo0730/VoidsModel&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;CPGに関する課題　&lt;a href=&#34;https://github.com/syundo0730/CPG&#34;&gt;https://github.com/syundo0730/CPG&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;・9月&lt;/p&gt;
+
+&lt;p&gt;-第23回ROBO-ONE予選に出場，前回よりも安定した歩行を見せるもコケる．&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;あれ&amp;hellip;Twitter見ながら必死に探したけど，今年はロボ活動が少なかったかもしれません？&lt;/p&gt;
+
+&lt;p&gt;とても充実していた気がするんだけどモノとして残っているものが無いからかなー．&lt;/p&gt;
+
+&lt;p&gt;でも，初めてROBO-ONEに出場したのは大きな進歩かと思います．&lt;/p&gt;
+
+&lt;p&gt;来年は，今年やりかけていて完成できなかったものを公開ができればいいなぁと思っています．&lt;/p&gt;
+
+&lt;p&gt;-足裏センサのための基板&lt;/p&gt;
+
+&lt;p&gt;-ブラウザで動くモーションエディタ&lt;/p&gt;
+
+&lt;p&gt;-MPU-6050のDMPを使ったプログラム&lt;/p&gt;
+
+&lt;p&gt;それ以外にやりたいことは&lt;/p&gt;
+
+&lt;p&gt;-コントロールボードの高性能化(大きさの面でAriaG25が気になっているから入手して使ってみたい．画像処理をやらせたい．)&lt;/p&gt;
+
+&lt;p&gt;-数歩分の歩容のリアルタイム最適化ができないかな？データベースから引っ張ってくるタイプも検討している&lt;/p&gt;
+
+&lt;p&gt;などです．&lt;/p&gt;
+
+&lt;p&gt;どうせ達成できないけどね．来年末に見返して絶望するといいよ＞自分．&lt;/p&gt;
+
+&lt;p&gt;今年は2回もROBO-ONEに参加し，そのたびにたくさんのひとにお世話になりました．ありがとうございました．&lt;/p&gt;
+
+&lt;p&gt;Twitterでも絡んでいただいてありがとうございます．Facebookのほうも大量友達申請しましたのでよろしくお願いします．&lt;/p&gt;
+
+&lt;p&gt;ではみなさま，良いお年を．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>第23回ROBO-ONEに行ってきました</title>
+      <link>http://syundo0730.github.io/post/925/</link>
+      <pubDate>Wed, 25 Sep 2013 00:25:41 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/925/</guid>
+      <description>&lt;p&gt;9月14日、第23回ROBO-ONE(予選)にヴァニラで参加してきました。&lt;/p&gt;
+
+&lt;p&gt;控え室でのヴァニラ&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2013/09/DSC_0015.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-936&#34; alt=&#34;DSC_0015&#34; src=&#34;http://syundo0730.github.io/images/2013/09/DSC_0015-168x300.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://marionette.mtlab.jp/&#34;&gt;人形つかいさん&lt;/a&gt;の茉莉花ちゃんと&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2013/09/DSC_0023.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-937&#34; alt=&#34;DSC_0023&#34; src=&#34;http://syundo0730.github.io/images/2013/09/DSC_0023-300x168.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://9daihitogata.blog.fc2.com/blog-entry-21.html#more&#34;&gt;九州大学さん&lt;/a&gt;のサクさんと&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2013/09/DSC_0011.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-935&#34; alt=&#34;DSC_0011&#34; src=&#34;http://syundo0730.github.io/images/2013/09/DSC_0011-300x168.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;女の子ロボがいてくれると楽しい･･･&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2.png&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-938&#34; alt=&#34;ヴァニラ予選&#34; src=&#34;http://syundo0730.github.io/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2-300x276.png&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;予選の結果は2.9mで59位(散財さん調べ)だったようです。&lt;/p&gt;
+
+&lt;p&gt;今回は半分を超えてゴムがあるゾーンの上も歩くことができて、大変嬉しかったです。&lt;/p&gt;
+
+&lt;p&gt;ただ、残り20秒の時点で転倒してしまったのは残念でした･･･。実はあの瞬間、予想外の安定ぶりにいい気になって歩幅を5mm増やすコマンドを送ってしまい、それが原因でコケました。片足支持期にバランスを崩してコケるより速く倒れたように見え、しかも後ろに倒れたので、コマンドが適用されたタイミングが悪く、両足接地時に歩幅が上昇してしまい、脚をゴムに引っ掛けてバランスを崩したのだと思います。&lt;/p&gt;
+
+&lt;p&gt;倒れてしまいましたが、それなりにまっすぐ歩けたのは良かったです。これは東京行きの新幹線の中で書いた、なんちゃってスラローム歩行が効きました。なんちゃってというのは逆キネ計算に股ヨー軸の回転を考慮していないのに無理矢理脚を回しているからです。足を摺ることになるので今回のようなゴムのある地形では良くないです。&lt;/p&gt;
+
+&lt;p&gt;忘れないうちにヨー軸の回転も入れ込もうと思います。&lt;/p&gt;
+
+&lt;p&gt;今後の方針としては、ROBO-ONE時点では飾りだった、足裏に搭載した感圧センサを生かした歩行を研究していこうと思っています。&lt;/p&gt;
+
+&lt;p&gt;感圧センサの使い途としては、バランス制御のようなことは考えておらず、歩行の周期のタイミング合わせのようなものに使おうと思っています。&lt;/p&gt;
+
+&lt;p&gt;歩容を生成するいわゆるCPGの周期を足裏から得られる実際の歩行周期に漸近させていきます。&lt;/p&gt;
+
+&lt;p&gt;物理シミュレーションでテストしてみた動画はこんな感じです。&lt;iframe src=&#34;//www.youtube.com/embed/YDDVGxIdXZ8&#34; height=&#34;315&#34; width=&#34;560&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;元ネタは以下の論文です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=1641932&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1641932&#34;&gt;Modulation of simple sinusoidal patterns by a coupled oscillator model for biped walking&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4456756&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756&#34;&gt;Modulation of Sinusoidal Patterns by a Coupled Oscillator Model&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ロボット学会のセミナーで紹介され、やってみようと思いました。&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4456756&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;この方法だけでは、歩き始め、終わりの加減速が実現されないので、受動歩行規範の歩行パターンを用いたりできないかなと思っています･･･。&lt;/p&gt;
+
+&lt;p&gt;実機で足踏みできることを確認して、あとの開発はしばらくシミュレーションかな。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>第22回ROBO-ONE</title>
+      <link>http://syundo0730.github.io/post/784/</link>
+      <pubDate>Tue, 26 Feb 2013 02:09:40 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/784/</guid>
+      <description>&lt;p&gt;参加してきました．&lt;br /&gt;当日までの流れはこんな感じです．&lt;/p&gt;
+
+&lt;p&gt;1月：&lt;br /&gt;・卒研終わったらROBO-ONE観に行きたいなと思う．そして折角東京まで行くのならROBO-ONE出ておこうかなぁと思い始める(予選で歩くだけならなんとかなるかもという打算)．&lt;/p&gt;
+
+&lt;p&gt;2月15日：&lt;br /&gt;・卒論のぎりぎりさにビビりながら申し込み締め切りまでにエントリー．&lt;/p&gt;
+
+&lt;p&gt;18日：&lt;br /&gt;・卒論発表(提出)&lt;/p&gt;
+
+&lt;p&gt;～21日：&lt;br /&gt;・コントロールボード(mbed+宮田さんのLittle Burnig Core)基板の作成．&lt;br /&gt;・無線にはBluetooth USBドングルとSBDBTを用いたが，なかなかうまくいかず(コネクタの初期不良と判明し，部品を取り替えた)，悩む．&lt;/p&gt;
+
+&lt;p&gt;～23日早朝：&lt;br /&gt;・PWMサーボの配線．&lt;br /&gt;・上半身のシリアルサーボは動作させることを諦める．&lt;br /&gt;・モーションエディタも作りつつあったが，完成していない状況だったので，ターミナルで1軸ごと指定していこうとしたが，プログラムの不具合でうまくいかない．Scilabで逆キネ計算して歩行用のモーションファイルを生成→mbedのストレージに入れ読み込ませ再生という流れでなんとか足を上げて前に出し下ろす動きを実現．&lt;br /&gt;・ジャイロ，加速度センサを積んではいたが，プログラムに対応させることができておらず，「これはすぐ転ぶ」と確信する．起き上がりはできない．&lt;/p&gt;
+
+&lt;p&gt;23日昼：&lt;br /&gt;・新幹線で東京に向かう．&lt;br /&gt;・未来科学館に着くも，状況がよくわからず，机の無い控え室？の隅っこのほうでアウェー感に苛まれながらモーションを作ろうとする．が，ノーパソに入っていたScilabのバージョンが違ったせいで使えない関数があるとエラーが出てくる．代替の関数に書き換えたが，同等な結果が得られない(csvファイルうまく出してくれない)&lt;br /&gt;・部屋から人が居なくなってきた&amp;amp;機体審査してない気がする→予選開始ギリギリで審査してもらう．&lt;br /&gt;・このままでは予選の出番を逃してしまうと感じ，他の控え室っぽい部屋へ知っている人を探しに行く．人形つかいさんを発見し近くに座らせてもらう．&lt;br /&gt;・ScilabをモバイルネットワークからダウンロードしようとするもPCのWifiがちっともうまく動作しない．手作業でcsvファイル加工していくことを考えていたが，その他作業(ドールアイがずれて怖いことになってた，首が抜けやすかった，SBDBTのコネクタが抜けやすくなってすぐ通信不可になった，ことへの対応)をしているうちに時間がなくなる．&lt;br /&gt;・出走→6歩目でコケる→ウィッグが取れてパゲる→記録5cm&lt;br /&gt;&lt;br /&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=1280,height=800,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2013/02/26/snico1.jpg&#34;&gt;&lt;img   border=&#34;0&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2013/02/26/snico1.jpg&#34; title=&#34;Snico1&#34; alt=&#34;Snico1&#34; /&gt;&lt;/a&gt;
+
+&lt;br /&gt;&lt;br /&gt;・その後人形つかいさんなどとお話をし，時間になったので新橋に予約した宿に向かう．(公式の懇親会に申し込んでいたが，次の日にあるものとばかり思っていたのでスルーしてしまったorz　5000円が…．これを翌日Twitterを見て気づく．)&lt;/p&gt;
+
+&lt;p&gt;24日：&lt;br /&gt;・ごーすとさん，ロ技研のにゅくす君と会えたので一緒に観戦する．&lt;br /&gt;・ROBO-ONE終了．芝浦工大さんおめでとうございます．&lt;br /&gt;・人形つかいさんの茉莉花ちゃん，バンセイさんのロボと写真を撮れてうはうはする．あ！柔王丸の人だ！とお話したく思ったが，写真に夢中すぎて忘れる失態をする．&lt;br /&gt;・にゅくす君に案内してもらって東工大のロ技研を見学させてもらう．狭いながら，工作機械は結構本格的なものが揃っており感心する．HAKUたんの話など聞かせてもらう．&lt;br /&gt;・新幹線で帰宅．なぜか東京から乗る．&lt;/p&gt;
+
+&lt;p&gt;楽しかったです！&lt;br /&gt;できれば今度も，と思います．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>あけましておめでとうございます</title>
+      <link>http://syundo0730.github.io/post/782/</link>
+      <pubDate>Thu, 03 Jan 2013 23:29:21 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/782/</guid>
+      <description>&lt;p&gt;帰省していたため遅くなりましたが，今年も宜しくお願い致します．&lt;/p&gt;
+
+&lt;p&gt;今年はできれば練習会を見に行きたいなと思っております．&lt;br /&gt;新しいことに挑戦し続けられる1年でありますように．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>今年</title>
+      <link>http://syundo0730.github.io/post/781/</link>
+      <pubDate>Mon, 31 Dec 2012 22:05:32 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/781/</guid>
+      <description>&lt;p&gt;更新するの久しぶりすぎてログインできないかと思った・・・。&lt;br /&gt;twitterやってるとブログ更新のハードルが上がりますね。&lt;/p&gt;
+
+&lt;p&gt;大晦日なので今年を振り返りたいと思います。&lt;/p&gt;
+
+&lt;p&gt;今年やったこと（時系列順）&lt;/p&gt;
+
+&lt;p&gt;・倒立2輪ロボを立たせることができた。&lt;br /&gt;・サークルの後輩達が、一度書類審査落ちたものの、色々あって鳥コン出られるようになり、結果優勝できた。&lt;br /&gt;・Digikey, AliExpress等海外通販にチャレンジした。&lt;br /&gt;・AquesTalkPicoを使ってみた。&lt;br /&gt;・FPGAを（ほんの僅か）触った（現在放置中・・・）。&lt;br /&gt;・組み込みボード（PandaBoard）にAndroid入れてみた（だけ）&lt;br /&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/12/31/a2lk_qdcaaa4iwyjpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A2lk_qdcaaa4iwyjpg_large&#34; title=&#34;A2lk_qdcaaa4iwyjpg_large&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/12/31/a2lk_qdcaaa4iwyjpg_large.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;br /&gt;・mbedでのモーション再生プログラムが8割方できた。&lt;br /&gt;宮田さんのLBCを参考に24軸ジッタフリーPWM出した。&lt;br /&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/12/31/a1g7q2zcaaabud8jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A1g7q2zcaaabud8jpg_large&#34; title=&#34;A1g7q2zcaaabud8jpg_large&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/12/31/a1g7q2zcaaabud8jpg_large.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/12/31/a1g6golcqaa3ll0jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A1g6golcqaa3ll0jpg_large&#34; title=&#34;A1g6golcqaa3ll0jpg_large&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/12/31/a1g6golcqaa3ll0jpg_large.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;br /&gt;・大学院入試クリアした。&lt;br /&gt;・CNCを入手。&lt;br /&gt;・卒研でOpenGL, PhysX, Lua等学んだ。&lt;br /&gt;・人形ロボの石膏型の気に入らなかった部分を削って調整した。&lt;br /&gt;・GUIライブラリのQtのPython版、PyQtをちょっと使えるようになった。&lt;br /&gt;・東工大のロ技研の人たちに教えてもらったLEDマトリクスディスプレイを入手し、表示させてみた。&lt;br /&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/12/31/a_mykgdcaai8wr_jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A_mykgdcaai8wr_jpg_large&#34; title=&#34;A_mykgdcaai8wr_jpg_large&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/12/31/a_mykgdcaai8wr_jpg_large.jpg&#34; /&gt;&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Twitterとブログ見返しながら挙げてみましたが、大したことしていないなぁ・・・。&lt;br /&gt;来年は開発速度、学習速度、上げていきたいです。&lt;/p&gt;
+
+&lt;p&gt;最近はJavaScriptその他に興味が出ていて、ブラウザでモーション作れるようになったらいいなぁと思ってます。&lt;br /&gt;あと一度プリント基板を外注してみたいです。FusionPCB安い。&lt;/p&gt;
+
+&lt;p&gt;あとは卒論執筆ですね・・・。頑張らないと。&lt;/p&gt;
+
+&lt;p&gt;それでは良いお年を。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[C&#43;&#43;]CSVファイルの読み込み</title>
+      <link>http://syundo0730.github.io/post/851/</link>
+      <pubDate>Fri, 30 Nov 2012 02:15:53 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/851/</guid>
+      <description>&lt;p&gt;CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．&lt;/p&gt;
+
+&lt;p&gt;　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;pre&gt;#include &amp;lt;iostream&gt;
+
+#include &amp;lt;fstream&gt;
+
+#include &amp;lt;sstream&gt;
+
+#include &amp;lt;string&gt;
+
+#include &amp;lt;vector&gt;
+
+using namespace std;
+
+vector&amp;lt;string&gt; Split(string &amp;src, string key);
+
+bool readCSV(string filename, int* p);
+
+int main(void){
+
+int data[256];//ファイルから読み込んだ数値を入れる配列
+
+readCSV(&#34;data.csv&#34;, data);//ファイルから読み込み
+
+//最初の10個を表示させてみる
+
+for(int i = 0; i &lt; 10; ++i) {
+
+cout &lt;&lt; data[i] &lt;&lt; endl;
+
+}
+
+}
+
+bool readCSV(string filename, int* p) {
+
+fstream file;
+
+string str;
+
+file.open(filename.c_str(), ios::in);
+
+if(! file.is_open()) {
+
+return false;
+
+}
+
+while(getline(file, str)) {
+
+vector&amp;lt;string&gt; str_line = Split(str, (string)&#34;,&#34;);
+
+int size = str_line.size();
+
+for(int i = 0; i &lt; size; ++i) {
+
+stringstream sstr;
+
+sstr &lt;&lt; str_line[i];
+
+sstr &gt;&gt; p[i];
+
+}
+
+p += size;
+
+}
+
+file.close();
+
+return true;
+
+}
+
+vector&amp;lt;string&gt; Split(string &amp;src, string key) {
+
+string str = src;
+
+vector&amp;lt;string&gt; str_line;
+
+int str_len = str.length();
+
+int key_len = key.length();
+
+int index = 0;
+
+while(index &lt; str_len) {
+
+int oldindex = index;
+
+index = str.find(key, index);
+
+index = (index == string::npos ? str_len : index);
+
+string tmp = str.substr(oldindex, index - oldindex);
+
+str_line.push_back(tmp);
+
+index += key_len;
+
+}
+
+return str_line;
+
+}&lt;/pre&gt;&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[C&#43;&#43;]1次元配列を3次元配列に整形する</title>
+      <link>http://syundo0730.github.io/post/850/</link>
+      <pubDate>Fri, 16 Nov 2012 01:15:57 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/850/</guid>
+      <description>&lt;p&gt;外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．&lt;/p&gt;
+
+&lt;p&gt;　3次元として持つための領域を動的に確保しているのでサイズが可変です．&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;&lt;pre&gt;
+
+#include &amp;lt;iostream&amp;gt
+
+using namespace std;
+
+int data[256]; //元となるデータ領域
+
+int main()
+
+{
+
+//データ領域への値の代入
+
+for(int i = 0; i &lt; 256; ++i) {
+
+data[i] = i;
+
+}
+
+//3次元配列の大きさ
+
+char size_z = 3;
+
+char size_y = 4;
+
+char size_x = 5;
+
+//とりあえずポインタに元のデータ領域の先頭アドレスを代入
+
+int* p = data;
+
+//3次元配列arrayへの整形
+
+int*** array = new int**[size_z];
+
+for (int i = 0; i &lt; size_z; ++i) {
+
+array[i] = new int*[size_y];
+
+for (int j = 0; j &lt; size_y; ++j) {
+
+array[i][j] = p + size_x * j;
+
+}
+
+p += size_x * size_y;
+
+}
+
+//確認のため表示
+
+for (int i = 0; i &lt; size_z; ++i) {
+
+for (int j = 0; j &lt; size_y; ++j) {
+
+for (int k = 0; k &lt; size_x; ++k) {
+
+cout &lt;&lt; array[i][j][k] &lt;&lt; endl;
+
+}
+
+}
+
+}
+
+//メモリの解放
+
+　　　　for (int i = 0; i &lt; size_z; i++) {
+
+delete[] array[i];
+
+}
+
+delete[] array;
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;(sizeof int) * (1 + size_z)だけのメモリを消費します．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>倒立振子など</title>
+      <link>http://syundo0730.github.io/post/778/</link>
+      <pubDate>Mon, 02 Apr 2012 00:47:26 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/778/</guid>
+      <description>&lt;p&gt;さすがに正月からずっと更新してないのはまずいだろうと思って更新です．&lt;br /&gt;3月にやろうと思ってたことが全然できなかったので1月2月のことですね．&lt;strong&gt;&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・倒立2輪ロボット&lt;/strong&gt;&lt;br /&gt;mbedに慣れるためとか現代制御の勉強するためとかで友達と協力して作りました．&lt;br /&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/BsqAqvYg6Rc&#34;&gt; &lt;/iframe&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/w0vIesv7RxY&#34;&gt; &lt;/iframe&gt;
+
+&lt;br /&gt;&lt;br /&gt;最適制御なはずですけど微分項一個手でいじってます．まぁ…そんなもんでしょう．&lt;br /&gt;しかし配線とかプログラミングとか結局全部自分がやることになるので，パラメータだけ教えられて作るってのは結構辛いものがあるなと思いましたｗｗｗ俺は作業しかしてねぇぞとｗｗｗ&lt;br /&gt;もうちょっと安定させたいですね…．&lt;br /&gt;モータはステッピングモータです．&lt;br /&gt;DCモータの奴も作ったけどうまく立ってないです．エンコーダに難があるように思います．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・AquesTalk pico&lt;/strong&gt;&lt;br /&gt;MTMで販売されてその後Webショップでも入手出来ない状態だったものがリニューアルして販売．データ送るとすぐ喋ります．&lt;br /&gt;アンプに100円ローソンで売っている「ボリュームアンプ」という商品を使いました．お手軽．余計な配線も残ってるのであれですけど，アンプはボード下の黒い箱の中です．&lt;br /&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/04/02/aqtk.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;Aqtk&#34; title=&#34;Aqtk&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/04/02/aqtk.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;PCのスピーカーで喋らせた様子&lt;br /&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/oaXYkI9xVnc&#34;&gt; &lt;/iframe&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;使わないピンが多いのでちょっと邪魔かな．フラットパッケージのが出るらしいですね．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・DE0購入&lt;/strong&gt;&lt;br /&gt;FPGAの勉強したいと思いDigiKeyから購入しました．&lt;br /&gt;7セグに表示出してみた図．&lt;br /&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/04/02/de0.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;De0&#34; title=&#34;De0&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/04/02/de0.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;でも論理回路のこと分からないしどうしようかと思っているところです．&lt;br /&gt;まぁ焦らず行こう．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・DigiKeyで購入したもの&lt;/strong&gt;&lt;br /&gt;DE0，PandaBoard，HMC5883L&lt;br /&gt;初めての海外通販でした．&lt;br /&gt;例によってPandaBoardは購入理由を聞かれましたが，カメラを使ったロボティクス云々書いておきました．でもしばらく触れないかも．&lt;br /&gt;HMC5883Lは地磁気センサですが，トラ技の記事によると0.1度程度の幅で方位が出るらしいです．&lt;br /&gt;動作テストがうまくいってません．裏返して無理矢理ユニバーサル基板にハンダ付けしたのでそれがまずかったのか，I2C通信のやり方が間違ってるのか不明です．&lt;br /&gt;ストロベリーリナックスで700円程度で実装されたのが売ってるので，それを買った方がよかったかも．チップは300円くらい．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・胃腸風邪になる&lt;/strong&gt;&lt;br /&gt;ホントつらかったです．熱も40度近くでました．&lt;br /&gt;下痢の症状は10日くらい続きました．&lt;br /&gt;健康に気をつけようと思いました．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;・サークルまた鳥コンに落ちる&lt;/strong&gt;&lt;br /&gt;書類審査キビシーｗｗｗｗ&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;今日研究室決まるはずなのでどうなるのかなーと思ってます．&lt;br /&gt;院試の勉強もしないといけないしね！&lt;br /&gt;今年度は忙しくなりそう．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2012謹賀新年</title>
+      <link>http://syundo0730.github.io/post/777/</link>
+      <pubDate>Wed, 04 Jan 2012 15:10:30 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/777/</guid>
+      <description>&lt;p&gt;あけましておめでとうございます。&lt;br /&gt;旧年中はお世話になりました。&lt;br /&gt;今年も宜しくお願いします。&lt;/p&gt;
+
+&lt;p&gt;ホントは去年の振り返りとか書いたほうがよかったけど、もう年越しちゃったので、今年の製作の目標をば書きましょう。&lt;/p&gt;
+
+&lt;p&gt;・現在mbedを制御ボードに仕立て上げようとしている。要求は多PWM出力。宮田さんのLBCを参考に製作中。&lt;br /&gt;ファイルシステムが使えるようにお膳立てされてるから、mbed内にcsvファイルなんかでモーションデータを保持できたら楽かな、と思う。&lt;/p&gt;
+
+&lt;p&gt;・mbedが一段落したら、BeagleBoadなんかに手を出したい。カメラをUSBで接続して画像認識させることが目標。今年中にできるとは思わない。&lt;br /&gt;BeagleBornなんていうもう少し小さいのも出るとか・・・。&lt;/p&gt;
+
+&lt;p&gt;・去年末にロボットバトル観て、気持ちはバトル方向にも傾いたんだけど、やっぱ当分はお人形ロボ作っていたい。お人形ロボはたぬたぬさんを目標に構想を始めたもので、ドールよりかぬいぐるみに近いけどぬいぐるみタイプで無い、ぐらいの等身を目指している。かわいさを、追求したい。そろそろモーションも作る・・・。&lt;/p&gt;
+
+&lt;p&gt;・友達と始めた倒立2輪ロボットの製作、Scilabでシリアルポートを介して制御しようとしたが、通信がうまくいかず、実は今年のとりあえずの課題となっている。写真↓&lt;br /&gt;&lt;a href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2012/01/04/snec_0633.jpg&#34;&gt;&lt;img border=&#34;0&#34;   alt=&#34;Snec_0633&#34; title=&#34;Snec_0633&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2012/01/04/snec_0633.jpg&#34; /&gt;&lt;/a&gt;
+
+&lt;br /&gt;これもなんとかしたい。&lt;/p&gt;
+
+&lt;p&gt;今年も頑張るぞー！&lt;br /&gt;研究室配属とか院試とか、あるけど、どうなるか、わからないけど。&lt;br /&gt;時間を有効に使わねば。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ロボットバトルin名古屋モーターショー観戦、中部ロボット忘年会</title>
+      <link>http://syundo0730.github.io/post/776/</link>
+      <pubDate>Fri, 23 Dec 2011 21:54:07 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/776/</guid>
+      <description>&lt;p&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=640,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2011/12/23/sdscf0580.jpg&#34;&gt;&lt;img border=&#34;0&#34;   src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2011/12/23/sdscf0580.jpg&#34; title=&#34;Sdscf0580&#34; alt=&#34;Sdscf0580&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/a&gt;
+
+&lt;br /&gt;（バトルは撮る余裕がなかったのでモーターショーの写真）&lt;br /&gt;今日は名古屋モーターショーと同時開催のあいちITSワールド内で行われたロボットバトルin名古屋モーターショーを観戦してきた。&lt;br /&gt;昼頃に友人と会場に入り、とりあえずはモーターショーの展示を一通り見て、その後２時頃からバトルを観戦した。バトルを生で見るのは第８回ROBO-ONE以来かなぁ。&lt;br /&gt;バトルも悪くない。とても楽しめた。優勝はレグホーン。一緒に居た友人も２足には詳しくないが、率直に楽しんでいたようだ。&lt;br /&gt;（あ、そういえば今期のディジタル回路の先生が解説をしていらっしゃった。大同大学の先生だとは聞いていたけどまさかバトルの解説してらっしゃるとは。）&lt;br /&gt;その後はモーターショーでまだ見てなかったブースを回り、時間になったので友人と別れロボット忘年会に合流した。バトル終わってからすぐ離脱せずに機体を見せてもらえばよかったかなぁとちょっと後悔。まぁ仕方が無い。&lt;br /&gt;忘年会ではネット上で知っていた方の名前と顔を一致させることができたｗｗｗ&lt;br /&gt;ちょっとモチベーション上がってきたかな。&lt;/p&gt;
+
+&lt;p&gt;とても楽しい一日だった。&lt;/p&gt;
+
+&lt;p&gt;あ、それと自分が知らないロボットがいっぱいいた。学生はネットに情報公開をあんまりしないという話もしたが、顧みると自分ももっと公開していかないといけないなぁとも思った。&lt;br /&gt;サーボは何使ってるかとか。身長も公開してないもんな自分。しっかり計ってないからだけど。重量も同じ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>作業進んでなくても記事が書ける、だってASIMOの新型が出たんだもの</title>
+      <link>http://syundo0730.github.io/post/775/</link>
+      <pubDate>Tue, 08 Nov 2011 20:35:36 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/775/</guid>
+      <description>&lt;p&gt;・新しいASIMOがスゴイ。片足ケンケンで横移動してるの見て感動した。&lt;br /&gt;&lt;a href=&#34;http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=9CNf8iIY5fE&#34;&gt;動画&lt;/a&gt;　&lt;a href=&#34;http://www.fnn-news.com/news/headlines/articles/CONN00211116.html&#34;&gt;動画&lt;/a&gt;　&lt;a href=&#34;http://news.tbs.co.jp/newseye/tbs_newseye4872161.html&#34;&gt;動画&lt;/a&gt;&lt;br /&gt;こんなん自分のロボでできたらいいのになぁ・・・&lt;/p&gt;
+
+&lt;p&gt;・船場RFCの記事書くべきだったんだけど、全く動かない状態でステージに立ったこともあって、動くようになってから動画とともに紹介したいと思っていた。&lt;br /&gt;しかし時間の余裕ができるとイベント前の忙しさの反動であれもこれもと手を出してしまってロボットの作業は遅々として進んでいないのである。&lt;br /&gt;船場RFCに関しては色々な人とお話しできて(自分がいっぱいいっぱいだったのが問題だったけど)、非常に楽しかったことは報告させていただきたい。特に舞鈴堂さんの音叉ちゃんとはツーショット写真が実現してほんと幸せだった。&lt;br /&gt;自分のロボをどういう方向性で開発していくのか色々考えることにもなった。たまにはイベントにも参加していきたいものである。&lt;/p&gt;
+
+&lt;p&gt;・最近はmbedをいじっている。かなり乗り遅れてる感もあるけど。ものすごいポテンシャルを秘めたボードだなと思う。小型でロボット向けにも使いやすいかも知れない。&lt;br /&gt;とりあえずはサーボ動かしたりステッピングモータ動かしたりした。写真↓ブレッドボードに挿せるのがすごくイイネ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=854,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2011/11/08/photo.jpg&#34;&gt;&lt;img border=&#34;0&#34;   src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2011/11/08/photo.jpg&#34; title=&#34;Photo&#34; alt=&#34;Photo&#34; /&gt;&lt;/a&gt; &lt;/p&gt;
+
+&lt;p&gt;ステッピングモータは倒立2輪ロボ作りたいなーとふと思ったから買ってみた。&lt;/p&gt;
+
+&lt;p&gt;クラウドで開発(キリッ　ってのが大きなアピールポイントではあるのだろうけど、いかんせんエディタなどが使いにくく感じる。でもUSBに挿すだけで良いってのは確かに楽だ。最初は。&lt;/p&gt;
+
+&lt;p&gt;・他にはサークルで開発中のフライトシミュレータのためにArduino使って回転数計作ったりしてた。&lt;a href=&#34;http://aircraftact.blog53.fc2.com/blog-entry-39.html&#34;&gt;http://aircraftact.blog53.fc2.com/blog-entry-39.html&lt;/a&gt;&lt;br /&gt;明らかにオーバースペックだけど楽でいい。あとから拡張もしやすいし。&lt;/p&gt;
+
+&lt;p&gt;どんどん新しいことに挑戦していきたいな。ASIMOを見習って。え、これ伏線だったの。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>鳥人間→船場ロボコン</title>
+      <link>http://syundo0730.github.io/post/774/</link>
+      <pubDate>Mon, 22 Aug 2011 00:53:02 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/774/</guid>
+      <description>&lt;p&gt;サークルで１年間制作してきた人力飛行機が完成し、３回のテストフライトも終え(本当は５回やる予定だったが雨で流れた)、非常に性能の良い機体であったことが分かりました。機速は当サークルでは歴代最速の8.3m/s程度です。昨年より小型化し、8kg程度軽量化出来たのが大きかったのではないかと思います。&lt;br /&gt;テストフライトの動画はこちらになります。&lt;br /&gt;&lt;a href=&#34;http://www.youtube.com/watch?v=S4J0JxsRe-Q&amp;amp;feature=youtu.be&#34;&gt;http://www.youtube.com/watch?v=S4J0JxsRe-Q&amp;amp;feature=youtu.be&lt;/a&gt;&lt;br /&gt;8:20～飛行場飛び切りしています。&lt;/p&gt;
+
+&lt;p&gt;先日、テレビで鳥人間コンテストが放送され、仲間と一緒に観て、大いに楽しめました。&lt;br /&gt;うちの大学は今年、書類選考で落ちてコンテストには出られず、結果、3年間全く鳥コンには縁がなかったということで残念でしたが、テレビ放送を観て、色々踏ん切りがついた思いです。&lt;/p&gt;
+
+&lt;p&gt;何より元々自分はロボットとの二足のわらじを履いている状態でしたし、飛行機のこともロボットのことも同時に考えてきました。これからはロボットをじっくりやっていきたい思いがあります。在学中にロボットをやれる時間ももうあまりない気もしますから。実際、来る10月に行われる第2回船場ロボットファッションコンテストにもエントリー済みです。&lt;/p&gt;
+
+&lt;p&gt;夏休みは船場ロボコンに向けてロボットを完成させたいです・・・。&lt;br /&gt;あとTOEIC&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

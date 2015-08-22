@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on ROBO LOG</title>
+    <link>http://syundo0730.github.io/categories/cpp/</link>
+    <description>Recent content in Cpp on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 18 May 2015 01:26:10 +0900</lastBuildDate>
+    <atom:link href="http://syundo0730.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>C&#43;&#43;初心者会に参加してきた</title>
+      <link>http://syundo0730.github.io/post/1154/</link>
+      <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1154/</guid>
+      <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;初めて勉強会での発表ということもした（ただしLT)&lt;/p&gt;
+
+&lt;p&gt;発表資料はこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/syundo/c-48237620&#34;&gt;http://www.slideshare.net/syundo/c-48237620&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ニコ生はこちら&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://live.nicovideo.jp/gate/lv220960718&#34;&gt;http://live.nicovideo.jp/gate/lv220960718&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;メモを取って即時公開してくださっているひとがいた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.shigemk2.com/archive/category/C%2B%2B&#34;&gt;http://www.shigemk2.com/archive/category/C%2B%2B&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;こういう仕事の早さは敵う気がしない。&lt;/p&gt;
+
+&lt;p&gt;私はLTでC++を使って開発できるマイコンボードの例としてmbedを紹介した。&lt;/p&gt;
+
+&lt;p&gt;だが、問題はmbedのコンパイラにあった。&lt;/p&gt;
+
+&lt;p&gt;C++界隈の人たちの興味はC++11，14、さらにはC++17にあるのだ。&lt;/p&gt;
+
+&lt;p&gt;対してmbedオンラインコンパイラはC++98だ。&lt;/p&gt;
+
+&lt;p&gt;C++98のことなんてもう忘却の彼方にあるし、取るに足りないことなのだ（実際僕もそう思う）。&lt;/p&gt;
+
+&lt;p&gt;mbedの開発環境は不自由だ。&lt;/p&gt;
+
+&lt;p&gt;ネット環境がないとコンパイルできないとかザコだ。&lt;/p&gt;
+
+&lt;p&gt;なぜそんな環境に拘っているのか？&lt;/p&gt;
+
+&lt;p&gt;そのご指摘はまさにその通りだと思う。&lt;/p&gt;
+
+&lt;p&gt;arm向けの自由なコンパイラがあるんだから、mbedはオンラインコンパイラに頼るエコシステムにすべきじゃなかったのだ。&lt;/p&gt;
+
+&lt;p&gt;オンラインコンパイラが無ければmbedは広まらなかったか？&lt;/p&gt;
+
+&lt;p&gt;僕はそうは思わない。Arduinoの開発環境はローカルの開発環境だが超流行っているじゃないか。&lt;/p&gt;
+
+&lt;p&gt;Coretex-M3の強い計算機能力を発揮して楽しくC++開発できることがmbedの強みだ。&lt;/p&gt;
+
+&lt;p&gt;Arduinoなんて目じゃない。&lt;/p&gt;
+
+&lt;p&gt;それなのにコンパイラがC++98/03準拠というのはあんまりじゃないか。&lt;/p&gt;
+
+&lt;p&gt;mbedのコミュニティのことを考え、自分のしたい開発のことを考え、もやもやしている&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;C++界隈の人たちというのは濃い、強い。&lt;/p&gt;
+
+&lt;p&gt;自分ももっと技術力を高めて本当のプログラマになりたいと思った。&lt;/p&gt;
+
+&lt;p&gt;これまで聞いたこと無いキーワードや，聞いたことあったがよく知らないことをたくさん知れた。&lt;/p&gt;
+
+&lt;p&gt;調べて勉強してもっとC++をわかりたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>できるだけconstexprを使おう</title>
+      <link>http://syundo0730.github.io/post/1143/</link>
+      <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/1143/</guid>
+      <description>&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
+
+&lt;p&gt;constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
+
+&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
+
+&lt;p&gt;constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;int sz;   // コンパイル時に存在しない&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。&lt;/p&gt;
+
+&lt;p&gt;std::array&amp;lt;int, sz&amp;gt; data1; // 同様なエラー&lt;/p&gt;
+
+&lt;p&gt;constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。&lt;/p&gt;
+
+&lt;p&gt;std::array&amp;lt;int, arraySize&amp;gt; data2; // 良い。&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
+
+&lt;h2&gt;constexpr関数について&lt;/h2&gt;
+
+&lt;p&gt;引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。&lt;/p&gt;
+
+&lt;h3&gt;C++11の場合&lt;/h3&gt;
+
+&lt;p&gt;関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return (exp == 0 ? 1 : base*pow(base, exp-1));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;h3&gt;C++14の場合&lt;/h3&gt;
+
+&lt;p&gt;複数行にわたって記述できる&lt;/p&gt;
+
+&lt;p&gt;[cpp]&lt;/p&gt;
+
+&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;auto result = 1;
+
+for(int i = 0; i &amp;amp;lt; exp; ++i) result *= base;
+
+
+
+return result;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;[/cpp]&lt;/p&gt;
+
+&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
+
+&lt;p&gt;constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
+
+&lt;p&gt;もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

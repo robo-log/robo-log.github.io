@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    中華CNC CNC3020導入記　設定編 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/849/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>中華CNC CNC3020導入記　設定編</h1>
+      <div class="meta">
+        Nov 14, 2012 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>前回：<a title="CNC3020購入編" href="http://blog.syundo.org/2012/10/09/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%B3%BC%E5%85%A5%E7%B7%A8/" target="_blank">中華CNC CNC3020導入記　購入編</a></p>
+
+<p>組み立て終わったので，動かしてみたいと思います．</p>
+
+<h3>まず基板を見てみる</h3>
+
+<p>とりあえず，一度見てみないと心配なので，コントロールBOXを開けてみました．</p>
+
+<p><a href="/images/miconplus/fig/sIMAG0151.jpg"><img src="/images/miconplus/fig/sIMAG0151s.jpg" alt="sIMAG0151.jpg"   border="0" /></a></p>
+
+<p>大きなトランスと，電源基板，ステッピングモータ制御基板が入ってました．</p>
+
+<p><a href="/images/miconplus/fig/sIMAG0152.jpg"><img src="/images/miconplus/fig/sIMAG0152s.jpg" alt="sIMAG0152.jpg"   border="0" /></a></p>
+
+<p>モータドライバは東芝 TB6560AHQでした．アルミの放熱板に固定されています．</p>
+
+<p>基板をよく見ると，</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>LIMIT X Y Z</p>
+
+<p>GND PWM VCC</p>
+
+<p>PROBE</p>
+
+<p>[/bash]</p>
+
+<p>などと書かれているピンがありました．リミットスイッチや，スピンドルの回転数の操作，切削Z軸センサの追加が可能なのかもしれません．</p>
+
+<p>コントロールBOX内で見つけた不具合なんですが，<span style="color: #ff0000;">EMERGENCY STOPのスイッチに繋がる配線が抜けていたのでESTOPと書いてあるピンに差し直しました．</span></p>
+
+<p>それ以外はハンダ付けもきれいですし，問題ないようです．</p>
+
+<h3>パラレルポートの増設</h3>
+
+<p>コントロールボードはPCのD-sub25pinのパラレルポートに繋がなければなりません．しかし，そんなもの手持ちのPCに付いてないので，PCI Express接続のパラレルポート変換基板を用いました．</p>
+
+<p>変換基板は<a title="これに似たもの" href="http://www.aliexpress.com/store/product/pci-express-parallel-pci-express-serial-card-pci-express-serial-parallel-PCIE-PCI-express-to-serial/302075_311030773.html" target="_blank">これに似たもの</a>をヤフオクで買いました．「PCI-Express　パラレル」とヤフオクで検索して出品されていればそれです<a title="http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;auccat=&amp;aq=-1&amp;oq=&amp;ei=UTF-8&amp;tab_ex=commerce&amp;slider=0" href="http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;auccat=&amp;aq=-1&amp;oq=&amp;ei=UTF-8&amp;tab_ex=commerce&amp;slider=0" target="_blank"><a href="http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;auccat=&amp;aq=-1&amp;oq=&amp;ei=UTF-8&amp;tab_ex=commerce&amp;slider=0">http://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;auccat=&amp;aq=-1&amp;oq=&amp;ei=UTF-8&amp;tab_ex=commerce&amp;slider=0</a></a>．Ubuntuの入ったPCで使うので，Linux対応と書いてあるのがポイントでした．</p>
+
+<h3>OSについて</h3>
+
+<p>CNC制御用のPCのOSにはUbuntu10.04を使います．</p>
+
+<p>この理由なんですが，</p>
+
+<p>・手持ちのPCでPCIExpressポートが空いてるのがたまたまUbuntuの入ってるPCだった．</p>
+
+<p>・Windowsで使えるCNC制御ソフトのMach3は32bitOSでないと使えなくて，しかもXP推奨だが，手持ちのWindowsは64bit版のWindows7しかない→Linuxしかない</p>
+
+<p>・せっかく激安CNCなんだからフリーのソフトにこだわりたい．</p>
+
+<p>・Ubuntuで使えるCNC制御ソフトのLinuxCNCがUbuntu10.04じゃないとだめだった．</p>
+
+<p>という感じです．</p>
+
+<p>Ubuntu10.04をインストールしていなければ，<a title="Ubuntu10.04" href="http://www.ubuntulinux.jp/download/ja-remix" target="_blank">ここ</a>から日本語Remix版のISOを入手して，インストールしてください．</p>
+
+<p>さて，UbuntuをインストールしたPCの，PCI(Express)スロットに変換ボードを挿したら，端末より</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>$ lspci -v</p>
+
+<p>[/bash]</p>
+
+<p>と入力してパラレルポートのアドレスを調べます．私の場合は1000と1008の二つ出てきたんですが，どちらが使えるのかやってみないとわかりません．</p>
+
+<p>後で使うのでアドレスをメモしておきます．</p>
+
+<h3>LinuxCNCのインストール</h3>
+
+<p>LinuxCNCを<a title="http://www.linuxcnc.org/" href="http://www.linuxcnc.org/" target="_blank">linuxcnc.org/</a>からダウンロードします．</p>
+
+<p>HOME&gt;Download&gt;Other Installation Options　と進んでいって，</p>
+
+<p>If you prefer to start with the distributed Ubuntu CD, you can install LinuxCNC yourself with these instructions:</p>
+
+<p>と書いてあるところから，「<a title="lucid-install" href="http://www.linuxcnc.org/install-scripts/lucid/linuxcnc-install.sh" target="_blank">lucid-install</a>」をクリックしてダウンロードします．lucidというのはUbuntu10.04の別名です．</p>
+
+<p>保存フォルダに移動して端末より以下のように入力してインストールします．</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>$ chmod a+x linuxcnc-install.sh</p>
+
+<p>$ sudo ./linuxcnc-install.sh</p>
+
+<p>[/bash]</p>
+
+<p>最終確認に「はい」と答えるとインストールされ，再起動すれば「アプリケーション」メニューに「CNC」が追加されているはずです．</p>
+
+<h3>ブートローダの設定</h3>
+
+<p>LinuxCNCをインストールし，再起動すると，リアルタイムカーネルも追加されます．OS起動時にこのRTカーネルを選択しないと，LinuxCNCは動作しません(エラーダイアログが出ます)．</p>
+
+<p>起動時のカーネルの設定のため，まず，StartUp-Managerで設定します．StartUp-Managerはシステム&gt;システム管理&gt;Synapticパッケージマネージャーからインストールできます．インストールしたら，システム&gt;システム管理&gt;StartUp-Managerを立ち上げ，カーネル選択の待ち時間と，デフォルトのカーネルを設定します．</p>
+
+<p>次に端末で</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>$ sudo gedit ../../etc/default/grub</p>
+
+<p>[/bash]</p>
+
+<p>と入力し，ブートローダーの設定ファイルに変更を加えます．変更は</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>GRUB_HIDDEN_TIMEOUT=0</p>
+
+<p>GRUB_HIDDEN_TIMEOUT_QUIET=true</p>
+
+<p>[/bash]</p>
+
+<p>と書いてあるところを，</p>
+
+<p>[bash gutter=&ldquo;false&rdquo;]</p>
+
+<p>#GRUB_HIDDEN_TIMEOUT=0</p>
+
+<p>GRUB_HIDDEN_TIMEOUT_QUIET=false</p>
+
+<p>[/bash]</p>
+
+<p>に修正します．</p>
+
+<p>以上の設定を終え，OSを再起動すると，カーネル選択画面が出てくるようになります．kernel 2.6.31-11-rtaiを選択してOSを起動します．</p>
+
+<p>続き：<a title="中華CNC CNC3020導入記 設定編2" href="http://blog.syundo.org/2012/12/08/%E4%B8%AD%E8%8F%AFcnc-cnc3020%E5%B0%8E%E5%85%A5%E8%A8%98%E3%80%80%E8%A8%AD%E5%AE%9A%E7%B7%A82/" target="_blank">中華CNC CNC3020導入記 設定編2</a></p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/848/" rel="prev">中華CNC CNC3020導入記　購入編</a></span>
+    
+    
+      <span class="next"><a href="http://syundo0730.github.io/post/850/" rel="next">[C&#43;&#43;]1次元配列を3次元配列に整形する</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+
