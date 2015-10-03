@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>読書 on ROBO LOG</title>
+    <link>http://localhost:1313/categories/%E8%AA%AD%E6%9B%B8/</link>
+    <description>Recent content in 読書 on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 20 Aug 2015 21:08:54 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E8%AA%AD%E6%9B%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PRML読書メモ</title>
+      <link>http://localhost:1313/post/PRMLBook/</link>
+      <pubDate>Thu, 20 Aug 2015 21:08:54 +0900</pubDate>
+      
+      <guid>http://localhost:1313/post/PRMLBook/</guid>
+      <description>
+
+&lt;h1 id=&#34;パターン認識と機械学習:8539ccf47acff98a8a449bbeea05e81d&#34;&gt;パターン認識と機械学習&lt;/h1&gt;
+
+&lt;h2 id=&#34;第1章-序論:8539ccf47acff98a8a449bbeea05e81d&#34;&gt;第1章 序論&lt;/h2&gt;
+
+&lt;h3 id=&#34;hoge:8539ccf47acff98a8a449bbeea05e81d&#34;&gt;hoge&lt;/h3&gt;
+
+&lt;p&gt;hohfohfoe&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

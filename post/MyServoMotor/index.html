@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    歯車やベアリングについて | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:1313/post/MyServoMotor/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://localhost:1313/">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>歯車やベアリングについて</h1>
+      <div class="meta">
+        Oct 3, 2015 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>サーボモータのケースを自分で削り出したいが、そのためには歯車やベアリングなどの伝達部品の知識が必要だ。
+私は一応「機械」と名の付く学科を出ているが、長い間PCと向き合うことしかしてこなかったので、
+そこら辺のことはさっぱり忘れてしまった。
+調べながらまとめる。</p>
+
+<h2 id="歯車について:2a8bde94e123c70572fc74c35b80244b">歯車について</h2>
+
+<h3 id="基礎知識:2a8bde94e123c70572fc74c35b80244b">基礎知識</h3>
+
+<h4 id="歯車の基準円と軸間距離:2a8bde94e123c70572fc74c35b80244b">歯車の基準円と軸間距離</h4>
+
+<p>ある直径a, bの2つの円を隣接させるには、これら円の中心間の距離dは
+d = (a+b)/2
+となる。
+歯車を隣接させるときにもこれと全く同じように使える、仮想の円の直径というのがある。
+この仮想の円を基準円と呼ぶ。
+基準円直径d_1, d_2のギヤの軸間距離Dは
+D = (d_1 + d_2)/2
+となるように設計する。</p>
+
+<h4 id="歯車の外形:2a8bde94e123c70572fc74c35b80244b">歯車の外形</h4>
+
+<p>歯車の歯の形はモジューラー曲線というもので描かれる。
+この曲線は「モジュール」というものでパラメタ化されていて、
+直径が違う歯車であってもモジュールが同じであれば、同じ歯型になるという性質がある。
+これによって、ギヤを加工する工具をギヤの種類(直径)ごとに作らなくても良いという大きな利点が生まれる。</p>
+
+<h4 id="モジュール:2a8bde94e123c70572fc74c35b80244b">モジュール</h4>
+
+<p>歯車のモジュールは基準円直径
+歯数
+で表されるものである
+大きな力を伝達するときにはモジュールを大きくするらしい。
+どのくらいの負荷で、どのくらいの寿命なのかというのは歯車メーカーのマニュアルを見て調べる必要がある。
+が、私としては市販のサーボと同じモジュールのものを使えば問題ないな、ぐらいにしか考えていない。</p>
+
+<h4 id="ギヤの歯の高さと外形直径:2a8bde94e123c70572fc74c35b80244b">ギヤの歯の高さと外形直径</h4>
+
+<p>ギヤの山の高さは基準円からmとJIS規格で決められているらしい。
+ゆえに、ギヤの外径Dは
+D = mz + 2m = m(z+2)
+となる。
+この式から
+m = D / (z+2)
+と計算できる。
+ギヤのモジュールは、慣れている人にとっては歯の大きさを目視すれば分かるものらしいのだが、あまりギヤを扱った経験の無い私には無理なことだ。
+だからこの式を使って、サーボモータのギヤにはどのくらいのモジュールのものが使われているのか調べることにする。</p>
+
+<h3 id="サーボモータのギヤの歯数やモジュールを調べた:2a8bde94e123c70572fc74c35b80244b">サーボモータのギヤの歯数やモジュールを調べた</h3>
+
+<p>俺サーボのプロトタイプを作るために、SR-518という市販のサーボを使うことにする。</p>
+
+<p>ギヤを取り出して噛み合っている順番に並べた。
+写真にとって、まず印をつけながら歯数のカウントをした。
+目がしょぼしょぼしてくるし、どこまで数えたのか分からなくなるので、写真に撮るのは必須だと思った。
+その後、ギヤの外径をデジタルノギスを使って計測した。
+私のノギスは1万くらいするちょっと良いやつなので、大抵のものはピタッと計測することができる。
+例えば、あるギヤの直径は
+歯数は　であったので
+モジュール m = 0.3
+などと計測することができた。
+ただ、そんなに精度が出なくても市販のギヤのモジュールは限られているので、容易に推測することができる。</p>
+
+<p>計測したギヤの歯数とモジュールはこちら</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">外径</th>
+<th align="center">外径</th>
+<th align="center">歯数</th>
+<th align="center">歯数</th>
+<th align="center">モジュール</th>
+<th align="center">モジュール</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">gear 1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">-</td>
+<td align="center">13</td>
+<td align="center"></td>
+<td align="center">0.3</td>
+</tr>
+
+<tr>
+<td align="center">gear 2</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">31</td>
+<td align="center">12</td>
+<td align="center">0.3</td>
+<td align="center">0.3</td>
+</tr>
+
+<tr>
+<td align="center">gear 3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">40</td>
+<td align="center">12</td>
+<td align="center">0.3</td>
+<td align="center">0.4</td>
+</tr>
+
+<tr>
+<td align="center">gear 4</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">40</td>
+<td align="center">12</td>
+<td align="center">0.4</td>
+<td align="center">0.4</td>
+</tr>
+
+<tr>
+<td align="center">gear 5</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">28</td>
+<td align="center">12</td>
+<td align="center">0.4</td>
+<td align="center">0.4</td>
+</tr>
+
+<tr>
+<td align="center">gear 6</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">46</td>
+<td align="center">-</td>
+<td align="center">0.4</td>
+<td align="center">0.4</td>
+</tr>
+</tbody>
+</table>
+
+<p>減速比を計算すると</p>
+
+<p>(31 / 13) * (40 / 12) * (40 / 12) * (28 / 12) * (46 / 12) =
+となる。
+もし自分でサーボモータのギヤを選定するときも、
+だいたいこれくらいになるようにギヤの組み合わせを考えればよいとわかった。</p>
+
+<h2 id="ベアリングについて:2a8bde94e123c70572fc74c35b80244b">ベアリングについて</h2>
+
+<p>ギヤの取り付けには回転軸を使ったり、ベアリングを使ったりする。
+SR-518では、最終段の出力用ギヤの固定にベアリングが使われていた。
+ギヤの軸がぶれたりしないように、回転軸やベアリングを取り付けるハウジング、
+今回の場合は削りだす予定のサーボケースの穴、軸寸法をちゃんと考えなければならない。
+はめあい公差とかいうやつが登場してくる。
+私が趣味や大学で作っていたロボは適当にネジ止めで固定してるだけのものだったので、これもまた忘れかけている。
+(でもメカのひとにとっては基本中の基本だと思う。
+  ちなみに鳥人間で人力飛行機を作っていたときにはベアリングのカタログとにらめっこして寸法を決めていた。
+  適当な嵌め合いができるようになるまで旋盤を何度も回して練習した&hellip;。)</p>
+
+<h3 id="はめあい公差:2a8bde94e123c70572fc74c35b80244b">はめあい公差</h3>
+
+<p>部品と部品を組み合わせるときに、寸法をどの精度で作ればいいかというのが嵌合公差である。
+精度というのは基準の寸法 + xx [mm] - xx [mm]
+という感じで表すもので、ものを作るときに許容する寸法の範囲を表している。</p>
+
+<p>求められる公差は、作るものの</p>
+
+<ul>
+<li>大きさ</li>
+<li>機能</li>
+</ul>
+
+<p>によって変わってくる。</p>
+
+<p>大きさによって変わるとはどういうことか。
+小さい部品をうまく働かせるには精密な加工が必要なことが想像できるだろう。
+一方で、巨大なダムの底は別に鏡のように精度よく加工しないといけない。
+嵌め合いの具合を表すはめあい等級というものがあるが、
+これは作るものの大体の寸法ごとにどのぐらいの公差か、というふうに定められている。
+それがどの程度の値かというのはもうJIS規格を見たりせよ、という話になる。</p>
+
+<p>次に機能について。
+軸と穴を組み合わせるとき、その嵌合の程度によって、</p>
+
+<ul>
+<li>すきまばめ</li>
+<li>しまりばめ
+これはもうJIS規格の表をみて勘案するという話になる。
+軸と穴の嵌合についてはこのカタログを見ればわかる。</li>
+</ul>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://localhost:1313/post/ComputerBook/" rel="prev">計算理論の基礎を学ぶ</a></span>
+    
+    
+      <span class="next"><a href="http://localhost:1313/post/robo-one-27th/" rel="next">ROBO-ONE 27th</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+
