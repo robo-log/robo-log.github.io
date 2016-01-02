@@ -164,63 +164,39 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
       <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/971/</guid>
-      <description>
-
-&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
+      <description>&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
 
 &lt;p&gt;まずGetting Started(&lt;a href=&#34;http://beagleboard.org/Getting%20Started&#34;&gt;http://beagleboard.org/Getting%20Started&lt;/a&gt;)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．&lt;/p&gt;
 
-&lt;p&gt;リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://beagleboard.org/latest-images&#34;&gt;http://beagleboard.org/latest-images&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)&lt;/p&gt;
-
-&lt;p&gt;をmicroSDカードに書き込む．&lt;/p&gt;
+&lt;p&gt;リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．
+&lt;a href=&#34;http://beagleboard.org/latest-images&#34;&gt;http://beagleboard.org/latest-images&lt;/a&gt;
+にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)
+をmicroSDカードに書き込む．&lt;/p&gt;
 
 &lt;p&gt;Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．&lt;/p&gt;
 
-&lt;p&gt;以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．&lt;/p&gt;
+&lt;p&gt;以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．
+作業環境：VMware Player，64bit Ubuntu 14.04&lt;/p&gt;
 
-&lt;p&gt;作業環境：VMware Player，64bit Ubuntu 14.04&lt;/p&gt;
-
-&lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．&lt;/p&gt;
-
-&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;wget &lt;a href=&#34;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&#34;&gt;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
-
-&lt;p&gt;tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
-
-&lt;p&gt;cd ubuntu-14.04-console-armhf-2014-05-06&lt;/p&gt;
-
-&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;probe-mmc&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．
+以下のサイトを参考にして作業を進める．
+&lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;cd &lt;/span&gt;ubuntu-14.04-console-armhf-2014-05-06
+sudo ./setup_sdcard.sh --probe-mmc
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;mmc /dev/sdX &amp;ndash;uboot bone&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
 
 &lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;ssh ubuntu@192.168.7.2&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;ssh ubuntu@192.168.7.2
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
 
@@ -228,91 +204,55 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 
 &lt;p&gt;今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．&lt;/p&gt;
 
-&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下のサイトを参考にして作業を進める．
+&lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme
+sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme&lt;/p&gt;
-
-&lt;p&gt;sudo reboot&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．&lt;/p&gt;
-
-&lt;p&gt;結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
+&lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．
+結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
 
 &lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install vnc4server&lt;/p&gt;
-
-&lt;p&gt;vncserver&lt;/p&gt;
-
-&lt;p&gt;vncserver -kill :1&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install vnc4server
+vncserver
+vncserver -kill :1
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;# !/bin/sh&lt;/span&gt;
 
-&lt;p&gt;[bash]&lt;/p&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;# Uncomment the following two lines for normal desktop:&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;# unset SESSION_MANAGER&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;# exec /etc/X11/xinit/xinitrc&lt;/span&gt;
 
-&lt;h1 id=&#34;bin-sh:732fd3103795c9dc70583b77fae9af7e&#34;&gt;!/bin/sh&lt;/h1&gt;
+/usr/bin/lxsession &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
 
-&lt;h1 id=&#34;uncomment-the-following-two-lines-for-normal-desktop:732fd3103795c9dc70583b77fae9af7e&#34;&gt;Uncomment the following two lines for normal desktop:&lt;/h1&gt;
-
-&lt;h1 id=&#34;unset-session-manager:732fd3103795c9dc70583b77fae9af7e&#34;&gt;unset SESSION_MANAGER&lt;/h1&gt;
-
-&lt;h1 id=&#34;exec-etc-x11-xinit-xinitrc:732fd3103795c9dc70583b77fae9af7e&#34;&gt;exec /etc/X11/xinit/xinitrc&lt;/h1&gt;
-
-&lt;p&gt;/usr/bin/lxsession &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup&lt;/p&gt;
-
-&lt;p&gt;[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb $HOME/.Xresources&lt;/p&gt;
-
-&lt;p&gt;xsetroot -solid grey&lt;/p&gt;
-
-&lt;p&gt;vncconfig -iconic &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;$VNCDESKTOP Desktop&amp;quot; &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;x-window-manager &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;span style=&#34;color: #5bc4bf&#34;&gt;[&lt;/span&gt; -x /etc/vnc/xstartup &lt;span style=&#34;color: #5bc4bf&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exec&lt;/span&gt; /etc/vnc/xstartup
+&lt;span style=&#34;color: #5bc4bf&#34;&gt;[&lt;/span&gt; -r &lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/.Xresources &lt;span style=&#34;color: #5bc4bf&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xrdb &lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$VNCDESKTOP&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt; Desktop&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
+x-window-manager &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vncserver :1 -geometry 1024x768
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+&lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．
+リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install remmina
+remmina
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;vncserver :1 -geometry 1024x768&lt;/p&gt;
+&lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．&lt;/p&gt;
-
-&lt;p&gt;リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install remmina&lt;/p&gt;
-
-&lt;p&gt;remmina&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;おわり．&lt;/p&gt;
 </description>

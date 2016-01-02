@@ -79,13 +79,9 @@
 
 <h2>SSHの鍵の登録</h2>
 DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．
-
 ```bash
-
 ssh-keygen
-
 ```
-
 で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&gt;Securityより設定しておく．
 
 <h2>Apache 導入</h2>
@@ -96,33 +92,24 @@ service httpd start
 
 <h2>PHP 導入</h2>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-
 yum --enablerepo<span style="color: #5bc4bf">=</span>remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
 </pre></div>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">vi /etc/php.ini
-
 vi /etc/httpd/conf.d/php.conf
 </pre></div>
 
 <h2>MySQL 導入</h2>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">yum install mysql-community-release-el6-5.noarch.rpm
-
 yum install -y mysql-community-client mysql-community-devel mysql-community-server
 </pre></div>
 
 <p>Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo dd <span style="color: #815ba4">if</span><span style="color: #5bc4bf">=</span>/dev/zero <span style="color: #ef6155">of</span><span style="color: #5bc4bf">=</span>/swapfile <span style="color: #ef6155">bs</span><span style="color: #5bc4bf">=</span>1M <span style="color: #ef6155">count</span><span style="color: #5bc4bf">=</span>1024
-
 mkswap /swapfile
-
 swapon /swapfile
-
 sudo sh -c <span style="color: #48b685">&quot;echo &#39;/swapfile swap swap defaults 0 0&#39; &amp;gt;&amp;gt; /etc/fstab&quot;</span>
-
 chkconfig mysqld on
-
 service mysqld start
 </pre></div>
 
@@ -130,23 +117,17 @@ service mysqld start
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">mysql_secure_installation
 </pre></div>
 
-<h2>ムームードメインで取得したドメインを管理</h2>
-
-<p>ムームードメインのメニューのネームサーバー設定変更より</p>
-
-<p><a href="/images/2015/04/name_server.png"><img class="alignnone size-full wp-image-1079" src="/images/2015/04/name_server.png" alt="name_server"   /></p>
-
-<p></a></p>
+<p><h2>ムームードメインで取得したドメインを管理</h2>
+ムームードメインのメニューのネームサーバー設定変更より
+<a href="/images/2015/04/name_server.png"><img class="alignnone size-full wp-image-1079" src="/images/2015/04/name_server.png" alt="name_server"   />
+</a></p>
 
 <p>こんな感じにする．</p>
 
-<p>ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．</p>
-
-<p>Digital OceanのDNS設定メニューより，</p>
-
-<p><a href="/images/2015/04/DO_domain.png"><img class="alignnone size-full wp-image-1078" src="/images/2015/04/DO_domain.png" alt="DO_domain"   /></a></p>
-
-<p>Aレコードにサブドメインを追加する．あとはApache側の設定が要る．</p>
+<p>ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．
+Digital OceanのDNS設定メニューより，
+<a href="/images/2015/04/DO_domain.png"><img class="alignnone size-full wp-image-1078" src="/images/2015/04/DO_domain.png" alt="DO_domain"   /></a>
+Aレコードにサブドメインを追加する．あとはApache側の設定が要る．</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">vim /etc/httpd/conf/httpd.conf
 </pre></div>
 
@@ -156,53 +137,30 @@ service mysqld start
 
 <p>あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">&lt;VirtualHost *:80&gt;
-
     ServerName syundo.org
-
     DocumentRoot /var/www/html/
-
   &lt;Directory /var/www/html/&gt;
-
     AllowOverride All
-
     Options FollowSymLinks
-
     Order allow,deny
-
     Allow from all
-
    &lt;/Directory&gt;
-
 &lt;/VirtualHost&gt;
-
-
-
 &lt;VirtualHost *:80&gt;
-
     ServerName blog.syundo.org
-
     DocumentRoot /var/www/html/blog/
-
   &lt;Directory /var/www/html/blog/&gt;
-
     AllowOverride All
-
     Options FollowSymLinks
-
     Order allow,deny
-
     Allow from all
-
    &lt;/Directory&gt;
-
 &lt;/VirtualHost&gt;
 </pre></div>
 
-<h2>PHPmyadmin導入</h2>
-
-<p>Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
+<p><h2>PHPmyadmin導入</h2>
+Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi ImageMagick-last
-
 yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi-php55 phpMyAdmin
 </pre></div>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">vim /etc/httpd/conf.d/phpMyAdmin.conf
@@ -210,11 +168,9 @@ yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi-php55 phpMy
 
 <p>を編集．内容は忘れた．</p>
 
-<h2>データの移行</h2>
-
-<p>MySQLで作業する．ログインしてパスワード設定する．</p>
+<p><h2>データの移行</h2>
+MySQLで作業する．ログインしてパスワード設定する．</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">mysql -u root
-
 <span style="color: #2f1e2e">set </span>password <span style="color: #815ba4">for</span> root@localhost<span style="color: #5bc4bf">=</span>password<span style="color: #5bc4bf">(</span><span style="color: #48b685">&#39;hogehoge&#39;</span><span style="color: #5bc4bf">)</span><span style="color: #2f1e2e">;</span>
 </pre></div>
 
@@ -238,29 +194,22 @@ yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi-php55 phpMy
 
 <p>どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">User apache
-
 Group apache
 </pre></div>
 
 <p>の部分を見ればわかる．</p>
 
-<h2>追記：</h2>
-
-<p>トップページからのリンクがすべて404となってしまった．</p>
-
-<p>例えばカテゴリごとに飛ぼうとしてもエラーになる．</p>
+<p><h2>追記：</h2>
+トップページからのリンクがすべて404となってしまった．
+例えばカテゴリごとに飛ぼうとしてもエラーになる．</p>
 
 <p>ダッシュボードの 「設定 -&gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．</p>
 
-<h2>参考：</h2>
-
-<p><a href="http://nekopunch.hatenablog.com/entry/2014/03/22/020507">http://nekopunch.hatenablog.com/entry/2014/03/22/020507</a></p>
-
-<p><a href="http://wp.fsv.jp/guide/server-shift/">http://wp.fsv.jp/guide/server-shift/</a></p>
-
-<p><a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a></p>
-
-<p><a href="http://javatechnology.net/service/apache-sub-domain/">http://javatechnology.net/service/apache-sub-domain/</a></p>
+<p><h2>参考：</h2>
+<a href="http://nekopunch.hatenablog.com/entry/2014/03/22/020507">http://nekopunch.hatenablog.com/entry/2014/03/22/020507</a>
+<a href="http://wp.fsv.jp/guide/server-shift/">http://wp.fsv.jp/guide/server-shift/</a>
+<a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a>
+<a href="http://javatechnology.net/service/apache-sub-domain/">http://javatechnology.net/service/apache-sub-domain/</a></p>
 
       
       

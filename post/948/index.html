@@ -72,26 +72,15 @@
       <p>C:/xampp/apache/conf/httpd.confに以下を追記．</p>
 
 <p>Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．</p>
-
-<p>[html]</p>
-
-<p>Alias /(エイリアス名)/ &quot;(ディレクトリ)/&quot;</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #5bc4bf">&lt;Directory</span> <span style="color: #ef6155">&quot;(ディレクトリ)&quot;</span><span style="color: #5bc4bf">&gt;</span>
-
-           Options Indexes FollowSymLinks Includes ExecCGI
-
-           AllowOverride All
-
-           Require all granted
-
-           Order allow,deny
-
-           Allow from all
-
-<span style="color: #5bc4bf">&lt;/Directory&gt;</span>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">Alias /(エイリアス名)/ &quot;(ディレクトリ)/&quot;
+    <span style="color: #5bc4bf">&lt;Directory</span> <span style="color: #ef6155">&quot;(ディレクトリ)&quot;</span><span style="color: #5bc4bf">&gt;</span>
+               Options Indexes FollowSymLinks Includes ExecCGI
+               AllowOverride All
+               Require all granted
+               Order allow,deny
+               Allow from all
+    <span style="color: #5bc4bf">&lt;/Directory&gt;</span>
 </pre></div>
-
-<p>[/html]</p>
 
       
       

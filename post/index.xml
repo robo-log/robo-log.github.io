@@ -299,9 +299,8 @@ redmineでも導入してタスク管理してみるといいかもしれない�
 
 &lt;p&gt;Qiitaに記事を移しました。&lt;/p&gt;
 
-&lt;p&gt;続きはこちら&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&#34;&gt;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;続きはこちら
+&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&#34;&gt;http://qiita.com/nekokoneko_mode/items/724b7e9bddac58e78e83&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -359,73 +358,41 @@ mbedのコミュニティのことを考え、自分のしたい開発のこと�
       <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1143/</guid>
-      <description>&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
+      <description>&lt;p&gt;&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
+constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
 
-&lt;p&gt;constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
-
-&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
-
-&lt;p&gt;constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
-
-&lt;p&gt;[cpp]&lt;/p&gt;
-
-&lt;p&gt;int sz;   // コンパイル時に存在しない&lt;/p&gt;
-
-&lt;p&gt;&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。&lt;/p&gt;
-
-&lt;p&gt;std::array&amp;lt;int, sz&amp;gt; data1; // 同様なエラー&lt;/p&gt;
-
-&lt;p&gt;constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。&lt;/p&gt;
-
-&lt;p&gt;std::array&amp;lt;int, arraySize&amp;gt; data2; // 良い。&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
+constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;...&lt;/span&gt;
+&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// エラー。szはコンパイル時には使えない。&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data1;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 同様なエラー&lt;/span&gt;
+&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize2&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。10はコンパイル時定数。&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data2;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
 
-&lt;h2&gt;constexpr関数について&lt;/h2&gt;
-
-&lt;p&gt;引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。&lt;/p&gt;
-
+&lt;p&gt;&lt;h2&gt;constexpr関数について&lt;/h2&gt;
+引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 &lt;h3&gt;C++11の場合&lt;/h3&gt;
-
-&lt;p&gt;関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
-
-&lt;p&gt;[cpp]&lt;/p&gt;
-
-&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;return (exp == 0 ? 1 : base*pow(base, exp-1));
+関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(exp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(base,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
-
-&lt;h3&gt;C++14の場合&lt;/h3&gt;
-
-&lt;p&gt;複数行にわたって記述できる&lt;/p&gt;
-
-&lt;p&gt;[cpp]&lt;/p&gt;
-
-&lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;auto result = 1;
-
-for(int i = 0; i &amp;lt; exp; ++i) result *= base;
-
-
-
-return result;
+&lt;p&gt;&lt;h3&gt;C++14の場合&lt;/h3&gt;
+複数行にわたって記述できる&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base;&lt;/span&gt;
+    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result;&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
-
-&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
-
-&lt;p&gt;constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
+constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
 
 &lt;p&gt;もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。&lt;/p&gt;
 </description>
@@ -637,13 +604,9 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
 
 &lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
 DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．
-
 ```bash
-
 ssh-keygen
-
 ```
-
 で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．
 
 &lt;h2&gt;Apache 導入&lt;/h2&gt;
@@ -654,33 +617,24 @@ service httpd start
 
 &lt;h2&gt;PHP 導入&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-
 yum --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vi /etc/php.ini
-
 vi /etc/httpd/conf.d/php.conf
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;MySQL 導入&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install mysql-community-release-el6-5.noarch.rpm
-
 yum install -y mysql-community-client mysql-community-devel mysql-community-server
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo dd &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/dev/zero &lt;span style=&#34;color: #ef6155&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/swapfile &lt;span style=&#34;color: #ef6155&#34;&gt;bs&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1M &lt;span style=&#34;color: #ef6155&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1024
-
 mkswap /swapfile
-
 swapon /swapfile
-
 sudo sh -c &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/span&gt;
-
 chkconfig mysqld on
-
 service mysqld start
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -688,23 +642,17 @@ service mysqld start
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql_secure_installation
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
-
-&lt;p&gt;ムームードメインのメニューのネームサーバー設定変更より&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
+ムームードメインのメニューのネームサーバー設定変更より
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;
+&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;こんな感じにする．&lt;/p&gt;
 
-&lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．&lt;/p&gt;
-
-&lt;p&gt;Digital OceanのDNS設定メニューより，&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
+&lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．
+Digital OceanのDNS設定メニューより，
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;
+Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf/httpd.conf
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -714,53 +662,30 @@ service mysqld start
 
 &lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
-
     ServerName syundo.org
-
     DocumentRoot /var/www/html/
-
   &amp;lt;Directory /var/www/html/&amp;gt;
-
     AllowOverride All
-
     Options FollowSymLinks
-
     Order allow,deny
-
     Allow from all
-
    &amp;lt;/Directory&amp;gt;
-
 &amp;lt;/VirtualHost&amp;gt;
-
-
-
 &amp;lt;VirtualHost *:80&amp;gt;
-
     ServerName blog.syundo.org
-
     DocumentRoot /var/www/html/blog/
-
   &amp;lt;Directory /var/www/html/blog/&amp;gt;
-
     AllowOverride All
-
     Options FollowSymLinks
-
     Order allow,deny
-
     Allow from all
-
    &amp;lt;/Directory&amp;gt;
-
 &amp;lt;/VirtualHost&amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
-
-&lt;p&gt;Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
+Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi ImageMagick-last
-
 yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi-php55 phpMyAdmin
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf
@@ -768,11 +693,9 @@ yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span
 
 &lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
 
-&lt;h2&gt;データの移行&lt;/h2&gt;
-
-&lt;p&gt;MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;データの移行&lt;/h2&gt;
+MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql -u root
-
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;set &lt;/span&gt;password &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; root@localhost&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;password&lt;span style=&#34;color: #5bc4bf&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;hogehoge&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -796,29 +719,22 @@ yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span
 
 &lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;User apache
-
 Group apache
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
 
-&lt;h2&gt;追記：&lt;/h2&gt;
-
-&lt;p&gt;トップページからのリンクがすべて404となってしまった．&lt;/p&gt;
-
-&lt;p&gt;例えばカテゴリごとに飛ぼうとしてもエラーになる．&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;追記：&lt;/h2&gt;
+トップページからのリンクがすべて404となってしまった．
+例えばカテゴリごとに飛ぼうとしてもエラーになる．&lt;/p&gt;
 
 &lt;p&gt;ダッシュボードの 「設定 -&amp;gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．&lt;/p&gt;
 
-&lt;h2&gt;参考：&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&#34;&gt;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;参考：&lt;/h2&gt;
+&lt;a href=&#34;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&#34;&gt;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&lt;/a&gt;
+&lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;
+&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;
+&lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

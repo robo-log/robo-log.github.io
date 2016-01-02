@@ -69,73 +69,41 @@
       </div>
     </div>
     <article>
-      <h1>Effective Modern C++メモ (Moving to Modern C++ : Item 15)</h1>
+      <p><h1>Effective Modern C++メモ (Moving to Modern C++ : Item 15)</h1>
+constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。</p>
 
-<p>constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。</p>
-
-<h2>constexprオブジェクトについて</h2>
-
-<p>constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。</p>
-
-<p>[cpp]</p>
-
-<p>int sz;   // コンパイル時に存在しない</p>
-
-<p>&hellip;</p>
-
-<p>constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。</p>
-
-<p>std::array&lt;int, sz&gt; data1; // 同様なエラー</p>
-
-<p>constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。</p>
-
-<p>std::array&lt;int, arraySize&gt; data2; // 良い。</p>
-
-<p>[/cpp]</p>
+<p><h2>constexprオブジェクトについて</h2>
+constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。</p>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #fec418">int</span> <span style="color: #2f1e2e">sz;</span>   <span style="color: #8d8687">// コンパイル時に存在しない</span>
+<span style="color: #2f1e2e">...</span>
+<span style="color: #815ba4">constexpr</span> <span style="color: #815ba4">auto</span> <span style="color: #2f1e2e">arraySize1</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">sz;</span> <span style="color: #8d8687">// エラー。szはコンパイル時には使えない。</span>
+<span style="color: #2f1e2e">std</span><span style="color: #5bc4bf">::</span><span style="color: #2f1e2e">array</span><span style="color: #5bc4bf">&lt;</span><span style="color: #fec418">int</span><span style="color: #2f1e2e">,</span> <span style="color: #2f1e2e">sz</span><span style="color: #5bc4bf">&gt;</span> <span style="color: #2f1e2e">data1;</span> <span style="color: #8d8687">// 同様なエラー</span>
+<span style="color: #815ba4">constexpr</span> <span style="color: #815ba4">auto</span> <span style="color: #2f1e2e">arraySize2</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">10</span><span style="color: #2f1e2e">;</span> <span style="color: #8d8687">// 良い。10はコンパイル時定数。</span>
+<span style="color: #2f1e2e">std</span><span style="color: #5bc4bf">::</span><span style="color: #2f1e2e">array</span><span style="color: #5bc4bf">&lt;</span><span style="color: #fec418">int</span><span style="color: #2f1e2e">,</span> <span style="color: #2f1e2e">arraySize</span><span style="color: #5bc4bf">&gt;</span> <span style="color: #2f1e2e">data2;</span> <span style="color: #8d8687">// 良い。</span>
+</pre></div>
 
 <p>constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。</p>
 
-<h2>constexpr関数について</h2>
-
-<p>引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。</p>
-
+<p><h2>constexpr関数について</h2>
+引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 <h3>C++11の場合</h3>
-
-<p>関数内に1行、return文があるだけしか認められない。</p>
-
-<p>[cpp]</p>
-
-<p>constexpr int pow(int base, int exp) noexcept {</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">return (exp == 0 ? 1 : base*pow(base, exp-1));
+関数内に1行、return文があるだけしか認められない。</p>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #815ba4">constexpr</span> <span style="color: #fec418">int</span> <span style="color: #06b6ef">pow</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">base,</span> <span style="color: #fec418">int</span> <span style="color: #2f1e2e">exp)</span> <span style="color: #815ba4">noexcept</span> <span style="color: #2f1e2e">{</span>
+    <span style="color: #815ba4">return</span> <span style="color: #2f1e2e">(exp</span> <span style="color: #5bc4bf">==</span> <span style="color: #f99b15">0</span> <span style="color: #5bc4bf">?</span> <span style="color: #f99b15">1</span> <span style="color: #5bc4bf">:</span> <span style="color: #2f1e2e">base</span><span style="color: #5bc4bf">*</span><span style="color: #2f1e2e">pow(base,</span> <span style="color: #2f1e2e">exp</span><span style="color: #5bc4bf">-</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">));</span>
+<span style="color: #2f1e2e">}</span>
 </pre></div>
 
-<p>}</p>
-
-<p>[/cpp]</p>
-
-<h3>C++14の場合</h3>
-
-<p>複数行にわたって記述できる</p>
-
-<p>[cpp]</p>
-
-<p>constexpr int pow(int base, int exp) noexcept {</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">auto result = 1;
-
-for(int i = 0; i &lt; exp; ++i) result *= base;
-
-
-
-return result;
+<p><h3>C++14の場合</h3>
+複数行にわたって記述できる</p>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #815ba4">constexpr</span> <span style="color: #fec418">int</span> <span style="color: #2f1e2e">pow(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">base,</span> <span style="color: #fec418">int</span> <span style="color: #2f1e2e">exp)</span> <span style="color: #815ba4">noexcept</span> <span style="color: #2f1e2e">{</span>
+    <span style="color: #815ba4">auto</span> <span style="color: #2f1e2e">result</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">1</span><span style="color: #2f1e2e">;</span>
+    <span style="color: #815ba4">for</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">exp;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">i)</span> <span style="color: #2f1e2e">result</span> <span style="color: #5bc4bf">*=</span> <span style="color: #2f1e2e">base;</span>
+    <span style="color: #815ba4">return</span> <span style="color: #2f1e2e">result;</span>
+<span style="color: #2f1e2e">}</span>
 </pre></div>
 
-<p>}</p>
-
-<p>[/cpp]</p>
-
-<h2>気をつけるべきこと</h2>
-
-<p>constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</p>
+<p><h2>気をつけるべきこと</h2>
+constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</p>
 
 <p>もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。</p>
 
