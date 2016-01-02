@@ -106,9 +106,8 @@
 <p>[cpp]</p>
 
 <p>constexpr int pow(int base, int exp) noexcept {</p>
-
-<pre><code>return (exp == 0 ? 1 : base*pow(base, exp-1));
-</code></pre>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">return (exp == 0 ? 1 : base*pow(base, exp-1));
+</pre></div>
 
 <p>}</p>
 
@@ -121,15 +120,14 @@
 <p>[cpp]</p>
 
 <p>constexpr int pow(int base, int exp) noexcept {</p>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">auto result = 1;
 
-<pre><code>auto result = 1;
-
-for(int i = 0; i &amp;lt; exp; ++i) result *= base;
+for(int i = 0; i &lt; exp; ++i) result *= base;
 
 
 
 return result;
-</code></pre>
+</pre></div>
 
 <p>}</p>
 

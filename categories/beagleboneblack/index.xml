@@ -15,261 +15,144 @@
       <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1033/</guid>
-      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．&lt;/p&gt;
+      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．
+そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
 
-&lt;p&gt;そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
+&lt;p&gt;今回使うカメラはこれ．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;今回使うカメラはこれ．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．&lt;/p&gt;
-
-&lt;p&gt;何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;lsusb&lt;/p&gt;
-
-&lt;p&gt;ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
+何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lsusb
+ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install xawtv&lt;/p&gt;
-
-&lt;p&gt;xawtv -c /dev/video0&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install xawtv
+xawtv -c /dev/video0
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．&lt;/p&gt;
+&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．
+ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
 
-&lt;p&gt;ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
-
-&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．&lt;/p&gt;
-
-&lt;p&gt;OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
+&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．
+OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;
+の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
 
 &lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．&lt;/p&gt;
-
-&lt;p&gt;サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
+サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;[cpp]&lt;/p&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
 
-&lt;p&gt;//cam.cpp&lt;/p&gt;
+&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
-
-&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
-
-&lt;p&gt;#endif&lt;/p&gt;
-
-&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
-
-&lt;p&gt;{&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
-
-
-
-cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-
-cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
-
-
-
-cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-
-
-
-while ( 1 ) {
-
-    cv::Mat img1;
-
-    cap1 &amp;amp;gt;&amp;amp;gt; img1 ;
-
-    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img1 );
-
-    char ch = cv::waitKey(100);
-
-    if ( ch == 27 ) break;
-
-}
-
-return 0;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1;&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
 
 &lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;[cpp]&lt;/p&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascadeName&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CascadeClassifier&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade;&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.load(cascadeName))&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #fec418&#34;&gt;double&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;scale&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;4.0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray;&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img;&lt;/span&gt;
 
-&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;//Trans to glay scale&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cvtColor(img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_BGR2GRAY);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg(cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.rows&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.cols&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_8UC1);&lt;/span&gt;
 
-&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 処理時間短縮のために画像を縮小&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;resize(gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg.size(),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;INTER_LINEAR);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;equalizeHist(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg);&lt;/span&gt;
 
-&lt;p&gt;#endif&lt;/p&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces;&lt;/span&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;/// マルチスケール（顔）探索xo&lt;/span&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形&lt;/span&gt;
 
-&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.detectMultiScale(smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1.1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_HAAR_SCALE_IMAGE,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Size(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
 
-&lt;p&gt;{&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
-
-
-
-cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-
-cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
-
-
-
-cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-
-
-
-std::string cascadeName = &amp;amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;amp;quot;;
-
-cv::CascadeClassifier cascade;
-
-if(!cascade.load(cascadeName)) return -1;
-
-
-
-double scale = 4.0;
-
-cv::Mat img, gray;
-
-
-
-while ( 1 ) {
-
-    cap1 &amp;amp;gt;&amp;amp;gt; img;
-
-
-
-    //Trans to glay scale
-
-    cv::cvtColor(img, gray, CV_BGR2GRAY);
-
-    cv::Mat smallImg(cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.rows/scale), cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.cols/scale), CV_8UC1);
-
-    // 処理時間短縮のために画像を縮小
-
-    cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
-
-    cv::equalizeHist( smallImg, smallImg);
-
-
-
-    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt; faces;
-
-    /// マルチスケール（顔）探索xo
-
-    // 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
-
-    cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
-
-    // 結果の描画
-
-    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt;::const_iterator r = faces.begin();
-
-    for(; r != faces.end(); ++r) {
-
-        cv::Point center;
-
-        int radius;
-
-        center.x = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;x + r-&amp;amp;gt;width*0.5)*scale);
-
-        center.y = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;y + r-&amp;amp;gt;height*0.5)*scale);
-
-        radius = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;width + r-&amp;amp;gt;height)*0.25*scale);
-
-        cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
-
-    }
-
-    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img );
-
-    char ch = cv::waitKey(30);
-
-    if ( ch == 27 ) break;
-
-}
-
-return 0;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 結果の描画&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;const_iterator&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.begin();&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.end();&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;r)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Point&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center;&lt;/span&gt;
+			&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius;&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;radius&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.25&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;circle(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Scalar(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．&lt;/p&gt;
-
-&lt;p&gt;とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
+&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．
+とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
 
 &lt;p&gt;おわり&lt;/p&gt;
 </description>

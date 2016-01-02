@@ -72,7 +72,7 @@
       
 
 <p>サーボモータのケースを自分で削り出したいが、そのためには歯車やベアリングなどの伝達部品の知識が必要だ。
-私は一応「機械」と名の付く学科を出ているが、長い間PCと向き合うことしかしてこなかったので、
+私は大学と大学院は一応「機械」と名の付く学科を出ているが、長い間PCと向き合うことしかしてこなかったので、
 そこら辺のことはさっぱり忘れてしまった。
 調べながらまとめる。</p>
 
@@ -80,16 +80,21 @@
 
 <h3 id="基礎知識:2a8bde94e123c70572fc74c35b80244b">基礎知識</h3>
 
+<p><a href="http://www.khkgears.co.jp/gear_technology/guide_info.html">http://www.khkgears.co.jp/gear_technology/guide_info.html</a></p>
+
+<p>ここを見ればわかることをまとめた</p>
+
 <h4 id="歯車の基準円と軸間距離:2a8bde94e123c70572fc74c35b80244b">歯車の基準円と軸間距離</h4>
 
-<p>ある直径a, bの2つの円を隣接させるには、これら円の中心間の距離dは
+<p>直径a, bの2つの円を隣接させるには、これら円の中心間の距離dは
 d = (a+b)/2
-となる。
-歯車を隣接させるときにもこれと全く同じように使える、仮想の円の直径というのがある。
+とすればよい。</p>
+
+<p>歯車を隣接させるときにもこれと全く同じように使える、仮想の円がある。
 この仮想の円を基準円と呼ぶ。
-基準円直径d_1, d_2のギヤの軸間距離Dは
+基準円直径d_1, d_2の歯車を用いるとき、軸間距離Dは
 D = (d_1 + d_2)/2
-となるように設計する。</p>
+となるように設計すればよい。</p>
 
 <h4 id="歯車の外形:2a8bde94e123c70572fc74c35b80244b">歯車の外形</h4>
 
@@ -102,14 +107,14 @@ D = (d_1 + d_2)/2
 
 <p>歯車のモジュールは基準円直径
 歯数
-で表されるものである
-大きな力を伝達するときにはモジュールを大きくするらしい。
+で表されるものである。
+大きな力を伝達するときにはモジュールの大きいギヤを使う。
 どのくらいの負荷で、どのくらいの寿命なのかというのは歯車メーカーのマニュアルを見て調べる必要がある。
 が、私としては市販のサーボと同じモジュールのものを使えば問題ないな、ぐらいにしか考えていない。</p>
 
 <h4 id="ギヤの歯の高さと外形直径:2a8bde94e123c70572fc74c35b80244b">ギヤの歯の高さと外形直径</h4>
 
-<p>ギヤの山の高さは基準円からmとJIS規格で決められているらしい。
+<p>ギヤの山の高さは基準円からmとJIS規格で決められている。
 ゆえに、ギヤの外径Dは
 D = mz + 2m = m(z+2)
 となる。
@@ -121,18 +126,20 @@ m = D / (z+2)
 
 <h3 id="サーボモータのギヤの歯数やモジュールを調べた:2a8bde94e123c70572fc74c35b80244b">サーボモータのギヤの歯数やモジュールを調べた</h3>
 
-<p>俺サーボのプロトタイプを作るために、SR-518という市販のサーボを使うことにする。</p>
+<p>俺サーボのプロトタイプを作るために、SR-518という市販のサーボを使うことにする。
+ギヤを取り出して噛み合っている順番に並べた。</p>
 
-<p>ギヤを取り出して噛み合っている順番に並べた。
-写真にとって、まず印をつけながら歯数のカウントをした。
-目がしょぼしょぼしてくるし、どこまで数えたのか分からなくなるので、写真に撮るのは必須だと思った。
-その後、ギヤの外径をデジタルノギスを使って計測した。
+<p>写真に撮って、まず印をつけながら歯数のカウントをした。
+目がしょぼしょぼしてくるし、どこまで数えたのか分からなくなるので、写真に撮るのは必須だと思った。</p>
+
+<p>その後、ギヤの外径をデジタルノギスを使って計測した。
 私のノギスは1万くらいするちょっと良いやつなので、大抵のものはピタッと計測することができる。
-例えば、あるギヤの直径は
-歯数は　であったので
-モジュール m = 0.3
-などと計測することができた。
-ただ、そんなに精度が出なくても市販のギヤのモジュールは限られているので、容易に推測することができる。</p>
+例えば、あるギヤの直径は12.60
+歯数は40　であったので
+モジュール m = 12.60 / (40 + 2) = 0.3
+などと計測することができた。</p>
+
+<p>ただ、そんなに精度が出なくても市販のギヤのモジュールは限られているので、容易に推測することができる。</p>
 
 <p>計測したギヤの歯数とモジュールはこちら</p>
 
@@ -140,30 +147,30 @@ m = D / (z+2)
 <thead>
 <tr>
 <th align="center"></th>
-<th align="center">外径</th>
-<th align="center">外径</th>
-<th align="center">歯数</th>
-<th align="center">歯数</th>
-<th align="center">モジュール</th>
-<th align="center">モジュール</th>
+<th align="center">外径(1)</th>
+<th align="center">外径(2)</th>
+<th align="center">歯数(1)</th>
+<th align="center">歯数(2)</th>
+<th align="center">モジュール(1)</th>
+<th align="center">モジュール(2)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td align="center">gear 1</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">13</td>
-<td align="center"></td>
+<td align="center">-</td>
 <td align="center">0.3</td>
 </tr>
 
 <tr>
 <td align="center">gear 2</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">31</td>
 <td align="center">12</td>
 <td align="center">0.3</td>
@@ -172,8 +179,18 @@ m = D / (z+2)
 
 <tr>
 <td align="center">gear 3</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">12.60</td>
+<td align="center">-</td>
+<td align="center">40</td>
+<td align="center">12</td>
+<td align="center">0.3</td>
+<td align="center">0.3</td>
+</tr>
+
+<tr>
+<td align="center">gear 4</td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">40</td>
 <td align="center">12</td>
 <td align="center">0.3</td>
@@ -181,19 +198,9 @@ m = D / (z+2)
 </tr>
 
 <tr>
-<td align="center">gear 4</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">40</td>
-<td align="center">12</td>
-<td align="center">0.4</td>
-<td align="center">0.4</td>
-</tr>
-
-<tr>
 <td align="center">gear 5</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">28</td>
 <td align="center">12</td>
 <td align="center">0.4</td>
@@ -202,12 +209,81 @@ m = D / (z+2)
 
 <tr>
 <td align="center">gear 6</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">19.33</td>
+<td align="center">-</td>
 <td align="center">46</td>
 <td align="center">-</td>
 <td align="center">0.4</td>
-<td align="center">0.4</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">軸径</th>
+<th align="center">歯幅(1)</th>
+<th align="center">歯幅(2)</th>
+<th align="center">基準円直径(1)</th>
+<th align="center">基準円直径(2)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">gear 1</td>
+<td align="center">-</td>
+<td align="center">2.6</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">3.9</td>
+</tr>
+
+<tr>
+<td align="center">gear 2</td>
+<td align="center">1.57</td>
+<td align="center">1.2</td>
+<td align="center">1.95</td>
+<td align="center">9.3</td>
+<td align="center">3.6</td>
+</tr>
+
+<tr>
+<td align="center">gear 3</td>
+<td align="center">1.97</td>
+<td align="center">1.2</td>
+<td align="center">2.1</td>
+<td align="center">12</td>
+<td align="center">3.6</td>
+</tr>
+
+<tr>
+<td align="center">gear 4</td>
+<td align="center">1.57</td>
+<td align="center">1.6</td>
+<td align="center">2.7</td>
+<td align="center">12</td>
+<td align="center">4.8</td>
+</tr>
+
+<tr>
+<td align="center">gear 5</td>
+<td align="center">1.97</td>
+<td align="center">1.9</td>
+<td align="center">5.0</td>
+<td align="center">11.2</td>
+<td align="center">4.8</td>
+</tr>
+
+<tr>
+<td align="center">gear 6</td>
+<td align="center">内径6, 外径10, 2.5</td>
+<td align="center">-</td>
+<td align="center">4.0</td>
+<td align="center">18.4</td>
+<td align="center">-</td>
 </tr>
 </tbody>
 </table>

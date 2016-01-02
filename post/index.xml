@@ -6,8 +6,56 @@
     <description>Recent content in Posts on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 04 Oct 2015 13:06:49 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2016 23:41:35 +0900</lastBuildDate>
     <atom:link href="http://syundo0730.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HugoでGitHub markdown形式でコードブロックを記述する</title>
+      <link>http://syundo0730.github.io/post/2016-01-01-hugoFormula/</link>
+      <pubDate>Fri, 01 Jan 2016 23:41:35 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/2016-01-01-hugoFormula/</guid>
+      <description>&lt;p&gt;ふとブログにコードを載せようとしてmarkdown形式で書いてみたら反映されなかった。
+Hugoに設定が要るらしい。&lt;/p&gt;
+
+&lt;p&gt;Hugoをbrewからインストールして使っていたが、versionが古く0.14がインストールされていた。
+最新のHugoをビルドして使う必要がある。&lt;/p&gt;
+
+&lt;p&gt;まずgo を入れていなかったのでインストールする。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install go
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;mercurial も入れていなかったのでインストール。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install mercurial
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最新のHugoをビルドして使う。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go
+&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;go get -v github.com/spf13/hugo
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go/bin
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hugoがちゃんと入ったか動作確認する。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;hugo version
+Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;次にコードのハイライトを解析するPygmentsのインストールをする。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;pip install Pygments
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;config.tomlにPygmentsを使うことを設定する。
+Pygmentsのスタイルのプレビューは公式サイトで見ることができる。&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentscodefences&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentsstyle&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;paraiso-light&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ただし、Qiitaのmarkdown記法で&lt;code&gt;bash:filename&lt;/code&gt;とか書いてもファイル名は表示されない&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>第8回ROS勉強会に参加してきた</title>
@@ -263,67 +311,45 @@ redmineでも導入してタスク管理してみるといいかもしれない�
       <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1154/</guid>
-      <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。
+&lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;初めて勉強会での発表ということもした（ただしLT)&lt;/p&gt;
 
-&lt;p&gt;発表資料はこちら&lt;/p&gt;
+&lt;p&gt;発表資料はこちら
+&lt;a href=&#34;http://www.slideshare.net/syundo/c-48237620&#34;&gt;http://www.slideshare.net/syundo/c-48237620&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/syundo/c-48237620&#34;&gt;http://www.slideshare.net/syundo/c-48237620&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ニコ生はこちら
+&lt;a href=&#34;http://live.nicovideo.jp/gate/lv220960718&#34;&gt;http://live.nicovideo.jp/gate/lv220960718&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;ニコ生はこちら&lt;/p&gt;
+&lt;p&gt;メモを取って即時公開してくださっているひとがいた。
+&lt;a href=&#34;http://www.shigemk2.com/archive/category/C%2B%2B&#34;&gt;http://www.shigemk2.com/archive/category/C%2B%2B&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://live.nicovideo.jp/gate/lv220960718&#34;&gt;http://live.nicovideo.jp/gate/lv220960718&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;私はLTでC++を使って開発できるマイコンボードの例としてmbedを紹介した。
+だが、問題はmbedのコンパイラにあった。
+C++界隈の人たちの興味はC++11，14、さらにはC++17にあるのだ。
+対してmbedオンラインコンパイラはC++98だ。
+C++98のことなんてもう忘却の彼方にあるし、取るに足りないことなのだ（実際僕もそう思う）。&lt;/p&gt;
 
-&lt;p&gt;メモを取って即時公開してくださっているひとがいた。&lt;/p&gt;
+&lt;p&gt;mbedの開発環境は不自由だ。
+ネット環境がないとコンパイルできないとかザコだ。
+なぜそんな環境に拘っているのか？
+そのご指摘はまさにその通りだと思う。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.shigemk2.com/archive/category/C%2B%2B&#34;&gt;http://www.shigemk2.com/archive/category/C%2B%2B&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;arm向けの自由なコンパイラがあるんだから、mbedはオンラインコンパイラに頼るエコシステムにすべきじゃなかったのだ。
+オンラインコンパイラが無ければmbedは広まらなかったか？
+僕はそうは思わない。Arduinoの開発環境はローカルの開発環境だが超流行っているじゃないか。
+Coretex-M3の強い計算機能力を発揮して楽しくC++開発できることがmbedの強みだ。
+Arduinoなんて目じゃない。&lt;/p&gt;
 
-&lt;p&gt;こういう仕事の早さは敵う気がしない。&lt;/p&gt;
+&lt;p&gt;それなのにコンパイラがC++98/03準拠というのはあんまりじゃないか。
+mbedのコミュニティのことを考え、自分のしたい開発のことを考え、もやもやしている&amp;hellip;&lt;/p&gt;
 
-&lt;p&gt;私はLTでC++を使って開発できるマイコンボードの例としてmbedを紹介した。&lt;/p&gt;
+&lt;p&gt;C++界隈の人たちというのは濃い、強い。
+自分ももっと技術力を高めて本当のプログラマになりたいと思った。&lt;/p&gt;
 
-&lt;p&gt;だが、問題はmbedのコンパイラにあった。&lt;/p&gt;
-
-&lt;p&gt;C++界隈の人たちの興味はC++11，14、さらにはC++17にあるのだ。&lt;/p&gt;
-
-&lt;p&gt;対してmbedオンラインコンパイラはC++98だ。&lt;/p&gt;
-
-&lt;p&gt;C++98のことなんてもう忘却の彼方にあるし、取るに足りないことなのだ（実際僕もそう思う）。&lt;/p&gt;
-
-&lt;p&gt;mbedの開発環境は不自由だ。&lt;/p&gt;
-
-&lt;p&gt;ネット環境がないとコンパイルできないとかザコだ。&lt;/p&gt;
-
-&lt;p&gt;なぜそんな環境に拘っているのか？&lt;/p&gt;
-
-&lt;p&gt;そのご指摘はまさにその通りだと思う。&lt;/p&gt;
-
-&lt;p&gt;arm向けの自由なコンパイラがあるんだから、mbedはオンラインコンパイラに頼るエコシステムにすべきじゃなかったのだ。&lt;/p&gt;
-
-&lt;p&gt;オンラインコンパイラが無ければmbedは広まらなかったか？&lt;/p&gt;
-
-&lt;p&gt;僕はそうは思わない。Arduinoの開発環境はローカルの開発環境だが超流行っているじゃないか。&lt;/p&gt;
-
-&lt;p&gt;Coretex-M3の強い計算機能力を発揮して楽しくC++開発できることがmbedの強みだ。&lt;/p&gt;
-
-&lt;p&gt;Arduinoなんて目じゃない。&lt;/p&gt;
-
-&lt;p&gt;それなのにコンパイラがC++98/03準拠というのはあんまりじゃないか。&lt;/p&gt;
-
-&lt;p&gt;mbedのコミュニティのことを考え、自分のしたい開発のことを考え、もやもやしている&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;C++界隈の人たちというのは濃い、強い。&lt;/p&gt;
-
-&lt;p&gt;自分ももっと技術力を高めて本当のプログラマになりたいと思った。&lt;/p&gt;
-
-&lt;p&gt;これまで聞いたこと無いキーワードや，聞いたことあったがよく知らないことをたくさん知れた。&lt;/p&gt;
-
-&lt;p&gt;調べて勉強してもっとC++をわかりたい。&lt;/p&gt;
+&lt;p&gt;これまで聞いたこと無いキーワードや，聞いたことあったがよく知らないことをたくさん知れた。
+調べて勉強してもっとC++をわかりたい。&lt;/p&gt;
 </description>
     </item>
     
@@ -370,9 +396,8 @@ redmineでも導入してタスク管理してみるといいかもしれない�
 &lt;p&gt;[cpp]&lt;/p&gt;
 
 &lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;return (exp == 0 ? 1 : base*pow(base, exp-1));
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;return (exp == 0 ? 1 : base*pow(base, exp-1));
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;}&lt;/p&gt;
 
@@ -385,15 +410,14 @@ redmineでも導入してタスク管理してみるといいかもしれない�
 &lt;p&gt;[cpp]&lt;/p&gt;
 
 &lt;p&gt;constexpr int pow(int base, int exp) noexcept {&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;auto result = 1;
 
-&lt;pre&gt;&lt;code&gt;auto result = 1;
-
-for(int i = 0; i &amp;amp;lt; exp; ++i) result *= base;
+for(int i = 0; i &amp;lt; exp; ++i) result *= base;
 
 
 
 return result;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;}&lt;/p&gt;
 
@@ -413,47 +437,32 @@ return result;
       <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1140/</guid>
-      <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。&lt;/p&gt;
+      <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。
+ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。
+あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。
+DBやらphpやら準備しなくて良いので環境の構築は楽だろう。
+静的ページだけなので非力なサーバでも運用できるだろう。
+俄然興味が湧いてきた。&lt;/p&gt;
 
-&lt;p&gt;ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。&lt;/p&gt;
+&lt;p&gt;こういったツールは色々あって
+&lt;a href=&#34;https://staticsitegenerators.net/&#34;&gt;https://staticsitegenerators.net/&lt;/a&gt;
+ここを見るとどれが人気があるのかわかる。&lt;/p&gt;
 
-&lt;p&gt;あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。&lt;/p&gt;
+&lt;p&gt;だが私は今のところ&lt;a href=&#34;http://golang-jp.org/&#34;&gt;golang&lt;/a&gt;で動く&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;に興味がある。
+機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。&lt;/p&gt;
 
-&lt;p&gt;DBやらphpやら準備しなくて良いので環境の構築は楽だろう。&lt;/p&gt;
-
-&lt;p&gt;静的ページだけなので非力なサーバでも運用できるだろう。&lt;/p&gt;
-
-&lt;p&gt;俄然興味が湧いてきた。&lt;/p&gt;
-
-&lt;p&gt;こういったツールは色々あって&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://staticsitegenerators.net/&#34;&gt;https://staticsitegenerators.net/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ここを見るとどれが人気があるのかわかる。&lt;/p&gt;
-
-&lt;p&gt;だが私は今のところ&lt;a href=&#34;http://golang-jp.org/&#34;&gt;golang&lt;/a&gt;で動く&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;に興味がある。&lt;/p&gt;
-
-&lt;p&gt;機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。&lt;/p&gt;
-
-&lt;p&gt;ソースはGitHubで管理するのが良かろう。&lt;/p&gt;
-
-&lt;p&gt;werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。&lt;/p&gt;
-
-&lt;p&gt;werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。&lt;/p&gt;
-
-&lt;p&gt;Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
+&lt;p&gt;ソースはGitHubで管理するのが良かろう。
+werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。
+werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。
+Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
 
 &lt;p&gt;ちなみにちょっと文脈が違うがWebサイトに数式を含めるならば&lt;a href=&#34;http://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;が良いという電波をキャッチした。&lt;/p&gt;
 
-&lt;h2&gt;参考にしたところ&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&#34;&gt;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;参考にしたところ&lt;/h2&gt;
+&lt;a href=&#34;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&#34;&gt;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&lt;/a&gt;
+&lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;
+&lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;
+&lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -463,15 +472,12 @@ return result;
       <pubDate>Tue, 12 May 2015 02:04:29 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1128/</guid>
-      <description>&lt;p&gt;&amp;lt;aHaskellをやってみようと思った。&lt;/p&gt;
+      <description>&lt;p&gt;Haskellをやってみようと思った。
+環境：Ubuntu12.04 64bit&lt;/p&gt;
 
-&lt;p&gt;環境：Ubuntu12.04 64bit&lt;/p&gt;
-
-&lt;p&gt;記事をQiitaに移動した。&lt;/p&gt;
-
-&lt;p&gt;続きはこちら&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;記事をQiitaに移動した。
+続きはこちら
+&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -481,23 +487,17 @@ return result;
       <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1131/</guid>
-      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。&lt;/p&gt;
+      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。
+ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
 
-&lt;p&gt;ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
+&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。
+月3G音声通話つきで1600円のものを選んだ。
+容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
 
-&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。&lt;/p&gt;
-
-&lt;p&gt;月3G音声通話つきで1600円のものを選んだ。&lt;/p&gt;
-
-&lt;p&gt;容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
-
-&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。&lt;/p&gt;
-
-&lt;p&gt;今回は5月4日 am9:54にドコモsimが停止&lt;/p&gt;
-
-&lt;p&gt;翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。&lt;/p&gt;
-
-&lt;p&gt;都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
+&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。
+今回は5月4日 am9:54にドコモsimが停止
+翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。
+都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
 
 &lt;p&gt;通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。&lt;/p&gt;
 
@@ -517,31 +517,21 @@ return result;
 
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1114&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34; alt=&#34;DSC_1486&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1118&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34; alt=&#34;DSC_1488&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;ワイヤーで吊ります。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1118&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34; alt=&#34;DSC_1488&#34;   /&gt;&lt;/a&gt;
+ワイヤーで吊ります。&lt;/p&gt;
 
 &lt;p&gt;ちなみに現在の作業環境はこんな感じです。&lt;/p&gt;
 
-&lt;p&gt;CNC&lt;/p&gt;
+&lt;p&gt;CNC
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1116&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34; alt=&#34;DSC_1490&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1116&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34; alt=&#34;DSC_1490&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ボール盤と折り曲げ機
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1115&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34; alt=&#34;DSC_1489&#34;   /&gt;&lt;/a&gt;
+CNCに関しては防音箱の性能向上を図る必要があると考えています。&lt;/p&gt;
 
-&lt;p&gt;ボール盤と折り曲げ機&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1115&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34; alt=&#34;DSC_1489&#34;   /&gt;&lt;/a&gt;CNCに関しては防音箱の性能向上を図る必要があると考えています。&lt;/p&gt;
-
-&lt;p&gt;10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。&lt;/p&gt;
-
-&lt;p&gt;吸音材をヤフオクで買って貼りつけようと思います。&lt;/p&gt;
+&lt;p&gt;10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。
+吸音材をヤフオクで買って貼りつけようと思います。&lt;/p&gt;
 
 &lt;p&gt;ではでは。&lt;/p&gt;
 
@@ -559,27 +549,21 @@ return result;
       <guid>http://syundo0730.github.io/post/1068/</guid>
       <description>&lt;p&gt;お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．&lt;/p&gt;
 
-&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．&lt;/p&gt;
-
-&lt;p&gt;大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．&lt;/p&gt;
-
+&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．
+大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．
 &lt;h2&gt;ROBO-ONEまでにうちのヴァニラがどう変わったか&lt;/h2&gt;
-
-&lt;p&gt;こちらが改造に使った部品たちです．一部組み上がってますが…&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+こちらが改造に使った部品たちです．一部組み上がってますが…
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1101&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34; alt=&#34;2014-11-08 21.12.58&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1102&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34; alt=&#34;2014-11-08 21.14.27&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．&lt;/p&gt;
+&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．
+&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
 
-&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？
+&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1106&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34; alt=&#34;2014-11-08 21.14.06&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -591,8 +575,6 @@ return result;
 
 &lt;p&gt;大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1107&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34; alt=&#34;2015-02-28 12.34.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
 &lt;p&gt;14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．&lt;/p&gt;
 
 &lt;p&gt;予選の結果&lt;/p&gt;
@@ -601,19 +583,13 @@ return result;
 
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/dyA7645_rA4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;敗因&lt;/p&gt;
-
+&lt;p&gt;敗因
 &lt;ul&gt;
-
     &lt;li&gt;コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた．&lt;/li&gt;
-
     &lt;li&gt;シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった．&lt;/li&gt;
-
     &lt;li&gt;上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった．&lt;/li&gt;
-
     &lt;li&gt;数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった．&lt;/li&gt;
-
-&lt;/ul&gt;
+&lt;/ul&gt;&lt;/p&gt;
 
 &lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
 </description>
@@ -655,91 +631,62 @@ return result;
 
 &lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
 
-&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は&lt;/p&gt;
-
-&lt;p&gt;512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64&lt;/p&gt;
-
-&lt;p&gt;のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
+&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は
+512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64
+のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
 
 &lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
+DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．
 
-&lt;p&gt;DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．&lt;/p&gt;
+```bash
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+ssh-keygen
 
-&lt;p&gt;ssh-keygen&lt;/p&gt;
+```
 
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．&lt;/p&gt;
+で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．
 
 &lt;h2&gt;Apache 導入&lt;/h2&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum install -y httpd httpd-devel&lt;/p&gt;
-
-&lt;p&gt;chkconfig httpd on&lt;/p&gt;
-
-&lt;p&gt;service httpd start&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install -y httpd httpd-devel
+chkconfig httpd on
+service httpd start
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;PHP 導入&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
-&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&#34;&gt;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&lt;/a&gt;&lt;/p&gt;
+yum --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vi /etc/php.ini
 
-&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&#34;&gt;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;yum &amp;ndash;enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vi /etc/php.ini&lt;/p&gt;
-
-&lt;p&gt;vi /etc/httpd/conf.d/php.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+vi /etc/httpd/conf.d/php.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;MySQL 導入&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install mysql-community-release-el6-5.noarch.rpm
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum install mysql-community-release-el6-5.noarch.rpm&lt;/p&gt;
-
-&lt;p&gt;yum install -y mysql-community-client mysql-community-devel mysql-community-server&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+yum install -y mysql-community-client mysql-community-devel mysql-community-server
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo dd &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/dev/zero &lt;span style=&#34;color: #ef6155&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/swapfile &lt;span style=&#34;color: #ef6155&#34;&gt;bs&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1M &lt;span style=&#34;color: #ef6155&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1024
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+mkswap /swapfile
 
-&lt;p&gt;sudo dd if=/dev/zero of=/swapfile bs=1M count=1024&lt;/p&gt;
+swapon /swapfile
 
-&lt;p&gt;mkswap /swapfile&lt;/p&gt;
+sudo sh -c &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/span&gt;
 
-&lt;p&gt;swapon /swapfile&lt;/p&gt;
+chkconfig mysqld on
 
-&lt;p&gt;sudo sh -c &amp;quot;echo &amp;lsquo;/swapfile swap swap defaults 0 0&amp;rsquo; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;chkconfig mysqld on&lt;/p&gt;
-
-&lt;p&gt;service mysqld start&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+service mysqld start
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;mysql_secure_installation&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql_secure_installation
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
 
@@ -758,146 +705,100 @@ return result;
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim /etc/httpd/conf/httpd.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf/httpd.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;NameVirtualHost *:80&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;NameVirtualHost *:80
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+    ServerName syundo.org
 
-&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+    DocumentRoot /var/www/html/
 
-&lt;pre&gt;&lt;code&gt;ServerName syundo.org
+  &amp;lt;Directory /var/www/html/&amp;gt;
 
-DocumentRoot /var/www/html/
-&lt;/code&gt;&lt;/pre&gt;
+    AllowOverride All
 
-&lt;p&gt;&amp;lt;Directory /var/www/html/&amp;gt;&lt;/p&gt;
+    Options FollowSymLinks
 
-&lt;pre&gt;&lt;code&gt;AllowOverride All
+    Order allow,deny
 
-Options FollowSymLinks
+    Allow from all
 
-Order allow,deny
+   &amp;lt;/Directory&amp;gt;
 
-Allow from all
-&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/VirtualHost&amp;gt;
 
-&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+&amp;lt;VirtualHost *:80&amp;gt;
 
-&lt;pre&gt;&lt;code&gt;ServerName blog.syundo.org
+    ServerName blog.syundo.org
 
-DocumentRoot /var/www/html/blog/
-&lt;/code&gt;&lt;/pre&gt;
+    DocumentRoot /var/www/html/blog/
 
-&lt;p&gt;&amp;lt;Directory /var/www/html/blog/&amp;gt;&lt;/p&gt;
+  &amp;lt;Directory /var/www/html/blog/&amp;gt;
 
-&lt;pre&gt;&lt;code&gt;AllowOverride All
+    AllowOverride All
 
-Options FollowSymLinks
+    Options FollowSymLinks
 
-Order allow,deny
+    Order allow,deny
 
-Allow from all
-&lt;/code&gt;&lt;/pre&gt;
+    Allow from all
 
-&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+   &amp;lt;/Directory&amp;gt;
 
-&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
 
 &lt;p&gt;Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi ImageMagick-last
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi ImageMagick-last&lt;/p&gt;
-
-&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi-php55 phpMyAdmin&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi-php55 phpMyAdmin
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
 
 &lt;h2&gt;データの移行&lt;/h2&gt;
 
 &lt;p&gt;MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql -u root
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;mysql -u root&lt;/p&gt;
-
-&lt;p&gt;set password for root@localhost=password(&amp;lsquo;hogehoge&amp;rsquo;);&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;set &lt;/span&gt;password &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; root@localhost&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;password&lt;span style=&#34;color: #5bc4bf&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;hogehoge&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;データベース作る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;create database database_name&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;create database database_name
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;grant all on database_name.* to dbuser@localhost identified by &amp;lsquo;piyopiyo&amp;rsquo;;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;grant all on database_name.* to dbuser@localhost identified by &lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;piyopiyo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim wp-config.php&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim wp-config.php
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo chown -R apache:apache myblogdir&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo chown -R apache:apache myblogdir
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;User apache
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;User apache&lt;/p&gt;
-
-&lt;p&gt;Group apache&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+Group apache
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
 
@@ -927,423 +828,146 @@ Allow from all
       <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/1033/</guid>
-      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．&lt;/p&gt;
+      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．
+そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
 
-&lt;p&gt;そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
+&lt;p&gt;今回使うカメラはこれ．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;今回使うカメラはこれ．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．&lt;/p&gt;
-
-&lt;p&gt;何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;lsusb&lt;/p&gt;
-
-&lt;p&gt;ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
+何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lsusb
+ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install xawtv&lt;/p&gt;
-
-&lt;p&gt;xawtv -c /dev/video0&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install xawtv
+xawtv -c /dev/video0
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．&lt;/p&gt;
+&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．
+ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
 
-&lt;p&gt;ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
-
-&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．&lt;/p&gt;
-
-&lt;p&gt;OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
+&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．
+OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;
+の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
 
 &lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．&lt;/p&gt;
-
-&lt;p&gt;サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
+サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;[cpp]&lt;/p&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
 
-&lt;p&gt;//cam.cpp&lt;/p&gt;
+&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
-
-&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
-
-&lt;p&gt;#endif&lt;/p&gt;
-
-&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
-
-&lt;p&gt;{&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
-
-
-
-cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-
-cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
-
-
-
-cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-
-
-
-while ( 1 ) {
-
-    cv::Mat img1;
-
-    cap1 &amp;amp;gt;&amp;amp;gt; img1 ;
-
-    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img1 );
-
-    char ch = cv::waitKey(100);
-
-    if ( ch == 27 ) break;
-
-}
-
-return 0;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1;&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
 
 &lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
-&lt;p&gt;[cpp]&lt;/p&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;cv.h&amp;gt;&lt;/p&gt;
+&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascadeName&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CascadeClassifier&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade;&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.load(cascadeName))&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #fec418&#34;&gt;double&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;scale&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;4.0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray;&lt;/span&gt;
 
-&lt;p&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/p&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img;&lt;/span&gt;
 
-&lt;p&gt;#ifndef CV_WINDOW_FREERATIO&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;//Trans to glay scale&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cvtColor(img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_BGR2GRAY);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg(cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.rows&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.cols&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_8UC1);&lt;/span&gt;
 
-&lt;p&gt;#define CV_WINDOW_FREERATIO 0&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 処理時間短縮のために画像を縮小&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;resize(gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg.size(),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;INTER_LINEAR);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;equalizeHist(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg);&lt;/span&gt;
 
-&lt;p&gt;#endif&lt;/p&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces;&lt;/span&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;/// マルチスケール（顔）探索xo&lt;/span&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形&lt;/span&gt;
 
-&lt;p&gt;int main( int argc, char **argv )&lt;/p&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.detectMultiScale(smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1.1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_HAAR_SCALE_IMAGE,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Size(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
 
-&lt;p&gt;{&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cv::VideoCapture cap1(0);
-
-
-
-cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-
-cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
-
-
-
-cv::namedWindow(&amp;amp;quot;camera1&amp;amp;quot;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-
-
-
-std::string cascadeName = &amp;amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;amp;quot;;
-
-cv::CascadeClassifier cascade;
-
-if(!cascade.load(cascadeName)) return -1;
-
-
-
-double scale = 4.0;
-
-cv::Mat img, gray;
-
-
-
-while ( 1 ) {
-
-    cap1 &amp;amp;gt;&amp;amp;gt; img;
-
-
-
-    //Trans to glay scale
-
-    cv::cvtColor(img, gray, CV_BGR2GRAY);
-
-    cv::Mat smallImg(cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.rows/scale), cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;(img.cols/scale), CV_8UC1);
-
-    // 処理時間短縮のために画像を縮小
-
-    cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
-
-    cv::equalizeHist( smallImg, smallImg);
-
-
-
-    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt; faces;
-
-    /// マルチスケール（顔）探索xo
-
-    // 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
-
-    cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
-
-    // 結果の描画
-
-    std::vector&amp;amp;lt;cv::Rect&amp;amp;gt;::const_iterator r = faces.begin();
-
-    for(; r != faces.end(); ++r) {
-
-        cv::Point center;
-
-        int radius;
-
-        center.x = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;x + r-&amp;amp;gt;width*0.5)*scale);
-
-        center.y = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;y + r-&amp;amp;gt;height*0.5)*scale);
-
-        radius = cv::saturate_cast&amp;amp;lt;int&amp;amp;gt;((r-&amp;amp;gt;width + r-&amp;amp;gt;height)*0.25*scale);
-
-        cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
-
-    }
-
-    cv::imshow(&amp;amp;quot;camera1&amp;amp;quot;, img );
-
-    char ch = cv::waitKey(30);
-
-    if ( ch == 27 ) break;
-
-}
-
-return 0;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}&lt;/p&gt;
-
-&lt;p&gt;[/cpp]&lt;/p&gt;
+		&lt;span style=&#34;color: #8d8687&#34;&gt;// 結果の描画&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;const_iterator&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.begin();&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.end();&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;r)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Point&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center;&lt;/span&gt;
+			&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius;&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;radius&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.25&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
+			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;circle(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Scalar(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
+&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．&lt;/p&gt;
-
-&lt;p&gt;とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
+&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．
+とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
 
 &lt;p&gt;おわり&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</title>
-      <link>http://syundo0730.github.io/post/971/</link>
-      <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/971/</guid>
-      <description>
-
-&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
-
-&lt;p&gt;まずGetting Started(&lt;a href=&#34;http://beagleboard.org/Getting%20Started&#34;&gt;http://beagleboard.org/Getting%20Started&lt;/a&gt;)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．&lt;/p&gt;
-
-&lt;p&gt;リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://beagleboard.org/latest-images&#34;&gt;http://beagleboard.org/latest-images&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC)&lt;/p&gt;
-
-&lt;p&gt;をmicroSDカードに書き込む．&lt;/p&gt;
-
-&lt;p&gt;Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．&lt;/p&gt;
-
-&lt;p&gt;以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい．&lt;/p&gt;
-
-&lt;p&gt;作業環境：VMware Player，64bit Ubuntu 14.04&lt;/p&gt;
-
-&lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．&lt;/p&gt;
-
-&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;wget &lt;a href=&#34;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&#34;&gt;https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
-
-&lt;p&gt;tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz&lt;/p&gt;
-
-&lt;p&gt;cd ubuntu-14.04-console-armhf-2014-05-06&lt;/p&gt;
-
-&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;probe-mmc&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo ./setup_sdcard.sh &amp;ndash;mmc /dev/sdX &amp;ndash;uboot bone&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
-
-&lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;ssh ubuntu@192.168.7.2&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
-
-&lt;p&gt;さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）&lt;/p&gt;
-
-&lt;p&gt;今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．&lt;/p&gt;
-
-&lt;p&gt;以下のサイトを参考にして作業を進める．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme&lt;/p&gt;
-
-&lt;p&gt;sudo reboot&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．&lt;/p&gt;
-
-&lt;p&gt;結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
-
-&lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install vnc4server&lt;/p&gt;
-
-&lt;p&gt;vncserver&lt;/p&gt;
-
-&lt;p&gt;vncserver -kill :1&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
-
-&lt;p&gt;[bash]&lt;/p&gt;
-
-&lt;h1 id=&#34;bin-sh:732fd3103795c9dc70583b77fae9af7e&#34;&gt;!/bin/sh&lt;/h1&gt;
-
-&lt;h1 id=&#34;uncomment-the-following-two-lines-for-normal-desktop:732fd3103795c9dc70583b77fae9af7e&#34;&gt;Uncomment the following two lines for normal desktop:&lt;/h1&gt;
-
-&lt;h1 id=&#34;unset-session-manager:732fd3103795c9dc70583b77fae9af7e&#34;&gt;unset SESSION_MANAGER&lt;/h1&gt;
-
-&lt;h1 id=&#34;exec-etc-x11-xinit-xinitrc:732fd3103795c9dc70583b77fae9af7e&#34;&gt;exec /etc/X11/xinit/xinitrc&lt;/h1&gt;
-
-&lt;p&gt;/usr/bin/lxsession &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;[ -x /etc/vnc/xstartup ] &amp;amp;&amp;amp; exec /etc/vnc/xstartup&lt;/p&gt;
-
-&lt;p&gt;[ -r $HOME/.Xresources ] &amp;amp;&amp;amp; xrdb $HOME/.Xresources&lt;/p&gt;
-
-&lt;p&gt;xsetroot -solid grey&lt;/p&gt;
-
-&lt;p&gt;vncconfig -iconic &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;$VNCDESKTOP Desktop&amp;quot; &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;x-window-manager &amp;amp;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vncserver :1 -geometry 1024x768&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．&lt;/p&gt;
-
-&lt;p&gt;リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install remmina&lt;/p&gt;
-
-&lt;p&gt;remmina&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;おわり．&lt;/p&gt;
 </description>
     </item>
     

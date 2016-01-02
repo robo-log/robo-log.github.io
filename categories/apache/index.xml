@@ -19,91 +19,62 @@
 
 &lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
 
-&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は&lt;/p&gt;
-
-&lt;p&gt;512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64&lt;/p&gt;
-
-&lt;p&gt;のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
+&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は
+512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64
+のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
 
 &lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
+DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．
 
-&lt;p&gt;DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．&lt;/p&gt;
+```bash
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+ssh-keygen
 
-&lt;p&gt;ssh-keygen&lt;/p&gt;
+```
 
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．&lt;/p&gt;
+で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．
 
 &lt;h2&gt;Apache 導入&lt;/h2&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum install -y httpd httpd-devel&lt;/p&gt;
-
-&lt;p&gt;chkconfig httpd on&lt;/p&gt;
-
-&lt;p&gt;service httpd start&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install -y httpd httpd-devel
+chkconfig httpd on
+service httpd start
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;PHP 導入&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 
-&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&#34;&gt;http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm&lt;/a&gt;&lt;/p&gt;
+yum --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vi /etc/php.ini
 
-&lt;p&gt;rpm -Uvh &lt;a href=&#34;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&#34;&gt;http://rpms.famillecollet.com/enterprise/remi-release-6.rpm&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;yum &amp;ndash;enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vi /etc/php.ini&lt;/p&gt;
-
-&lt;p&gt;vi /etc/httpd/conf.d/php.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+vi /etc/httpd/conf.d/php.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;MySQL 導入&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install mysql-community-release-el6-5.noarch.rpm
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum install mysql-community-release-el6-5.noarch.rpm&lt;/p&gt;
-
-&lt;p&gt;yum install -y mysql-community-client mysql-community-devel mysql-community-server&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+yum install -y mysql-community-client mysql-community-devel mysql-community-server
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo dd &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/dev/zero &lt;span style=&#34;color: #ef6155&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/swapfile &lt;span style=&#34;color: #ef6155&#34;&gt;bs&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1M &lt;span style=&#34;color: #ef6155&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1024
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+mkswap /swapfile
 
-&lt;p&gt;sudo dd if=/dev/zero of=/swapfile bs=1M count=1024&lt;/p&gt;
+swapon /swapfile
 
-&lt;p&gt;mkswap /swapfile&lt;/p&gt;
+sudo sh -c &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/span&gt;
 
-&lt;p&gt;swapon /swapfile&lt;/p&gt;
+chkconfig mysqld on
 
-&lt;p&gt;sudo sh -c &amp;quot;echo &amp;lsquo;/swapfile swap swap defaults 0 0&amp;rsquo; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/p&gt;
-
-&lt;p&gt;chkconfig mysqld on&lt;/p&gt;
-
-&lt;p&gt;service mysqld start&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+service mysqld start
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;mysql_secure_installation&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql_secure_installation
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
 
@@ -122,146 +93,100 @@
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim /etc/httpd/conf/httpd.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf/httpd.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;NameVirtualHost *:80&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;NameVirtualHost *:80
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
+    ServerName syundo.org
 
-&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+    DocumentRoot /var/www/html/
 
-&lt;pre&gt;&lt;code&gt;ServerName syundo.org
+  &amp;lt;Directory /var/www/html/&amp;gt;
 
-DocumentRoot /var/www/html/
-&lt;/code&gt;&lt;/pre&gt;
+    AllowOverride All
 
-&lt;p&gt;&amp;lt;Directory /var/www/html/&amp;gt;&lt;/p&gt;
+    Options FollowSymLinks
 
-&lt;pre&gt;&lt;code&gt;AllowOverride All
+    Order allow,deny
 
-Options FollowSymLinks
+    Allow from all
 
-Order allow,deny
+   &amp;lt;/Directory&amp;gt;
 
-Allow from all
-&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/VirtualHost&amp;gt;
 
-&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;VirtualHost *:80&amp;gt;&lt;/p&gt;
+&amp;lt;VirtualHost *:80&amp;gt;
 
-&lt;pre&gt;&lt;code&gt;ServerName blog.syundo.org
+    ServerName blog.syundo.org
 
-DocumentRoot /var/www/html/blog/
-&lt;/code&gt;&lt;/pre&gt;
+    DocumentRoot /var/www/html/blog/
 
-&lt;p&gt;&amp;lt;Directory /var/www/html/blog/&amp;gt;&lt;/p&gt;
+  &amp;lt;Directory /var/www/html/blog/&amp;gt;
 
-&lt;pre&gt;&lt;code&gt;AllowOverride All
+    AllowOverride All
 
-Options FollowSymLinks
+    Options FollowSymLinks
 
-Order allow,deny
+    Order allow,deny
 
-Allow from all
-&lt;/code&gt;&lt;/pre&gt;
+    Allow from all
 
-&lt;p&gt;&amp;lt;/Directory&amp;gt;&lt;/p&gt;
+   &amp;lt;/Directory&amp;gt;
 
-&lt;p&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
 
 &lt;p&gt;Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi ImageMagick-last
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi ImageMagick-last&lt;/p&gt;
-
-&lt;p&gt;yum -y install &amp;ndash;enablerepo=remi-php55 phpMyAdmin&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi-php55 phpMyAdmin
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
 
 &lt;h2&gt;データの移行&lt;/h2&gt;
 
 &lt;p&gt;MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql -u root
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;mysql -u root&lt;/p&gt;
-
-&lt;p&gt;set password for root@localhost=password(&amp;lsquo;hogehoge&amp;rsquo;);&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;set &lt;/span&gt;password &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; root@localhost&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;password&lt;span style=&#34;color: #5bc4bf&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;hogehoge&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;データベース作る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;create database database_name&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;create database database_name
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;grant all on database_name.* to dbuser@localhost identified by &amp;lsquo;piyopiyo&amp;rsquo;;&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;grant all on database_name.* to dbuser@localhost identified by &lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;piyopiyo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;vim wp-config.php&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim wp-config.php
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
-
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;sudo chown -R apache:apache myblogdir&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo chown -R apache:apache myblogdir
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;User apache
 
-&lt;p&gt;[bash gutter=&amp;ldquo;false&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;User apache&lt;/p&gt;
-
-&lt;p&gt;Group apache&lt;/p&gt;
-
-&lt;p&gt;[/bash]&lt;/p&gt;
+Group apache
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
 
@@ -298,8 +223,7 @@ Allow from all
 &lt;p&gt;[html]&lt;/p&gt;
 
 &lt;p&gt;Alias /(エイリアス名)/ &amp;quot;(ディレクトリ)/&amp;quot;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;Directory&lt;/span&gt; &lt;span style=&#34;color: #ef6155&#34;&gt;&amp;quot;(ディレクトリ)&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;
 
            Options Indexes FollowSymLinks Includes ExecCGI
 
@@ -311,8 +235,8 @@ Allow from all
 
            Allow from all
 
-&amp;amp;lt;/Directory&amp;amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;[/html]&lt;/p&gt;
 </description>

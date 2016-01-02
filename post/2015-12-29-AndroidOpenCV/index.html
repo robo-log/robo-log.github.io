@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    ロボットを吊るアームを作った | ROBO LOG
+    Android で OpenCV を使う | ROBO LOG
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://syundo0730.github.io/post/1111/"/>
+  <link rel="canonical" href="http://localhost:1313/post/2015-12-29-AndroidOpenCV/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
-  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://localhost:1313/index.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
 
   
   <script type="text/javascript">var switchTo5x=true;</script>
@@ -44,7 +44,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h1><a href="http://localhost:1313/">ROBO LOG</a></h1>
         <h2>つくりたいものをつくる</h2>
       </div>
       <div id="social" class="col span_6">
@@ -62,38 +62,24 @@
   
   <main id="single" role="main">
     <div class="article-header">
-      <h1>ロボットを吊るアームを作った</h1>
+      <h1>Android で OpenCV を使う</h1>
       <div class="meta">
-        Apr 19, 2015 &nbsp;
+        Dec 29, 2015 &nbsp;
         
       </div>
     </div>
     <article>
-      <p>作業をしやすくするために、棚に固定できるロボット用のアームを作りました。こんなんです。</p>
+      
 
-<p><a href="/images/2015/04/DSC_1486.jpg"><img class="alignnone size-full wp-image-1114" src="/images/2015/04/DSC_1486.jpg" alt="DSC_1486"   /></a></p>
+<h1 id="ダウンロード:d771f097ed7f4edea616633dbba5ef80">ダウンロード</h1>
 
-<p>4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。
-<a href="/images/2015/04/DSC_1488-e1429451130188.jpg"><img class="alignnone size-full wp-image-1118" src="/images/2015/04/DSC_1488-e1429451130188.jpg" alt="DSC_1488"   /></a>
-ワイヤーで吊ります。</p>
+<p><a href="http://opencv.org/downloads.html">http://opencv.org/downloads.html</a>
+Open CV for Androidをダウンロード。
+適当なことろに解凍する。</p>
 
-<p>ちなみに現在の作業環境はこんな感じです。</p>
+<h1 id="ライブラリの準備:d771f097ed7f4edea616633dbba5ef80">ライブラリの準備</h1>
 
-<p>CNC
-<a href="/images/2015/04/DSC_1490.jpg"><img class="alignnone size-full wp-image-1116" src="/images/2015/04/DSC_1490.jpg" alt="DSC_1490"   /></a></p>
-
-<p>ボール盤と折り曲げ機
-<a href="/images/2015/04/DSC_1489.jpg"><img class="alignnone size-full wp-image-1115" src="/images/2015/04/DSC_1489.jpg" alt="DSC_1489"   /></a>
-CNCに関しては防音箱の性能向上を図る必要があると考えています。</p>
-
-<p>10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。
-吸音材をヤフオクで買って貼りつけようと思います。</p>
-
-<p>ではでは。</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
+<p>Android Studio を開いて</p>
 
       
       
@@ -126,10 +112,8 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
   
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/1068/" rel="prev">最近どうしているかということとROBO－ONEはどうだったかという話</a></span>
+      <span class="previous">&larr; <a href="http://localhost:1313/post/20151220NullaDiPiuGrande/" rel="prev">意識はいつ生まれるのか</a></span>
     
-    
-      <span class="next"><a href="http://syundo0730.github.io/post/1131/" rel="next">ドコモを解約してIIJのみおふぉんにMNP転入した</a> &rarr;</span>
     
   </nav>
 
@@ -157,6 +141,9 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
 	ga('send', 'pageview');
 </script>
 
-</body>
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
 
