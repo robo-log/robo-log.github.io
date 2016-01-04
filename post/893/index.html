@@ -108,127 +108,128 @@
 <p>まず最初にTSTRでMTUを停止し、TCNTをゼロクリアして、上記項目を設定し、TGRにデューティーに対応する数値を書き込んでから、TSTRでカウントスタートさせる。</p>
 
 <p>私のプログラムを載せておきます。</p>
-#include "iodefine.h"
-//プロトタイプ宣言
-void main(void);
-void initIo(void);
-void pwm(void);
-void initCMT0(void);
-//サーボの初期値 (1125-1)～(3487.5-1)
-#define RL0 2305.25f
-#define RL1 2305.25f
-#define RL2 2305.25f
-#define RL3 2305.25f
-#define RL4 2305.25f
-#define RL5 2305.25f
-#define LL0 2305.25f
-#define LL1 2305.25f
-#define LL2 2305.25f
-#define LL3 2305.25f
-#define LL4 2305.25f
-#define LL5 2305.25f
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #8d8687">#include &quot;iodefine.h&quot;</span>
+<span style="color: #8d8687">//プロトタイプ宣言</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">main</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">);</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">initIo</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">);</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">pwm</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">);</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">initCMT0</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">);</span>
+<span style="color: #8d8687">//サーボの初期値 (1125-1)～(3487.5-1)</span>
+<span style="color: #8d8687">#define RL0 2305.25f</span>
+<span style="color: #8d8687">#define RL1 2305.25f</span>
+<span style="color: #8d8687">#define RL2 2305.25f</span>
+<span style="color: #8d8687">#define RL3 2305.25f</span>
+<span style="color: #8d8687">#define RL4 2305.25f</span>
+<span style="color: #8d8687">#define RL5 2305.25f</span>
+<span style="color: #8d8687">#define LL0 2305.25f</span>
+<span style="color: #8d8687">#define LL1 2305.25f</span>
+<span style="color: #8d8687">#define LL2 2305.25f</span>
+<span style="color: #8d8687">#define LL3 2305.25f</span>
+<span style="color: #8d8687">#define LL4 2305.25f</span>
+<span style="color: #8d8687">#define LL5 2305.25f</span>
 
-//大域変数の設定
-int rl[]={RL0,RL1,RL2,RL3,RL4,RL5};
-int ll[]={LL0,LL1,LL2,LL3,LL4,LL5};
-//関数
-void main(void){
-  //provide clock to cmt
-  STB.CR4.BIT._CMT=0;
-  //provide clock to mtu
-  STB.CR4.BIT._MTU2=0;
-  initIo();
-  initCMT0();
-  while(1){
-  }
-}
-//端子の初期化
-void initIo(void){
-  PFC.PECRL1.WORD=0x1111;
-  PFC.PECRL2.WORD=0x1111;
-  PFC.PECRL3.WORD=0x1111;
-  PFC.PECRL4.WORD=0x1111;
-  PFC.PEIORL.WORD=0xFFFF;
-}
-//デューティー設定
-void pwm(void){
-  //MTU stop
-  MTU2.TSTR.BYTE=0;
-  //MTU3,4のための設定(必須)
-  MTU2.TRWER.BYTE=0;
-  MTU2.TOER.BYTE=0xff;
-  //Counter reset
-  MTU20.TCNT=0;
-  MTU21.TCNT=0;
-  MTU22.TCNT=0;
-  MTU23.TCNT=0;
-  MTU24.TCNT=0;
-  //MTU20
-  MTU20.TCR.BYTE=0x02;//通常モードφ/16
-  MTU20.TMDR.BYTE=0;//通常モード
-  MTU20.TIOR.WORD=0x5555;//初期出力1コンペアマッチで0出力
-  //MTU21
-  MTU21.TCR.BYTE=0x02;//通常モードφ/16
-  MTU21.TMDR.BYTE=0;//通常モード
-  MTU21.TIOR.BYTE=0x55;//初期出力1コンペアマッチで0出力
-  //MTU22
-  MTU22.TCR.BYTE=0x02;//通常モードφ/16
-  MTU22.TMDR.BYTE=0;//通常モード
-  MTU22.TIOR.BYTE=0x55;//初期出力1コンペアマッチで0出力
-  //MTU23
-  MTU23.TCR.BYTE=0x02;//通常モードφ/16
-  MTU23.TMDR.BYTE=0;//通常モード
-  MTU23.TIOR.WORD=0x5555;//初期出力1コンペアマッチで0出力
-  //MTU24
-  MTU24.TCR.BYTE=0x02;//通常モードφ/16
-  MTU24.TMDR.BYTE=0;//通常モード
-  MTU24.TIOR.WORD=0x5555;//初期出力1コンペアマッチで0出力
-  //MTU20 set
-  MTU20.TGRA=rl[0];
-  MTU20.TGRB=rl[1];
-  MTU20.TGRC=rl[2];
-  MTU20.TGRD=rl[3];
-  //MTU21 set
-  MTU21.TGRA=rl[4];
-  MTU21.TGRB=rl[5];
-  //MTU22 set
-  MTU22.TGRA=ll[0];
-  MTU22.TGRB=ll[1];
-  //MTU23 set
-  MTU23.TGRA=ll[2];
-  MTU23.TGRB=ll[3];
-  MTU23.TGRC=ll[4];
-  MTU23.TGRD=ll[5];
-  //MTU24 set
-  MTU24.TGRA=rl[0];
-  MTU24.TGRB=rl[0];
-  MTU24.TGRC=rl[0];
-  MTU24.TGRD=rl[0];
-  //MTU start
-  MTU2.TSTR.BYTE=0xc7;
-}
-//CMTの設定
-void initCMT0(void){
-  //優先度15
-  INTC.IPRJ.BIT._CMT0=15;
-  //CMT stop
-  //CMT.CMSTR.BIT.STR0=0x00;
-  //CMT0
-  CMT0.CMCSR.BIT.CMIE=1;//enable interrupt
-  CMT0.CMCSR.BIT.CKS=0;//1/8
-  //counter reset
-  //CMT0.CMCNT=0;
-  //30000-1,10ms interval
-  CMT0.CMCOR=29999;
-  //CMT0 start
-  CMT.CMSTR.BIT.STR0=1;
-}
-//CMT0割り込み関数
-void CMT0_interrupt(void){
-  //割り込みフラグクリア
-  CMT0.CMCSR.BIT.CMF=0;
-  pwm();
-}
+<span style="color: #8d8687">//大域変数の設定</span>
+<span style="color: #fec418">int</span> <span style="color: #2f1e2e">rl[]</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">{RL0,RL1,RL2,RL3,RL4,RL5};</span>
+<span style="color: #fec418">int</span> <span style="color: #2f1e2e">ll[]</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">{LL0,LL1,LL2,LL3,LL4,LL5};</span>
+<span style="color: #8d8687">//関数</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">main</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #8d8687">//provide clock to cmt</span>
+  <span style="color: #2f1e2e">STB.CR4.BIT._CMT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//provide clock to mtu</span>
+  <span style="color: #2f1e2e">STB.CR4.BIT._MTU2</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">initIo();</span>
+  <span style="color: #2f1e2e">initCMT0();</span>
+  <span style="color: #815ba4">while</span><span style="color: #2f1e2e">(</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #2f1e2e">}</span>
+<span style="color: #2f1e2e">}</span>
+<span style="color: #8d8687">//端子の初期化</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">initIo</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #2f1e2e">PFC.PECRL1.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x1111</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">PFC.PECRL2.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x1111</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">PFC.PECRL3.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x1111</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">PFC.PECRL4.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x1111</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">PFC.PEIORL.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0xFFFF</span><span style="color: #2f1e2e">;</span>
+<span style="color: #2f1e2e">}</span>
+<span style="color: #8d8687">//デューティー設定</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">pwm</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #8d8687">//MTU stop</span>
+  <span style="color: #2f1e2e">MTU2.TSTR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//MTU3,4のための設定(必須)</span>
+  <span style="color: #2f1e2e">MTU2.TRWER.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">MTU2.TOER.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0xff</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//Counter reset</span>
+  <span style="color: #2f1e2e">MTU20.TCNT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">MTU21.TCNT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">MTU22.TCNT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">MTU23.TCNT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">MTU24.TCNT</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//MTU20</span>
+  <span style="color: #2f1e2e">MTU20.TCR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x02</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モードφ/16</span>
+  <span style="color: #2f1e2e">MTU20.TMDR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モード</span>
+  <span style="color: #2f1e2e">MTU20.TIOR.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x5555</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//初期出力1コンペアマッチで0出力</span>
+  <span style="color: #8d8687">//MTU21</span>
+  <span style="color: #2f1e2e">MTU21.TCR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x02</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モードφ/16</span>
+  <span style="color: #2f1e2e">MTU21.TMDR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モード</span>
+  <span style="color: #2f1e2e">MTU21.TIOR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x55</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//初期出力1コンペアマッチで0出力</span>
+  <span style="color: #8d8687">//MTU22</span>
+  <span style="color: #2f1e2e">MTU22.TCR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x02</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モードφ/16</span>
+  <span style="color: #2f1e2e">MTU22.TMDR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モード</span>
+  <span style="color: #2f1e2e">MTU22.TIOR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x55</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//初期出力1コンペアマッチで0出力</span>
+  <span style="color: #8d8687">//MTU23</span>
+  <span style="color: #2f1e2e">MTU23.TCR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x02</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モードφ/16</span>
+  <span style="color: #2f1e2e">MTU23.TMDR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モード</span>
+  <span style="color: #2f1e2e">MTU23.TIOR.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x5555</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//初期出力1コンペアマッチで0出力</span>
+  <span style="color: #8d8687">//MTU24</span>
+  <span style="color: #2f1e2e">MTU24.TCR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x02</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モードφ/16</span>
+  <span style="color: #2f1e2e">MTU24.TMDR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//通常モード</span>
+  <span style="color: #2f1e2e">MTU24.TIOR.WORD</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0x5555</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//初期出力1コンペアマッチで0出力</span>
+  <span style="color: #8d8687">//MTU20 set</span>
+  <span style="color: #2f1e2e">MTU20.TGRA</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU20.TGRB</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU20.TGRC</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU20.TGRD</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #8d8687">//MTU21 set</span>
+  <span style="color: #2f1e2e">MTU21.TGRA</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">4</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU21.TGRB</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">5</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #8d8687">//MTU22 set</span>
+  <span style="color: #2f1e2e">MTU22.TGRA</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU22.TGRB</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #8d8687">//MTU23 set</span>
+  <span style="color: #2f1e2e">MTU23.TGRA</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU23.TGRB</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU23.TGRC</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">4</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU23.TGRD</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">ll[</span><span style="color: #f99b15">5</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #8d8687">//MTU24 set</span>
+  <span style="color: #2f1e2e">MTU24.TGRA</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU24.TGRB</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU24.TGRC</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #2f1e2e">MTU24.TGRD</span><span style="color: #5bc4bf">=</span><span style="color: #2f1e2e">rl[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">];</span>
+  <span style="color: #8d8687">//MTU start</span>
+  <span style="color: #2f1e2e">MTU2.TSTR.BYTE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0xc7</span><span style="color: #2f1e2e">;</span>
+<span style="color: #2f1e2e">}</span>
+<span style="color: #8d8687">//CMTの設定</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">initCMT0</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #8d8687">//優先度15</span>
+  <span style="color: #2f1e2e">INTC.IPRJ.BIT._CMT0</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">15</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//CMT stop</span>
+  <span style="color: #8d8687">//CMT.CMSTR.BIT.STR0=0x00;</span>
+  <span style="color: #8d8687">//CMT0</span>
+  <span style="color: #2f1e2e">CMT0.CMCSR.BIT.CMIE</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//enable interrupt</span>
+  <span style="color: #2f1e2e">CMT0.CMCSR.BIT.CKS</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span><span style="color: #8d8687">//1/8</span>
+  <span style="color: #8d8687">//counter reset</span>
+  <span style="color: #8d8687">//CMT0.CMCNT=0;</span>
+  <span style="color: #8d8687">//30000-1,10ms interval</span>
+  <span style="color: #2f1e2e">CMT0.CMCOR</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">29999</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #8d8687">//CMT0 start</span>
+  <span style="color: #2f1e2e">CMT.CMSTR.BIT.STR0</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">;</span>
+<span style="color: #2f1e2e">}</span>
+<span style="color: #8d8687">//CMT0割り込み関数</span>
+<span style="color: #fec418">void</span> <span style="color: #06b6ef">CMT0_interrupt</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">void</span><span style="color: #2f1e2e">){</span>
+  <span style="color: #8d8687">//割り込みフラグクリア</span>
+  <span style="color: #2f1e2e">CMT0.CMCSR.BIT.CMF</span><span style="color: #5bc4bf">=</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span>
+  <span style="color: #2f1e2e">pwm();</span>
+<span style="color: #2f1e2e">}</span>
+</pre></div>
 
       
       

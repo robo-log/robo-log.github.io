@@ -76,29 +76,36 @@ Hugoに設定が要るらしい。</p>
 最新のHugoをビルドして使う必要がある。</p>
 
 <p>まずgo を入れていなかったのでインストールする。</p>
-$ brew install go
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>brew install go
+</pre></div>
 
 <p>mercurial も入れていなかったのでインストール。</p>
-$ brew install mercurial
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>brew install mercurial
+</pre></div>
 
 <p>最新のHugoをビルドして使う。</p>
-$ export GOPATH=$HOME/go
-$ go get -v github.com/spf13/hugo
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span><span style="color: #2f1e2e">export </span><span style="color: #ef6155">GOPATH</span><span style="color: #5bc4bf">=</span><span style="color: #ef6155">$HOME</span>/go
+<span style="color: #ef6155">$ </span>go get -v github.com/spf13/hugo
+</pre></div>
 
 <p>$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく</p>
-$ export PATH=$PATH:$HOME/go/bin
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span><span style="color: #2f1e2e">export </span><span style="color: #ef6155">PATH</span><span style="color: #5bc4bf">=</span><span style="color: #ef6155">$PATH</span>:<span style="color: #ef6155">$HOME</span>/go/bin
+</pre></div>
 
 <p>Hugoがちゃんと入ったか動作確認する。</p>
-$ hugo version
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
+</pre></div>
 
 <p>次にコードのハイライトを解析するPygmentsのインストールをする。</p>
-$ pip install Pygments
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>pip install Pygments
+</pre></div>
 
 <p>config.tomlにPygmentsを使うことを設定する。
 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。<a href="http://pygments.org/">Pygments</a></p>
-pygmentscodefences = true
-pygmentsstyle = "paraiso-light"
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #2f1e2e">pygmentscodefences</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">true</span>
+<span style="color: #2f1e2e">pygmentsstyle</span> <span style="color: #5bc4bf">=</span> <span style="color: #48b685">&quot;paraiso-light&quot;</span>
+</pre></div>
 
 <p>ただし、Qiitaのmarkdown記法で<code>bash:filename</code>とか書いてもファイル名は表示されない</p>
 
