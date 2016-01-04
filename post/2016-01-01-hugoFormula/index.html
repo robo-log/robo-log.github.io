@@ -76,36 +76,29 @@ Hugoに設定が要るらしい。</p>
 最新のHugoをビルドして使う必要がある。</p>
 
 <p>まずgo を入れていなかったのでインストールする。</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>brew install go
-</pre></div>
+$ brew install go
 
 <p>mercurial も入れていなかったのでインストール。</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>brew install mercurial
-</pre></div>
+$ brew install mercurial
 
 <p>最新のHugoをビルドして使う。</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span><span style="color: #2f1e2e">export </span><span style="color: #ef6155">GOPATH</span><span style="color: #5bc4bf">=</span><span style="color: #ef6155">$HOME</span>/go
-<span style="color: #ef6155">$ </span>go get -v github.com/spf13/hugo
-</pre></div>
+$ export GOPATH=$HOME/go
+$ go get -v github.com/spf13/hugo
 
 <p>$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span><span style="color: #2f1e2e">export </span><span style="color: #ef6155">PATH</span><span style="color: #5bc4bf">=</span><span style="color: #ef6155">$PATH</span>:<span style="color: #ef6155">$HOME</span>/go/bin
-</pre></div>
+$ export PATH=$PATH:$HOME/go/bin
 
 <p>Hugoがちゃんと入ったか動作確認する。</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>hugo version
+$ hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
-</pre></div>
 
 <p>次にコードのハイライトを解析するPygmentsのインストールをする。</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #ef6155">$ </span>pip install Pygments
-</pre></div>
+$ pip install Pygments
 
 <p>config.tomlにPygmentsを使うことを設定する。
 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。<a href="http://pygments.org/">Pygments</a></p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #2f1e2e">pygmentscodefences</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">true</span>
-<span style="color: #2f1e2e">pygmentsstyle</span> <span style="color: #5bc4bf">=</span> <span style="color: #48b685">&quot;paraiso-light&quot;</span>
-</pre></div>
+pygmentscodefences = true
+pygmentsstyle = "paraiso-light"
 
 <p>ただし、Qiitaのmarkdown記法で<code>bash:filename</code>とか書いてもファイル名は表示されない</p>
 
@@ -140,7 +133,7 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
   
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/" rel="prev">第8回ROS勉強会に参加してきた</a></span>
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/20151220NullaDiPiuGrande/" rel="prev">意識はいつ生まれるのか</a></span>
     
     
   </nav>

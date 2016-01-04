@@ -22,38 +22,73 @@ Hugoに設定が要るらしい。&lt;/p&gt;
 最新のHugoをビルドして使う必要がある。&lt;/p&gt;
 
 &lt;p&gt;まずgo を入れていなかったのでインストールする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install go
-&lt;/pre&gt;&lt;/div&gt;
+$ brew install go
 
 &lt;p&gt;mercurial も入れていなかったのでインストール。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install mercurial
-&lt;/pre&gt;&lt;/div&gt;
+$ brew install mercurial
 
 &lt;p&gt;最新のHugoをビルドして使う。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go
-&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;go get -v github.com/spf13/hugo
-&lt;/pre&gt;&lt;/div&gt;
+$ export GOPATH=$HOME/go
+$ go get -v github.com/spf13/hugo
 
 &lt;p&gt;$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go/bin
-&lt;/pre&gt;&lt;/div&gt;
+$ export PATH=$PATH:$HOME/go/bin
 
 &lt;p&gt;Hugoがちゃんと入ったか動作確認する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;hugo version
+$ hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;次にコードのハイライトを解析するPygmentsのインストールをする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;pip install Pygments
-&lt;/pre&gt;&lt;/div&gt;
+$ pip install Pygments
 
 &lt;p&gt;config.tomlにPygmentsを使うことを設定する。
 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentscodefences&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentsstyle&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;paraiso-light&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+pygmentscodefences = true
+pygmentsstyle = &#34;paraiso-light&#34;
 
 &lt;p&gt;ただし、Qiitaのmarkdown記法で&lt;code&gt;bash:filename&lt;/code&gt;とか書いてもファイル名は表示されない&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>意識はいつ生まれるのか</title>
+      <link>http://syundo0730.github.io/post/20151220NullaDiPiuGrande/</link>
+      <pubDate>Sun, 20 Dec 2015 04:15:34 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/20151220NullaDiPiuGrande/</guid>
+      <description>&lt;p&gt;意識はいつ生まれるのか――脳の謎に挑む統合情報理論
+ジュリオ・トノーニ (著), マルチェッロ・マッスィミーニ (著), 花本 知子 (翻訳)
+&lt;a href=&#34;http://www.amazon.co.jp/%E6%84%8F%E8%AD%98%E3%81%AF%E3%81%84%E3%81%A4%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%E2%80%95%E2%80%95%E8%84%B3%E3%81%AE%E8%AC%8E%E3%81%AB%E6%8C%91%E3%82%80%E7%B5%B1%E5%90%88%E6%83%85%E5%A0%B1%E7%90%86%E8%AB%96-%E3%82%B8%E3%83%A5%E3%83%AA%E3%82%AA%E3%83%BB%E3%83%88%E3%83%8E%E3%83%BC%E3%83%8B/dp/4750514500&#34;&gt;http://www.amazon.co.jp/%E6%84%8F%E8%AD%98%E3%81%AF%E3%81%84%E3%81%A4%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%E2%80%95%E2%80%95%E8%84%B3%E3%81%AE%E8%AC%8E%E3%81%AB%E6%8C%91%E3%82%80%E7%B5%B1%E5%90%88%E6%83%85%E5%A0%B1%E7%90%86%E8%AB%96-%E3%82%B8%E3%83%A5%E3%83%AA%E3%82%AA%E3%83%BB%E3%83%88%E3%83%8E%E3%83%BC%E3%83%8B/dp/4750514500&lt;/a&gt;
+を読んだ。&lt;/p&gt;
+
+&lt;p&gt;この本で述べられていることはそのタイトル通りで、
+脳を観測することで意識があるのか無いのかがわかるということ、
+つまり意識がいつ生まれていつ消えているのかということだ。
+結論から言うと、大脳の一部である視床-皮質系の情報処理の複雑度の高/低によって
+意識のON/OFFが切り替わるらしい。
+この視床-皮質系が何をするところとされているのかいまひとつよくわからなかったが、
+視神経に直接関係するというわけでもないらしく、そこを計測してみたらそうなったということらしい。
+切り替わる原因となるのは脳内に分泌される正イオン(カリウムイオン)による電位の変化で、
+ニューロン間の信号の伝達が鈍くなることだと述べられている。
+例えばノンレム睡眠のときはこれが分泌されるし、
+麻酔の一種は脳内でカリウムを分泌する器官の働きを高めたりするらしいので、
+意識の変化と関係があることは間違いない。&lt;/p&gt;
+
+&lt;p&gt;筆者らは視床-皮質系の一部に電気的な刺激を加えて、
+脳波計によって視床-皮質系のその他の部分が活性化するタイミングを計測した。
+情報処理の複雑度をどう計算するのかは詳細が書いていなかったが、
+「統合」と「情報」の合計値で評価するらしい。
+「統合」とはあるニューロンに刺激が加えられたときにその他のニューロンが活性化するかということ。
+「情報」とはあるニューロンに加えた刺激とその他のニューロンの活性の時系列的な差を示すものだ。
+ノンレム睡眠時の脳とか脳死状態の患者の脳を計測して数値を計算すると、意識があるときの脳とはっきりとした違いが
+出るというから面白い。&lt;/p&gt;
+
+&lt;p&gt;ただ、この本で述べられているのは意識があるならば視床-皮質系の情報処理の複雑度が上がる、
+ということだけで、いかにして意識を生み出すのかということは依然謎に包まれている。
+視床-皮質系がぐちゃぐちゃと活性化しているときに行われている情報処理とは一体何なのか、
+これがわかってくると意識を持った人工知能が実現できるかもしれない。&lt;/p&gt;
+
+&lt;p&gt;おわり。&lt;/p&gt;
 </description>
     </item>
     
@@ -363,13 +398,12 @@ constexprがオブジェクトに付加されたときはそのオブジェク�
 
 &lt;p&gt;&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
 constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;...&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// エラー。szはコンパイル時には使えない。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data1;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 同様なエラー&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize2&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。10はコンパイル時定数。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data2;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+int sz;   // コンパイル時に存在しない
+...
+constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。
+std::array&lt;int, sz&gt; data1; // 同様なエラー
+constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。
+std::array&lt;int, arraySize&gt; data2; // 良い。
 
 &lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
 
@@ -377,19 +411,17 @@ constexprをオブジェクトの前に付けるとコンパイル時に用い�
 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 &lt;h3&gt;C++11の場合&lt;/h3&gt;
 関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(exp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(base,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    return (exp == 0 ? 1 : base*pow(base, exp-1));
+}
 
 &lt;p&gt;&lt;h3&gt;C++14の場合&lt;/h3&gt;
 複数行にわたって記述できる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    auto result = 1;
+    for(int i = 0; i &lt; exp; ++i) result *= base;
+    return result;
+}
 
 &lt;p&gt;&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
 constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
@@ -610,37 +642,31 @@ ssh-keygen
 で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．
 
 &lt;h2&gt;Apache 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install -y httpd httpd-devel
+yum install -y httpd httpd-devel
 chkconfig httpd on
 service httpd start
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;PHP 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vi /etc/php.ini
+yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
+vi /etc/php.ini
 vi /etc/httpd/conf.d/php.conf
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;MySQL 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install mysql-community-release-el6-5.noarch.rpm
+yum install mysql-community-release-el6-5.noarch.rpm
 yum install -y mysql-community-client mysql-community-devel mysql-community-server
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo dd &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/dev/zero &lt;span style=&#34;color: #ef6155&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/swapfile &lt;span style=&#34;color: #ef6155&#34;&gt;bs&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1M &lt;span style=&#34;color: #ef6155&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1024
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 mkswap /swapfile
 swapon /swapfile
-sudo sh -c &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/span&gt;
+sudo sh -c &#34;echo &#39;/swapfile swap swap defaults 0 0&#39; &amp;gt;&amp;gt; /etc/fstab&#34;
 chkconfig mysqld on
 service mysqld start
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql_secure_installation
-&lt;/pre&gt;&lt;/div&gt;
+mysql_secure_installation
 
 &lt;p&gt;&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
 ムームードメインのメニューのネームサーバー設定変更より
@@ -653,74 +679,63 @@ service mysqld start
 Digital OceanのDNS設定メニューより，
 &lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;
 Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf/httpd.conf
-&lt;/pre&gt;&lt;/div&gt;
+vim /etc/httpd/conf/httpd.conf
 
 &lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;NameVirtualHost *:80
-&lt;/pre&gt;&lt;/div&gt;
+NameVirtualHost *:80
 
 &lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
+&lt;VirtualHost *:80&gt;
     ServerName syundo.org
     DocumentRoot /var/www/html/
-  &amp;lt;Directory /var/www/html/&amp;gt;
+  &lt;Directory /var/www/html/&gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &amp;lt;/Directory&amp;gt;
-&amp;lt;/VirtualHost&amp;gt;
-&amp;lt;VirtualHost *:80&amp;gt;
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+&lt;VirtualHost *:80&gt;
     ServerName blog.syundo.org
     DocumentRoot /var/www/html/blog/
-  &amp;lt;Directory /var/www/html/blog/&amp;gt;
+  &lt;Directory /var/www/html/blog/&gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &amp;lt;/Directory&amp;gt;
-&amp;lt;/VirtualHost&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
 
 &lt;p&gt;&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
 Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi ImageMagick-last
-yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi-php55 phpMyAdmin
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf
-&lt;/pre&gt;&lt;/div&gt;
+yum -y install --enablerepo=remi ImageMagick-last
+yum -y install --enablerepo=remi-php55 phpMyAdmin
+vim /etc/httpd/conf.d/phpMyAdmin.conf
 
 &lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
 
 &lt;p&gt;&lt;h2&gt;データの移行&lt;/h2&gt;
 MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql -u root
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;set &lt;/span&gt;password &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; root@localhost&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;password&lt;span style=&#34;color: #5bc4bf&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;hogehoge&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+mysql -u root
+set password for root@localhost=password(&#39;hogehoge&#39;);
 
 &lt;p&gt;データベース作る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;create database database_name
-&lt;/pre&gt;&lt;/div&gt;
+create database database_name
 
 &lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;grant all on database_name.* to dbuser@localhost identified by &lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;piyopiyo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+grant all on database_name.* to dbuser@localhost identified by &#39;piyopiyo&#39;;
 
 &lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim wp-config.php
-&lt;/pre&gt;&lt;/div&gt;
+vim wp-config.php
 
 &lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo chown -R apache:apache myblogdir
-&lt;/pre&gt;&lt;/div&gt;
+sudo chown -R apache:apache myblogdir
 
 &lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;User apache
+User apache
 Group apache
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
 
@@ -735,155 +750,6 @@ Group apache
 &lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;
 &lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;
 &lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</title>
-      <link>http://syundo0730.github.io/post/1033/</link>
-      <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1033/</guid>
-      <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．
-そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
-
-&lt;p&gt;今回使うカメラはこれ．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
-何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lsusb
-ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install xawtv
-xawtv -c /dev/video0
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．
-ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
-
-&lt;p&gt;さて次はBBBの上でOpenCVをビルドして使えるようにする．
-OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&#34;&gt;http://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html&lt;/a&gt;
-の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
-
-&lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
-サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
-
-&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
-
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1;&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
-
-&lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
-
-&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
-
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascadeName&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CascadeClassifier&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade;&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.load(cascadeName))&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #fec418&#34;&gt;double&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;scale&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;4.0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray;&lt;/span&gt;
-
-	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img;&lt;/span&gt;
-
-		&lt;span style=&#34;color: #8d8687&#34;&gt;//Trans to glay scale&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cvtColor(img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_BGR2GRAY);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg(cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.rows&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.cols&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_8UC1);&lt;/span&gt;
-
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 処理時間短縮のために画像を縮小&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;resize(gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg.size(),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;INTER_LINEAR);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;equalizeHist(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg);&lt;/span&gt;
-
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces;&lt;/span&gt;
-		&lt;span style=&#34;color: #8d8687&#34;&gt;/// マルチスケール（顔）探索xo&lt;/span&gt;
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形&lt;/span&gt;
-
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.detectMultiScale(smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1.1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_HAAR_SCALE_IMAGE,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Size(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
-
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 結果の描画&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;const_iterator&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.begin();&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.end();&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;r)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Point&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center;&lt;/span&gt;
-			&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius;&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;radius&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.25&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;circle(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Scalar(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．
-とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
-
-&lt;p&gt;おわり&lt;/p&gt;
 </description>
     </item>
     

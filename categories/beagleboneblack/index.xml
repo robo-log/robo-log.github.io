@@ -23,16 +23,14 @@
 
 &lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
 何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lsusb
+lsusb
 ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install xawtv
+sudo apt-get install xawtv
 xawtv -c /dev/video0
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -44,109 +42,103 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
 
 &lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
-&lt;/pre&gt;&lt;/div&gt;
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .
 
 &lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
 サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
-&lt;/pre&gt;&lt;/div&gt;
+sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
 
 &lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
+// cam.cpp
+#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+#include &lt;ctype.h&gt;
 
-&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
+#ifndef CV_WINDOW_FREERATIO
+#define CV_WINDOW_FREERATIO 0
+#endif
 
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+int main( int argc, char **argv )
+{
+	cv::VideoCapture cap1(0);
 
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+	cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
 
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1;&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+	cv::namedWindow(&#34;camera1&#34;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+	while ( 1 ) {
+		cv::Mat img1;
+		cap1 &gt;&gt; img1 ;
+		cv::imshow(&#34;camera1&#34;, img1 );
+		char ch = cv::waitKey(100);
+		if ( ch == 27 ) break;
+	}
+	return 0;
+}
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
-&lt;/pre&gt;&lt;/div&gt;
+g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
 
 &lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
 
 &lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
+#include &lt;cv.h&gt;
+#include &lt;highgui.h&gt;
+#include &lt;ctype.h&gt;
 
-&lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#endif&lt;/span&gt;
+#ifndef CV_WINDOW_FREERATIO
+#define CV_WINDOW_FREERATIO 0
+#endif
 
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;argc,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;argv&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;VideoCapture&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
+int main( int argc, char **argv )
+{
+	cv::VideoCapture cap1(0);
 
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_WIDTH,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;320&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1.set(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_CAP_PROP_FRAME_HEIGHT,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;namedWindow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_AUTOSIZE&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_WINDOW_FREERATIO);&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascadeName&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;CascadeClassifier&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade;&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.load(cascadeName))&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #fec418&#34;&gt;double&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;scale&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;4.0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray;&lt;/span&gt;
+	cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
+	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+	cv::namedWindow(&#34;camera1&#34;, CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
+	std::string cascadeName = &#34;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&#34;;
+	cv::CascadeClassifier cascade;
+	if(!cascade.load(cascadeName)) return -1;
+	double scale = 4.0;
+	cv::Mat img, gray;
 
-	&lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cap1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img;&lt;/span&gt;
+	while ( 1 ) {
+		cap1 &gt;&gt; img;
 
-		&lt;span style=&#34;color: #8d8687&#34;&gt;//Trans to glay scale&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cvtColor(img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_BGR2GRAY);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Mat&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg(cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.rows&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(img.cols&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_8UC1);&lt;/span&gt;
+		//Trans to glay scale
+		cv::cvtColor(img, gray, CV_BGR2GRAY);
+		cv::Mat smallImg(cv::saturate_cast&lt;int&gt;(img.rows/scale), cv::saturate_cast&lt;int&gt;(img.cols/scale), CV_8UC1);
 
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 処理時間短縮のために画像を縮小&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;resize(gray,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg.size(),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;INTER_LINEAR);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;equalizeHist(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;smallImg);&lt;/span&gt;
+		// 処理時間短縮のために画像を縮小
+		cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
+		cv::equalizeHist( smallImg, smallImg);
 
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces;&lt;/span&gt;
-		&lt;span style=&#34;color: #8d8687&#34;&gt;/// マルチスケール（顔）探索xo&lt;/span&gt;
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形&lt;/span&gt;
+		std::vector&lt;cv::Rect&gt; faces;
+		/// マルチスケール（顔）探索xo
+		// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
 
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cascade.detectMultiScale(smallImg,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1.1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;CV_HAAR_SCALE_IMAGE,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Size(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
+		cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
 
-		&lt;span style=&#34;color: #8d8687&#34;&gt;// 結果の描画&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Rect&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;const_iterator&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.begin();&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;faces.end();&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;r)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Point&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center;&lt;/span&gt;
-			&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius;&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;center.y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;radius&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;saturate_cast&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;((r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;width&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;height)&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0.25&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;scale);&lt;/span&gt;
-			&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;circle(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;center,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;radius,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;Scalar(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;imshow(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;camera1&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;cv&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;waitKey(&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-		&lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ch&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;27&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-	&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-	&lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+		// 結果の描画
+		std::vector&lt;cv::Rect&gt;::const_iterator r = faces.begin();
+		for(; r != faces.end(); ++r) {
+			cv::Point center;
+			int radius;
+			center.x = cv::saturate_cast&lt;int&gt;((r-&gt;x + r-&gt;width*0.5)*scale);
+			center.y = cv::saturate_cast&lt;int&gt;((r-&gt;y + r-&gt;height*0.5)*scale);
+			radius = cv::saturate_cast&lt;int&gt;((r-&gt;width + r-&gt;height)*0.25*scale);
+			cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
+		}
+		cv::imshow(&#34;camera1&#34;, img );
+		char ch = cv::waitKey(30);
+		if ( ch == 27 ) break;
+	}
+	return 0;
+}
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
-&lt;/pre&gt;&lt;/div&gt;
+g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
 
 &lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
 &lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -181,22 +173,19 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 &lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．
 以下のサイトを参考にして作業を進める．
 &lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;cd &lt;/span&gt;ubuntu-14.04-console-armhf-2014-05-06
+cd ubuntu-14.04-console-armhf-2014-05-06
 sudo ./setup_sdcard.sh --probe-mmc
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
-&lt;/pre&gt;&lt;/div&gt;
+sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
 
 &lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
 
 &lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;ssh ubuntu@192.168.7.2
-&lt;/pre&gt;&lt;/div&gt;
+ssh ubuntu@192.168.7.2
 
 &lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
 
@@ -208,45 +197,40 @@ sudo ./setup_sdcard.sh --probe-mmc
 &lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme
+sudo apt-get -y install lxde lxde-core lxde-icon-theme
 sudo reboot
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．
 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
 
 &lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install vnc4server
+sudo apt-get install vnc4server
 vncserver
 vncserver -kill :1
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;# !/bin/sh&lt;/span&gt;
+# !/bin/sh
 
-&lt;span style=&#34;color: #8d8687&#34;&gt;# Uncomment the following two lines for normal desktop:&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;# unset SESSION_MANAGER&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;# exec /etc/X11/xinit/xinitrc&lt;/span&gt;
+# Uncomment the following two lines for normal desktop:
+# unset SESSION_MANAGER
+# exec /etc/X11/xinit/xinitrc
 
-/usr/bin/lxsession &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
+/usr/bin/lxsession &amp;
 
-&lt;span style=&#34;color: #5bc4bf&#34;&gt;[&lt;/span&gt; -x /etc/vnc/xstartup &lt;span style=&#34;color: #5bc4bf&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exec&lt;/span&gt; /etc/vnc/xstartup
-&lt;span style=&#34;color: #5bc4bf&#34;&gt;[&lt;/span&gt; -r &lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/.Xresources &lt;span style=&#34;color: #5bc4bf&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; xrdb &lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/.Xresources
+[ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources
 xsetroot -solid grey
-vncconfig -iconic &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
-x-terminal-emulator -geometry 80x24+10+10 -ls -title &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$VNCDESKTOP&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt; Desktop&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
-x-window-manager &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+vncconfig -iconic &amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &#34;$VNCDESKTOP Desktop&#34; &amp;
+x-window-manager &amp;
 
 &lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vncserver :1 -geometry 1024x768
-&lt;/pre&gt;&lt;/div&gt;
+vncserver :1 -geometry 1024x768
 
 &lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．
 リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install remmina
+sudo apt-get install remmina
 remmina
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．
 &lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;

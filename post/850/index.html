@@ -72,45 +72,44 @@
       <p>外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．</p>
 
 <p>　3次元として持つための領域を動的に確保しているのでサイズが可変です．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #8d8687">#include &lt;iostream&gt;</span>
-<span style="color: #815ba4">using</span> <span style="color: #815ba4">namespace</span> <span style="color: #2f1e2e">std;</span>
-<span style="color: #fec418">int</span> <span style="color: #2f1e2e">data[</span><span style="color: #f99b15">256</span><span style="color: #2f1e2e">];</span> <span style="color: #8d8687">//元となるデータ領域</span>
-<span style="color: #fec418">int</span> <span style="color: #06b6ef">main</span><span style="color: #2f1e2e">()</span>
-<span style="color: #2f1e2e">{</span>
-  <span style="color: #8d8687">//データ領域への値の代入</span>
-  <span style="color: #815ba4">for</span><span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #f99b15">256</span><span style="color: #2f1e2e">;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">i)</span> <span style="color: #2f1e2e">{</span>
-    <span style="color: #2f1e2e">data[i]</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">i;</span>
-  <span style="color: #2f1e2e">}</span>
-  <span style="color: #8d8687">//3次元配列の大きさ</span>
-  <span style="color: #fec418">char</span> <span style="color: #2f1e2e">size_z</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">3</span><span style="color: #2f1e2e">;</span>
-  <span style="color: #fec418">char</span> <span style="color: #2f1e2e">size_y</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">4</span><span style="color: #2f1e2e">;</span>
-  <span style="color: #fec418">char</span> <span style="color: #2f1e2e">size_x</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">5</span><span style="color: #2f1e2e">;</span>
-  <span style="color: #8d8687">//とりあえずポインタに元のデータ領域の先頭アドレスを代入</span>
-  <span style="color: #fec418">int</span><span style="color: #5bc4bf">*</span> <span style="color: #2f1e2e">p</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">data;</span>
-  <span style="color: #8d8687">//3次元配列arrayへの整形</span>
-  <span style="color: #fec418">int</span><span style="color: #5bc4bf">***</span> <span style="color: #2f1e2e">array</span> <span style="color: #5bc4bf">=</span> <span style="color: #815ba4">new</span> <span style="color: #fec418">int</span><span style="color: #5bc4bf">**</span><span style="color: #2f1e2e">[size_z];</span>
-  <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_z;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">i)</span> <span style="color: #2f1e2e">{</span>
-    <span style="color: #2f1e2e">array[i]</span> <span style="color: #5bc4bf">=</span> <span style="color: #815ba4">new</span> <span style="color: #fec418">int</span><span style="color: #5bc4bf">*</span><span style="color: #2f1e2e">[size_y];</span>
-    <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">j</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">j</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_y;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">j)</span> <span style="color: #2f1e2e">{</span>
-      <span style="color: #2f1e2e">array[i][j]</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">p</span> <span style="color: #5bc4bf">+</span> <span style="color: #2f1e2e">size_x</span> <span style="color: #5bc4bf">*</span> <span style="color: #2f1e2e">j;</span>
-    <span style="color: #2f1e2e">}</span>
-    <span style="color: #2f1e2e">p</span> <span style="color: #5bc4bf">+=</span> <span style="color: #2f1e2e">size_x</span> <span style="color: #5bc4bf">*</span> <span style="color: #2f1e2e">size_y;</span>
-  <span style="color: #2f1e2e">}</span>
-  <span style="color: #8d8687">//確認のため表示</span>
-  <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_z;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">i)</span> <span style="color: #2f1e2e">{</span>
-    <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">j</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">j</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_y;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">j)</span> <span style="color: #2f1e2e">{</span>
-      <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">k</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">k</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_x;</span> <span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">k)</span> <span style="color: #2f1e2e">{</span>
-        <span style="color: #2f1e2e">cout</span> <span style="color: #5bc4bf">&lt;&lt;</span> <span style="color: #2f1e2e">array[i][j][k]</span> <span style="color: #5bc4bf">&lt;&lt;</span> <span style="color: #2f1e2e">endl;</span>
-      <span style="color: #2f1e2e">}</span>
-    <span style="color: #2f1e2e">}</span>
-  <span style="color: #2f1e2e">}</span>
-  <span style="color: #8d8687">//メモリの解放</span>
-  <span style="color: #815ba4">for</span> <span style="color: #2f1e2e">(</span><span style="color: #fec418">int</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">=</span> <span style="color: #f99b15">0</span><span style="color: #2f1e2e">;</span> <span style="color: #2f1e2e">i</span> <span style="color: #5bc4bf">&lt;</span> <span style="color: #2f1e2e">size_z;</span> <span style="color: #2f1e2e">i</span><span style="color: #5bc4bf">++</span><span style="color: #2f1e2e">)</span> <span style="color: #2f1e2e">{</span>
-    <span style="color: #815ba4">delete</span><span style="color: #2f1e2e">[]</span> <span style="color: #2f1e2e">array[i];</span>
-  <span style="color: #2f1e2e">}</span>
-  <span style="color: #815ba4">delete</span><span style="color: #2f1e2e">[]</span> <span style="color: #2f1e2e">array;</span>
-<span style="color: #2f1e2e">}</span>
-</pre></div>
+#include <iostream>
+using namespace std;
+int data[256]; //元となるデータ領域
+int main()
+{
+  //データ領域への値の代入
+  for(int i = 0; i < 256; ++i) {
+    data[i] = i;
+  }
+  //3次元配列の大きさ
+  char size_z = 3;
+  char size_y = 4;
+  char size_x = 5;
+  //とりあえずポインタに元のデータ領域の先頭アドレスを代入
+  int* p = data;
+  //3次元配列arrayへの整形
+  int*** array = new int**[size_z];
+  for (int i = 0; i < size_z; ++i) {
+    array[i] = new int*[size_y];
+    for (int j = 0; j < size_y; ++j) {
+      array[i][j] = p + size_x * j;
+    }
+    p += size_x * size_y;
+  }
+  //確認のため表示
+  for (int i = 0; i < size_z; ++i) {
+    for (int j = 0; j < size_y; ++j) {
+      for (int k = 0; k < size_x; ++k) {
+        cout << array[i][j][k] << endl;
+      }
+    }
+  }
+  //メモリの解放
+  for (int i = 0; i < size_z; i++) {
+    delete[] array[i];
+  }
+  delete[] array;
+}
 
 <p>(sizeof int) * (1 + size_z)だけのメモリを消費します．</p>
 
