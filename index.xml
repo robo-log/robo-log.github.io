@@ -204,11 +204,16 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
 &lt;ul&gt;
 &lt;li&gt;パターンを認識されても困る&lt;/li&gt;
 &lt;li&gt;感覚と運動によってどう変わるかという概念獲得をしてほしい&lt;/li&gt;
-&lt;li&gt;マルチモーダル学習&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;マルチモーダル学習
+
+&lt;ul&gt;
 &lt;li&gt;画像、音声、全部を生データとしてDNNに入力する&lt;/li&gt;
-&lt;li&gt;AE, 生成するのが目的&lt;/li&gt;
 &lt;li&gt;時間方向に引き伸ばして2000次元&lt;/li&gt;
-&lt;li&gt;記号と外界の結合&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;記号と外界の結合
+
+&lt;ul&gt;
 &lt;li&gt;多義性を持った入力&lt;/li&gt;
 &lt;li&gt;ちゃんと汎化してくれる&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
