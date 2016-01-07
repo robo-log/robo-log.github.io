@@ -99,6 +99,218 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
     </item>
     
     <item>
+      <title>記号創発システムシンポジウムに行ってきた</title>
+      <link>http://syundo0730.github.io/post/souhatu20151123/</link>
+      <pubDate>Mon, 23 Nov 2015 10:17:28 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/souhatu20151123/</guid>
+      <description>
+
+&lt;p&gt;ドワンゴで開催された&lt;a href=&#34;http://www.emergent-symbol.systems/news/1st_sympo_with_crest&#34;&gt;記号創発システムシンポジウム&lt;/a&gt;
+に行ってきた。
+ニコ生はこちら&lt;a href=&#34;http://live.nicovideo.jp/watch/lv242286012&#34;&gt;新鋭「人工知能×ロボティクス」プロジェクトによるシンポジウム&lt;/a&gt;
+以下はメモ。でも途中でPCのバッテリーが切れてしまったので、午前中の分しか無い。&lt;/p&gt;
+
+&lt;h1 id=&#34;記号創発システム論調査研究会設置にあたって:ced8b9337de5dd273e75e4e035be1676&#34;&gt;記号創発システム論調査研究会設置にあたって&lt;/h1&gt;
+
+&lt;p&gt;谷口忠大先生（立命館大学）&lt;/p&gt;
+
+&lt;p&gt;谷口先生による記号創発システムの重要性についての説明&lt;/p&gt;
+
+&lt;h2 id=&#34;記号接地問題:ced8b9337de5dd273e75e4e035be1676&#34;&gt;記号接地問題&lt;/h2&gt;
+
+&lt;h3 id=&#34;そもそも記号とは:ced8b9337de5dd273e75e4e035be1676&#34;&gt;そもそも記号とは&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記号の恣意性&lt;/li&gt;
+&lt;li&gt;真なる記号系が存在しているとか呈している&lt;/li&gt;
+&lt;li&gt;与えられた記号系からそれに設置しようとするからだめ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;何が問題だったか:ced8b9337de5dd273e75e4e035be1676&#34;&gt;何が問題だったか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記号とは何か
+
+&lt;ul&gt;
+&lt;li&gt;セミオーシス[Peirce]&lt;/li&gt;
+&lt;li&gt;言語における記号も、サイン、解釈項、対象、これらがダイナミックに変わる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;じゃあどこから始めるべきか:ced8b9337de5dd273e75e4e035be1676&#34;&gt;じゃあどこから始めるべきか&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主体のセンサー、身体
+
+&lt;ul&gt;
+&lt;li&gt;環世界 エルンスト＊マッハ　「感覚の分析」&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;記号創発システム論:ced8b9337de5dd273e75e4e035be1676&#34;&gt;記号創発システム論&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;記号が生まれる
+
+&lt;ul&gt;
+&lt;li&gt;記号を使って社会と関わる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;crest-記号創発ロボティクスによる人間機械コラボレーション基盤創成:ced8b9337de5dd273e75e4e035be1676&#34;&gt;CREST「記号創発ロボティクスによる人間機械コラボレーション基盤創成」&lt;/h1&gt;
+
+&lt;p&gt;長井隆行先生（電気通信大学）&lt;/p&gt;
+
+&lt;p&gt;プロジェクト概要&lt;/p&gt;
+
+&lt;h2 id=&#34;全体像:ced8b9337de5dd273e75e4e035be1676&#34;&gt;全体像&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;概念、信念、応用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;目指す世界:ced8b9337de5dd273e75e4e035be1676&#34;&gt;目指す世界&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;人とロボットの調和的, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;２つのアプローチ:ced8b9337de5dd273e75e4e035be1676&#34;&gt;２つのアプローチ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DN, ベイズ&lt;/li&gt;
+&lt;li&gt;従来のアプローチ
+
+&lt;ul&gt;
+&lt;li&gt;入力に対するラベルを人手でやる -&amp;gt; 認識&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;新たなアプローチ
+
+&lt;ul&gt;
+&lt;li&gt;教師なし学習&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;研究内容紹介1-概念班1:ced8b9337de5dd273e75e4e035be1676&#34;&gt;[研究内容紹介1（概念班1）]&lt;/h1&gt;
+
+&lt;p&gt;尾形哲也先生（早稲田大学）&lt;/p&gt;
+
+&lt;h2 id=&#34;背景:ced8b9337de5dd273e75e4e035be1676&#34;&gt;背景&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DNNをロボットに応用する、ロボティクスへの応用はこれから
+
+&lt;ul&gt;
+&lt;li&gt;パターンを認識されても困る&lt;/li&gt;
+&lt;li&gt;感覚と運動によってどう変わるかという概念獲得をしてほしい&lt;/li&gt;
+&lt;li&gt;マルチモーダル学習&lt;/li&gt;
+&lt;li&gt;画像、音声、全部を生データとしてDNNに入力する&lt;/li&gt;
+&lt;li&gt;AE, 生成するのが目的&lt;/li&gt;
+&lt;li&gt;時間方向に引き伸ばして2000次元&lt;/li&gt;
+&lt;li&gt;記号と外界の結合&lt;/li&gt;
+&lt;li&gt;多義性を持った入力&lt;/li&gt;
+&lt;li&gt;ちゃんと汎化してくれる&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ:ced8b9337de5dd273e75e4e035be1676&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;パターンの有限数の符号への対応付け&lt;/li&gt;
+&lt;li&gt;概念: パターンを生成した機構を推定し、予測、生成すること&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;研究内容紹介1-概念班2:ced8b9337de5dd273e75e4e035be1676&#34;&gt;[研究内容紹介1（概念班2）]&lt;/h1&gt;
+
+&lt;p&gt;谷口忠大先生(立命館大学)&lt;/p&gt;
+
+&lt;h2 id=&#34;記号接地:ced8b9337de5dd273e75e4e035be1676&#34;&gt;記号接地&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;家族しかわからないキーワード：お父さんの部屋&lt;/li&gt;
+&lt;li&gt;ロボットのセンサ、モータ系と環境との相互作用の結果得られる高次元特徴量の性質を事前にしることは難しい&lt;/li&gt;
+&lt;li&gt;何がグローバルな「常識」で何がローカルな「知識か」判別困難&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mldaとnpylmを用いた物体概念と言語モデルの相互学習:ced8b9337de5dd273e75e4e035be1676&#34;&gt;MLDAとNPYLMを用いた物体概念と言語モデルの相互学習&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;語彙学習による物体カテゴリ形成、音声認識の高精度化
+
+&lt;ul&gt;
+&lt;li&gt;文節区切りと同時に物体概念を学習&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;場所概念と言語モデルの相互推定によるロボットの場所に関する語彙獲得
+
+&lt;ul&gt;
+&lt;li&gt;位置情報と語彙情報を統合することで精度向上&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;階層ディリクレ過程隠れ言語モデルに基づくノンパラ面トリックベイズ二重文節解析
+
+&lt;ul&gt;
+&lt;li&gt;言語モデルを知っているので文節解析できる&lt;/li&gt;
+&lt;li&gt;音素からだけではなかなか精度が上がらないことが知られている&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実環境での教師データ収拾の非効率性:ced8b9337de5dd273e75e4e035be1676&#34;&gt;実環境での教師データ収拾の非効率性&lt;/h2&gt;
+
+&lt;p&gt;じゃあクラウドだ&lt;/p&gt;
+
+&lt;h3 id=&#34;クラウドロボティクス:ced8b9337de5dd273e75e4e035be1676&#34;&gt;クラウドロボティクス&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;階層ベイズと組み合わせやすいのでは？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;招待講演-記号創発ロボティクスに関する期待:ced8b9337de5dd273e75e4e035be1676&#34;&gt;招待講演「記号創発ロボティクスに関する期待」&lt;/h1&gt;
+
+&lt;p&gt;安西祐一郎 先生 (独立行政法人日本学術振興会理事長)&lt;/p&gt;
+
+&lt;h2 id=&#34;どうやって人間が自動機械の制御を学習するのか:ced8b9337de5dd273e75e4e035be1676&#34;&gt;どうやって人間が自動機械の制御を学習するのか&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;経緯
+
+&lt;ul&gt;
+&lt;li&gt;1984 年後半&lt;/li&gt;
+&lt;li&gt;BP を実用する問題に関する書籍が甘利先生から出てブームになった&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ベンチマークとして簡潔な問題を設定したほうがいいのではないか
+
+&lt;ul&gt;
+&lt;li&gt;問題と現実が乖離しすぎるんでないか&lt;/li&gt;
+&lt;li&gt;蓄積をして良い成果を出してほしい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;「意味」、「理解」の意味をしっかり把握したほうがいいのでは&lt;/li&gt;
+&lt;li&gt;応用
+
+&lt;ul&gt;
+&lt;li&gt;実現可能であるのはプラクティカルに実現可能なのか&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;言語 とは
+
+&lt;ul&gt;
+&lt;li&gt;何のことか、全部を言っているなら大変なこと&lt;/li&gt;
+&lt;li&gt;-&amp;gt; (言語，やりたいのは全部ですね．全部やらないとどうにもならん．)(谷口先生Twitterより)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;問題を明確にしようという話&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;船をゴールに向かって制御する問題:ced8b9337de5dd273e75e4e035be1676&#34;&gt;船をゴールに向かって制御する問題&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;すぐに操舵に反応しない。何分もかかって操舵する。習熟が必要。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ-1:ced8b9337de5dd273e75e4e035be1676&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;がんばってね、というお話&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>第8回ROS勉強会に参加してきた</title>
       <link>http://syundo0730.github.io/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
       <pubDate>Sun, 04 Oct 2015 13:06:49 +0900</pubDate>
@@ -626,156 +838,6 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
 &lt;p&gt;まだ深層学習のほうしか読めていないが，Deep Learningの日本語で読める資料は人工知能学会の特集しかなかったりしてなかなか勉強しづらかったこともあって，色々な情報が纏まっている本書はとても意義があると思う．&lt;/p&gt;
 
 &lt;p&gt;DeepNNを使って何かやってみたい．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>WordpressをロリポップからDigital Oceanに移した</title>
-      <link>http://syundo0730.github.io/post/1072/</link>
-      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1072/</guid>
-      <description>&lt;p&gt;今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．&lt;/p&gt;
-
-&lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
-
-&lt;p&gt;まずはDigitalOceanに登録してDropletを作成する必要がある．今回は
-512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64
-のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．&lt;/p&gt;
-
-&lt;h2&gt;SSHの鍵の登録&lt;/h2&gt;
-DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る．
-```bash
-ssh-keygen
-```
-で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく．
-
-&lt;h2&gt;Apache 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install -y httpd httpd-devel
-chkconfig httpd on
-service httpd start
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2&gt;PHP 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vi /etc/php.ini
-vi /etc/httpd/conf.d/php.conf
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2&gt;MySQL 導入&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum install mysql-community-release-el6-5.noarch.rpm
-yum install -y mysql-community-client mysql-community-devel mysql-community-server
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo dd &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/dev/zero &lt;span style=&#34;color: #ef6155&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;/swapfile &lt;span style=&#34;color: #ef6155&#34;&gt;bs&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1M &lt;span style=&#34;color: #ef6155&#34;&gt;count&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;1024
-mkswap /swapfile
-swapon /swapfile
-sudo sh -c &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;&lt;/span&gt;
-chkconfig mysqld on
-service mysqld start
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql_secure_installation
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
-ムームードメインのメニューのネームサーバー設定変更より
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こんな感じにする．&lt;/p&gt;
-
-&lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．
-Digital OceanのDNS設定メニューより，
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;
-Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf/httpd.conf
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;以下の部分を編集してポート指定．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;NameVirtualHost *:80
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&amp;lt;VirtualHost *:80&amp;gt;
-    ServerName syundo.org
-    DocumentRoot /var/www/html/
-  &amp;lt;Directory /var/www/html/&amp;gt;
-    AllowOverride All
-    Options FollowSymLinks
-    Order allow,deny
-    Allow from all
-   &amp;lt;/Directory&amp;gt;
-&amp;lt;/VirtualHost&amp;gt;
-&amp;lt;VirtualHost *:80&amp;gt;
-    ServerName blog.syundo.org
-    DocumentRoot /var/www/html/blog/
-  &amp;lt;Directory /var/www/html/blog/&amp;gt;
-    AllowOverride All
-    Options FollowSymLinks
-    Order allow,deny
-    Allow from all
-   &amp;lt;/Directory&amp;gt;
-&amp;lt;/VirtualHost&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;h2&gt;PHPmyadmin導入&lt;/h2&gt;
-Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi ImageMagick-last
-yum -y install --enablerepo&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;remi-php55 phpMyAdmin
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim /etc/httpd/conf.d/phpMyAdmin.conf
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;を編集．内容は忘れた．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;データの移行&lt;/h2&gt;
-MySQLで作業する．ログインしてパスワード設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mysql -u root
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;set &lt;/span&gt;password &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; root@localhost&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;password&lt;span style=&#34;color: #5bc4bf&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;hogehoge&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;データベース作る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;create database database_name
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;作業ユーザを作っておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;grant all on database_name.* to dbuser@localhost identified by &lt;span style=&#34;color: #48b685&#34;&gt;&amp;#39;piyopiyo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vim wp-config.php
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo chown -R apache:apache myblogdir
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;User apache
-Group apache
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;の部分を見ればわかる．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;追記：&lt;/h2&gt;
-トップページからのリンクがすべて404となってしまった．
-例えばカテゴリごとに飛ぼうとしてもエラーになる．&lt;/p&gt;
-
-&lt;p&gt;ダッシュボードの 「設定 -&amp;gt; パーマリンク設定」　より，何も変更せずに 「保存」　を押すと正常な状態になった．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;参考：&lt;/h2&gt;
-&lt;a href=&#34;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&#34;&gt;http://nekopunch.hatenablog.com/entry/2014/03/22/020507&lt;/a&gt;
-&lt;a href=&#34;http://wp.fsv.jp/guide/server-shift/&#34;&gt;http://wp.fsv.jp/guide/server-shift/&lt;/a&gt;
-&lt;a href=&#34;http://websae.net/wordpress-backup-without-plugin-20140924/&#34;&gt;http://websae.net/wordpress-backup-without-plugin-20140924/&lt;/a&gt;
-&lt;a href=&#34;http://javatechnology.net/service/apache-sub-domain/&#34;&gt;http://javatechnology.net/service/apache-sub-domain/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
