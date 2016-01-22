@@ -6,8 +6,24 @@
     <description>Recent content in Posts on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 01 Jan 2016 23:41:35 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 22 Jan 2016 23:57:58 +0900</lastBuildDate>
     <atom:link href="http://syundo0730.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016 01 22 Goods Memo</title>
+      <link>http://syundo0730.github.io/post/2016-01-22-Goods-Memo/</link>
+      <pubDate>Fri, 22 Jan 2016 23:57:58 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/2016-01-22-Goods-Memo/</guid>
+      <description>
+
+&lt;p&gt;リンクしておきたいメモ&lt;/p&gt;
+
+&lt;h2 id=&#34;加工機:c0c3fb7bf9b2fd8954de5f5dd2c5a4fa&#34;&gt;加工機&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://gigazine.net/news/20160121-smart-laser-co2/&#34;&gt;低価格なレーザー加工機&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>HugoでGitHub markdown形式でコードブロックを記述する</title>
@@ -918,18 +934,6 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
 &lt;/ul&gt;&lt;/p&gt;
 
 &lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>中華CNC CNC3020導入記　USBCNCで使う</title>
-      <link>http://syundo0730.github.io/post/1009/</link>
-      <pubDate>Mon, 13 Apr 2015 01:19:34 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1009/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34;&gt;&lt;img class=&#34;alignnone wp-image-1012 size-full&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2976947bf1715116347ba15669a421e4.png&#34; alt=&#34;&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe src=&#34;https://www.youtube.com/embed/-hakv_o5bQE&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
