@@ -6,8 +6,41 @@
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 22 Jan 2016 23:57:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 31 Jan 2016 15:32:18 +0900</lastBuildDate>
     <atom:link href="http://syundo0730.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mbedのMPU6050のライブラリを更新した</title>
+      <link>http://syundo0730.github.io/post/2016-01-31-port-6050-library/</link>
+      <pubDate>Sun, 31 Jan 2016 15:32:18 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/2016-01-31-port-6050-library/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050&#34;&gt;こちらの&lt;/a&gt;Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&amp;hellip;)。
+mbed用のライブラリは&lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU6050/&#34;&gt;こちら&lt;/a&gt;。使用方法は&lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU6050_Example/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;mbedのライブラリに加えた変更点は&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Arduino側のライブラリで変更があった箇所(接続テスト用の関数のようだが、なぜ追加したのかよくわからない)の修正&lt;/li&gt;
+&lt;li&gt;I2Cに流すデータのフォーマットなどを決めている便利クラスI2Cdevのメンバ関数をArduinoに倣って全部staticにした。pinName をマクロで指定しなきゃいけないとか、複数のMPU6050を複数のi2cポートで使うのが難しくなるとかあるので、本当はやりたくなかったけど、Arduinoにコードを近づければ、ほぼコピペするだけで移植を終わらせることができるから、そうした。&lt;/li&gt;
+&lt;li&gt;ArduinoのSerial.printをエミュレートするクラスを作った。これでArduinoのprintデバッグ部分をちょっと書き換えるだけで移植できるようになった。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Arduinoからmbedに移植するときに書き換えないといけないのは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MPU6050.h : 48-52行のコメントアウトされているのを外す。なんでこれコメントアウトされているんだ？コンパイル通らない。&lt;/li&gt;
+&lt;li&gt;MPU6050.cpp : 何もなし&lt;/li&gt;
+&lt;li&gt;MPU6050_6Axis_MotionApps20.h : 103-108行 のデバッグ出力の部分をArduinoSerialに書き換える&lt;/li&gt;
+&lt;li&gt;helper_3dmath.h : sqrtを使っているところを&lt;code&gt;sqrt((float)(x*x + y*y + z*z));&lt;/code&gt;に書き換える&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今後変更があっても簡単に追従できるようにできたのは良かった。
+MPU9150も動かしたいというようなリクエストも今まで何回か来ていたので、MPU9150の方もちゃっちゃとやってしまおうかなと思っている。&lt;/p&gt;
+
+&lt;p&gt;おわり。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>良い物をメモしておく</title>
@@ -886,60 +919,6 @@ CNCに関しては防音箱の性能向上を図る必要があると考えて�
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>最近どうしているかということとROBO－ONEはどうだったかという話</title>
-      <link>http://syundo0730.github.io/post/1068/</link>
-      <pubDate>Mon, 13 Apr 2015 02:12:29 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1068/</guid>
-      <description>&lt;p&gt;お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．&lt;/p&gt;
-
-&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．
-大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．
-&lt;h2&gt;ROBO-ONEまでにうちのヴァニラがどう変わったか&lt;/h2&gt;
-こちらが改造に使った部品たちです．一部組み上がってますが…
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1101&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.12.58.jpg&#34; alt=&#34;2014-11-08 21.12.58&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1102&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.27.jpg&#34; alt=&#34;2014-11-08 21.14.27&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．
-&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1106&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2014-11-08-21.14.06.jpg&#34; alt=&#34;2014-11-08 21.14.06&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;バリ取りとか塗装が間に合わなくてボツにしたんですが，腕カバーとか腰カバーを3Dプリントで作ったりしてました．ABSがテーブルから剥がれて反ることといったらもう泣けました．&lt;/p&gt;
-
-&lt;p&gt;これは腕カバー反らなければそれなりに使えそうなものができます．外装なので中身はスカスカ，充填率は10%です．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1104&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-19-04.07.08.jpg&#34; alt=&#34;2015-02-19 04.07.08&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こちらは腰カバー．設計ミスがあってうまく嵌りませんでした…．焦ってやる仕事は良くないです…フィラメントがかなり無駄に…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1105&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-22-20.43.47.jpg&#34; alt=&#34;2015-02-22 20.43.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1107&#34; src=&#34;http://syundo0730.github.io/images/2015/04/2015-02-28-12.34.47.jpg&#34; alt=&#34;2015-02-28 12.34.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．&lt;/p&gt;
-
-&lt;p&gt;予選の結果&lt;/p&gt;
-
-&lt;p&gt;40cm&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/dyA7645_rA4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;敗因
-&lt;ul&gt;
-    &lt;li&gt;コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた．&lt;/li&gt;
-    &lt;li&gt;シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった．&lt;/li&gt;
-    &lt;li&gt;上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった．&lt;/li&gt;
-    &lt;li&gt;数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった．&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-
-&lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
 </description>
     </item>
     

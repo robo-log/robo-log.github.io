@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    良い物をメモしておく | ROBO LOG
+    mbedのMPU6050のライブラリを更新した | ROBO LOG
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://syundo0730.github.io/post/2016-01-22-Goods-Memo/"/>
+  <link rel="canonical" href="http://syundo0730.github.io/post/2016-01-31-port-6050-library/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -62,26 +62,37 @@
   
   <main id="single" role="main">
     <div class="article-header">
-      <h1>良い物をメモしておく</h1>
+      <h1>mbedのMPU6050のライブラリを更新した</h1>
       <div class="meta">
-        Jan 22, 2016 &nbsp;
+        Jan 31, 2016 &nbsp;
         
       </div>
     </div>
     <article>
-      
+      <p><a href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050">こちらの</a>Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&hellip;)。
+mbed用のライブラリは<a href="https://developer.mbed.org/users/syundo0730/code/MPU6050/">こちら</a>。使用方法は<a href="https://developer.mbed.org/users/syundo0730/code/MPU6050_Example/">こちら</a></p>
 
-<p>リンクしておきたいメモ</p>
+<p>mbedのライブラリに加えた変更点は</p>
 
-<h2 id="加工機:c0c3fb7bf9b2fd8954de5f5dd2c5a4fa">加工機</h2>
+<ul>
+<li>Arduino側のライブラリで変更があった箇所(接続テスト用の関数のようだが、なぜ追加したのかよくわからない)の修正</li>
+<li>I2Cに流すデータのフォーマットなどを決めている便利クラスI2Cdevのメンバ関数をArduinoに倣って全部staticにした。pinName をマクロで指定しなきゃいけないとか、複数のMPU6050を複数のi2cポートで使うのが難しくなるとかあるので、本当はやりたくなかったけど、Arduinoにコードを近づければ、ほぼコピペするだけで移植を終わらせることができるから、そうした。</li>
+<li>ArduinoのSerial.printをエミュレートするクラスを作った。これでArduinoのprintデバッグ部分をちょっと書き換えるだけで移植できるようになった。</li>
+</ul>
 
-<p><a href="http://gigazine.net/news/20160121-smart-laser-co2/">低価格なレーザー加工機</a></p>
+<p>Arduinoからmbedに移植するときに書き換えないといけないのは、</p>
 
-<p><a href="https://twitter.com/toodooda/status/690979282038853633">光造形式3Dプリンタ G Printer</a></p>
+<ul>
+<li>MPU6050.h : 48-52行のコメントアウトされているのを外す。なんでこれコメントアウトされているんだ？コンパイル通らない。</li>
+<li>MPU6050.cpp : 何もなし</li>
+<li>MPU6050_6Axis_MotionApps20.h : 103-108行 のデバッグ出力の部分をArduinoSerialに書き換える</li>
+<li>helper_3dmath.h : sqrtを使っているところを<code>sqrt((float)(x*x + y*y + z*z));</code>に書き換える</li>
+</ul>
 
-<h2 id="電子部品:c0c3fb7bf9b2fd8954de5f5dd2c5a4fa">電子部品</h2>
+<p>今後変更があっても簡単に追従できるようにできたのは良かった。
+MPU9150も動かしたいというようなリクエストも今まで何回か来ていたので、MPU9150の方もちゃっちゃとやってしまおうかなと思っている。</p>
 
-<p><a href="http://akizukidenshi.com/catalog/g/gM-10140/">BLE無線モジュール</a></p>
+<p>おわり。</p>
 
       
       
@@ -114,10 +125,8 @@
   
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/2016-01-01-hugoFormula/" rel="prev">HugoでGitHub markdown形式でコードブロックを記述する</a></span>
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/2016-01-22-Goods-Memo/" rel="prev">良い物をメモしておく</a></span>
     
-    
-      <span class="next"><a href="http://syundo0730.github.io/post/2016-01-31-port-6050-library/" rel="next">mbedのMPU6050のライブラリを更新した</a> &rarr;</span>
     
   </nav>
 
