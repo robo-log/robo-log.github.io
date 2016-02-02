@@ -15,7 +15,9 @@
       <pubDate>Sun, 31 Jan 2016 15:32:18 +0900</pubDate>
       
       <guid>http://syundo0730.github.io/post/2016-01-31-port-6050-library/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050&#34;&gt;こちらの&lt;/a&gt;Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&amp;hellip;)。
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050&#34;&gt;こちらの&lt;/a&gt;Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&amp;hellip;)。
 mbed用のライブラリは&lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU6050/&#34;&gt;こちら&lt;/a&gt;。使用方法は&lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU6050_Example/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;mbedのライブラリに加えた変更点は&lt;/p&gt;
@@ -39,6 +41,15 @@ mbed用のライブラリは&lt;a href=&#34;https://developer.mbed.org/users/syu
 MPU9150も動かしたいというようなリクエストも今まで何回か来ていたので、MPU9150の方もちゃっちゃとやってしまおうかなと思っている。&lt;/p&gt;
 
 &lt;p&gt;おわり。&lt;/p&gt;
+
+&lt;h2 id=&#34;追記:eb2554d4c5dcb8776eef64d76a80df35&#34;&gt;追記&lt;/h2&gt;
+
+&lt;p&gt;MPU9150のライブラリも移植した。MPU6050のために周辺を整備していたおかげで一瞬で移植できた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ライブラリ: &lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU9150/&#34;&gt;https://developer.mbed.org/users/syundo0730/code/MPU9150/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;使用例: &lt;a href=&#34;https://developer.mbed.org/users/syundo0730/code/MPU9150_Example/&#34;&gt;https://developer.mbed.org/users/syundo0730/code/MPU9150_Example/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -61,6 +72,8 @@ MPU9150も動かしたいというようなリクエストも今まで何回か�
 &lt;h2 id=&#34;電子部品:c0c3fb7bf9b2fd8954de5f5dd2c5a4fa&#34;&gt;電子部品&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-10140/&#34;&gt;BLE無線モジュール&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-08461/&#34;&gt;超小型USBシリアル変換モジュール&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

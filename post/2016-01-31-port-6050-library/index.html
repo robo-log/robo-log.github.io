@@ -69,7 +69,9 @@
       </div>
     </div>
     <article>
-      <p><a href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050">こちらの</a>Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&hellip;)。
+      
+
+<p><a href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050">こちらの</a>Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&hellip;)。
 mbed用のライブラリは<a href="https://developer.mbed.org/users/syundo0730/code/MPU6050/">こちら</a>。使用方法は<a href="https://developer.mbed.org/users/syundo0730/code/MPU6050_Example/">こちら</a></p>
 
 <p>mbedのライブラリに加えた変更点は</p>
@@ -93,6 +95,15 @@ mbed用のライブラリは<a href="https://developer.mbed.org/users/syundo0730
 MPU9150も動かしたいというようなリクエストも今まで何回か来ていたので、MPU9150の方もちゃっちゃとやってしまおうかなと思っている。</p>
 
 <p>おわり。</p>
+
+<h2 id="追記:eb2554d4c5dcb8776eef64d76a80df35">追記</h2>
+
+<p>MPU9150のライブラリも移植した。MPU6050のために周辺を整備していたおかげで一瞬で移植できた。</p>
+
+<ul>
+<li>ライブラリ: <a href="https://developer.mbed.org/users/syundo0730/code/MPU9150/">https://developer.mbed.org/users/syundo0730/code/MPU9150/</a></li>
+<li>使用例: <a href="https://developer.mbed.org/users/syundo0730/code/MPU9150_Example/">https://developer.mbed.org/users/syundo0730/code/MPU9150_Example/</a></li>
+</ul>
 
       
       
