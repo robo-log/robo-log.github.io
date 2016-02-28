@@ -6,8 +6,51 @@
     <description>Recent content in Posts on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 31 Jan 2016 15:32:18 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 28 Feb 2016 23:32:31 +0900</lastBuildDate>
     <atom:link href="http://syundo0730.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>セグメント液晶のことを全然知らなかった話</title>
+      <link>http://syundo0730.github.io/post/2016-02-28-LCDdisplay/</link>
+      <pubDate>Sun, 28 Feb 2016 23:32:31 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/2016-02-28-LCDdisplay/</guid>
+      <description>&lt;p&gt;この冬、私は急に太ってしまった。
+寒さから食欲が増したことと、食事の時間が不規則な食生活に原因があると思われる。
+腰回りの肉のせいで体を反らしにくくなったり、すぐ疲れるようになったりして、自覚するようになってきた。
+今思えば、体重計が家に無いせいで、自分の体重についてそれほど気にしていなかったのも良くなかった。&lt;/p&gt;
+
+&lt;p&gt;とりあえず体重計を買おうと思った。できればネットに記録を上げられるような良い奴が欲しい。
+witnessというやつが今のところ一番良さそうだった。&lt;/p&gt;
+
+&lt;p&gt;しかし、思ったより高かった。普通の体重計を改造してWifiモジュールを取り付けてやれば安価に作れるのではないか?と思った。&lt;/p&gt;
+
+&lt;p&gt;早速、秋葉のヨドバシでタニタの3000円くらいの体重計(体脂肪計測機能つき)を買ってきた。
+店頭にあった体重計を裏返して物色し、ネジで簡単に開けられそうなやつを選んだのだった。
+果たして普通のドライバーでネジを回してやって、マイナスドライバーをちょっと差し込んでやるだけで、簡単に裏蓋を開けることができた。&lt;/p&gt;
+
+&lt;p&gt;体重などの数値を取得するために、LCDに入力している部分を横から他のマイコンで読み取れないものかと算段していた。
+体重計に付いている液晶は、7セグメント液晶と同じ原理なんだろうと、考えていた。
+しかし蓋を開けてみてみれば、LCDのセグメント数と端子数は明らかに違った。
+マトリクス状に回路が組んであって、2つの端子の組み合わせで、表示するセグメントを決めるのだろうと推察した。
+ちょっと面倒だが、解析できなくもないだろうと思った。&lt;/p&gt;
+
+&lt;p&gt;オシロスコープをマイコンからLCDにつながっている部分に当ててみると、なんと、500Hzほどのパルスが出ているではないか。
+しかもPeek to Peek が 1v程度であった。
+LCDをドライブするのにこんなことが行われいるなんて全く知らなかった私は非常に混乱した。&lt;/p&gt;
+
+&lt;p&gt;結局、ネットを調べているうちに、こちらのブログ記事を発見した。
+&lt;a href=&#34;http://jujurou.blog34.fc2.com/blog-entry-386.html&#34;&gt;LCD(TN &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; bias, &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;4&lt;/sub&gt; duty) を汎用I/Oポートで出力制御&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;バイアスとデューティーを巧みに設定して、各セグメントにおける平均電圧が0になるように入力が与えられるのか&amp;hellip;。&lt;/p&gt;
+
+&lt;p&gt;こういった出力を用意することは、マイコンのLCDドライブ機能を使えば簡単にできるが、これを読み取るのは容易なことではない。
+体重計のLCDの端子は18本だったので、18本のA/D変換を用意しなければならない。
+さらに、時系列も考慮して、デューティー分の表示をタイミングよく記憶しておかなければならない。&lt;/p&gt;
+
+&lt;p&gt;体重計のIoT化は、あきらめた。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>mbedのMPU6050のライブラリを更新した</title>
@@ -898,40 +941,6 @@ Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
 &lt;p&gt;音声通話は&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/dial.jsp&#34;&gt;みおふぉんダイアル&lt;/a&gt;を使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。&lt;/p&gt;
 
 &lt;p&gt;こうしてドコモは通信を流すだけの土管になるのだ。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ロボットを吊るアームを作った</title>
-      <link>http://syundo0730.github.io/post/1111/</link>
-      <pubDate>Sun, 19 Apr 2015 22:46:39 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1111/</guid>
-      <description>&lt;p&gt;作業をしやすくするために、棚に固定できるロボット用のアームを作りました。こんなんです。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1114&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1486.jpg&#34; alt=&#34;DSC_1486&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1118&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1488-e1429451130188.jpg&#34; alt=&#34;DSC_1488&#34;   /&gt;&lt;/a&gt;
-ワイヤーで吊ります。&lt;/p&gt;
-
-&lt;p&gt;ちなみに現在の作業環境はこんな感じです。&lt;/p&gt;
-
-&lt;p&gt;CNC
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1116&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1490.jpg&#34; alt=&#34;DSC_1490&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ボール盤と折り曲げ機
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1115&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DSC_1489.jpg&#34; alt=&#34;DSC_1489&#34;   /&gt;&lt;/a&gt;
-CNCに関しては防音箱の性能向上を図る必要があると考えています。&lt;/p&gt;
-
-&lt;p&gt;10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。
-吸音材をヤフオクで買って貼りつけようと思います。&lt;/p&gt;
-
-&lt;p&gt;ではでは。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 </description>
     </item>
     

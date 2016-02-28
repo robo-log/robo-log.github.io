@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    セグメント液晶のことを全然知らなかった話 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://syundo0730.github.io/post/2016-02-28-LCDdisplay/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://syundo0730.github.ioindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://syundo0730.github.ioindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://syundo0730.github.io">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>セグメント液晶のことを全然知らなかった話</h1>
+      <div class="meta">
+        Feb 28, 2016 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>この冬、私は急に太ってしまった。
+寒さから食欲が増したことと、食事の時間が不規則な食生活に原因があると思われる。
+腰回りの肉のせいで体を反らしにくくなったり、すぐ疲れるようになったりして、自覚するようになってきた。
+今思えば、体重計が家に無いせいで、自分の体重についてそれほど気にしていなかったのも良くなかった。</p>
+
+<p>とりあえず体重計を買おうと思った。できればネットに記録を上げられるような良い奴が欲しい。
+witnessというやつが今のところ一番良さそうだった。</p>
+
+<p>しかし、思ったより高かった。普通の体重計を改造してWifiモジュールを取り付けてやれば安価に作れるのではないか?と思った。</p>
+
+<p>早速、秋葉のヨドバシでタニタの3000円くらいの体重計(体脂肪計測機能つき)を買ってきた。
+店頭にあった体重計を裏返して物色し、ネジで簡単に開けられそうなやつを選んだのだった。
+果たして普通のドライバーでネジを回してやって、マイナスドライバーをちょっと差し込んでやるだけで、簡単に裏蓋を開けることができた。</p>
+
+<p>体重などの数値を取得するために、LCDに入力している部分を横から他のマイコンで読み取れないものかと算段していた。
+体重計に付いている液晶は、7セグメント液晶と同じ原理なんだろうと、考えていた。
+しかし蓋を開けてみてみれば、LCDのセグメント数と端子数は明らかに違った。
+マトリクス状に回路が組んであって、2つの端子の組み合わせで、表示するセグメントを決めるのだろうと推察した。
+ちょっと面倒だが、解析できなくもないだろうと思った。</p>
+
+<p>オシロスコープをマイコンからLCDにつながっている部分に当ててみると、なんと、500Hzほどのパルスが出ているではないか。
+しかもPeek to Peek が 1v程度であった。
+LCDをドライブするのにこんなことが行われいるなんて全く知らなかった私は非常に混乱した。</p>
+
+<p>結局、ネットを調べているうちに、こちらのブログ記事を発見した。
+<a href="http://jujurou.blog34.fc2.com/blog-entry-386.html">LCD(TN <sup>1</sup>&frasl;<sub>3</sub> bias, <sup>1</sup>&frasl;<sub>4</sub> duty) を汎用I/Oポートで出力制御</a></p>
+
+<p>バイアスとデューティーを巧みに設定して、各セグメントにおける平均電圧が0になるように入力が与えられるのか&hellip;。</p>
+
+<p>こういった出力を用意することは、マイコンのLCDドライブ機能を使えば簡単にできるが、これを読み取るのは容易なことではない。
+体重計のLCDの端子は18本だったので、18本のA/D変換を用意しなければならない。
+さらに、時系列も考慮して、デューティー分の表示をタイミングよく記憶しておかなければならない。</p>
+
+<p>体重計のIoT化は、あきらめた。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://syundo0730.github.io/post/2016-01-31-port-6050-library/" rel="prev">mbedのMPU6050のライブラリを更新した</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>
+
