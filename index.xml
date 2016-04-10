@@ -6,8 +6,247 @@
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Feb 2016 23:32:31 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 09 Apr 2016 10:17:51 +0900</lastBuildDate>
     <atom:link href="http://syundo0730.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>超人工生命ハッカソンに行ってきた</title>
+      <link>http://syundo0730.github.io/post/20160409A-agent/</link>
+      <pubDate>Sat, 09 Apr 2016 10:17:51 +0900</pubDate>
+      
+      <guid>http://syundo0730.github.io/post/20160409A-agent/</guid>
+      <description>
+
+&lt;p&gt;4月9日(土)、&lt;a href=&#34;http://connpass.com/event/28982/&#34;&gt;超人工生命ハッカソン&lt;/a&gt;に行ってきた。&lt;/p&gt;
+
+&lt;!-- 当日のスケジュールはこんな感じだった。
+
+* 開会の言葉　山川宏
+* チュートリアル 清水亮
+* ソースコード詳細解説 中村政義
+* ハッカソン開始 11:00
+* 集合、ハッカソン終了 15:30
+* 発表会 16:00
+* 表彰 17:30
+* 終了 18:00
+
+## 超人工生命とは？
+当日のチュートリアルでは主催者の一人であるUEIの清水亮氏から、人工知能 + 人工生命 = 超人工生命だ、という説明がされた。
+人工生命といえば、セルオートマトンとかで数十年前にさんざん流行っていたが、最近あまり聞かなくなっていたと、清水氏は言う。近年の人工知能技術の人気の高まりに乗じて、人工生命のときと同じような盛り上がりにしようと、人工知能技術を使ったエージェントを「超人工生命」と呼ぶことにしたらしい。 --&gt;
+
+&lt;h2 id=&#34;どんなのができるの:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;どんなのができるの?&lt;/h2&gt;
+
+&lt;p&gt;こんなの。
+&lt;img src=&#34;http://syundo0730.github.io/images/2016/04/lis.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;緑の箱に触ると報酬GET&lt;/li&gt;
+&lt;li&gt;黄色のボールに触ると報酬DOWN&lt;/li&gt;
+&lt;li&gt;赤の箱に触ると死ぬ&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;という状況の中で、左右どの方向に進むのか、ジャンプするのかを決めて勝手に動き回る。&lt;/p&gt;
+
+&lt;p&gt;使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ!!!&lt;/p&gt;
+
+&lt;p&gt;これはすごい!!!!&lt;/p&gt;
+
+&lt;h3 id=&#34;セットアップ:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;セットアップ&lt;/h3&gt;
+
+&lt;p&gt;ここらへんを見よう!
+&lt;a href=&#34;https://github.com/wbap/lis&#34;&gt;https://github.com/wbap/lis&lt;/a&gt;
+&lt;a href=&#34;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&#34;&gt;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;mac環境でしかやってないけど、とくにハマることもなくできました。
+シミュレーションが起動するまで数分待たないといけないので、根気よく待ちましょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;使われている技術:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;使われている技術&lt;/h2&gt;
+
+&lt;p&gt;今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムをチューニングして楽しむことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;python側
+
+&lt;ul&gt;
+&lt;li&gt;Unity側から画像データを受け取る&lt;/li&gt;
+&lt;li&gt;CNN + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Unity側
+
+&lt;ul&gt;
+&lt;li&gt;python側から行動の命令を受け取って、実際のエージェントの動作に反映する。&lt;/li&gt;
+&lt;li&gt;エージェントの望ましい行動に対して与える報酬を決定する。&lt;/li&gt;
+&lt;li&gt;エージェントに固定されたカメラから得られる画像と、報酬をpython側に送る&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というような役割になっている。&lt;/p&gt;
+
+&lt;h2 id=&#34;当日僕がやったこと:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;当日僕がやったこと&lt;/h2&gt;
+
+&lt;h3 id=&#34;コードを読む:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;コードを読む&lt;/h3&gt;
+
+&lt;p&gt;ハッカソンが始まると、まずpython側のコードを読んだ。DQNには以前から興味があったが、なかなか触る機会がなかったので、今回のハッカソンを機に親しみたいと思っていたからだ。以下はコードを読んだときのメモ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNNのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
+
+&lt;ul&gt;
+&lt;li&gt;なぜここなのかというと、物体がある位置のニューロンが活性化するようになっている層だかららしい。チュートリアルで、写真と、活性化している位置の画像を並べたのを見せてもらいながらそういった説明を受けた。いきなり生の画像を入力するのではなく、すでにチューニングされたネットワークを使うことで学習時間を短縮しようということなのか。なるほど。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;CNNのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。&lt;/li&gt;
+&lt;li&gt;Q-Netは中間層が1層(255次元) のネットワーク
+
+&lt;ul&gt;
+&lt;li&gt;中間層1層なので全然Deepじゃない。複雑な行動を学習させていないから、これで表現力としては十分なのだろう。&lt;/li&gt;
+&lt;li&gt;4step分の状態を使って学習できるようになっているが、デフォルトでは1stepだけの入力を使っている。&lt;/li&gt;
+&lt;li&gt;action はデフォルトで3つ(左右旋回、前進)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ここまで理解したときには45分くらいが経っていた。
+次にUnity側を読みに行った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ランダムに環境を構築するようになっていた。&lt;/li&gt;
+&lt;li&gt;アクションのコマンドをpython側から受けて、左右旋回、直進の動作に変換している&lt;/li&gt;
+&lt;li&gt;カメラの画像をバイナリ列に変換して送っている。&lt;/li&gt;
+&lt;li&gt;Cubeに触ると正のリワードや負のリワード、学習のリセット(死亡)を行うようになっている。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ここまでで1時間が経過した。この時点あたりから、実はUnityが触れないと結構つらいのではないかという予感が浮かんできた。&lt;/p&gt;
+
+&lt;h3 id=&#34;パラメータいじり:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;パラメータいじり&lt;/h3&gt;
+
+&lt;p&gt;コードを読み終わった後、Unity側の動作を変更してみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;負のリワードを与える
+
+&lt;ul&gt;
+&lt;li&gt;負の報酬を与えるオブジェクトのモック(プレハブ?)はすでにUnityプロジェクト内に用意がしてあった。Unityの操作がわからず、30分くらい格闘してしまった。学習の初期段階だからなのか、ガンガンぶつかりに行っている。一晩置いてみたい。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ジャンプさせる
+
+&lt;ul&gt;
+&lt;li&gt;ジャンプするコードはすでにUnityプロジェクト側に用意してあったので、Q-Netから出力するactionの次元を3から4に変えてやればいいだけだった。&lt;/li&gt;
+&lt;li&gt;段差のあるステージを用意するといいんだろうなと思って用意したが、短時間では面白い動作にはならなさそうだった。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;道路に沿って落ちないように移動する
+
+&lt;ul&gt;
+&lt;li&gt;ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。&lt;/li&gt;
+&lt;li&gt;板のようなオブジェクトの上にに、正の負の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;発表会:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;発表会&lt;/h2&gt;
+
+&lt;p&gt;いいものができた人17人を選抜して、一人3分で発表してもらうことになった。
+名前などメモできていないので、ざっくりと紹介する。&lt;/p&gt;
+
+&lt;h3 id=&#34;エージェントの行動と報酬をカスタマイズした人たち:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;エージェントの行動と報酬をカスタマイズした人たち&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;旋回と同時に前にも進むようにした&lt;/li&gt;
+&lt;li&gt;時間経過とともにお腹が空くようにした&lt;/li&gt;
+&lt;li&gt;伏し目にして下を見れるようにしてみた&lt;/li&gt;
+&lt;li&gt;ダッシュ機能をつけた&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ニューラルネットワークを改良した人たち:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;ニューラルネットワークを改良した人たち&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デフォルトではQ-Netへの入力として、AlexNetの比較的深い層を使っていたが、浅い層をQ-Netの入力にするようにして、Q-Netは層を増やしてCNNに変更した。
+
+&lt;ul&gt;
+&lt;li&gt;学習の進み具合がよくなったらしい。&lt;/li&gt;
+&lt;li&gt;いろいろやり方はあるだろうけど、何がどう効いてくるのかはよくわからないなーと思った。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;推し松を追いかけるようにした。
+
+&lt;ul&gt;
+&lt;li&gt;おそ松さんの顔認識のためにトレーニングしたネットワークを使った(使おうとした)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemia.hatenablog.com/entry/2015/11/22/174603&#34;&gt;おそ松さん判別器&lt;/a&gt;で話題になったぼへみあさん&lt;/li&gt;
+&lt;li&gt;カラ松好きなエージェントを育てるなら、カラ松の顔画像が貼り付けられたボックスに接触すると報酬が高くなるようにする、とかそういうことをやっている。おもしろい。&lt;/li&gt;
+&lt;li&gt;chainerのバージョンの違いで、そのまま使うことができず、当日トレーニングをし直したが、間に合わなかったとのこと。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;学習させる環境をカスタマイズした人たち:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;学習させる環境をカスタマイズした人たち&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ジャンプできるようにしてジャンプすれば取れる報酬とジャンプすると取れない報酬を用意して、ジャンプする行動としない行動を満遍なく学習できるようにした。&lt;/li&gt;
+&lt;li&gt;自作ゲームと接続した
+
+&lt;ul&gt;
+&lt;li&gt;Unityなので簡単に組み合わせられるかというとそうでもなかったらしい。すごい。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;地面を球体にした
+
+&lt;ul&gt;
+&lt;li&gt;地平線の向こう側に餌があって見えないことがあるらしい。どういった行動が学習されるのか興味がある。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;エージェントを動いているターゲットを追いかける変質者にした
+
+&lt;ul&gt;
+&lt;li&gt;何を言っているかわからないかもしれないが、変質者だった。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ATARIのPONをプレイさせた
+
+&lt;ul&gt;
+&lt;li&gt;DQNといえば、ATARI。それを俯瞰視点を使わず、プレイヤー目線で3Dの環境で学習させたというのがおもしろい。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;パックマンみたいな環境にした
+
+&lt;ul&gt;
+&lt;li&gt;Unityがうまく使えず、完成しなかったらしい。気持ちよく分かる。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;スーパーマリオみたいな環境にした
+
+&lt;ul&gt;
+&lt;li&gt;今回優勝の人&lt;/li&gt;
+&lt;li&gt;落ちたら死ぬ + 後ろから触れると死ぬ壁が追ってくる　環境を作ることでマリオっぽいものを学習させていた。&lt;/li&gt;
+&lt;li&gt;短時間ながらそれっぽい動きを学習させることに成功していた。後ろを振り返りながら逃げる姿が超かわいい。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;マルチエージェントで追いかけっこするようにした
+
+&lt;ul&gt;
+&lt;li&gt;鬼はタッチすると正の報酬を得て、タッチされたほうは負の報酬になるようにした。&lt;/li&gt;
+&lt;li&gt;会敵しやすいように。枠で囲って行動を制限していた。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;テクスチャを入れ替えた
+
+&lt;ul&gt;
+&lt;li&gt;skyboxに空のテクスチャを貼った&lt;/li&gt;
+&lt;li&gt;cubeが光るようにした&lt;/li&gt;
+&lt;li&gt;デフォルトの環境で学習させた後、この環境に投入してやるとどれくらいの時間で学習できるのか&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;実世界と接続する系:5f09a669368e7fec6924ff3a2d1cfd85&#34;&gt;実世界と接続する系&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;照度センサの値をUnityに反映させる
+
+&lt;ul&gt;
+&lt;li&gt;実世界のセンサの値に応じてシミュレーション内に報酬を与えるようにした。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;iphoneで動かした
+
+&lt;ul&gt;
+&lt;li&gt;Unity側をiphoneで動くようにした&lt;/li&gt;
+&lt;li&gt;カメラに映った画像に応じて報酬を与えるようにした。&lt;/li&gt;
+&lt;li&gt;ついでにエージェントもUnityちゃんにした。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;短い時間だったが、かなり完成度が高いものを発表する人が多くて驚いた。
+僕もUnityを使えるようになって引き続き触っていきたい。&lt;/p&gt;
+
+&lt;p&gt;ではでは。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>セグメント液晶のことを全然知らなかった話</title>
@@ -978,32 +1217,6 @@ Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
 &lt;p&gt;記事をQiitaに移動した。
 続きはこちら
 &lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ドコモを解約してIIJのみおふぉんにMNP転入した</title>
-      <link>http://syundo0730.github.io/post/1131/</link>
-      <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
-      
-      <guid>http://syundo0730.github.io/post/1131/</guid>
-      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。
-ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
-
-&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。
-月3G音声通話つきで1600円のものを選んだ。
-容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
-
-&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。
-今回は5月4日 am9:54にドコモsimが停止
-翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。
-都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
-
-&lt;p&gt;通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。&lt;/p&gt;
-
-&lt;p&gt;音声通話は&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/dial.jsp&#34;&gt;みおふぉんダイアル&lt;/a&gt;を使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。&lt;/p&gt;
-
-&lt;p&gt;こうしてドコモは通信を流すだけの土管になるのだ。&lt;/p&gt;
 </description>
     </item>
     
