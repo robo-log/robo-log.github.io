@@ -307,6 +307,69 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
 &lt;p&gt;トランスポート層からアプリケーション層までの階層で、データを中継する装置&lt;/p&gt;
 
 &lt;h1 id=&#34;2章-tcp-ip-基礎知識:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2章 TCP/IP 基礎知識&lt;/h1&gt;
+
+&lt;h2 id=&#34;2-1-tcp-ip登場の背景とその歴史:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.1 TCP/IP登場の背景とその歴史&lt;/h2&gt;
+
+&lt;h2 id=&#34;2-2-tcp-ipの標準:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.2 TCP/IPの標準&lt;/h2&gt;
+
+&lt;p&gt;プロトコルに対応してSTD(Standard) という番号が変わらない番号付けが付与される。
+STDに対応するRFCの番号は規格の更新によって上下する。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-3-インターネットの基礎知識:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.3 インターネットの基礎知識&lt;/h2&gt;
+
+&lt;h3 id=&#34;2-3-2-tcp-ipとインターネット:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.3.2 TCP/IPとインターネット&lt;/h3&gt;
+
+&lt;p&gt;TCP/IP: インターネットを運用するために開発されたプロトコル&lt;/p&gt;
+
+&lt;h3 id=&#34;2-3-3-インターネットの構造:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.3.3 インターネットの構造&lt;/h3&gt;
+
+&lt;p&gt;組織内ネットワーク =&amp;gt; NOC (Network Operation Center) =&amp;gt; IX (Internet Exchange)
+IXを介して複数のNOCもとい組織が相互接続された巨大なネットワーク&lt;/p&gt;
+
+&lt;h2 id=&#34;2-4-tcp-ip-プロトコルの階層モデル:2834a11197f94bc4e7ce706eb948f310&#34;&gt;2.4 TCP/IP プロトコルの階層モデル&lt;/h2&gt;
+
+&lt;p&gt;トランスポート層(TCP): ヘッダ+(data)&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_19:2834a11197f94bc4e7ce706eb948f310&#34;&gt;|&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;                       |
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ネットワーク層(IP): ヘッダ+(data)&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_20:2834a11197f94bc4e7ce706eb948f310&#34;&gt;|&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;                                |
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;トランスポート層(Ethernetなど): ヘッダ+(data)&lt;/p&gt;
+
+&lt;p&gt;より下の階層のdata部に上の階層のheader+dataが格納される&lt;/p&gt;
+
+&lt;h1 id=&#34;3章-データリンク:2834a11197f94bc4e7ce706eb948f310&#34;&gt;3章 データリンク&lt;/h1&gt;
+
+&lt;p&gt;Ethernetとかの話。詳細は追わなくていいと思う&lt;/p&gt;
+
+&lt;h1 id=&#34;4章-ipプロトコル:2834a11197f94bc4e7ce706eb948f310&#34;&gt;4章 IPプロトコル&lt;/h1&gt;
+
+&lt;h3 id=&#34;4-2-1-ipアドレス:2834a11197f94bc4e7ce706eb948f310&#34;&gt;4.2.1 IPアドレス&lt;/h3&gt;
+
+&lt;p&gt;インターネットに接続されるホストにはIPアドレスが付けられる。
+IPアドレスをもとにしてIPパケットが配送される。&lt;/p&gt;
+
+&lt;h3 id=&#34;4-2-2-ルーティング:2834a11197f94bc4e7ce706eb948f310&#34;&gt;4.2.2 ルーティング&lt;/h3&gt;
+
+&lt;h4 id=&#34;パケット転送:2834a11197f94bc4e7ce706eb948f310&#34;&gt;パケット転送&lt;/h4&gt;
+
+&lt;p&gt;ルータに問い合わせて次の転送先を決める。アドホック&lt;/p&gt;
+
+&lt;h4 id=&#34;ルーティングテーブル:2834a11197f94bc4e7ce706eb948f310&#34;&gt;ルーティングテーブル&lt;/h4&gt;
+
+&lt;p&gt;IPパケットを次にどのルーターに送ればいいのか記されている&lt;/p&gt;
+
+&lt;h2 id=&#34;4-3-ipアドレスの基礎知識:2834a11197f94bc4e7ce706eb948f310&#34;&gt;4.3 IPアドレスの基礎知識&lt;/h2&gt;
+
+&lt;h3 id=&#34;4-3-1-ipアドレスとは:2834a11197f94bc4e7ce706eb948f310&#34;&gt;4.3.1 IPアドレスとは&lt;/h3&gt;
+
+&lt;p&gt;IPv4 &amp;hellip; 32bitの整数値&lt;/p&gt;
 </description>
     </item>
     
