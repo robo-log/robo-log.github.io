@@ -119,20 +119,17 @@
 
 <h3 id="簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f">簡単にできるカスタマイズ</h3>
 
-<h4 id="アクションを増やす:67d9104e26470c11657cf8933878c27f">アクションを増やす</h4>
+<p>アクションを増やす</p>
 
-<p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a>
-を</p>
+<p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #2f1e2e">actions</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">]</span>
 </pre></div>
 
-<p>にしてみる。ジャンプもするようになるぞ！</p>
-
-<p>同じ要領で
+<p>にしてみる。ジャンプもするようになるぞ！同じ要領で
 <a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
 を変更すると、動作を追加できる。</p>
 
-<h4 id="負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f">負の報酬も与えるようにする。</h4>
+<p>負の報酬も与えるようにする。</p>
 
 <p>Hierarchey &gt; SceneController &gt; items にMinusRewardItem を追加する。
 ResetItemは触ると死ぬようになるぞ！</p>

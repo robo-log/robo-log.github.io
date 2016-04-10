@@ -65,20 +65,17 @@
 
 &lt;h3 id=&#34;簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f&#34;&gt;簡単にできるカスタマイズ&lt;/h3&gt;
 
-&lt;h4 id=&#34;アクションを増やす:67d9104e26470c11657cf8933878c27f&#34;&gt;アクションを増やす&lt;/h4&gt;
+&lt;p&gt;アクションを増やす&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt;
-を&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt; を&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;にしてみる。ジャンプもするようになるぞ！&lt;/p&gt;
-
-&lt;p&gt;同じ要領で
+&lt;p&gt;にしてみる。ジャンプもするようになるぞ！同じ要領で
 &lt;a href=&#34;https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14&#34;&gt;この部分&lt;/a&gt;
 を変更すると、動作を追加できる。&lt;/p&gt;
 
-&lt;h4 id=&#34;負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f&#34;&gt;負の報酬も与えるようにする。&lt;/h4&gt;
+&lt;p&gt;負の報酬も与えるようにする。&lt;/p&gt;
 
 &lt;p&gt;Hierarchey &amp;gt; SceneController &amp;gt; items にMinusRewardItem を追加する。
 ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
