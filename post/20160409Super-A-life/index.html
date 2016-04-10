@@ -30,7 +30,7 @@
   
 	<script type="text/javascript">var switchTo5x=true;</script>
 	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-	<script type="text/javascript">stLight.options({publisher: "02e11161-0b6b-46d7-9b85-d7ed58578dfd", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+	<script type="text/javascript">stLight.options({publisher: "02e11161-0b6b-46d7-9b85-d7ed58578dfd", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
 
 
 </head>
@@ -101,22 +101,45 @@
 
 <p>という状況の中で、左右どの方向に進むのか、ジャンプするのかを決めて勝手に動き回る。</p>
 
-<p>使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ!!!</p>
+<p>使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ！！！</p>
 
-<p>これはすごい!!!!</p>
+<p>これはすごい！！！！！！</p>
 
 <h3 id="セットアップ:67d9104e26470c11657cf8933878c27f">セットアップ</h3>
 
-<p>ここらへんを見よう!
-<a href="https://github.com/wbap/lis">https://github.com/wbap/lis</a>
-<a href="http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80">http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80</a></p>
+<p>ここらへんを見よう！</p>
 
-<p>mac環境でしかやってないけど、とくにハマることもなくできました。
-シミュレーションが起動するまで数分待たないといけないので、根気よく待ちましょう。</p>
+<ul>
+<li><a href="https://github.com/wbap/lis">https://github.com/wbap/lis</a></li>
+<li><a href="http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80">http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80</a></li>
+</ul>
+
+<p>mac環境でしかやってないけど、とくにハマることもなくできた。
+シミュレーションが起動するまで数分待たないといけないので、根気よく待つ。</p>
+
+<h3 id="簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f">簡単にできるカスタマイズ</h3>
+
+<h4 id="アクションを増やす:67d9104e26470c11657cf8933878c27f">アクションを増やす</h4>
+
+<p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a>
+を</p>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #2f1e2e">actions</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">]</span>
+</pre></div>
+
+<p>にしてみる。ジャンプもするようになるぞ！</p>
+
+<p>同じ要領で
+<a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
+を変更すると、動作を追加できる。</p>
+
+<h4 id="負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f">負の報酬も与えるようにする。</h4>
+
+<p>Hierarchey &gt; SceneController &gt; items にMinusRewardItem を追加する。
+ResetItemは触ると死ぬようになるぞ！</p>
 
 <h2 id="使われている技術:67d9104e26470c11657cf8933878c27f">使われている技術</h2>
 
-<p>今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムをチューニングして楽しむことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。</p>
+<p>今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムを使うことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。</p>
 
 <ul>
 <li>python側
@@ -190,7 +213,7 @@
 
 <ul>
 <li>ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。</li>
-<li>板のようなオブジェクトの上にに、正の負の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。</li>
+<li>板のようなオブジェクトの上にに、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。</li>
 </ul></li>
 </ul>
 
@@ -307,7 +330,6 @@
 				<span class='st_facebook_large' displayText='Facebook'></span>
 				<span class='st_hatena_large' displayText='Hatena'></span>
 				<span class='st_linkedin_large' displayText='LinkedIn'></span>
-				<span class='st_sharethis_large' displayText='ShareThis'></span>
 				<span class='st_email_large' displayText='Email'></span>
 			</div>
     </article>

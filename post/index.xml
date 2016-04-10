@@ -47,22 +47,45 @@
 
 &lt;p&gt;という状況の中で、左右どの方向に進むのか、ジャンプするのかを決めて勝手に動き回る。&lt;/p&gt;
 
-&lt;p&gt;使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ!!!&lt;/p&gt;
+&lt;p&gt;使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ！！！&lt;/p&gt;
 
-&lt;p&gt;これはすごい!!!!&lt;/p&gt;
+&lt;p&gt;これはすごい！！！！！！&lt;/p&gt;
 
 &lt;h3 id=&#34;セットアップ:67d9104e26470c11657cf8933878c27f&#34;&gt;セットアップ&lt;/h3&gt;
 
-&lt;p&gt;ここらへんを見よう!
-&lt;a href=&#34;https://github.com/wbap/lis&#34;&gt;https://github.com/wbap/lis&lt;/a&gt;
-&lt;a href=&#34;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&#34;&gt;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ここらへんを見よう！&lt;/p&gt;
 
-&lt;p&gt;mac環境でしかやってないけど、とくにハマることもなくできました。
-シミュレーションが起動するまで数分待たないといけないので、根気よく待ちましょう。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wbap/lis&#34;&gt;https://github.com/wbap/lis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&#34;&gt;http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;mac環境でしかやってないけど、とくにハマることもなくできた。
+シミュレーションが起動するまで数分待たないといけないので、根気よく待つ。&lt;/p&gt;
+
+&lt;h3 id=&#34;簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f&#34;&gt;簡単にできるカスタマイズ&lt;/h3&gt;
+
+&lt;h4 id=&#34;アクションを増やす:67d9104e26470c11657cf8933878c27f&#34;&gt;アクションを増やす&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt;
+を&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;にしてみる。ジャンプもするようになるぞ！&lt;/p&gt;
+
+&lt;p&gt;同じ要領で
+&lt;a href=&#34;https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14&#34;&gt;この部分&lt;/a&gt;
+を変更すると、動作を追加できる。&lt;/p&gt;
+
+&lt;h4 id=&#34;負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f&#34;&gt;負の報酬も与えるようにする。&lt;/h4&gt;
+
+&lt;p&gt;Hierarchey &amp;gt; SceneController &amp;gt; items にMinusRewardItem を追加する。
+ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
 
 &lt;h2 id=&#34;使われている技術:67d9104e26470c11657cf8933878c27f&#34;&gt;使われている技術&lt;/h2&gt;
 
-&lt;p&gt;今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムをチューニングして楽しむことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。&lt;/p&gt;
+&lt;p&gt;今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムを使うことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;python側
@@ -136,7 +159,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。&lt;/li&gt;
-&lt;li&gt;板のようなオブジェクトの上にに、正の負の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。&lt;/li&gt;
+&lt;li&gt;板のようなオブジェクトの上にに、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
