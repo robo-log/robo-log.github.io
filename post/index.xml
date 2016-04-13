@@ -65,7 +65,7 @@
 
 &lt;h3 id=&#34;簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f&#34;&gt;簡単にできるカスタマイズ&lt;/h3&gt;
 
-&lt;p&gt;アクションを増やす&lt;/p&gt;
+&lt;h4 id=&#34;アクションを増やす:67d9104e26470c11657cf8933878c27f&#34;&gt;アクションを増やす&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt; を&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
@@ -75,7 +75,7 @@
 &lt;a href=&#34;https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14&#34;&gt;この部分&lt;/a&gt;
 を変更すると、動作を追加できる。&lt;/p&gt;
 
-&lt;p&gt;負の報酬も与えるようにする。&lt;/p&gt;
+&lt;h4 id=&#34;負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f&#34;&gt;負の報酬も与えるようにする&lt;/h4&gt;
 
 &lt;p&gt;Hierarchey &amp;gt; SceneController &amp;gt; items にMinusRewardItem を追加する。
 ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
@@ -89,7 +89,7 @@ ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Unity側から画像データを受け取る&lt;/li&gt;
-&lt;li&gt;CNN + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。&lt;/li&gt;
+&lt;li&gt;ImageNet + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Unity側
 
@@ -109,12 +109,12 @@ ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
 &lt;p&gt;ハッカソンが始まると、まずpython側のコードを読んだ。DQNには以前から興味があったが、なかなか触る機会がなかったので、今回のハッカソンを機に親しみたいと思っていたからだ。以下はコードを読んだときのメモ。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;CNNのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
+&lt;li&gt;ImageNetのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
 
 &lt;ul&gt;
 &lt;li&gt;なぜここなのかというと、物体がある位置のニューロンが活性化するようになっている層だかららしい。チュートリアルで、写真と、活性化している位置の画像を並べたのを見せてもらいながらそういった説明を受けた。いきなり生の画像を入力するのではなく、すでにチューニングされたネットワークを使うことで学習時間を短縮しようということなのか。なるほど。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;CNNのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。&lt;/li&gt;
+&lt;li&gt;ImageNetのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。&lt;/li&gt;
 &lt;li&gt;Q-Netは中間層が1層(255次元) のネットワーク
 
 &lt;ul&gt;
@@ -156,7 +156,7 @@ ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。&lt;/li&gt;
-&lt;li&gt;板のようなオブジェクトの上にに、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。&lt;/li&gt;
+&lt;li&gt;板のようなオブジェクトの上に、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

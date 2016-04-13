@@ -119,7 +119,7 @@
 
 <h3 id="簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f">簡単にできるカスタマイズ</h3>
 
-<p>アクションを増やす</p>
+<h4 id="アクションを増やす:67d9104e26470c11657cf8933878c27f">アクションを増やす</h4>
 
 <p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
 <div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #2f1e2e">actions</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">]</span>
@@ -129,7 +129,7 @@
 <a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
 を変更すると、動作を追加できる。</p>
 
-<p>負の報酬も与えるようにする。</p>
+<h4 id="負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f">負の報酬も与えるようにする</h4>
 
 <p>Hierarchey &gt; SceneController &gt; items にMinusRewardItem を追加する。
 ResetItemは触ると死ぬようになるぞ！</p>
@@ -143,7 +143,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 
 <ul>
 <li>Unity側から画像データを受け取る</li>
-<li>CNN + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。</li>
+<li>ImageNet + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。</li>
 </ul></li>
 <li>Unity側
 
@@ -163,12 +163,12 @@ ResetItemは触ると死ぬようになるぞ！</p>
 <p>ハッカソンが始まると、まずpython側のコードを読んだ。DQNには以前から興味があったが、なかなか触る機会がなかったので、今回のハッカソンを機に親しみたいと思っていたからだ。以下はコードを読んだときのメモ。</p>
 
 <ul>
-<li>CNNのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
+<li>ImageNetのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
 
 <ul>
 <li>なぜここなのかというと、物体がある位置のニューロンが活性化するようになっている層だかららしい。チュートリアルで、写真と、活性化している位置の画像を並べたのを見せてもらいながらそういった説明を受けた。いきなり生の画像を入力するのではなく、すでにチューニングされたネットワークを使うことで学習時間を短縮しようということなのか。なるほど。</li>
 </ul></li>
-<li>CNNのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。</li>
+<li>ImageNetのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。</li>
 <li>Q-Netは中間層が1層(255次元) のネットワーク
 
 <ul>
@@ -210,7 +210,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 
 <ul>
 <li>ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。</li>
-<li>板のようなオブジェクトの上にに、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。</li>
+<li>板のようなオブジェクトの上に、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。</li>
 </ul></li>
 </ul>
 
