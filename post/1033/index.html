@@ -77,14 +77,14 @@
 
 <p>大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
 何者か調べるためにUSBの情報を見てみる．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">lsusb
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>lsusb
 ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
 </pre></div>
 
 <p>どうやらこの製品らしい<a href="https://support.logitech.com/en_us/product/222">https://support.logitech.com/en_us/product/222</a></p>
 
 <p>どんな画像が取れるのか試しに見てみる．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo apt-get install xawtv
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo apt-get install xawtv
 xawtv -c /dev/video0
 </pre></div>
 
@@ -98,19 +98,19 @@ OpenCV2.4.9のセットアップは大方このサイト<a href="http://www.kkan
 の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．</p>
 
 <p>ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">cmake -DCMAKE_BUILD_TYPE<span style="color: #5bc4bf">=</span>RELEASE -DWITH_TBB<span style="color: #5bc4bf">=</span>ON -DWITH_GTK<span style="color: #5bc4bf">=</span>ON -DWITH_OPENGL<span style="color: #5bc4bf">=</span>ON -DWITH_OPENCL<span style="color: #5bc4bf">=</span>OFF -DWITH_CUDA<span style="color: #5bc4bf">=</span>OFF -DWITH_UNICAP<span style="color: #5bc4bf">=</span>ON -DWITH_V4L<span style="color: #5bc4bf">=</span>ON -DWITH_XINE<span style="color: #5bc4bf">=</span>ON  .
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>cmake -DCMAKE_BUILD_TYPE<span style="color: #5bc4bf">=</span>RELEASE -DWITH_TBB<span style="color: #5bc4bf">=</span>ON -DWITH_GTK<span style="color: #5bc4bf">=</span>ON -DWITH_OPENGL<span style="color: #5bc4bf">=</span>ON -DWITH_OPENCL<span style="color: #5bc4bf">=</span>OFF -DWITH_CUDA<span style="color: #5bc4bf">=</span>OFF -DWITH_UNICAP<span style="color: #5bc4bf">=</span>ON -DWITH_V4L<span style="color: #5bc4bf">=</span>ON -DWITH_XINE<span style="color: #5bc4bf">=</span>ON  .
 </pre></div>
 
 <p>それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
 サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo scp -P <span style="color: #f99b15">22</span> /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo scp -P <span style="color: #f99b15">22</span> /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
 </pre></div>
 
 <p>まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #8d8687">// cam.cpp</span>
-<span style="color: #8d8687">#include &lt;cv.h&gt;</span>
-<span style="color: #8d8687">#include &lt;highgui.h&gt;</span>
-<span style="color: #8d8687">#include &lt;ctype.h&gt;</span>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span><span style="color: #8d8687">// cam.cpp</span>
+<span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;cv.h&gt;</span>
+<span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;highgui.h&gt;</span>
+<span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;ctype.h&gt;</span>
 
 <span style="color: #8d8687">#ifndef CV_WINDOW_FREERATIO</span>
 <span style="color: #8d8687">#define CV_WINDOW_FREERATIO 0</span>
@@ -136,15 +136,15 @@ OpenCV2.4.9のセットアップは大方このサイト<a href="http://www.kkan
 </pre></div>
 
 <p>コンパイルする．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
 </pre></div>
 
 <p>これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．</p>
 
 <p>次は顔検出をしてみる．こちらのサイト<a href="http://unasuke.com/howto/2013/face-recognition-in-opencv/">http://unasuke.com/howto/2013/face-recognition-in-opencv/</a>のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #8d8687">#include &lt;cv.h&gt;</span>
-<span style="color: #8d8687">#include &lt;highgui.h&gt;</span>
-<span style="color: #8d8687">#include &lt;ctype.h&gt;</span>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span><span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;cv.h&gt;</span>
+<span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;highgui.h&gt;</span>
+<span style="color: #8d8687">#include</span> <span style="color: #8d8687">&lt;ctype.h&gt;</span>
 
 <span style="color: #8d8687">#ifndef CV_WINDOW_FREERATIO</span>
 <span style="color: #8d8687">#define CV_WINDOW_FREERATIO 0</span>
@@ -199,7 +199,7 @@ OpenCV2.4.9のセットアップは大方このサイト<a href="http://www.kkan
 </pre></div>
 
 <p>コンパイルする．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
 </pre></div>
 
 <p>こんな感じで顔を検出して赤い円を描画できた．

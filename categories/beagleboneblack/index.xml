@@ -23,14 +23,14 @@
 
 &lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
 何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lsusb
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;lsusb
 ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;どうやらこの製品らしい&lt;a href=&#34;https://support.logitech.com/en_us/product/222&#34;&gt;https://support.logitech.com/en_us/product/222&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;どんな画像が取れるのか試しに見てみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install xawtv
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install xawtv
 xawtv -c /dev/video0
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -44,19 +44,19 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．&lt;/p&gt;
 
 &lt;p&gt;ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;cmake -DCMAKE_BUILD_TYPE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;RELEASE -DWITH_TBB&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_GTK&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENGL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_OPENCL&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_CUDA&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;OFF -DWITH_UNICAP&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_V4L&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON -DWITH_XINE&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;ON  .
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
 サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo scp -P &lt;span style=&#34;color: #f99b15&#34;&gt;22&lt;/span&gt; /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;// cam.cpp&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
 &lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
 &lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
@@ -82,15 +82,15 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．&lt;/p&gt;
 
 &lt;p&gt;次は顔検出をしてみる．こちらのサイト&lt;a href=&#34;http://unasuke.com/howto/2013/face-recognition-in-opencv/&#34;&gt;http://unasuke.com/howto/2013/face-recognition-in-opencv/&lt;/a&gt;のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;cv.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;highgui.h&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;ctype.h&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;cv.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;highgui.h&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;ctype.h&amp;gt;&lt;/span&gt;
 
 &lt;span style=&#34;color: #8d8687&#34;&gt;#ifndef CV_WINDOW_FREERATIO&lt;/span&gt;
 &lt;span style=&#34;color: #8d8687&#34;&gt;#define CV_WINDOW_FREERATIO 0&lt;/span&gt;
@@ -145,7 +145,7 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コンパイルする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
@@ -181,21 +181,21 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 &lt;p&gt;下準備が終わったら，次にUbuntuのboot用SDカードを作成する．
 以下のサイトを参考にして作業を進める．
 &lt;a href=&#34;http://elinux.org/BeagleBoardUbuntu&#34;&gt;http://elinux.org/BeagleBoardUbuntu&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;cd &lt;/span&gt;ubuntu-14.04-console-armhf-2014-05-06
+&lt;span style=&#34;color: #2f1e2e&#34;&gt;cd&lt;/span&gt; ubuntu-14.04-console-armhf-2014-05-06
 sudo ./setup_sdcard.sh --probe-mmc
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．&lt;/p&gt;
 
 &lt;p&gt;とりあえずBBBにSSHでログインする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;ssh ubuntu@192.168.7.2
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;ssh ubuntu@192.168.7.2
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．&lt;/p&gt;
@@ -208,7 +208,7 @@ sudo ./setup_sdcard.sh --probe-mmc
 &lt;a href=&#34;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&#34;&gt;http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;BBBにLXDE関係のものをインストールして再起動する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get -y install lxde lxde-core lxde-icon-theme
 sudo reboot
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -216,13 +216,13 @@ sudo reboot
 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．&lt;/p&gt;
 
 &lt;p&gt;BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install vnc4server
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install vnc4server
 vncserver
 vncserver -kill :1
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;# !/bin/sh&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;# !/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color: #8d8687&#34;&gt;# Uncomment the following two lines for normal desktop:&lt;/span&gt;
 &lt;span style=&#34;color: #8d8687&#34;&gt;# unset SESSION_MANAGER&lt;/span&gt;
@@ -239,12 +239,12 @@ x-window-manager &lt;span style=&#34;color: #2f1e2e&#34;&gt;&amp;amp;&lt;/span&g
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;設定が終わればvncserverを立ち上げる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;vncserver :1 -geometry 1024x768
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vncserver :1 -geometry 1024x768
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;そして母艦のほうでBBBにリモートデスクトップ接続する．
 リモートデスクトップクライアントにはRemminaを使った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo apt-get install remmina
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install remmina
 remmina
 &lt;/pre&gt;&lt;/div&gt;
 

@@ -68,7 +68,7 @@
 &lt;h4 id=&#34;アクションを増やす:67d9104e26470c11657cf8933878c27f&#34;&gt;アクションを増やす&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt; を&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;にしてみる。ジャンプもするようになるぞ！同じ要領で
@@ -392,34 +392,34 @@ Hugoに設定が要るらしい。&lt;/p&gt;
 最新のHugoをビルドして使う必要がある。&lt;/p&gt;
 
 &lt;p&gt;まずgo を入れていなかったのでインストールする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install go
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ brew install go
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;mercurial も入れていなかったのでインストール。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;brew install mercurial
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ brew install mercurial
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;最新のHugoをビルドして使う。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go
-&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;go get -v github.com/spf13/hugo
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #2f1e2e&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #ef6155&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go
+$ go get -v github.com/spf13/hugo
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go/bin
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #2f1e2e&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #ef6155&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go/bin
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hugoがちゃんと入ったか動作確認する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;hugo version
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;次にコードのハイライトを解析するPygmentsのインストールをする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$ &lt;/span&gt;pip install Pygments
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ pip install Pygments
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;config.tomlにPygmentsを使うことを設定する。
 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentscodefences&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentscodefences&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true&lt;/span&gt;
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentsstyle&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;paraiso-light&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1155,7 +1155,7 @@ constexprがオブジェクトに付加されたときはそのオブジェク�
 
 &lt;p&gt;&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
 constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;...&lt;/span&gt;
 &lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// エラー。szはコンパイル時には使えない。&lt;/span&gt;
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data1;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 同様なエラー&lt;/span&gt;
@@ -1169,14 +1169,14 @@ constexprをオブジェクトの前に付けるとコンパイル時に用い�
 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 &lt;h3&gt;C++11の場合&lt;/h3&gt;
 関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(exp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(base,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;h3&gt;C++14の場合&lt;/h3&gt;
 複数行にわたって記述できる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
     &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base;&lt;/span&gt;
     &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result;&lt;/span&gt;

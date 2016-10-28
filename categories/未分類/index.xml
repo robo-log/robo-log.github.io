@@ -304,11 +304,11 @@
       <description>&lt;p&gt;CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．&lt;/p&gt;
 
 &lt;p&gt;　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;fstream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;sstream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;string&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;vector&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;
 
 &lt;span style=&#34;color: #815ba4&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;std;&lt;/span&gt;
 &lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;Split(string&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;src,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key);&lt;/span&gt;
@@ -372,7 +372,7 @@
       <description>&lt;p&gt;外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．&lt;/p&gt;
 
 &lt;p&gt;　3次元として持つための領域を動的に確保しているのでサイズが可変です．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color: #815ba4&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;std;&lt;/span&gt;
 &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;//元となるデータ領域&lt;/span&gt;
 &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;()&lt;/span&gt;

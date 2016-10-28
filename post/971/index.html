@@ -86,21 +86,21 @@
 <p>下準備が終わったら，次にUbuntuのboot用SDカードを作成する．
 以下のサイトを参考にして作業を進める．
 <a href="http://elinux.org/BeagleBoardUbuntu">http://elinux.org/BeagleBoardUbuntu</a></p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz
-<span style="color: #2f1e2e">cd </span>ubuntu-14.04-console-armhf-2014-05-06
+<span style="color: #2f1e2e">cd</span> ubuntu-14.04-console-armhf-2014-05-06
 sudo ./setup_sdcard.sh --probe-mmc
 </pre></div>
 
 <p>以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone
 </pre></div>
 
 <p>SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．</p>
 
 <p>とりあえずBBBにSSHでログインする．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">ssh ubuntu@192.168.7.2
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>ssh ubuntu@192.168.7.2
 </pre></div>
 
 <p>BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．</p>
@@ -113,7 +113,7 @@ sudo ./setup_sdcard.sh --probe-mmc
 <a href="http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring">http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring</a></p>
 
 <p>BBBにLXDE関係のものをインストールして再起動する．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo apt-get -y install lxde lxde-core lxde-icon-theme
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo apt-get -y install lxde lxde-core lxde-icon-theme
 sudo reboot
 </pre></div>
 
@@ -121,13 +121,13 @@ sudo reboot
 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．</p>
 
 <p>BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo apt-get install vnc4server
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo apt-get install vnc4server
 vncserver
 vncserver -kill :1
 </pre></div>
 
 <p>~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span style="color: #8d8687"># !/bin/sh</span>
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span><span style="color: #8d8687"># !/bin/sh</span>
 
 <span style="color: #8d8687"># Uncomment the following two lines for normal desktop:</span>
 <span style="color: #8d8687"># unset SESSION_MANAGER</span>
@@ -144,12 +144,12 @@ x-window-manager <span style="color: #2f1e2e">&amp;</span>
 </pre></div>
 
 <p>設定が終わればvncserverを立ち上げる</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">vncserver :1 -geometry 1024x768
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>vncserver :1 -geometry 1024x768
 </pre></div>
 
 <p>そして母艦のほうでBBBにリモートデスクトップ接続する．
 リモートデスクトップクライアントにはRemminaを使った．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%">sudo apt-get install remmina
+<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo apt-get install remmina
 remmina
 </pre></div>
 
