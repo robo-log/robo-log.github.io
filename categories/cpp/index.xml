@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cpp on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/cpp/</link>
+    <link>http://blog.syundo.org/categories/cpp/</link>
     <description>Recent content in Cpp on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Mon, 18 May 2015 01:26:10 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>C&#43;&#43;初心者会に参加してきた</title>
-      <link>http://syundo0730.github.io/post/1154/</link>
+      <link>http://blog.syundo.org/post/1154/</link>
       <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1154/</guid>
+      <guid>http://blog.syundo.org/post/1154/</guid>
       <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。
 &lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
 
@@ -59,10 +59,10 @@ mbedのコミュニティのことを考え、自分のしたい開発のこと�
     
     <item>
       <title>できるだけconstexprを使おう</title>
-      <link>http://syundo0730.github.io/post/1143/</link>
+      <link>http://blog.syundo.org/post/1143/</link>
       <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1143/</guid>
+      <guid>http://blog.syundo.org/post/1143/</guid>
       <description>&lt;p&gt;&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
 constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
 

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ROBO LOG</title>
-    <link>http://syundo0730.github.io/</link>
+    <link>http://blog.syundo.org/</link>
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sat, 09 Apr 2016 10:17:51 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>超人工生命ハッカソンに行ってきた</title>
-      <link>http://syundo0730.github.io/post/20160409Super-A-life/</link>
+      <link>http://blog.syundo.org/post/20160409Super-A-life/</link>
       <pubDate>Sat, 09 Apr 2016 10:17:51 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/20160409Super-A-life/</guid>
+      <guid>http://blog.syundo.org/post/20160409Super-A-life/</guid>
       <description>
 
 &lt;p&gt;4月9日(土)、&lt;a href=&#34;http://connpass.com/event/28982/&#34;&gt;超人工生命ハッカソン&lt;/a&gt;に行ってきた。&lt;/p&gt;
@@ -37,7 +37,7 @@
 &lt;h2 id=&#34;どんなのができるの:67d9104e26470c11657cf8933878c27f&#34;&gt;どんなのができるの?&lt;/h2&gt;
 
 &lt;p&gt;こんなの。
-&lt;img src=&#34;http://syundo0730.github.io/images/2016/04/lis.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.syundo.org/images/2016/04/lis.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;緑の箱に触ると報酬GET&lt;/li&gt;
@@ -270,10 +270,10 @@ ResetItemは触ると死ぬようになるぞ！&lt;/p&gt;
     
     <item>
       <title>セグメント液晶のことを全然知らなかった話</title>
-      <link>http://syundo0730.github.io/post/2016-02-28-LCDdisplay/</link>
+      <link>http://blog.syundo.org/post/2016-02-28-LCDdisplay/</link>
       <pubDate>Sun, 28 Feb 2016 23:32:31 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/2016-02-28-LCDdisplay/</guid>
+      <guid>http://blog.syundo.org/post/2016-02-28-LCDdisplay/</guid>
       <description>&lt;p&gt;この冬、私は急に太ってしまった。
 寒さから食欲が増したことと、食事の時間が不規則な食生活に原因があると思われる。
 腰回りの肉のせいで体を反らしにくくなったり、すぐ疲れるようになったりして、自覚するようになってきた。
@@ -313,10 +313,10 @@ LCDをドライブするのにこんなことが行われいるなんて全く�
     
     <item>
       <title>mbedのMPU6050のライブラリを更新した</title>
-      <link>http://syundo0730.github.io/post/2016-01-31-port-6050-library/</link>
+      <link>http://blog.syundo.org/post/2016-01-31-port-6050-library/</link>
       <pubDate>Sun, 31 Jan 2016 15:32:18 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/2016-01-31-port-6050-library/</guid>
+      <guid>http://blog.syundo.org/post/2016-01-31-port-6050-library/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050&#34;&gt;こちらの&lt;/a&gt;Arduino用に書かれたコードからmbed用に移植したものを公開していたのだが、いかんせん何年も放ったらかしにしていたため、重い腰を上げて最新のコードに追従させた。特に何か大きく新しい機能が入ったとかは無いようで、リファクタリング程度の更新だった(とはいえ未だコードの品質は良いとは言えない&amp;hellip;)。
@@ -357,10 +357,10 @@ MPU9150も動かしたいというようなリクエストも今まで何回か�
     
     <item>
       <title>良い物をメモしておく</title>
-      <link>http://syundo0730.github.io/post/2016-01-22-Goods-Memo/</link>
+      <link>http://blog.syundo.org/post/2016-01-22-Goods-Memo/</link>
       <pubDate>Fri, 22 Jan 2016 23:57:58 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/2016-01-22-Goods-Memo/</guid>
+      <guid>http://blog.syundo.org/post/2016-01-22-Goods-Memo/</guid>
       <description>
 
 &lt;p&gt;リンクしておきたいメモ&lt;/p&gt;
@@ -381,10 +381,10 @@ MPU9150も動かしたいというようなリクエストも今まで何回か�
     
     <item>
       <title>HugoでGitHub markdown形式でコードブロックを記述する</title>
-      <link>http://syundo0730.github.io/post/2016-01-01-hugoFormula/</link>
+      <link>http://blog.syundo.org/post/2016-01-01-hugoFormula/</link>
       <pubDate>Fri, 01 Jan 2016 23:41:35 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/2016-01-01-hugoFormula/</guid>
+      <guid>http://blog.syundo.org/post/2016-01-01-hugoFormula/</guid>
       <description>&lt;p&gt;ふとブログにコードを載せようとしてmarkdown形式で書いてみたら反映されなかった。
 Hugoに設定が要るらしい。&lt;/p&gt;
 
@@ -429,10 +429,10 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
     
     <item>
       <title>意識はいつ生まれるのか</title>
-      <link>http://syundo0730.github.io/post/20151220NullaDiPiuGrande/</link>
+      <link>http://blog.syundo.org/post/20151220NullaDiPiuGrande/</link>
       <pubDate>Sun, 20 Dec 2015 04:15:34 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/20151220NullaDiPiuGrande/</guid>
+      <guid>http://blog.syundo.org/post/20151220NullaDiPiuGrande/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E6%84%8F%E8%AD%98%E3%81%AF%E3%81%84%E3%81%A4%E7%94%9F%E3%81%BE%E3%82%8C%E3%82%8B%E3%81%AE%E3%81%8B%E2%80%95%E2%80%95%E8%84%B3%E3%81%AE%E8%AC%8E%E3%81%AB%E6%8C%91%E3%82%80%E7%B5%B1%E5%90%88%E6%83%85%E5%A0%B1%E7%90%86%E8%AB%96-%E3%82%B8%E3%83%A5%E3%83%AA%E3%82%AA%E3%83%BB%E3%83%88%E3%83%8E%E3%83%BC%E3%83%8B/dp/4750514500&#34;&gt;意識はいつ生まれるのか――脳の謎に挑む統合情報理論
 ジュリオ・トノーニ (著), マルチェッロ・マッスィミーニ (著), 花本 知子 (翻訳)&lt;/a&gt;
 を読んだ。&lt;/p&gt;
@@ -470,10 +470,10 @@ Pygmentsのスタイルのプレビューは公式サイトで見ることがで
     
     <item>
       <title>マスタリングTPC/IP勉強</title>
-      <link>http://syundo0730.github.io/post/2015-11-23masteringTCPIP/</link>
+      <link>http://blog.syundo.org/post/2015-11-23masteringTCPIP/</link>
       <pubDate>Tue, 24 Nov 2015 00:18:47 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/2015-11-23masteringTCPIP/</guid>
+      <guid>http://blog.syundo.org/post/2015-11-23masteringTCPIP/</guid>
       <description>
 
 &lt;h1 id=&#34;1章-ネットワーク基礎知識:2834a11197f94bc4e7ce706eb948f310&#34;&gt;1章 ネットワーク基礎知識&lt;/h1&gt;
@@ -634,10 +634,10 @@ IPアドレスをもとにしてIPパケットが配送される。&lt;/p&gt;
     
     <item>
       <title>記号創発システムシンポジウムに行ってきた</title>
-      <link>http://syundo0730.github.io/post/souhatu20151123/</link>
+      <link>http://blog.syundo.org/post/souhatu20151123/</link>
       <pubDate>Mon, 23 Nov 2015 10:17:28 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/souhatu20151123/</guid>
+      <guid>http://blog.syundo.org/post/souhatu20151123/</guid>
       <description>
 
 &lt;p&gt;ドワンゴで開催された&lt;a href=&#34;http://www.emergent-symbol.systems/news/1st_sympo_with_crest&#34;&gt;記号創発システムシンポジウム&lt;/a&gt;
@@ -851,10 +851,10 @@ IPアドレスをもとにしてIPパケットが配送される。&lt;/p&gt;
     
     <item>
       <title>第8回ROS勉強会に参加してきた</title>
-      <link>http://syundo0730.github.io/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
+      <link>http://blog.syundo.org/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</link>
       <pubDate>Sun, 04 Oct 2015 13:06:49 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</guid>
+      <guid>http://blog.syundo.org/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</guid>
       <description>
 
 &lt;p&gt;2015/10/04に開催された、第８回ROS勉強会に参加してきた。&lt;/p&gt;
@@ -987,10 +987,10 @@ PFNの例の車のデモを1台で、教科学習でなくて人手で行った�
     
     <item>
       <title>ROBO-ONE 27th</title>
-      <link>http://syundo0730.github.io/post/robo-one-27th/</link>
+      <link>http://blog.syundo.org/post/robo-one-27th/</link>
       <pubDate>Sat, 03 Oct 2015 22:46:10 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/robo-one-27th/</guid>
+      <guid>http://blog.syundo.org/post/robo-one-27th/</guid>
       <description>&lt;p&gt;第27回ROBO-ONEの予選を見に行ってきた。
 今回はヴァニラはエントリーしていなかったが、人形使いさんのチームメンバーという形で大会に顔を出させていただいた。&lt;/p&gt;
 
@@ -1014,7 +1014,7 @@ PFNの例の車のデモを1台で、教科学習でなくて人手で行った�
 
 &lt;p&gt;予選が終わった後、念願のドールロボ大集合！写真撮影をした。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://syundo0730.github.io/images/2015/10/ドール集合写真.jpg&#34; alt=&#34;ドール集合写真&#34; title=&#34;ドール集合写真&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.syundo.org/images/2015/10/ドール集合写真.jpg&#34; alt=&#34;ドール集合写真&#34; title=&#34;ドール集合写真&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;ROBO-ONEの歴史の中でこれだけのドールロボが集まったのはこれが初めてだろう。
 そして最後かもしれない。
@@ -1033,14 +1033,14 @@ PFNの例の車のデモを1台で、教科学習でなくて人手で行った�
 ドール集合を呼びかけていただいて、大変良かったです。
 いつもお世話になってます。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://syundo0730.github.io/images/2015/10/まりかちゃんと鎧.jpg&#34; alt=&#34;まりかちゃんと鎧&#34; title=&#34;まりかちゃんと鎧&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.syundo.org/images/2015/10/まりかちゃんと鎧.jpg&#34; alt=&#34;まりかちゃんと鎧&#34; title=&#34;まりかちゃんと鎧&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;うちの娘は顔の外皮がすぐズレちゃうので目が怖い。あと眼球が銀色のままだから(usbカメラ)怖い。塗らなければ。&lt;/p&gt;
 
 &lt;p&gt;前においてあるのは人形つかいさんが購入された鎧ボトルカバー。
 ヴァニラには着れないけど、これでバトル出場されたら応援したくなること間違いない。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://syundo0730.github.io/images/2015/10/アマテラスと茉莉花ちゃん.jpg&#34; alt=&#34;アマテラスと茉莉花ちゃん&#34; title=&#34;アマテラスと茉莉花ちゃん&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.syundo.org/images/2015/10/アマテラスと茉莉花ちゃん.jpg&#34; alt=&#34;アマテラスと茉莉花ちゃん&#34; title=&#34;アマテラスと茉莉花ちゃん&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;このようにMSDサイズ勢は兜をちゃんと被れる。かわいい。&lt;/p&gt;
 
@@ -1048,7 +1048,7 @@ PFNの例の車のデモを1台で、教科学習でなくて人手で行った�
 &lt;a href=&#34;http://www.dollfiedream.tokyo/jp/dollfiedream/case.html/&#34;&gt;ドール用キャリングケース&lt;/a&gt;
 秋葉原のラジオ会館、ドールスポットに在庫があったので買った。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://syundo0730.github.io/images/2015/10/ドールバッグ.jpg&#34; alt=&#34;ドールバッグ&#34; title=&#34;ドールバッグ&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://blog.syundo.org/images/2015/10/ドールバッグ.jpg&#34; alt=&#34;ドールバッグ&#34; title=&#34;ドールバッグ&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;かなりホラーだけどこんな感じに膝を曲げればすっぽりと入る。
 バトルロボットだったら肩幅がきつくて入らないだろうな。&lt;/p&gt;
@@ -1081,10 +1081,10 @@ redmineでも導入してタスク管理してみるといいかもしれない�
     
     <item>
       <title>Haskellで高階関数を組み合わせて部分文字列を作る例が全然わからなかったから考えた</title>
-      <link>http://syundo0730.github.io/post/1162/</link>
+      <link>http://blog.syundo.org/post/1162/</link>
       <pubDate>Thu, 21 May 2015 22:27:54 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1162/</guid>
+      <guid>http://blog.syundo.org/post/1162/</guid>
       <description>&lt;p&gt;最近、Haskellの勉強のために「&lt;a href=&#34;http://www.amazon.co.jp/%E9%96%A2%E6%95%B0%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AE%9F%E8%B7%B5%E5%85%A5%E9%96%80-%E2%94%80%E2%94%80%E7%B0%A1%E6%BD%94%E3%81%A7%E3%80%81%E6%AD%A3%E3%81%97%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AB-WEB-PRESS-plus/dp/4774169269&#34;&gt;関数プログラミング実践入門&lt;/a&gt;」を読んでいる。&lt;/p&gt;
 
 &lt;p&gt;高階関数のところまでいったけど僕の頭がクソ雑魚だから例題が全然理解出来なかった…。&lt;/p&gt;
@@ -1098,10 +1098,10 @@ redmineでも導入してタスク管理してみるといいかもしれない�
     
     <item>
       <title>C&#43;&#43;初心者会に参加してきた</title>
-      <link>http://syundo0730.github.io/post/1154/</link>
+      <link>http://blog.syundo.org/post/1154/</link>
       <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1154/</guid>
+      <guid>http://blog.syundo.org/post/1154/</guid>
       <description>&lt;p&gt;歌舞伎座.tech#8「C++初心者会」に参加してきた。
 &lt;a href=&#34;http://kbkz.connpass.com/event/13905/&#34;&gt;http://kbkz.connpass.com/event/13905/&lt;/a&gt;&lt;/p&gt;
 
@@ -1146,10 +1146,10 @@ mbedのコミュニティのことを考え、自分のしたい開発のこと�
     
     <item>
       <title>できるだけconstexprを使おう</title>
-      <link>http://syundo0730.github.io/post/1143/</link>
+      <link>http://blog.syundo.org/post/1143/</link>
       <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1143/</guid>
+      <guid>http://blog.syundo.org/post/1143/</guid>
       <description>&lt;p&gt;&lt;h1&gt;Effective Modern C++メモ (Moving to Modern C++ : Item 15)&lt;/h1&gt;
 constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。&lt;/p&gt;
 
@@ -1192,10 +1192,10 @@ constexprであると示すことはオブジェクトや関数のインター�
     
     <item>
       <title>ブログも静的ページにしたらどうか</title>
-      <link>http://syundo0730.github.io/post/1140/</link>
+      <link>http://blog.syundo.org/post/1140/</link>
       <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1140/</guid>
+      <guid>http://blog.syundo.org/post/1140/</guid>
       <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。
 ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。
 あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。
@@ -1227,10 +1227,10 @@ Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
     
     <item>
       <title>Haskellを入れる</title>
-      <link>http://syundo0730.github.io/post/1128/</link>
+      <link>http://blog.syundo.org/post/1128/</link>
       <pubDate>Tue, 12 May 2015 02:04:29 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1128/</guid>
+      <guid>http://blog.syundo.org/post/1128/</guid>
       <description>&lt;p&gt;Haskellをやってみようと思った。
 環境：Ubuntu12.04 64bit&lt;/p&gt;
 

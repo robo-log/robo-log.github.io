@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Beagleboneblack on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/beagleboneblack/</link>
+    <link>http://blog.syundo.org/categories/beagleboneblack/</link>
     <description>Recent content in Beagleboneblack on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Fri, 17 Oct 2014 23:57:16 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/beagleboneblack/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/beagleboneblack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</title>
-      <link>http://syundo0730.github.io/post/1033/</link>
+      <link>http://blog.syundo.org/post/1033/</link>
       <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1033/</guid>
+      <guid>http://blog.syundo.org/post/1033/</guid>
       <description>&lt;p&gt;Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた．
 そしてOpenCVで顔検出することを目指す．&lt;/p&gt;
 
 &lt;p&gt;今回使うカメラはこれ．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://syundo0730.github.io/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/10/2014-10-16-21.52.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1036&#34; src=&#34;http://blog.syundo.org/images/2014/10/2014-10-16-21.52.50.jpg&#34; alt=&#34;2014-10-16 21.52.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
 何者か調べるためにUSBの情報を見てみる．&lt;/p&gt;
@@ -34,7 +34,7 @@ ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
 xawtv -c /dev/video0
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://syundo0730.github.io/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1037&#34; src=&#34;http://blog.syundo.org/images/2014/10/92e3a3779139cfb20b6b014755961208.png&#34; alt=&#34;Screenshot from 2014-10-16 22^%11^%05&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ロボットの目として使うには十分な画質はありそうだ．
 ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．&lt;/p&gt;
@@ -149,7 +149,7 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;こんな感じで顔を検出して赤い円を描画できた．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://syundo0730.github.io/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/10/kao.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1040&#34; src=&#34;http://blog.syundo.org/images/2014/10/kao.png&#34; alt=&#34;kao&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;メガネをかけていると蛍光灯の光の加減で認識が難しかった．メガネかけてる人の学習データも入れないといけない．
 とりあえずメガネを取れば顔検出できた．&lt;/p&gt;
@@ -160,10 +160,10 @@ OpenCV2.4.9のセットアップは大方このサイト&lt;a href=&#34;http://w
     
     <item>
       <title>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</title>
-      <link>http://syundo0730.github.io/post/971/</link>
+      <link>http://blog.syundo.org/post/971/</link>
       <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/971/</guid>
+      <guid>http://blog.syundo.org/post/971/</guid>
       <description>&lt;p&gt;死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)&lt;/p&gt;
 
 &lt;p&gt;まずGetting Started(&lt;a href=&#34;http://beagleboard.org/Getting%20Started&#34;&gt;http://beagleboard.org/Getting%20Started&lt;/a&gt;)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．&lt;/p&gt;
@@ -249,10 +249,10 @@ remmina
 &lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://syundo0730.github.io/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1027&#34; src=&#34;http://blog.syundo.org/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.20.09&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;そうするとこんな感じでBBBの中のデスクトップを見ることができた．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://syundo0730.github.io/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/10/ebc1490b3de746708328967224fac359.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1028&#34; src=&#34;http://blog.syundo.org/images/2014/10/ebc1490b3de746708328967224fac359.png&#34; alt=&#34;スクリーンショット 2014-10-16 21.30.31&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;おわり．&lt;/p&gt;
 </description>

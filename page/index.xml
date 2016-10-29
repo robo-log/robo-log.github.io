@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on ROBO LOG</title>
-    <link>http://syundo0730.github.io/page/</link>
+    <link>http://blog.syundo.org/page/</link>
     <description>Recent content in Pages on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 25 Aug 2013 09:19:47 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About</title>
-      <link>http://syundo0730.github.io/page/2/</link>
+      <link>http://blog.syundo.org/page/2/</link>
       <pubDate>Sun, 25 Aug 2013 09:19:47 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/page/2/</guid>
+      <guid>http://blog.syundo.org/page/2/</guid>
       <description>&lt;p&gt;syundo&lt;/p&gt;
 
 &lt;blockquote&gt;名古屋在住の院生です&lt;/blockquote&gt;

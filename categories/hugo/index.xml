@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/hugo/</link>
+    <link>http://blog.syundo.org/categories/hugo/</link>
     <description>Recent content in Hugo on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 14 May 2015 01:27:58 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ブログも静的ページにしたらどうか</title>
-      <link>http://syundo0730.github.io/post/1140/</link>
+      <link>http://blog.syundo.org/post/1140/</link>
       <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1140/</guid>
+      <guid>http://blog.syundo.org/post/1140/</guid>
       <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。
 ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。
 あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>デバッグ on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</link>
+    <link>http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</link>
     <description>Recent content in デバッグ on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 19 Jan 2011 00:00:27 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>RAMデバッグ(sh7125)</title>
-      <link>http://syundo0730.github.io/post/877/</link>
+      <link>http://blog.syundo.org/post/877/</link>
       <pubDate>Wed, 19 Jan 2011 00:00:27 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/877/</guid>
+      <guid>http://blog.syundo.org/post/877/</guid>
       <description>&lt;p&gt;RAMデバッグの方法を解説したいと思います。&lt;/p&gt;
 
 &lt;p&gt;更新履歴&lt;/p&gt;
@@ -275,7 +275,7 @@ S&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;p&gt;スタック領域を400byte確保するため、セクションSはFFFFBC00から割り当てます。（補足→）スタックサイズは各自計算して適切な値にしたほうがいいです。プロジェクト→構成の編集→スタックから変更できます。ここではデフォルト値である400で説明しています。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/miconplus/fig/photo.png&#34;&gt;&lt;img src=&#34;http://syundo0730.github.io/images/miconplus/fig/photo.png&#34; alt=&#34;割り付け&#34; border=&#34;0&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/miconplus/fig/photo.png&#34;&gt;&lt;img src=&#34;http://blog.syundo.org/images/miconplus/fig/photo.png&#34; alt=&#34;割り付け&#34; border=&#34;0&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;s&gt;こんな感じになりますね。&lt;/s&gt;（補足）上記修正によって、私のプログラムの一例では、DINTTBL以降の先頭アドレスは 0xFFFFA170に設定すれば良くなりました。あるいは、DINTTBL以降を特に意識せずに、DVECTTBLから自動的に連続に配置するようにアドレスの区切りを画像の例とは変えてもいいと思います。&lt;/p&gt;
 

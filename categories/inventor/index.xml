@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Inventor on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/inventor/</link>
+    <link>http://blog.syundo.org/categories/inventor/</link>
     <description>Recent content in Inventor on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 22 Aug 2013 22:38:37 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/inventor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/inventor/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>InventorのシートメタルからDXFの書き出し</title>
-      <link>http://syundo0730.github.io/post/785/</link>
+      <link>http://blog.syundo.org/post/785/</link>
       <pubDate>Thu, 22 Aug 2013 22:38:37 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/785/</guid>
+      <guid>http://blog.syundo.org/post/785/</guid>
       <description>&lt;p&gt;Inventorでシートメタルを作成、フラットパターンに変換してから切り抜きのためにDXFを書き出すときは、&lt;/p&gt;
 
 &lt;div&gt;&lt;/div&gt;
 
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=929,height=553,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2013/08/22/photo.png&#34;&gt;&lt;img title=&#34;Photo&#34; alt=&#34;Photo&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2013/08/22/photo.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=929,height=553,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo.png&#34;&gt;&lt;img title=&#34;Photo&#34; alt=&#34;Photo&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 &lt;div&gt;フラットパターンを右クリックし、「コピーに名前を付けて保存」でDXFを書き出す。&lt;/div&gt;
 
@@ -35,7 +35,7 @@
 
 &lt;div&gt;面を右クリックして&lt;/div&gt;
 
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=560,height=501,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2013/08/22/photo_2.png&#34;&gt;&lt;img title=&#34;Photo_2&#34; alt=&#34;Photo_2&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2013/08/22/photo_2.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;
+&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=560,height=501,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo_2.png&#34;&gt;&lt;img title=&#34;Photo_2&#34; alt=&#34;Photo_2&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo_2.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;
 
 &lt;/div&gt;
 
@@ -45,7 +45,7 @@
 
 &lt;div&gt;面にスケッチを貼り付けて、&lt;/div&gt;
 
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=845,height=426,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://syundo0730.github.io/images/robolog/photos/uncategorized/2013/08/22/photo_3.png&#34;&gt;&lt;img title=&#34;Photo_3&#34; alt=&#34;Photo_3&#34; src=&#34;http://syundo0730.github.io/images/robolog/blog/images/2013/08/22/photo_3.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=845,height=426,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo_3.png&#34;&gt;&lt;img title=&#34;Photo_3&#34; alt=&#34;Photo_3&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo_3.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
 
 &lt;div&gt;「スケッチに名前を付けてエクスポート」でDXFを書き出したりすると、&lt;/div&gt;
 

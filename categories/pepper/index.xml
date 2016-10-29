@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pepper on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/pepper/</link>
+    <link>http://blog.syundo.org/categories/pepper/</link>
     <description>Recent content in Pepper on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 21 Sep 2014 23:49:55 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/pepper/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/pepper/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pepper Tech Festival 2014に行ってきた</title>
-      <link>http://syundo0730.github.io/post/984/</link>
+      <link>http://blog.syundo.org/post/984/</link>
       <pubDate>Sun, 21 Sep 2014 23:49:55 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/984/</guid>
+      <guid>http://blog.syundo.org/post/984/</guid>
       <description>&lt;p&gt;昨日9月20日に開催されたPepper Tech Festival(&lt;a href=&#34;http://www.softbank.jp/robot/special/techfes/live/&#34;&gt;http://www.softbank.jp/robot/special/techfes/live/&lt;/a&gt;)に当選したので行ってきました．&lt;/p&gt;
 
 &lt;p&gt;当日の12時にpepperが開発者向けに予約開始されるということで，Pepperやその開発環境に関する情報が紹介されるという触れ込みのイベントでした．&lt;/p&gt;
@@ -24,10 +24,10 @@
 &lt;p&gt;(&lt;a href=&#34;http://www.softbank.jp/robot/special/tech/&#34;&gt;http://www.softbank.jp/robot/special/tech/&lt;/a&gt;)&lt;/p&gt;
 
 &lt;p&gt;開演時間の30分前に会場に入るとすでに席の半分以上が埋まっていました．ベルサールのWEBサイトによると1000人～1600人が入る部屋らしいです．マジでこれだけの人間がpepperのためだけに来たのか！？浮かれすぎじゃないか！？そしてソフトバンクはどれだけ本気なんだ！？ととにかく興奮しました．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-10.12.02.jpg&#34;&gt;&lt;img class=&#34;alignnone wp-image-999 size-full&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-10.12.02.jpg&#34; alt=&#34;2014-09-20 10.12.02&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-10.12.02.jpg&#34;&gt;&lt;img class=&#34;alignnone wp-image-999 size-full&#34; src=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-10.12.02.jpg&#34; alt=&#34;2014-09-20 10.12.02&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;会場まで行った人への特典は，PepperTechFesのTシャツ，ステッカー，缶バッジ，そしてUSBに入ったPepper開発用の先行公開SDKでした．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-21-22.54.01.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1002&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-21-22.54.01.jpg&#34; alt=&#34;2014-09-21 22.54.01&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/09/2014-09-21-22.54.01.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1002&#34; src=&#34;http://blog.syundo.org/images/2014/09/2014-09-21-22.54.01.jpg&#34; alt=&#34;2014-09-21 22.54.01&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;ただしSDKは先行公開版なので，デフォルトのロボットがNAOになっていたり，Pepper相当のモデルの名前が開発中のコードネーム（Juliet）だったりします．SDKについてはすでに会場で作業を進めた人の報告(&lt;a href=&#34;http://qiita.com/Cocominap/items/93f9f9b8806f9ddaa513&#34;&gt;http://qiita.com/Cocominap/items/93f9f9b8806f9ddaa513&lt;/a&gt;)
 や，秋葉原アトリエの中の人からの説明が出ています．(&lt;a href=&#34;http://qiita.com/Atelier-Akihabara/items/c5f57358a7b333eef397&#34;&gt;http://qiita.com/Atelier-Akihabara/items/c5f57358a7b333eef397&lt;/a&gt;)&lt;/p&gt;
@@ -35,7 +35,7 @@
 &lt;p&gt;イベント会場は講演会場と展示会場に分かれていて，それぞれ楽しめました．&lt;/p&gt;
 
 &lt;p&gt;講演では，Androidアプリの開発者　安生 真 さん，大阪大学基礎工学研究科　石黒 浩 教授，チームラボ代表　猪子 寿之 さん，明和電機　土佐 信道 社長によるパネルディスカッションが興味深かったです．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-13.49.45.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1004&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-13.49.45.jpg&#34; alt=&#34;2014-09-20 13.49.45&#34;   /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-13.49.45.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1004&#34; src=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-13.49.45.jpg&#34; alt=&#34;2014-09-20 13.49.45&#34;   /&gt;&lt;/a&gt;
 1→10designが製作し展示会場でも稼働していた，2台のpepperと人間の3人で会話できるデモについて石黒先生が言及されたのがきっかけでロボットと社会性について話が展開していきました．石黒先生が仰るには人間とロボットの会話があまりうまくいっていなくても，ロボット同士が流暢に会話していれば，場としては会話が成立している感じが高まり，会話の違和感が少なくなるとのことです．石黒先生自身も同様な実験を行われているようで（ちゃんと論文を追ってないのでわからないすいません），先生のトークの勢いが止まりませんでした．&lt;/p&gt;
 
 &lt;p&gt;猪子さんが，pepperだけ100台くらい居る部屋を作って眺めたいと話すと，水槽の中に居る金魚を外から見るより，中に入って見たほうが楽しいに違いないというような話になっていき，道端でpepper同士が会ったりしたら挨拶するようにしたらおもしろい，などという話に発展していきました．会場のみなが大爆笑の素晴らしいディスカッションでした．&lt;/p&gt;
@@ -43,7 +43,7 @@
 &lt;p&gt;私も実際に1→10designさんのデモを体験してみました．pepperは1台でもわりと勝手に話を進めていく傾向があるように思いますが，2台になるともう完全にトークの主導権を握られてしまい，敗北感を感じました．アニメ攻殻機動隊において，群れて勝手に話しているタチコマに対して人間が少し苛ついた感じで接しているシーンを思い起こしました．仲間外れにされているのがつらいと同時に，pepperにはpepperの生活があるから仕方ないと自然にロボットの人格（ロボ格）を認めることができるようでした．ロボットに社会を形成させたらどうなるか，という話はロボットの知能に深く関わっている話であります．私もpepperに期待しているのは社会性からくる知性とはどんなものか検証してほしいということです．pepperほどの性能のロボットがとりあえず数百台日本に流通するということで，成果が出てきそうな気がします．&lt;/p&gt;
 
 &lt;p&gt;展示の中で私が面白いと思ったのはユカイ工学株式会社さんの「マホウノツエ」というデモです．
-&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-12.55.30.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1000&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-12.55.30.jpg&#34; alt=&#34;2014-09-20 12.55.30&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-12.55.30.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1000&#34; src=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-12.55.30.jpg&#34; alt=&#34;2014-09-20 12.55.30&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;pepperに学習赤外線リモコン（IR kit）を内蔵した魔法の杖を持たせることで，pepperに話しかけて家電を操作することができます．このような使い方は誰でも思いつくものですし，「ロビ」もデモでやっていたりするのですが，実際に人間大のロボットが自分の命令で動く様子を見るとインターフェースとしてのヒューマノイドは喧伝されている程度には役に立つのかもしれないと思いました．こういう用途ではスマホに話しかけるのでは駄目なのか？という問題がありますが，少なくとも人間に依頼するように自然に操作できるのはヒューマノイドの持つ力だと思います．それに今後赤外線リモコンだけでなく，ゲームのコントローラでも掃除機でも，なんでも持たせられるようになると更にpepperの価値が高まってくるでしょう．一般物体のマニピュレーションなんてとんでもなく難しい問題ですが，みんなでやれば誰かがなんとかしてくれるんじゃないですかねぇ！？（無責任&lt;/p&gt;
 
@@ -81,7 +81,7 @@ pepper登場以前：
 
 &lt;h2&gt;&lt;a href=&#34;http://www.softbank.jp/robot/special/tech/reserve/&#34;&gt;http://www.softbank.jp/robot/special/tech/reserve/&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-17.04.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1001&#34; src=&#34;http://syundo0730.github.io/images/2014/09/2014-09-20-17.04.50.jpg&#34; alt=&#34;2014-09-20 17.04.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-17.04.50.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1001&#34; src=&#34;http://blog.syundo.org/images/2014/09/2014-09-20-17.04.50.jpg&#34; alt=&#34;2014-09-20 17.04.50&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;おわり．&lt;/p&gt;
 </description>

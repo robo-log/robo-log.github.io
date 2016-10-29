@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apache on ROBO LOG</title>
-    <link>http://syundo0730.github.io/categories/apache/</link>
+    <link>http://blog.syundo.org/categories/apache/</link>
     <description>Recent content in Apache on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 12 Apr 2015 23:19:51 +0900</lastBuildDate>
-    <atom:link href="http://syundo0730.github.io/categories/apache/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.syundo.org/categories/apache/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>WordpressをロリポップからDigital Oceanに移した</title>
-      <link>http://syundo0730.github.io/post/1072/</link>
+      <link>http://blog.syundo.org/post/1072/</link>
       <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/1072/</guid>
+      <guid>http://blog.syundo.org/post/1072/</guid>
       <description>&lt;p&gt;今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．&lt;/p&gt;
 
 &lt;p&gt;そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．&lt;/p&gt;
@@ -65,14 +65,14 @@ service mysqld start
 
 &lt;p&gt;&lt;h2&gt;ムームードメインで取得したドメインを管理&lt;/h2&gt;
 ムームードメインのメニューのネームサーバー設定変更より
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://syundo0730.github.io/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2015/04/name_server.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1079&#34; src=&#34;http://blog.syundo.org/images/2015/04/name_server.png&#34; alt=&#34;name_server&#34;   /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;こんな感じにする．&lt;/p&gt;
 
 &lt;p&gt;ブログにはサブドメイン.blogを使っているのでその設定をする必要がある．
 Digital OceanのDNS設定メニューより，
-&lt;a href=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://syundo0730.github.io/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;
+&lt;a href=&#34;http://blog.syundo.org/images/2015/04/DO_domain.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1078&#34; src=&#34;http://blog.syundo.org/images/2015/04/DO_domain.png&#34; alt=&#34;DO_domain&#34;   /&gt;&lt;/a&gt;
 Aレコードにサブドメインを追加する．あとはApache側の設定が要る．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;vim /etc/httpd/conf/httpd.conf
 &lt;/pre&gt;&lt;/div&gt;
@@ -161,10 +161,10 @@ Group apache
     
     <item>
       <title>XAMPPのエイリアス設定</title>
-      <link>http://syundo0730.github.io/post/948/</link>
+      <link>http://blog.syundo.org/post/948/</link>
       <pubDate>Sun, 29 Dec 2013 15:49:55 +0900</pubDate>
       
-      <guid>http://syundo0730.github.io/post/948/</guid>
+      <guid>http://blog.syundo.org/post/948/</guid>
       <description>&lt;p&gt;C:/xampp/apache/conf/httpd.confに以下を追記．&lt;/p&gt;
 
 &lt;p&gt;Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．&lt;/p&gt;
