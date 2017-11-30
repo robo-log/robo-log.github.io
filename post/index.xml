@@ -6,8 +6,199 @@
     <description>Recent content in Posts on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 09 Apr 2016 10:17:51 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 10 Apr 2016 15:19:17 +0900</lastBuildDate>
     <atom:link href="http://blog.syundo.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>強化学習についてまとめる (1) MDPとベルマン方程式</title>
+      <link>http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/</link>
+      <pubDate>Sun, 10 Apr 2016 15:19:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/</guid>
+      <description>
+
+&lt;p&gt;強化学習について古典的なものからDeepNNを使ったものまでまとめていきたい。&lt;/p&gt;
+
+&lt;h1 id=&#34;マルコフ決定過程:71088a822ab0e727ae2c68c7ef7c6e1e&#34;&gt;マルコフ決定過程&lt;/h1&gt;
+
+&lt;p&gt;マルコフ決定過程(Markov Decision Process; MDP)は状態の遷移が確率的に起こり、マルコフ過程を満たす過程のことをいう。
+MDPは状態$s$、行動$a$、遷移先の状態を$s&amp;rsquo;$、状態遷移確率$P(s&amp;rsquo;|s, a)$の組で表現される。
+また、状態$s$において行動$a$を選択したとき、即時報酬$r(s, a, s&amp;rsquo;)$が得られるとする。&lt;/p&gt;
+
+&lt;p&gt;とくに時間的な過程の進展を表すため、特に時刻$t$から$t+1$の状態の遷移について&lt;/p&gt;
+
+&lt;p&gt;$$
+状態: s_t\
+行動: a_t\
+状態遷移確率: P(s_{t+1}|s_t, a_t)\
+報酬関数: r_t = r(s_t, a_t, s_{t+1})
+$$&lt;/p&gt;
+
+&lt;p&gt;を考える。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://blog.syundo.org/images/2017/11/MDP.png&#34; alt=&#34;マルコフ決定過程&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;価値関数:71088a822ab0e727ae2c68c7ef7c6e1e&#34;&gt;価値関数&lt;/h1&gt;
+
+&lt;p&gt;時刻$t$において将来($t \rightarrow \infty $)にわたって得られる報酬について、割引累積報酬$G_t$を定義する。
+\begin{equation}
+G_t = \sum_{k=0}^{\infty} \gamma ^k R_{t+k+1}
+\end{equation}
+ここで、$R_{t+1}$は$r(s_t, a_t, s_{t+1})$の値とする。
+また、$\gamma$は$0 \le \gamma &amp;lt; 1$の値で、遠い将来に得られるであろう報酬を低く見積もるために使う。&lt;/p&gt;
+
+&lt;p&gt;状態$s$において、行動$a$が選択される確率を$\pi = \pi(a | s)$とする。
+この$\pi$を&lt;strong&gt;方策&lt;/strong&gt;と呼ぶ。
+ロボットで言うと次の状態をどう選ぶかの判断を行う部分である。&lt;/p&gt;
+
+&lt;p&gt;さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。
+方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。
+\begin{equation}
+V^{\pi}(s) = E[G_t|s_t=s] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s]
+\label{eq:v_func}
+\end{equation}
+これを&lt;strong&gt;状態価値関数&lt;/strong&gt;(あるいは単に&lt;strong&gt;価値関数&lt;/strong&gt;)と呼ぶ。
+期待値を取っているのは、方策$\pi$は確率的であるから、$s_t=s$となるのも確率的であるため、$s_t$について周辺化して評価したいためである。&lt;/p&gt;
+
+&lt;p&gt;同様に、状態だけでなく、行動についても条件として
+\begin{equation}
+Q^{\pi}(s,a) = E[G_t|s_t=s, a_t=a] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s, a_t = a]
+\label{eq:q_func}
+\end{equation}
+も考える。これを、&lt;strong&gt;行動価値関数&lt;/strong&gt; と呼ぶ。&lt;/p&gt;
+
+&lt;p&gt;以上の枠組みにおいて、最も良い方策、&lt;strong&gt;最適方策&lt;/strong&gt; を$\pi^{*}$とし、
+この方策を採用したときの価値関数を&lt;strong&gt;最適行動価値関数&lt;/strong&gt;
+\begin{equation}
+Q^{*}(s,a) = Q^{\pi^{*}}(s,a) = \max_{\pi} Q^{\pi}(s,a)
+\end{equation}
+とする。&lt;/p&gt;
+
+&lt;h2 id=&#34;ベルマン方程式の導出:71088a822ab0e727ae2c68c7ef7c6e1e&#34;&gt;ベルマン方程式の導出&lt;/h2&gt;
+
+&lt;p&gt;\eqref{eq:v_func}式において$E[*]$は線形の演算のため、&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+V^{\pi}(s) &amp;amp;=&amp;amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
+&amp;amp;=&amp;amp; E[R_{t+1}\ | s_t = s] + E[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
+&amp;amp;=&amp;amp; E[R_{t+1}\ | s_t = s] + \gamma E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+\end{aligned}
+\label{eq:q_func_trans}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;とすることができる。&lt;/p&gt;
+
+&lt;p&gt;ここで、\eqref{eq:q_func_trans}式右辺第1項は&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+E[R_{t+1}\ | s_t = s]
+=\sum_{a \in A(s)} \pi(a|s) \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) r(s, a, s&amp;rsquo;)
+\end{aligned}
+\label{eq:q_func_trans_1}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;となる。
+$s_t=s$において行動$a$を取る確率が$\pi(a,|s)$、状態遷移して$s&amp;rsquo;$に移動する確率が$P(s&amp;rsquo;|s,a)$であるから、行動$a$を取って、状態$s&amp;rsquo;$に遷移する確率は$\pi(a,|s)P(s&amp;rsquo;|s,a)$である。
+その上で、状態$s$において取れる行動の全集合$A(s)$と次に取れる全状態$S$について$r(s,a,s&amp;rsquo;)$の期待値を取る、というのが上式で行われていることである。&lt;/p&gt;
+
+&lt;p&gt;次に、\eqref{eq:q_func_trans}式右辺第2項は
+\begin{equation}
+\begin{aligned}
+E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+&amp;amp;=&amp;amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s,a) E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&amp;rsquo;]\\
+&amp;amp;=&amp;amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s,a) E[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&amp;rsquo;]\\
+&amp;amp;=&amp;amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s,a) V^{\pi}(s&amp;rsquo;)
+\end{aligned}
+\label{eq:q_func_trans_2}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;と変形できる。
+以上\eqref{eq:q_func_trans}, \eqref{eq:q_func_trans_1}, \eqref{eq:q_func_trans_2} 式により、&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right)
+\end{aligned}
+\label{eq:belman_value_func}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;が導出される。これを&lt;strong&gt;ベルマン方程式&lt;/strong&gt;と呼ぶ。&lt;/p&gt;
+
+&lt;p&gt;また、$Q^{\pi}(s,a)$の定義より
+\begin{equation}
+\begin{aligned}
+V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) Q^{\pi}(s,a)
+\end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;であるから、
+\begin{equation}
+\begin{aligned}
+Q^{\pi}(s, a) &amp;amp;=&amp;amp; \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right)\\
+&amp;amp;=&amp;amp; \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma \sum_{a \in A(s&amp;rsquo;)} \pi(a&amp;rsquo;|s&amp;rsquo;) Q^{\pi}(s&amp;rsquo;,a&amp;rsquo;) \right)
+\end{aligned}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;と行動価値関数についてのベルマン方程式を導出できる。&lt;/p&gt;
+
+&lt;!-- 上記のベルマン方程式において、常に最適な方策を取るという前提を置けば、以下のベルマン最適方程式が
+
+さて、このベルマン方程式を解けば、$Q^{\pi}$を計算できるのだが、上式を見ればわかるように、そのためには状態遷移確率が既知である必要がある。
+扱いたいのは環境が未知の問題であるため、状態遷移確率を用いずに反復的に価値関数を求める。
+
+## 価値反復を使ったアルゴリズム
+状態遷移確率が未知であるため、実際に行動してみて、状態遷移確率分布からサンプリングすることで価値観数を求めていくのが、価値反復を使ったアルゴリズムである。
+現在の値を目標値に少しずつ更新していく手法は、強化学習の文脈において問題を解くために重要になる。
+そのようなアルゴリズムとしてSarsaとQ-Learningを取り上げる。
+
+### Sarsa
+時刻$t$において状態$s_t$であり$a_t$を行った結果、次の状態$s\_{t+1}$と報酬$r_t$を観測したとき、$s\_{t+1}$において行う予定の行動$a\_{t+1}$をもとに、以下の更新則でQ値を更新する。
+
+\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r\_{t+1} + \gamma Q(s\_{t+1}, a\_{t+1}))
+\end{equation}
+
+$\alpha(0 \le \alpha &lt; 1)$は学習率と呼ばれるパラメータで、アルゴリズムの設計者が調整する。
+このアルゴリズムは現在のQ値と$r\_{t+1} + \gamma Q(s\_{t+1}, a\_{t+1})$との内分によって、Q値を更新していく手法である。
+先に述べたように、状態遷移確率を用いずに、行動によって発生する状態遷移の比率が、無限回試行していくごとに状態遷移確率に近づいていく性質を用いてQ値を求めている。
+
+### Q-Learning
+Sarsaと同様の設定で、以下の更新則でQ値を更新するのがQ-Learningである。
+
+\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r\_{t+1} + \gamma \max\_{a^{\prime} \in A} Q(s\_{t+1}, a^{\prime}))
+\end{equation}
+
+Sarsaと違って、次に何の行動を取ったかはQ値の更新には関わってこない。
+$\max\_{a^{\prime} \in A} Q(s\_{t+1}, a^{\prime})$つまり、次の状態において取れる行動のうち、最大の価値を得られる行動(つまり最適方策$\pi^{\*}$)を採った時のQ値を使って更新する。
+Sarsaが実際に取った方策に更新が依存するのに対して、Q-LearningではQ値は環境に対して一定の値に収束する。
+
+このように実際に採用している方策と異なる方策を学習する方法は**方策オフ型**学習と呼ばれる。
+一方で、Sarsaのような、学習した方策をそのときどき採用する方法を**方策オン**型学習と呼ぶ。
+
+
+### 方策の決定方法
+Q値が求まったら、最も高いQ値を持つ行動$a$を選択すれば、将来にわたって最大の報酬が得られることが期待できる。
+つまり、行動$a^{\*}$は
+
+$$
+a^* = \arg\max(Q^{\*})
+$$
+
+となる方策を採用するということになる。
+これはgreedy方策と呼ばれている。
+
+さて、この方策では$Q^{\*}$がわかっていれば最適な方策となるが、強化学習では行動をしながら$Q$を更新していくので$Q^{\*}$は常に不明である。
+探索をするために、ある程度ランダムな方策を取る必要がある。
+そのように確率$\epsilon$でランダムな行動を取る方策を$\epsilon$-greedy方策という。 --&gt;
+</description>
+    </item>
     
     <item>
       <title>超人工生命ハッカソンに行ってきた</title>
@@ -68,8 +259,7 @@
 &lt;h4 id=&#34;アクションを増やす:67d9104e26470c11657cf8933878c27f&#34;&gt;アクションを増やす&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18&#34;&gt;この部分&lt;/a&gt; を&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;actions&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+actions = [0,1,2,3]
 
 &lt;p&gt;にしてみる。ジャンプもするようになるぞ！同じ要領で
 &lt;a href=&#34;https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14&#34;&gt;この部分&lt;/a&gt;
@@ -392,36 +582,29 @@ Hugoに設定が要るらしい。&lt;/p&gt;
 最新のHugoをビルドして使う必要がある。&lt;/p&gt;
 
 &lt;p&gt;まずgo を入れていなかったのでインストールする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ brew install go
-&lt;/pre&gt;&lt;/div&gt;
+$ brew install go
 
 &lt;p&gt;mercurial も入れていなかったのでインストール。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ brew install mercurial
-&lt;/pre&gt;&lt;/div&gt;
+$ brew install mercurial
 
 &lt;p&gt;最新のHugoをビルドして使う。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #2f1e2e&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #ef6155&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go
+$ export GOPATH=$HOME/go
 $ go get -v github.com/spf13/hugo
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;$HOME/go/bin にHugoのバイナリが生成されるので、ここをPATHに追加しておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span style=&#34;color: #2f1e2e&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color: #ef6155&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ef6155&#34;&gt;$PATH&lt;/span&gt;:&lt;span style=&#34;color: #ef6155&#34;&gt;$HOME&lt;/span&gt;/go/bin
-&lt;/pre&gt;&lt;/div&gt;
+$ export PATH=$PATH:$HOME/go/bin
 
 &lt;p&gt;Hugoがちゃんと入ったか動作確認する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ hugo version
+$ hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00
-&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;次にコードのハイライトを解析するPygmentsのインストールをする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;$ pip install Pygments
-&lt;/pre&gt;&lt;/div&gt;
+$ pip install Pygments
 
 &lt;p&gt;config.tomlにPygmentsを使うことを設定する。
 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。&lt;a href=&#34;http://pygments.org/&#34;&gt;Pygments&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentscodefences&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;pygmentsstyle&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;paraiso-light&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+pygmentscodefences = true
+pygmentsstyle = &#34;paraiso-light&#34;
 
 &lt;p&gt;ただし、Qiitaのmarkdown記法で&lt;code&gt;bash:filename&lt;/code&gt;とか書いてもファイル名は表示されない&lt;/p&gt;
 </description>
@@ -590,14 +773,12 @@ IXを介して複数のNOCもとい組織が相互接続された巨大なネッ
 &lt;p&gt;トランスポート層(TCP): ヘッダ+(data)&lt;/p&gt;
 
 &lt;h2 id=&#34;toc_19:2834a11197f94bc4e7ce706eb948f310&#34;&gt;|&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;                       |
-&lt;/pre&gt;&lt;/div&gt;
+                       |
 
 &lt;p&gt;ネットワーク層(IP): ヘッダ+(data)&lt;/p&gt;
 
 &lt;h2 id=&#34;toc_20:2834a11197f94bc4e7ce706eb948f310&#34;&gt;|&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;                                |
-&lt;/pre&gt;&lt;/div&gt;
+                                |
 
 &lt;p&gt;トランスポート層(Ethernetなど): ヘッダ+(data)&lt;/p&gt;
 
@@ -1155,13 +1336,12 @@ constexprがオブジェクトに付加されたときはそのオブジェク�
 
 &lt;p&gt;&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
 constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;...&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// エラー。szはコンパイル時には使えない。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data1;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 同様なエラー&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize2&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。10はコンパイル時定数。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data2;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+int sz;   // コンパイル時に存在しない
+...
+constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。
+std::array&lt;int, sz&gt; data1; // 同様なエラー
+constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。
+std::array&lt;int, arraySize&gt; data2; // 良い。
 
 &lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
 
@@ -1169,19 +1349,17 @@ constexprをオブジェクトの前に付けるとコンパイル時に用い�
 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 &lt;h3&gt;C++11の場合&lt;/h3&gt;
 関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(exp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(base,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    return (exp == 0 ? 1 : base*pow(base, exp-1));
+}
 
 &lt;p&gt;&lt;h3&gt;C++14の場合&lt;/h3&gt;
 複数行にわたって記述できる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    auto result = 1;
+    for(int i = 0; i &lt; exp; ++i) result *= base;
+    return result;
+}
 
 &lt;p&gt;&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
 constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
@@ -1222,21 +1400,6 @@ Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
 &lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;
 &lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;
 &lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Haskellを入れる</title>
-      <link>http://blog.syundo.org/post/1128/</link>
-      <pubDate>Tue, 12 May 2015 02:04:29 +0900</pubDate>
-      
-      <guid>http://blog.syundo.org/post/1128/</guid>
-      <description>&lt;p&gt;Haskellをやってみようと思った。
-環境：Ubuntu12.04 64bit&lt;/p&gt;
-
-&lt;p&gt;記事をQiitaに移動した。
-続きはこちら
-&lt;a href=&#34;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&#34;&gt;http://qiita.com/nekokoneko_mode/items/ee88053c164d3b2bd20b&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

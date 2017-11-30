@@ -72,15 +72,14 @@
       <p>C:/xampp/apache/conf/httpd.confに以下を追記．</p>
 
 <p>Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>Alias /(エイリアス名)/ &quot;(ディレクトリ)/&quot;
-    <span style="color: #2f1e2e">&lt;</span><span style="color: #5bc4bf">Directory</span> <span style="color: #ef6155">&quot;(</span><span style="color: #06b6ef">ディレクトリ</span><span style="color: #ef6155">)&quot;</span><span style="color: #2f1e2e">&gt;</span>
+Alias /(エイリアス名)/ "(ディレクトリ)/"
+    <Directory "(ディレクトリ)">
                Options Indexes FollowSymLinks Includes ExecCGI
                AllowOverride All
                Require all granted
                Order allow,deny
                Allow from all
-    <span style="color: #2f1e2e">&lt;/</span><span style="color: #5bc4bf">Directory</span><span style="color: #2f1e2e">&gt;</span>
-</pre></div>
+    </Directory>
 
 
       
@@ -142,6 +141,17 @@
 	ga('create', 'UA-21014159-4', 'auto');
 	ga('send', 'pageview');
 </script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

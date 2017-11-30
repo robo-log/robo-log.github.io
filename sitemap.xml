@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2016-04-09T10:17:51+09:00</lastmod>
+    <lastmod>2016-04-10T15:19:17+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/</loc>
+    <lastmod>2016-04-10T15:19:17+09:00</lastmod>
   </url>
   
   <url>

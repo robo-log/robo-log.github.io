@@ -304,62 +304,61 @@
       <description>&lt;p&gt;CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．&lt;/p&gt;
 
 &lt;p&gt;　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;fstream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;sstream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
 
-&lt;span style=&#34;color: #815ba4&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;std;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;Split(string&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;src,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key);&lt;/span&gt;
-&lt;span style=&#34;color: #fec418&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;readCSV&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;filename,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;p);&lt;/span&gt;
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;void&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;){&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;];&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;//ファイルから読み込んだ数値を入れる配列&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;readCSV(&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;data.csv&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data);&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;//ファイルから読み込み&lt;/span&gt;
+using namespace std;
+vector&lt;string&gt; Split(string &amp;src, string key);
+bool readCSV(string filename, int* p);
+int main(void){
+  int data[256];//ファイルから読み込んだ数値を入れる配列
+  readCSV(&#34;data.csv&#34;, data);//ファイルから読み込み
 
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//最初の10個を表示させてみる&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data[i]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;endl;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
+  //最初の10個を表示させてみる
+  for(int i = 0; i &lt; 10; ++i) {
+    cout &lt;&lt; data[i] &lt;&lt; endl;
+  }
+}
 
-&lt;span style=&#34;color: #fec418&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;readCSV&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;filename,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;p)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;fstream&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;file;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;file.open(filename.c_str(),&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;ios&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;in);&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;!&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;file.is_open())&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;false;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(getline(file,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str))&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;Split(str,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(string)&lt;/span&gt;&lt;span style=&#34;color: #48b685&#34;&gt;&amp;quot;,&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;);&lt;/span&gt;
-    &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line.size();&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #2f1e2e&#34;&gt;stringstream&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sstr;&lt;/span&gt;
-      &lt;span style=&#34;color: #2f1e2e&#34;&gt;sstr&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line[i];&lt;/span&gt;
-      &lt;span style=&#34;color: #2f1e2e&#34;&gt;sstr&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;p[i];&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;file.close();&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;true;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;Split(string&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;src,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;src;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;vector&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line;&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_len&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str.length();&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key_len&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key.length();&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;while&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_len)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;oldindex&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;index;&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str.find(key,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;index);&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;npos&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_len&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;index);&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;tmp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str.substr(oldindex,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;oldindex);&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line.push_back(tmp);&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;key_len;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;str_line;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+bool readCSV(string filename, int* p) {
+  fstream file;
+  string str;
+  file.open(filename.c_str(), ios::in);
+  if(! file.is_open()) {
+    return false;
+  }
+  while(getline(file, str)) {
+    vector&lt;string&gt; str_line = Split(str, (string)&#34;,&#34;);
+    int size = str_line.size();
+    for(int i = 0; i &lt; size; ++i) {
+      stringstream sstr;
+      sstr &lt;&lt; str_line[i];
+      sstr &gt;&gt; p[i];
+    }
+    p += size;
+  }
+  file.close();
+  return true;
+}
+vector&lt;string&gt; Split(string &amp;src, string key) {
+  string str = src;
+  vector&lt;string&gt; str_line;
+  int str_len = str.length();
+  int key_len = key.length();
+  int index = 0;
+  while(index &lt; str_len) {
+    int oldindex = index;
+    index = str.find(key, index);
+    index = (index == string::npos ? str_len : index);
+    string tmp = str.substr(oldindex, index - oldindex);
+    str_line.push_back(tmp);
+    index += key_len;
+  }
+  return str_line;
+}
 </description>
     </item>
     
@@ -372,45 +371,44 @@
       <description>&lt;p&gt;外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．&lt;/p&gt;
 
 &lt;p&gt;　3次元として持つための領域を動的に確保しているのでサイズが可変です．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #8d8687&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;namespace&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;std;&lt;/span&gt;
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data[&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;];&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;//元となるデータ領域&lt;/span&gt;
-&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;()&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//データ領域への値の代入&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;256&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;data[i]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//3次元配列の大きさ&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_z&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_y&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//とりあえずポインタに元のデータ領域の先頭アドレスを代入&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data;&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//3次元配列arrayへの整形&lt;/span&gt;
-  &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;***&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;**&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;[size_z];&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_z;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;array[i]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;[size_y];&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_y;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;j)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #2f1e2e&#34;&gt;array[i][j]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;j;&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_x&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_y;&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//確認のため表示&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_z;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_y;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;j)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;k&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;k&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_x;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;k)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color: #2f1e2e&#34;&gt;cout&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;array[i][j][k]&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;endl;&lt;/span&gt;
-      &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #8d8687&#34;&gt;//メモリの解放&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;size_z;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;delete&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;array[i];&lt;/span&gt;
-  &lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color: #815ba4&#34;&gt;delete&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;[]&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;array;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int data[256]; //元となるデータ領域
+int main()
+{
+  //データ領域への値の代入
+  for(int i = 0; i &lt; 256; ++i) {
+    data[i] = i;
+  }
+  //3次元配列の大きさ
+  char size_z = 3;
+  char size_y = 4;
+  char size_x = 5;
+  //とりあえずポインタに元のデータ領域の先頭アドレスを代入
+  int* p = data;
+  //3次元配列arrayへの整形
+  int*** array = new int**[size_z];
+  for (int i = 0; i &lt; size_z; ++i) {
+    array[i] = new int*[size_y];
+    for (int j = 0; j &lt; size_y; ++j) {
+      array[i][j] = p + size_x * j;
+    }
+    p += size_x * size_y;
+  }
+  //確認のため表示
+  for (int i = 0; i &lt; size_z; ++i) {
+    for (int j = 0; j &lt; size_y; ++j) {
+      for (int k = 0; k &lt; size_x; ++k) {
+        cout &lt;&lt; array[i][j][k] &lt;&lt; endl;
+      }
+    }
+  }
+  //メモリの解放
+  for (int i = 0; i &lt; size_z; i++) {
+    delete[] array[i];
+  }
+  delete[] array;
+}
 
 &lt;p&gt;(sizeof int) * (1 + size_z)だけのメモリを消費します．&lt;/p&gt;
 </description>

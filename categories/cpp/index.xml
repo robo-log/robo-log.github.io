@@ -68,13 +68,12 @@ constexprがオブジェクトに付加されたときはそのオブジェク�
 
 &lt;p&gt;&lt;h2&gt;constexprオブジェクトについて&lt;/h2&gt;
 constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt;   &lt;span style=&#34;color: #8d8687&#34;&gt;// コンパイル時に存在しない&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;...&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// エラー。szはコンパイル時には使えない。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;sz&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data1;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 同様なエラー&lt;/span&gt;
-&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize2&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。10はコンパイル時定数。&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;arraySize&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;data2;&lt;/span&gt; &lt;span style=&#34;color: #8d8687&#34;&gt;// 良い。&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+int sz;   // コンパイル時に存在しない
+...
+constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。
+std::array&lt;int, sz&gt; data1; // 同様なエラー
+constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。
+std::array&lt;int, arraySize&gt; data2; // 良い。
 
 &lt;p&gt;constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。&lt;/p&gt;
 
@@ -82,19 +81,17 @@ constexprをオブジェクトの前に付けるとコンパイル時に用い�
 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 &lt;h3&gt;C++11の場合&lt;/h3&gt;
 関数内に1行、return文があるだけしか認められない。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;(exp&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;pow(base,&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp&lt;/span&gt;&lt;span style=&#34;color: #5bc4bf&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;));&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    return (exp == 0 ? 1 : base*pow(base, exp-1));
+}
 
 &lt;p&gt;&lt;h3&gt;C++14の場合&lt;/h3&gt;
 複数行にわたって記述できる&lt;/p&gt;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #e7e9db&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #815ba4&#34;&gt;constexpr&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #06b6ef&#34;&gt;pow&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base,&lt;/span&gt; &lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp)&lt;/span&gt; &lt;span style=&#34;color: #815ba4&#34;&gt;noexcept&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;for&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #fec418&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f99b15&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;exp;&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color: #2f1e2e&#34;&gt;i)&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #5bc4bf&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;base;&lt;/span&gt;
-    &lt;span style=&#34;color: #815ba4&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #2f1e2e&#34;&gt;result;&lt;/span&gt;
-&lt;span style=&#34;color: #2f1e2e&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+constexpr int pow(int base, int exp) noexcept {
+    auto result = 1;
+    for(int i = 0; i &lt; exp; ++i) result *= base;
+    return result;
+}
 
 &lt;p&gt;&lt;h2&gt;気をつけるべきこと&lt;/h2&gt;
 constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;

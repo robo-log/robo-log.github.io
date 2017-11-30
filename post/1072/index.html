@@ -85,37 +85,31 @@ ssh-keygen
 で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&gt;Securityより設定しておく．
 
 <h2>Apache 導入</h2>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>yum install -y httpd httpd-devel
+yum install -y httpd httpd-devel
 chkconfig httpd on
 service httpd start
-</pre></div>
 
 <h2>PHP 導入</h2>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum --enablerepo<span style="color: #5bc4bf">=</span>remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
-</pre></div>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>vi /etc/php.ini
+yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
+vi /etc/php.ini
 vi /etc/httpd/conf.d/php.conf
-</pre></div>
 
 <h2>MySQL 導入</h2>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>yum install mysql-community-release-el6-5.noarch.rpm
+yum install mysql-community-release-el6-5.noarch.rpm
 yum install -y mysql-community-client mysql-community-devel mysql-community-server
-</pre></div>
 
 <p>Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo dd <span style="color: #815ba4">if</span><span style="color: #5bc4bf">=</span>/dev/zero <span style="color: #ef6155">of</span><span style="color: #5bc4bf">=</span>/swapfile <span style="color: #ef6155">bs</span><span style="color: #5bc4bf">=</span>1M <span style="color: #ef6155">count</span><span style="color: #5bc4bf">=</span>1024
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 mkswap /swapfile
 swapon /swapfile
-sudo sh -c <span style="color: #48b685">&quot;echo &#39;/swapfile swap swap defaults 0 0&#39; &amp;gt;&amp;gt; /etc/fstab&quot;</span>
+sudo sh -c "echo '/swapfile swap swap defaults 0 0' &gt;&gt; /etc/fstab"
 chkconfig mysqld on
 service mysqld start
-</pre></div>
 
 <p>MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>mysql_secure_installation
-</pre></div>
+mysql_secure_installation
 
 <p><h2>ムームードメインで取得したドメインを管理</h2>
 ムームードメインのメニューのネームサーバー設定変更より
@@ -128,74 +122,63 @@ service mysqld start
 Digital OceanのDNS設定メニューより，
 <a href="/images/2015/04/DO_domain.png"><img class="alignnone size-full wp-image-1078" src="/images/2015/04/DO_domain.png" alt="DO_domain"   /></a>
 Aレコードにサブドメインを追加する．あとはApache側の設定が要る．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>vim /etc/httpd/conf/httpd.conf
-</pre></div>
+vim /etc/httpd/conf/httpd.conf
 
 <p>以下の部分を編集してポート指定．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>NameVirtualHost *:80
-</pre></div>
+NameVirtualHost *:80
 
 <p>あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>&lt;VirtualHost *:80&gt;
+<VirtualHost *:80>
     ServerName syundo.org
     DocumentRoot /var/www/html/
-  &lt;Directory /var/www/html/&gt;
+  <Directory /var/www/html/>
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-&lt;VirtualHost *:80&gt;
+   </Directory>
+</VirtualHost>
+<VirtualHost *:80>
     ServerName blog.syundo.org
     DocumentRoot /var/www/html/blog/
-  &lt;Directory /var/www/html/blog/&gt;
+  <Directory /var/www/html/blog/>
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</pre></div>
+   </Directory>
+</VirtualHost>
 
 <p><h2>PHPmyadmin導入</h2>
 Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi ImageMagick-last
-yum -y install --enablerepo<span style="color: #5bc4bf">=</span>remi-php55 phpMyAdmin
-</pre></div>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>vim /etc/httpd/conf.d/phpMyAdmin.conf
-</pre></div>
+yum -y install --enablerepo=remi ImageMagick-last
+yum -y install --enablerepo=remi-php55 phpMyAdmin
+vim /etc/httpd/conf.d/phpMyAdmin.conf
 
 <p>を編集．内容は忘れた．</p>
 
 <p><h2>データの移行</h2>
 MySQLで作業する．ログインしてパスワード設定する．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>mysql -u root
-<span style="color: #2f1e2e">set</span> password <span style="color: #815ba4">for</span> root@localhost<span style="color: #5bc4bf">=</span>password<span style="color: #5bc4bf">(</span><span style="color: #48b685">&#39;hogehoge&#39;</span><span style="color: #5bc4bf">)</span><span style="color: #2f1e2e">;</span>
-</pre></div>
+mysql -u root
+set password for root@localhost=password('hogehoge');
 
 <p>データベース作る．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>create database database_name
-</pre></div>
+create database database_name
 
 <p>作業ユーザを作っておく</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>grant all on database_name.* to dbuser@localhost identified by <span style="color: #48b685">&#39;piyopiyo&#39;</span><span style="color: #2f1e2e">;</span>
-</pre></div>
+grant all on database_name.* to dbuser@localhost identified by 'piyopiyo';
 
 <p>以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．<a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a></p>
 
 <p>worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>vim wp-config.php
-</pre></div>
+vim wp-config.php
 
 <p>Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>sudo chown -R apache:apache myblogdir
-</pre></div>
+sudo chown -R apache:apache myblogdir
 
 <p>どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span>User apache
+User apache
 Group apache
-</pre></div>
 
 <p>の部分を見ればわかる．</p>
 
@@ -271,6 +254,17 @@ Group apache
 	ga('create', 'UA-21014159-4', 'auto');
 	ga('send', 'pageview');
 </script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

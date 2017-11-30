@@ -122,8 +122,7 @@
 <h4 id="アクションを増やす:67d9104e26470c11657cf8933878c27f">アクションを増やす</h4>
 
 <p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
-<div class="highlight" style="background: #e7e9db"><pre style="line-height: 125%"><span></span><span style="color: #2f1e2e">actions</span> <span style="color: #5bc4bf">=</span> <span style="color: #2f1e2e">[</span><span style="color: #f99b15">0</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">1</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">2</span><span style="color: #2f1e2e">,</span><span style="color: #f99b15">3</span><span style="color: #2f1e2e">]</span>
-</pre></div>
+actions = [0,1,2,3]
 
 <p>にしてみる。ジャンプもするようになるぞ！同じ要領で
 <a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
@@ -353,6 +352,8 @@ ResetItemは触ると死ぬようになるぞ！</p>
       <span class="previous">&larr; <a href="http://blog.syundo.org/post/2016-02-28-LCDdisplay/" rel="prev">セグメント液晶のことを全然知らなかった話</a></span>
     
     
+      <span class="next"><a href="http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/" rel="next">強化学習についてまとめる (1) MDPとベルマン方程式</a> &rarr;</span>
+    
   </nav>
 
 
@@ -378,6 +379,17 @@ ResetItemは触ると死ぬようになるぞ！</p>
 	ga('create', 'UA-21014159-4', 'auto');
 	ga('send', 'pageview');
 </script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

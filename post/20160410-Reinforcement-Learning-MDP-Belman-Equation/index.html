@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    強化学習についてまとめる (1) MDPとベルマン方程式 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "02e11161-0b6b-46d7-9b85-d7ed58578dfd", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>強化学習についてまとめる (1) MDPとベルマン方程式</h1>
+      <div class="meta">
+        Apr 10, 2016 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたい。</p>
+
+<h1 id="マルコフ決定過程:71088a822ab0e727ae2c68c7ef7c6e1e">マルコフ決定過程</h1>
+
+<p>マルコフ決定過程(Markov Decision Process; MDP)は状態の遷移が確率的に起こり、マルコフ過程を満たす過程のことをいう。
+MDPは状態$s$、行動$a$、遷移先の状態を$s&rsquo;$、状態遷移確率$P(s&rsquo;|s, a)$の組で表現される。
+また、状態$s$において行動$a$を選択したとき、即時報酬$r(s, a, s&rsquo;)$が得られるとする。</p>
+
+<p>とくに時間的な過程の進展を表すため、特に時刻$t$から$t+1$の状態の遷移について</p>
+
+<p>$$
+状態: s_t\
+行動: a_t\
+状態遷移確率: P(s_{t+1}|s_t, a_t)\
+報酬関数: r_t = r(s_t, a_t, s_{t+1})
+$$</p>
+
+<p>を考える。</p>
+
+<p><img src="/images/2017/11/MDP.png" alt="マルコフ決定過程" /></p>
+
+<h1 id="価値関数:71088a822ab0e727ae2c68c7ef7c6e1e">価値関数</h1>
+
+<p>時刻$t$において将来($t \rightarrow \infty $)にわたって得られる報酬について、割引累積報酬$G_t$を定義する。
+\begin{equation}
+G_t = \sum_{k=0}^{\infty} \gamma ^k R_{t+k+1}
+\end{equation}
+ここで、$R_{t+1}$は$r(s_t, a_t, s_{t+1})$の値とする。
+また、$\gamma$は$0 \le \gamma &lt; 1$の値で、遠い将来に得られるであろう報酬を低く見積もるために使う。</p>
+
+<p>状態$s$において、行動$a$が選択される確率を$\pi = \pi(a | s)$とする。
+この$\pi$を<strong>方策</strong>と呼ぶ。
+ロボットで言うと次の状態をどう選ぶかの判断を行う部分である。</p>
+
+<p>さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。
+方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。
+\begin{equation}
+V^{\pi}(s) = E[G_t|s_t=s] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s]
+\label{eq:v_func}
+\end{equation}
+これを<strong>状態価値関数</strong>(あるいは単に<strong>価値関数</strong>)と呼ぶ。
+期待値を取っているのは、方策$\pi$は確率的であるから、$s_t=s$となるのも確率的であるため、$s_t$について周辺化して評価したいためである。</p>
+
+<p>同様に、状態だけでなく、行動についても条件として
+\begin{equation}
+Q^{\pi}(s,a) = E[G_t|s_t=s, a_t=a] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s, a_t = a]
+\label{eq:q_func}
+\end{equation}
+も考える。これを、<strong>行動価値関数</strong> と呼ぶ。</p>
+
+<p>以上の枠組みにおいて、最も良い方策、<strong>最適方策</strong> を$\pi^{*}$とし、
+この方策を採用したときの価値関数を<strong>最適行動価値関数</strong>
+\begin{equation}
+Q^{*}(s,a) = Q^{\pi^{*}}(s,a) = \max_{\pi} Q^{\pi}(s,a)
+\end{equation}
+とする。</p>
+
+<h2 id="ベルマン方程式の導出:71088a822ab0e727ae2c68c7ef7c6e1e">ベルマン方程式の導出</h2>
+
+<p>\eqref{eq:v_func}式において$E[*]$は線形の演算のため、</p>
+
+<p>\begin{equation}
+\begin{aligned}
+V^{\pi}(s) &amp;=&amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
+&amp;=&amp; E[R_{t+1}\ | s_t = s] + E[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
+&amp;=&amp; E[R_{t+1}\ | s_t = s] + \gamma E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+\end{aligned}
+\label{eq:q_func_trans}
+\end{equation}</p>
+
+<p>とすることができる。</p>
+
+<p>ここで、\eqref{eq:q_func_trans}式右辺第1項は</p>
+
+<p>\begin{equation}
+\begin{aligned}
+E[R_{t+1}\ | s_t = s]
+=\sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s, a) r(s, a, s&rsquo;)
+\end{aligned}
+\label{eq:q_func_trans_1}
+\end{equation}</p>
+
+<p>となる。
+$s_t=s$において行動$a$を取る確率が$\pi(a,|s)$、状態遷移して$s&rsquo;$に移動する確率が$P(s&rsquo;|s,a)$であるから、行動$a$を取って、状態$s&rsquo;$に遷移する確率は$\pi(a,|s)P(s&rsquo;|s,a)$である。
+その上で、状態$s$において取れる行動の全集合$A(s)$と次に取れる全状態$S$について$r(s,a,s&rsquo;)$の期待値を取る、というのが上式で行われていることである。</p>
+
+<p>次に、\eqref{eq:q_func_trans}式右辺第2項は
+\begin{equation}
+\begin{aligned}
+E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) V^{\pi}(s&rsquo;)
+\end{aligned}
+\label{eq:q_func_trans_2}
+\end{equation}</p>
+
+<p>と変形できる。
+以上\eqref{eq:q_func_trans}, \eqref{eq:q_func_trans_1}, \eqref{eq:q_func_trans_2} 式により、</p>
+
+<p>\begin{equation}
+\begin{aligned}
+V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)
+\end{aligned}
+\label{eq:belman_value_func}
+\end{equation}</p>
+
+<p>が導出される。これを<strong>ベルマン方程式</strong>と呼ぶ。</p>
+
+<p>また、$Q^{\pi}(s,a)$の定義より
+\begin{equation}
+\begin{aligned}
+V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) Q^{\pi}(s,a)
+\end{aligned}
+\end{equation}</p>
+
+<p>であるから、
+\begin{equation}
+\begin{aligned}
+Q^{\pi}(s, a) &amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)\\
+&amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma \sum_{a \in A(s&rsquo;)} \pi(a&rsquo;|s&rsquo;) Q^{\pi}(s&rsquo;,a&rsquo;) \right)
+\end{aligned}
+\end{equation}</p>
+
+<p>と行動価値関数についてのベルマン方程式を導出できる。</p>
+
+<!-- 上記のベルマン方程式において、常に最適な方策を取るという前提を置けば、以下のベルマン最適方程式が
+
+さて、このベルマン方程式を解けば、$Q^{\pi}$を計算できるのだが、上式を見ればわかるように、そのためには状態遷移確率が既知である必要がある。
+扱いたいのは環境が未知の問題であるため、状態遷移確率を用いずに反復的に価値関数を求める。
+
+## 価値反復を使ったアルゴリズム
+状態遷移確率が未知であるため、実際に行動してみて、状態遷移確率分布からサンプリングすることで価値観数を求めていくのが、価値反復を使ったアルゴリズムである。
+現在の値を目標値に少しずつ更新していく手法は、強化学習の文脈において問題を解くために重要になる。
+そのようなアルゴリズムとしてSarsaとQ-Learningを取り上げる。
+
+### Sarsa
+時刻$t$において状態$s_t$であり$a_t$を行った結果、次の状態$s\_{t+1}$と報酬$r_t$を観測したとき、$s\_{t+1}$において行う予定の行動$a\_{t+1}$をもとに、以下の更新則でQ値を更新する。
+
+\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r\_{t+1} + \gamma Q(s\_{t+1}, a\_{t+1}))
+\end{equation}
+
+$\alpha(0 \le \alpha < 1)$は学習率と呼ばれるパラメータで、アルゴリズムの設計者が調整する。
+このアルゴリズムは現在のQ値と$r\_{t+1} + \gamma Q(s\_{t+1}, a\_{t+1})$との内分によって、Q値を更新していく手法である。
+先に述べたように、状態遷移確率を用いずに、行動によって発生する状態遷移の比率が、無限回試行していくごとに状態遷移確率に近づいていく性質を用いてQ値を求めている。
+
+### Q-Learning
+Sarsaと同様の設定で、以下の更新則でQ値を更新するのがQ-Learningである。
+
+\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r\_{t+1} + \gamma \max\_{a^{\prime} \in A} Q(s\_{t+1}, a^{\prime}))
+\end{equation}
+
+Sarsaと違って、次に何の行動を取ったかはQ値の更新には関わってこない。
+$\max\_{a^{\prime} \in A} Q(s\_{t+1}, a^{\prime})$つまり、次の状態において取れる行動のうち、最大の価値を得られる行動(つまり最適方策$\pi^{\*}$)を採った時のQ値を使って更新する。
+Sarsaが実際に取った方策に更新が依存するのに対して、Q-LearningではQ値は環境に対して一定の値に収束する。
+
+このように実際に採用している方策と異なる方策を学習する方法は**方策オフ型**学習と呼ばれる。
+一方で、Sarsaのような、学習した方策をそのときどき採用する方法を**方策オン**型学習と呼ぶ。
+
+
+### 方策の決定方法
+Q値が求まったら、最も高いQ値を持つ行動$a$を選択すれば、将来にわたって最大の報酬が得られることが期待できる。
+つまり、行動$a^{\*}$は
+
+$$
+a^* = \arg\max(Q^{\*})
+$$
+
+となる方策を採用するということになる。
+これはgreedy方策と呼ばれている。
+
+さて、この方策では$Q^{\*}$がわかっていれば最適な方策となるが、強化学習では行動をしながら$Q$を更新していくので$Q^{\*}$は常に不明である。
+探索をするために、ある程度ランダムな方策を取る必要がある。
+そのように確率$\epsilon$でランダムな行動を取る方策を$\epsilon$-greedy方策という。 -->
+
+
+      
+			<div id="share-this" class="col span_10">
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_hatena_large' displayText='Hatena'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20160409Super-A-life/" rel="prev">超人工生命ハッカソンに行ってきた</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
