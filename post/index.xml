@@ -6,8 +6,134 @@
     <description>Recent content in Posts on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 10 Apr 2016 15:19:17 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Nov 2017 19:54:59 +0900</lastBuildDate>
     <atom:link href="http://blog.syundo.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>強化学習についてまとめる (2) 反復による価値の推定</title>
+      <link>http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/</link>
+      <pubDate>Fri, 10 Nov 2017 19:54:59 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;../20160410-Reinforcement-Learning-MDP-Belman-Equation&#34;&gt;前回&lt;/a&gt;はMDPとベルマン方程式について扱った。
+ベルマン方程式を解くことができれば、$Q^{\pi}$を計算できるのだが、どう計算するのか、価値関数からどのように方策を決定するのかという問題がある。
+今回は、多数のデータを使って反復的に計算することでこれを求める方法について扱いたい。
+&lt;!-- 上式を見ればわかるように、そのためには状態遷移確率が既知である必要がある。
+扱いたいのは環境が未知の問題であるため、状態遷移確率を用いずに反復的に価値関数を求める。 --&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;価値推定と反復:0609effec2e538d5a738f7edd8890087&#34;&gt;価値推定と反復&lt;/h1&gt;
+
+&lt;p&gt;価値関数についてのベルマン方程式において、常に最適な方策を取るという前提を置けば、以下の&lt;strong&gt;最適ベルマン方程式&lt;/strong&gt;を定めることができる。
+\begin{equation}
+\begin{aligned}
+V^{\pi}(s) = \max_{a \in A} \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right)
+\end{aligned}
+\label{eq:belman_value_func_max}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+Q^{\pi}(s, a) = \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma \max_{a&amp;rsquo; \in A} Q^{*}(s&amp;rsquo;,a&amp;rsquo;) \right)
+\end{aligned}
+\label{eq:belman_q_func_max}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;あるいは、取り得る方策が確率的でない、常に方策が決まっている定常方策を取るとすると、以下のようになる。
+\begin{equation}
+\begin{aligned}
+V^{\pi}(s) =  \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right)
+\end{aligned}
+\label{eq:belman_value_func_const}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\begin{aligned}
+Q^{\pi}(s, a) = \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma Q^{\pi}(s&amp;rsquo;,a&amp;rsquo;) \right)
+\end{aligned}
+\label{eq:belman_q_func_const}
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;以上の性質は価値関数を逐次的に更新していくことで求めていくために重要になる。
+また、その価値関数に従って最適な方策を決定し行動していくことで逐次的に方策を更新していくこともできる。
+前者を価値反復、後者を方策反復と呼ぶ。
+このとき、方策の決定方法としては以下のようなgreedy方策が考えられる。
+$$
+a^* = \arg\max(Q^{*})
+$$&lt;/p&gt;
+
+&lt;p&gt;また、実際に採用している方策と異なる方策を学習する方法は&lt;strong&gt;方策オフ型&lt;/strong&gt;学習と呼ばれる。
+一方で、学習した方策をそのときどき採用する方法を&lt;strong&gt;方策オン&lt;/strong&gt;型学習と呼ぶ。&lt;/p&gt;
+
+&lt;h2 id=&#34;td学習:0609effec2e538d5a738f7edd8890087&#34;&gt;TD学習&lt;/h2&gt;
+
+&lt;p&gt;MDPにおいて価値関数を推定したい。
+TD学習(Temporal difference learning)は、現在の推定値を学習中の目標値として使用することで、問題を解いていく手法である。&lt;/p&gt;
+
+&lt;p&gt;ベルマン方程式は、状態遷移確率が未知の場合、そのまま解くことはできない。
+そこで、状態遷移確率は実際に観測する(サンプリングする)ことによって、確率分布を近似し、ベルマン方程式を扱う。&lt;/p&gt;
+
+&lt;h3 id=&#34;td-0-法:0609effec2e538d5a738f7edd8890087&#34;&gt;TD(0)法&lt;/h3&gt;
+
+&lt;p&gt;以下のように価値関数の推定値を更新していく手法がTD(0)法である。
+\begin{equation}
+V_{t+1}(s_t)
+\leftarrow
+(1 - \alpha_t) V_t(s_t) + \alpha_t (R_{t+1} + \gamma V_t(s_{t+1}))
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;現在の値$V_t(s_t)$と目標値$R_{t+1} + \gamma V_t(s_{t+1})$との内分によって推定値を更新していくのがこの手法である。
+&lt;strong&gt;TD&lt;/strong&gt; 誤差として$\delta_t$を以下のように定義することで、TD誤差を小さくする方向に更新するアルゴリズムとして捉えることもできる。&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+\delta_t = (R_{t+1} + \gamma V_t(s_{t+1})) - V_t(s_t)\\
+V_{t+1}(s_t)
+\leftarrow
+V_t(s_t) + \alpha_t \delta_t
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;$\delta_t$は目標値と現在の値の差分であるから、この立式のほうがわかりやすいかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;sarsa:0609effec2e538d5a738f7edd8890087&#34;&gt;Sarsa&lt;/h3&gt;
+
+&lt;p&gt;TD(0)法を行動価値数に拡張したものが、Sarsaである。&lt;/p&gt;
+
+&lt;p&gt;時刻$t$において状態$s_t$であり$a_t$を行った結果、次の状態$s_{t+1}$と報酬$r_t$を観測したとき、$s_{t+1}$において行う予定の行動$a_{t+1}$をもとに、以下の更新則でQ値を更新する。&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r_{t+1} + \gamma Q(s_{t+1}, a_{t+1}))
+\end{equation}&lt;/p&gt;
+
+&lt;h3 id=&#34;q-learning:0609effec2e538d5a738f7edd8890087&#34;&gt;Q-Learning&lt;/h3&gt;
+
+&lt;p&gt;最適ベルマン方程式を解くためにで、以下の更新則でQ値を更新するのがQ-Learningである。&lt;/p&gt;
+
+&lt;p&gt;\begin{equation}
+Q(s_t, a_t)
+\leftarrow
+(1 - \alpha) Q(s_t, a_t) + \alpha (r_{t+1} + \gamma \max_{a^{\prime} \in A} Q(s_{t+1}, a^{\prime}))
+\end{equation}&lt;/p&gt;
+
+&lt;p&gt;Sarsaと違って、次に何の行動を取ったかはQ値の更新には関わってこない。
+$\max_{a^{\prime} \in A} Q(s_{t+1}, a^{\prime})$つまり、次の状態において取れる行動のうち、最大の価値を得られる行動(つまり最適方策$\pi^{*}$)を採った時のQ値を使って更新する。
+Sarsaが実際に取った方策に更新が依存するのに対して、Q-LearningではQ値は環境に対して一定の値に収束する、方策オフ型学習である。&lt;/p&gt;
+
+&lt;!-- ### 方策の決定方法
+Q値が求まったら、最も高いQ値を持つ行動$a$を選択すれば、将来にわたって最大の報酬が得られることが期待できる。
+つまり、行動$a^{\*}$は
+
+
+となる方策を採用するということになる。
+これはgreedy方策と呼ばれている。
+
+さて、この方策では$Q^{\*}$がわかっていれば最適な方策となるが、強化学習では行動をしながら$Q$を更新していくので$Q^{\*}$は常に不明である。
+探索をするために、ある程度ランダムな方策を取る必要がある。
+そのように確率$\epsilon$でランダムな行動を取る方策を$\epsilon$-greedy方策という。 --&gt;
+</description>
+    </item>
     
     <item>
       <title>強化学習についてまとめる (1) MDPとベルマン方程式</title>
@@ -1365,41 +1491,6 @@ constexpr int pow(int base, int exp) noexcept {
 constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。&lt;/p&gt;
 
 &lt;p&gt;もしconstexprにしたことが間違いだったと思って修正してしまうとユーザーのコンパイルが通らなくなるような大変な影響がでるだろう。例えばデバッグのためにI/O操作をするようなことはconstexpr関数の中では許されていないが、そういった修正をしてしまうということだ。できるだけconstexprを使おう、の「できるだけ」はそういった長期にわたる機能のメンテナンスをする気があるならそうしようという意味でもあるのだ。&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ブログも静的ページにしたらどうか</title>
-      <link>http://blog.syundo.org/post/1140/</link>
-      <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
-      
-      <guid>http://blog.syundo.org/post/1140/</guid>
-      <description>&lt;p&gt;以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。
-ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。
-あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。
-DBやらphpやら準備しなくて良いので環境の構築は楽だろう。
-静的ページだけなので非力なサーバでも運用できるだろう。
-俄然興味が湧いてきた。&lt;/p&gt;
-
-&lt;p&gt;こういったツールは色々あって
-&lt;a href=&#34;https://staticsitegenerators.net/&#34;&gt;https://staticsitegenerators.net/&lt;/a&gt;
-ここを見るとどれが人気があるのかわかる。&lt;/p&gt;
-
-&lt;p&gt;だが私は今のところ&lt;a href=&#34;http://golang-jp.org/&#34;&gt;golang&lt;/a&gt;で動く&lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;に興味がある。
-機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。&lt;/p&gt;
-
-&lt;p&gt;ソースはGitHubで管理するのが良かろう。
-werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。
-werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。
-Travis CIはGitHubのみでprivateリポジトリは有料らしい。&lt;/p&gt;
-
-&lt;p&gt;ちなみにちょっと文脈が違うがWebサイトに数式を含めるならば&lt;a href=&#34;http://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;が良いという電波をキャッチした。&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;参考にしたところ&lt;/h2&gt;
-&lt;a href=&#34;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&#34;&gt;http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/&lt;/a&gt;
-&lt;a href=&#34;http://re-dzine.net/2015/01/hugo/&#34;&gt;http://re-dzine.net/2015/01/hugo/&lt;/a&gt;
-&lt;a href=&#34;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&#34;&gt;http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/&lt;/a&gt;
-&lt;a href=&#34;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&#34;&gt;http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
