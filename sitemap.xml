@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2017-11-10T19:54:59+09:00</lastmod>
+    <lastmod>2017-11-17T03:15:08+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171117-Reinforcement-Learning-Policy-Gradient/</loc>
+    <lastmod>2017-11-17T03:15:08+09:00</lastmod>
   </url>
   
   <url>

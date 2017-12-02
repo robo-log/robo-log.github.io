@@ -266,6 +266,10 @@ PFNの例の車のデモを1台で、教科学習でなくて人手で行った�
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
     TeX: { equationNumbers: { autoNumber: "AMS" }}
   });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 

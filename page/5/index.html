@@ -66,6 +66,14 @@
   
   
   <div class="summary">
+    <h2><a href="http://blog.syundo.org/post/778/">倒立振子など </a></h2>
+    <div class="meta">
+      Apr 2, 2012 &nbsp;
+      
+    </div>
+  </div>
+  
+  <div class="summary">
     <h2><a href="http://blog.syundo.org/post/777/">2012謹賀新年 </a></h2>
     <div class="meta">
       Jan 4, 2012 &nbsp;
@@ -133,14 +141,6 @@
     <h2><a href="http://blog.syundo.org/post/894/">C言語のポインタについてまとめ </a></h2>
     <div class="meta">
       Apr 14, 2011 &nbsp;
-      
-    </div>
-  </div>
-  
-  <div class="summary">
-    <h2><a href="http://blog.syundo.org/post/772/">サーボQ </a></h2>
-    <div class="meta">
-      Apr 10, 2011 &nbsp;
       
     </div>
   </div>
@@ -269,6 +269,10 @@
     displayIndent: "2em",
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
     TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>

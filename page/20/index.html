@@ -66,6 +66,14 @@
   
   
   <div class="summary">
+    <h2><a href="http://blog.syundo.org/post/640/">もうすこし </a></h2>
+    <div class="meta">
+      Jul 25, 2006 &nbsp;
+      
+    </div>
+  </div>
+  
+  <div class="summary">
     <h2><a href="http://blog.syundo.org/post/639/">超入門で・・・ </a></h2>
     <div class="meta">
       Jul 23, 2006 &nbsp;
@@ -237,6 +245,10 @@
     displayIndent: "2em",
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
     TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>

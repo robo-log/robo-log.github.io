@@ -66,6 +66,14 @@
   
   
   <div class="summary">
+    <h2><a href="http://blog.syundo.org/post/692/">うまくいきました・・・・・・が </a></h2>
+    <div class="meta">
+      Nov 21, 2007 &nbsp;
+      
+    </div>
+  </div>
+  
+  <div class="summary">
     <h2><a href="http://blog.syundo.org/post/691/">うんざり </a></h2>
     <div class="meta">
       Nov 18, 2007 &nbsp;
@@ -133,14 +141,6 @@
     <h2><a href="http://blog.syundo.org/post/683/">いってくるお </a></h2>
     <div class="meta">
       Aug 2, 2007 &nbsp;
-      
-    </div>
-  </div>
-  
-  <div class="summary">
-    <h2><a href="http://blog.syundo.org/post/682/">RCB-1を攻略しようぜまたーりと(4) </a></h2>
-    <div class="meta">
-      Jul 30, 2007 &nbsp;
       
     </div>
   </div>
@@ -269,6 +269,10 @@
     displayIndent: "2em",
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
     TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
   });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
