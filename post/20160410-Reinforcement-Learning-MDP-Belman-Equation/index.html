@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/"/>
+  <link rel="canonical" href="http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -73,7 +73,7 @@
 
 <p>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたい。</p>
 
-<h1 id="マルコフ決定過程:71088a822ab0e727ae2c68c7ef7c6e1e">マルコフ決定過程</h1>
+<h1 id="マルコフ決定過程">マルコフ決定過程</h1>
 
 <p>マルコフ決定過程(Markov Decision Process; MDP)は状態の遷移が確率的に起こり、マルコフ過程を満たす過程のことをいう。
 MDPは状態$s$、行動$a$、遷移先の状態を$s&rsquo;$、状態遷移確率$P(s&rsquo;|s, a)$の組で表現される。
@@ -82,9 +82,9 @@ MDPは状態$s$、行動$a$、遷移先の状態を$s&rsquo;$、状態遷移確�
 <p>とくに時間的な過程の進展を表すため、特に時刻$t$から$t+1$の状態の遷移について</p>
 
 <p>$$
-状態: s_t\
-行動: a_t\
-状態遷移確率: P(s_{t+1}|s_t, a_t)\
+状態: s_t\\<br />
+行動: a_t\\<br />
+状態遷移確率: P(s_{t+1}|s_t, a_t)\\<br />
 報酬関数: r_t = r(s_t, a_t, s_{t+1})
 $$</p>
 
@@ -92,7 +92,7 @@ $$</p>
 
 <p><img src="/images/2017/11/MDP.png" alt="マルコフ決定過程" /></p>
 
-<h1 id="価値関数:71088a822ab0e727ae2c68c7ef7c6e1e">価値関数</h1>
+<h1 id="価値関数">価値関数</h1>
 
 <p>時刻$t$において将来($t \rightarrow \infty $)にわたって得られる報酬について、割引累積報酬$G_t$を定義する。
 \begin{equation}
@@ -128,14 +128,14 @@ Q^{*}(s,a) = Q^{\pi^{*}}(s,a) = \max_{\pi} Q^{\pi}(s,a)
 \end{equation}
 とする。</p>
 
-<h2 id="ベルマン方程式の導出:71088a822ab0e727ae2c68c7ef7c6e1e">ベルマン方程式の導出</h2>
+<h2 id="ベルマン方程式の導出">ベルマン方程式の導出</h2>
 
 <p>\eqref{eq:v_func}式において$E[*]$は線形の演算のため、</p>
 
 <p>\begin{equation}
 \begin{aligned}
-V^{\pi}(s) &amp;=&amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
-&amp;=&amp; E[R_{t+1}\ | s_t = s] + E[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\
+V^{\pi}(s) &amp;=&amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
+&amp;=&amp; E[R_{t+1}\ | s_t = s] + E[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
 &amp;=&amp; E[R_{t+1}\ | s_t = s] + \gamma E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
 \end{aligned}
 \label{eq:q_func_trans}
@@ -161,8 +161,8 @@ $s_t=s$において行動$a$を取る確率が$\pi(a,|s)$、状態遷移して$s
 \begin{equation}
 \begin{aligned}
 E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\<br />
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\<br />
 &amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) V^{\pi}(s&rsquo;)
 \end{aligned}
 \label{eq:q_func_trans_2}
@@ -190,7 +190,7 @@ V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) Q^{\pi}(s,a)
 <p>であるから、
 \begin{equation}
 \begin{aligned}
-Q^{\pi}(s, a) &amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)\\
+Q^{\pi}(s, a) &amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)\\<br />
 &amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma \sum_{a \in A(s&rsquo;)} \pi(a&rsquo;|s&rsquo;) Q^{\pi}(s&rsquo;,a&rsquo;) \right)
 \end{aligned}
 \end{equation}</p>
@@ -282,10 +282,10 @@ $$
 
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20160409Super-A-life/" rel="prev">超人工生命ハッカソンに行ってきた</a></span>
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20160409super-a-life/" rel="prev">超人工生命ハッカソンに行ってきた</a></span>
     
     
-      <span class="next"><a href="http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/" rel="next">強化学習についてまとめる (2) 反復による価値の推定</a> &rarr;</span>
+      <span class="next"><a href="http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/" rel="next">強化学習についてまとめる (2) 反復による価値の推定</a> &rarr;</span>
     
   </nav>
 

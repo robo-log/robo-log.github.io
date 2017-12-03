@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.syundo.org/</loc>
-    <lastmod>2017-11-17T03:15:08+09:00</lastmod>
-    <priority>0</priority>
+    <loc>http://blog.syundo.org/post/20171203-cpg-and-walk/</loc>
+    <lastmod>2017-12-03T23:41:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/20171117-Reinforcement-Learning-Policy-Gradient/</loc>
+    <loc>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</loc>
     <lastmod>2017-11-17T03:15:08+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/</loc>
+    <loc>http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/</loc>
     <lastmod>2017-11-10T19:54:59+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/</loc>
+    <loc>http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/</loc>
     <lastmod>2016-04-10T15:19:17+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/20160409Super-A-life/</loc>
+    <loc>http://blog.syundo.org/post/20160409super-a-life/</loc>
     <lastmod>2016-04-09T10:17:51+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/2016-02-28-LCDdisplay/</loc>
+    <loc>http://blog.syundo.org/post/2016-02-28-lcddisplay/</loc>
     <lastmod>2016-02-28T23:32:31+09:00</lastmod>
   </url>
   
@@ -38,22 +38,22 @@
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/2016-01-22-Goods-Memo/</loc>
+    <loc>http://blog.syundo.org/post/2016-01-22-goods-memo/</loc>
     <lastmod>2016-01-22T23:57:58+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/2016-01-01-hugoFormula/</loc>
+    <loc>http://blog.syundo.org/post/2016-01-01-hugoformula/</loc>
     <lastmod>2016-01-01T23:41:35+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/20151220NullaDiPiuGrande/</loc>
+    <loc>http://blog.syundo.org/post/20151220nulladipiugrande/</loc>
     <lastmod>2015-12-20T04:15:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/2015-11-23masteringTCPIP/</loc>
+    <loc>http://blog.syundo.org/post/2015-11-23masteringtcpip/</loc>
     <lastmod>2015-11-24T00:18:47+09:00</lastmod>
   </url>
   
@@ -63,7 +63,7 @@
   </url>
   
   <url>
-    <loc>http://blog.syundo.org/post/ROS%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
+    <loc>http://blog.syundo.org/post/ros%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
     <lastmod>2015-10-04T13:06:49+09:00</lastmod>
   </url>
   
@@ -995,6 +995,125 @@
   <url>
     <loc>http://blog.syundo.org/post/632/</loc>
     <lastmod>2006-06-24T23:08:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/apache/</loc>
+    <lastmod>2015-04-12T23:19:51+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/beagleboneblack/</loc>
+    <lastmod>2014-10-17T23:57:16+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/</loc>
+    <lastmod>2015-04-12T23:19:51+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/cnc/</loc>
+    <lastmod>2015-04-19T22:46:39+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/cpp/</loc>
+    <lastmod>2015-05-18T01:26:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/haskell/</loc>
+    <lastmod>2015-05-21T22:27:54+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/hew/</loc>
+    <lastmod>2011-01-28T14:14:35+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/hugo/</loc>
+    <lastmod>2015-05-14T01:27:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/inventor/</loc>
+    <lastmod>2013-08-22T22:38:37+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/page/</loc>
+    <lastmod>2013-08-25T09:19:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/pepper/</loc>
+    <lastmod>2014-09-21T23:49:55+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/</loc>
+    <lastmod>2017-12-03T23:41:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/</loc>
+    <lastmod>2017-12-03T23:41:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/</loc>
+    <lastmod>2010-09-04T02:13:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%82%BB%E3%83%B3%E3%82%B5/</loc>
+    <lastmod>2011-06-04T03:59:32+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</loc>
+    <lastmod>2011-01-19T00:00:27+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B/</loc>
+    <lastmod>2011-01-30T00:53:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</loc>
+    <lastmod>2015-05-07T00:30:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E9%9B%91%E8%A8%98/</loc>
+    <lastmod>2014-01-01T20:46:21+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

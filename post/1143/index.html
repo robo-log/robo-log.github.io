@@ -74,31 +74,28 @@ constexprがオブジェクトに付加されたときはそのオブジェク�
 
 <p><h2>constexprオブジェクトについて</h2>
 constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。</p>
-int sz;   // コンパイル時に存在しない
-...
-constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。
-std::array<int, sz> data1; // 同様なエラー
-constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。
-std::array<int, arraySize> data2; // 良い。
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#fec418">int</span> sz;   <span style="color:#8d8687">// コンパイル時に存在しない
+</span><span style="color:#8d8687"></span>...
+<span style="color:#815ba4">constexpr</span> <span style="color:#815ba4">auto</span> arraySize1 <span style="color:#5bc4bf">=</span> sz; <span style="color:#8d8687">// エラー。szはコンパイル時には使えない。
+</span><span style="color:#8d8687"></span>std<span style="color:#5bc4bf">::</span>array<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span>, sz<span style="color:#5bc4bf">&gt;</span> data1; <span style="color:#8d8687">// 同様なエラー
+</span><span style="color:#8d8687"></span><span style="color:#815ba4">constexpr</span> <span style="color:#815ba4">auto</span> arraySize2 <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">10</span>; <span style="color:#8d8687">// 良い。10はコンパイル時定数。
+</span><span style="color:#8d8687"></span>std<span style="color:#5bc4bf">::</span>array<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span>, arraySize<span style="color:#5bc4bf">&gt;</span> data2; <span style="color:#5bc4bf">//</span> <span style="color:#ef6155">良い。</span></code></pre></div>
 <p>constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。</p>
 
 <p><h2>constexpr関数について</h2>
 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。
 <h3>C++11の場合</h3>
 関数内に1行、return文があるだけしか認められない。</p>
-constexpr int pow(int base, int exp) noexcept {
-    return (exp == 0 ? 1 : base*pow(base, exp-1));
-}
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#815ba4">constexpr</span> <span style="color:#fec418">int</span> <span style="color:#06b6ef">pow</span>(<span style="color:#fec418">int</span> base, <span style="color:#fec418">int</span> exp) <span style="color:#815ba4">noexcept</span> {
+    <span style="color:#815ba4">return</span> (exp <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">0</span> <span style="color:#5bc4bf">?</span> <span style="color:#f99b15">1</span> <span style="color:#5bc4bf">:</span> base<span style="color:#5bc4bf">*</span>pow(base, exp<span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>));
+}</code></pre></div>
 <p><h3>C++14の場合</h3>
 複数行にわたって記述できる</p>
-constexpr int pow(int base, int exp) noexcept {
-    auto result = 1;
-    for(int i = 0; i < exp; ++i) result *= base;
-    return result;
-}
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#815ba4">constexpr</span> <span style="color:#fec418">int</span> <span style="color:#06b6ef">pow</span>(<span style="color:#fec418">int</span> base, <span style="color:#fec418">int</span> exp) <span style="color:#815ba4">noexcept</span> {
+    <span style="color:#815ba4">auto</span> result <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">1</span>;
+    <span style="color:#815ba4">for</span>(<span style="color:#fec418">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i <span style="color:#5bc4bf">&lt;</span> exp; <span style="color:#5bc4bf">++</span>i) result <span style="color:#5bc4bf">*=</span> base;
+    <span style="color:#815ba4">return</span> result;
+}</code></pre></div>
 <p><h2>気をつけるべきこと</h2>
 constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</p>
 

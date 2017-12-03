@@ -77,15 +77,13 @@
 
 <p>大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう．
 何者か調べるためにUSBの情報を見てみる．</p>
-lsusb
-ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsusb
+ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect</code></pre></div>
 <p>どうやらこの製品らしい<a href="https://support.logitech.com/en_us/product/222">https://support.logitech.com/en_us/product/222</a></p>
 
 <p>どんな画像が取れるのか試しに見てみる．</p>
-sudo apt-get install xawtv
-xawtv -c /dev/video0
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install xawtv
+xawtv -c /dev/video0</code></pre></div>
 <p><a href="/images/2014/10/92e3a3779139cfb20b6b014755961208.png"><img class="alignnone size-full wp-image-1037" src="/images/2014/10/92e3a3779139cfb20b6b014755961208.png" alt="Screenshot from 2014-10-16 22^%11^%05"   /></a></p>
 
 <p>ロボットの目として使うには十分な画質はありそうだ．
@@ -96,104 +94,98 @@ OpenCV2.4.9のセットアップは大方このサイト<a href="http://www.kkan
 の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．</p>
 
 <p>ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた</p>
-cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON  .
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cmake -DCMAKE_BUILD_TYPE<span style="color:#5bc4bf">=</span>RELEASE -DWITH_TBB<span style="color:#5bc4bf">=</span>ON -DWITH_GTK<span style="color:#5bc4bf">=</span>ON -DWITH_OPENGL<span style="color:#5bc4bf">=</span>ON -DWITH_OPENCL<span style="color:#5bc4bf">=</span>OFF -DWITH_CUDA<span style="color:#5bc4bf">=</span>OFF -DWITH_UNICAP<span style="color:#5bc4bf">=</span>ON -DWITH_V4L<span style="color:#5bc4bf">=</span>ON -DWITH_XINE<span style="color:#5bc4bf">=</span>ON  .</code></pre></div>
 <p>それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった．
 サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．</p>
-sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo scp -P <span style="color:#f99b15">22</span> /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c</code></pre></div>
 <p>まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．</p>
-// cam.cpp
-#include <cv.h>
-#include <highgui.h>
-#include <ctype.h>
-
-#ifndef CV_WINDOW_FREERATIO
-#define CV_WINDOW_FREERATIO 0
-#endif
-
-int main( int argc, char **argv )
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">// cam.cpp
+</span><span style="color:#8d8687"></span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;cv.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;highgui.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;ctype.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687"></span>
+<span style="color:#8d8687">#ifndef CV_WINDOW_FREERATIO
+</span><span style="color:#8d8687">#define CV_WINDOW_FREERATIO 0
+</span><span style="color:#8d8687">#endif
+</span><span style="color:#8d8687"></span>
+<span style="color:#fec418">int</span> <span style="color:#06b6ef">main</span>( <span style="color:#fec418">int</span> argc, <span style="color:#fec418">char</span> <span style="color:#5bc4bf">**</span>argv )
 {
-	cv::VideoCapture cap1(0);
+	cv<span style="color:#5bc4bf">::</span>VideoCapture cap1(<span style="color:#f99b15">0</span>);
 
-	cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
+	cap1.set( CV_CAP_PROP_FRAME_WIDTH, <span style="color:#f99b15">320</span> );
+	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, <span style="color:#f99b15">240</span> );
 
-	cv::namedWindow("camera1", CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-	while ( 1 ) {
-		cv::Mat img1;
-		cap1 >> img1 ;
-		cv::imshow("camera1", img1 );
-		char ch = cv::waitKey(100);
-		if ( ch == 27 ) break;
+	cv<span style="color:#5bc4bf">::</span>namedWindow(<span style="color:#48b685"></span><span style="color:#48b685">&#34;camera1&#34;</span>, CV_WINDOW_AUTOSIZE<span style="color:#5bc4bf">|</span>CV_WINDOW_FREERATIO);
+	<span style="color:#815ba4">while</span> ( <span style="color:#f99b15">1</span> ) {
+		cv<span style="color:#5bc4bf">::</span>Mat img1;
+		cap1 <span style="color:#5bc4bf">&gt;&gt;</span> img1 ;
+		cv<span style="color:#5bc4bf">::</span>imshow(<span style="color:#48b685"></span><span style="color:#48b685">&#34;camera1&#34;</span>, img1 );
+		<span style="color:#fec418">char</span> ch <span style="color:#5bc4bf">=</span> cv<span style="color:#5bc4bf">::</span>waitKey(<span style="color:#f99b15">100</span>);
+		<span style="color:#815ba4">if</span> ( ch <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">27</span> ) <span style="color:#815ba4">break</span>;
 	}
-	return 0;
-}
-
+	<span style="color:#815ba4">return</span> <span style="color:#f99b15">0</span>;
+}</code></pre></div>
 <p>コンパイルする．</p>
-g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">g++ -o cam.out cam.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui</code></pre></div>
 <p>これでカメラを読めることが確認できた．ただ残念ながらこのカメラを複数台同時に読み取ることはできなかった．</p>
 
 <p>次は顔検出をしてみる．こちらのサイト<a href="http://unasuke.com/howto/2013/face-recognition-in-opencv/">http://unasuke.com/howto/2013/face-recognition-in-opencv/</a>のコードをほぼそのまま使わせていただいた．学習済みのデータとしてhaarcascade_frontalface_alt2.xmlを使った．</p>
-#include <cv.h>
-#include <highgui.h>
-#include <ctype.h>
-
-#ifndef CV_WINDOW_FREERATIO
-#define CV_WINDOW_FREERATIO 0
-#endif
-
-int main( int argc, char **argv )
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;cv.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;highgui.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;ctype.h&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687"></span>
+<span style="color:#8d8687">#ifndef CV_WINDOW_FREERATIO
+</span><span style="color:#8d8687">#define CV_WINDOW_FREERATIO 0
+</span><span style="color:#8d8687">#endif
+</span><span style="color:#8d8687"></span>
+<span style="color:#fec418">int</span> <span style="color:#06b6ef">main</span>( <span style="color:#fec418">int</span> argc, <span style="color:#fec418">char</span> <span style="color:#5bc4bf">**</span>argv )
 {
-	cv::VideoCapture cap1(0);
+	cv<span style="color:#5bc4bf">::</span>VideoCapture cap1(<span style="color:#f99b15">0</span>);
 
-	cap1.set( CV_CAP_PROP_FRAME_WIDTH, 320 );
-	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, 240 );
-	cv::namedWindow("camera1", CV_WINDOW_AUTOSIZE|CV_WINDOW_FREERATIO);
-	std::string cascadeName = "/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml";
-	cv::CascadeClassifier cascade;
-	if(!cascade.load(cascadeName)) return -1;
-	double scale = 4.0;
-	cv::Mat img, gray;
+	cap1.set( CV_CAP_PROP_FRAME_WIDTH, <span style="color:#f99b15">320</span> );
+	cap1.set( CV_CAP_PROP_FRAME_HEIGHT, <span style="color:#f99b15">240</span> );
+	cv<span style="color:#5bc4bf">::</span>namedWindow(<span style="color:#48b685"></span><span style="color:#48b685">&#34;camera1&#34;</span>, CV_WINDOW_AUTOSIZE<span style="color:#5bc4bf">|</span>CV_WINDOW_FREERATIO);
+	std<span style="color:#5bc4bf">::</span>string cascadeName <span style="color:#5bc4bf">=</span> <span style="color:#48b685"></span><span style="color:#48b685">&#34;/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt2.xml&#34;</span>;
+	cv<span style="color:#5bc4bf">::</span>CascadeClassifier cascade;
+	<span style="color:#815ba4">if</span>(<span style="color:#5bc4bf">!</span>cascade.load(cascadeName)) <span style="color:#815ba4">return</span> <span style="color:#5bc4bf">-</span><span style="color:#f99b15">1</span>;
+	<span style="color:#fec418">double</span> scale <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">4.0</span>;
+	cv<span style="color:#5bc4bf">::</span>Mat img, gray;
 
-	while ( 1 ) {
-		cap1 >> img;
+	<span style="color:#815ba4">while</span> ( <span style="color:#f99b15">1</span> ) {
+		cap1 <span style="color:#5bc4bf">&gt;&gt;</span> img;
 
-		//Trans to glay scale
-		cv::cvtColor(img, gray, CV_BGR2GRAY);
-		cv::Mat smallImg(cv::saturate_cast<int>(img.rows/scale), cv::saturate_cast<int>(img.cols/scale), CV_8UC1);
+		<span style="color:#8d8687">//Trans to glay scale
+</span><span style="color:#8d8687"></span>		cv<span style="color:#5bc4bf">::</span>cvtColor(img, gray, CV_BGR2GRAY);
+		cv<span style="color:#5bc4bf">::</span>Mat smallImg(cv<span style="color:#5bc4bf">::</span>saturate_cast<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">&gt;</span>(img.rows<span style="color:#5bc4bf">/</span>scale), cv<span style="color:#5bc4bf">::</span>saturate_cast<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">&gt;</span>(img.cols<span style="color:#5bc4bf">/</span>scale), CV_8UC1);
 
-		// 処理時間短縮のために画像を縮小
-		cv::resize(gray, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
-		cv::equalizeHist( smallImg, smallImg);
+		<span style="color:#8d8687">// 処理時間短縮のために画像を縮小
+</span><span style="color:#8d8687"></span>		cv<span style="color:#5bc4bf">::</span>resize(gray, smallImg, smallImg.size(), <span style="color:#f99b15">0</span>, <span style="color:#f99b15">0</span>, cv<span style="color:#5bc4bf">::</span>INTER_LINEAR);
+		cv<span style="color:#5bc4bf">::</span>equalizeHist( smallImg, smallImg);
 
-		std::vector<cv::Rect> faces;
-		/// マルチスケール（顔）探索xo
-		// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
+		std<span style="color:#5bc4bf">::</span>vector<span style="color:#5bc4bf">&lt;</span>cv<span style="color:#5bc4bf">::</span>Rect<span style="color:#5bc4bf">&gt;</span> faces;
+		<span style="color:#8d8687">/// マルチスケール（顔）探索xo
+</span><span style="color:#8d8687"></span>		<span style="color:#8d8687">// 画像，出力矩形，縮小スケール，最低矩形数，（フラグ），最小矩形
+</span><span style="color:#8d8687"></span>
+		cascade.detectMultiScale(smallImg, faces, <span style="color:#f99b15">1.1</span>, <span style="color:#f99b15">2</span>, CV_HAAR_SCALE_IMAGE, cv<span style="color:#5bc4bf">::</span>Size(<span style="color:#f99b15">30</span>, <span style="color:#f99b15">30</span>));
 
-		cascade.detectMultiScale(smallImg, faces, 1.1, 2, CV_HAAR_SCALE_IMAGE, cv::Size(30, 30));
-
-		// 結果の描画
-		std::vector<cv::Rect>::const_iterator r = faces.begin();
-		for(; r != faces.end(); ++r) {
-			cv::Point center;
-			int radius;
-			center.x = cv::saturate_cast<int>((r->x + r->width*0.5)*scale);
-			center.y = cv::saturate_cast<int>((r->y + r->height*0.5)*scale);
-			radius = cv::saturate_cast<int>((r->width + r->height)*0.25*scale);
-			cv::circle( img, center, radius, cv::Scalar(80,80,255), 3, 8, 0 );
+		<span style="color:#8d8687">// 結果の描画
+</span><span style="color:#8d8687"></span>		std<span style="color:#5bc4bf">::</span>vector<span style="color:#5bc4bf">&lt;</span>cv<span style="color:#5bc4bf">::</span>Rect<span style="color:#5bc4bf">&gt;::</span>const_iterator r <span style="color:#5bc4bf">=</span> faces.begin();
+		<span style="color:#815ba4">for</span>(; r <span style="color:#5bc4bf">!=</span> faces.end(); <span style="color:#5bc4bf">++</span>r) {
+			cv<span style="color:#5bc4bf">::</span>Point center;
+			<span style="color:#fec418">int</span> radius;
+			center.x <span style="color:#5bc4bf">=</span> cv<span style="color:#5bc4bf">::</span>saturate_cast<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">&gt;</span>((r<span style="color:#5bc4bf">-&gt;</span>x <span style="color:#5bc4bf">+</span> r<span style="color:#5bc4bf">-&gt;</span>width<span style="color:#5bc4bf">*</span><span style="color:#f99b15">0.5</span>)<span style="color:#5bc4bf">*</span>scale);
+			center.y <span style="color:#5bc4bf">=</span> cv<span style="color:#5bc4bf">::</span>saturate_cast<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">&gt;</span>((r<span style="color:#5bc4bf">-&gt;</span>y <span style="color:#5bc4bf">+</span> r<span style="color:#5bc4bf">-&gt;</span>height<span style="color:#5bc4bf">*</span><span style="color:#f99b15">0.5</span>)<span style="color:#5bc4bf">*</span>scale);
+			radius <span style="color:#5bc4bf">=</span> cv<span style="color:#5bc4bf">::</span>saturate_cast<span style="color:#5bc4bf">&lt;</span><span style="color:#fec418">int</span><span style="color:#5bc4bf">&gt;</span>((r<span style="color:#5bc4bf">-&gt;</span>width <span style="color:#5bc4bf">+</span> r<span style="color:#5bc4bf">-&gt;</span>height)<span style="color:#5bc4bf">*</span><span style="color:#f99b15">0.25</span><span style="color:#5bc4bf">*</span>scale);
+			cv<span style="color:#5bc4bf">::</span>circle( img, center, radius, cv<span style="color:#5bc4bf">::</span>Scalar(<span style="color:#f99b15">80</span>,<span style="color:#f99b15">80</span>,<span style="color:#f99b15">255</span>), <span style="color:#f99b15">3</span>, <span style="color:#f99b15">8</span>, <span style="color:#f99b15">0</span> );
 		}
-		cv::imshow("camera1", img );
-		char ch = cv::waitKey(30);
-		if ( ch == 27 ) break;
+		cv<span style="color:#5bc4bf">::</span>imshow(<span style="color:#48b685"></span><span style="color:#48b685">&#34;camera1&#34;</span>, img );
+		<span style="color:#fec418">char</span> ch <span style="color:#5bc4bf">=</span> cv<span style="color:#5bc4bf">::</span>waitKey(<span style="color:#f99b15">30</span>);
+		<span style="color:#815ba4">if</span> ( ch <span style="color:#5bc4bf">==</span> <span style="color:#f99b15">27</span> ) <span style="color:#815ba4">break</span>;
 	}
-	return 0;
-}
-
+	<span style="color:#815ba4">return</span> <span style="color:#f99b15">0</span>;
+}</code></pre></div>
 <p>コンパイルする．</p>
-g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">g++ -o facedetect.out facedetect.cpp -I/usr/local/include/opencv2 -I/usr/local/include/opencv -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect</code></pre></div>
 <p>こんな感じで顔を検出して赤い円を描画できた．
 <a href="/images/2014/10/kao.png"><img class="alignnone size-full wp-image-1040" src="/images/2014/10/kao.png" alt="kao"   /></a></p>
 

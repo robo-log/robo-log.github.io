@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/20160409Super-A-life/"/>
+  <link rel="canonical" href="http://blog.syundo.org/post/20160409super-a-life/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -88,7 +88,7 @@
 当日のチュートリアルでは主催者の一人であるUEIの清水亮氏から、人工知能 + 人工生命 = 超人工生命だ、という説明がされた。
 人工生命といえば、セルオートマトンとかで数十年前にさんざん流行っていたが、最近あまり聞かなくなっていたと、清水氏は言う。近年の人工知能技術の人気の高まりに乗じて、人工生命のときと同じような盛り上がりにしようと、人工知能技術を使ったエージェントを「超人工生命」と呼ぶことにしたらしい。 -->
 
-<h2 id="どんなのができるの:67d9104e26470c11657cf8933878c27f">どんなのができるの?</h2>
+<h2 id="どんなのができるの">どんなのができるの?</h2>
 
 <p>こんなの。
 <img src="/images/2016/04/lis.gif" alt="" /></p>
@@ -105,7 +105,7 @@
 
 <p>これはすごい！！！！！！</p>
 
-<h3 id="セットアップ:67d9104e26470c11657cf8933878c27f">セットアップ</h3>
+<h3 id="セットアップ">セットアップ</h3>
 
 <p>ここらへんを見よう！</p>
 
@@ -117,23 +117,22 @@
 <p>mac環境でしかやってないけど、とくにハマることもなくできた。
 シミュレーションが起動するまで数分待たないといけないので、根気よく待つ。</p>
 
-<h3 id="簡単にできるカスタマイズ:67d9104e26470c11657cf8933878c27f">簡単にできるカスタマイズ</h3>
+<h3 id="簡単にできるカスタマイズ">簡単にできるカスタマイズ</h3>
 
-<h4 id="アクションを増やす:67d9104e26470c11657cf8933878c27f">アクションを増やす</h4>
+<h4 id="アクションを増やす">アクションを増やす</h4>
 
 <p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
-actions = [0,1,2,3]
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">actions <span style="color:#5bc4bf">=</span> [<span style="color:#f99b15">0</span>,<span style="color:#f99b15">1</span>,<span style="color:#f99b15">2</span>,<span style="color:#f99b15">3</span>]</code></pre></div>
 <p>にしてみる。ジャンプもするようになるぞ！同じ要領で
 <a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
 を変更すると、動作を追加できる。</p>
 
-<h4 id="負の報酬も与えるようにする:67d9104e26470c11657cf8933878c27f">負の報酬も与えるようにする</h4>
+<h4 id="負の報酬も与えるようにする">負の報酬も与えるようにする</h4>
 
 <p>Hierarchey &gt; SceneController &gt; items にMinusRewardItem を追加する。
 ResetItemは触ると死ぬようになるぞ！</p>
 
-<h2 id="使われている技術:67d9104e26470c11657cf8933878c27f">使われている技術</h2>
+<h2 id="使われている技術">使われている技術</h2>
 
 <p>今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムを使うことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。</p>
 
@@ -155,9 +154,9 @@ ResetItemは触ると死ぬようになるぞ！</p>
 
 <p>というような役割になっている。</p>
 
-<h2 id="当日僕がやったこと:67d9104e26470c11657cf8933878c27f">当日僕がやったこと</h2>
+<h2 id="当日僕がやったこと">当日僕がやったこと</h2>
 
-<h3 id="コードを読む:67d9104e26470c11657cf8933878c27f">コードを読む</h3>
+<h3 id="コードを読む">コードを読む</h3>
 
 <p>ハッカソンが始まると、まずpython側のコードを読んだ。DQNには以前から興味があったが、なかなか触る機会がなかったので、今回のハッカソンを機に親しみたいと思っていたからだ。以下はコードを読んだときのメモ。</p>
 
@@ -189,7 +188,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 
 <p>ここまでで1時間が経過した。この時点あたりから、実はUnityが触れないと結構つらいのではないかという予感が浮かんできた。</p>
 
-<h3 id="パラメータいじり:67d9104e26470c11657cf8933878c27f">パラメータいじり</h3>
+<h3 id="パラメータいじり">パラメータいじり</h3>
 
 <p>コードを読み終わった後、Unity側の動作を変更してみた。</p>
 
@@ -213,12 +212,12 @@ ResetItemは触ると死ぬようになるぞ！</p>
 </ul></li>
 </ul>
 
-<h2 id="発表会:67d9104e26470c11657cf8933878c27f">発表会</h2>
+<h2 id="発表会">発表会</h2>
 
 <p>いいものができた人17人を選抜して、一人3分で発表してもらうことになった。
 名前などメモできていないので、ざっくりと紹介する。</p>
 
-<h3 id="エージェントの行動と報酬をカスタマイズした人たち:67d9104e26470c11657cf8933878c27f">エージェントの行動と報酬をカスタマイズした人たち</h3>
+<h3 id="エージェントの行動と報酬をカスタマイズした人たち">エージェントの行動と報酬をカスタマイズした人たち</h3>
 
 <ul>
 <li>旋回と同時に前にも進むようにした</li>
@@ -227,7 +226,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 <li>ダッシュ機能をつけた</li>
 </ul>
 
-<h3 id="ニューラルネットワークを改良した人たち:67d9104e26470c11657cf8933878c27f">ニューラルネットワークを改良した人たち</h3>
+<h3 id="ニューラルネットワークを改良した人たち">ニューラルネットワークを改良した人たち</h3>
 
 <ul>
 <li>デフォルトではQ-Netへの入力として、AlexNetの比較的深い層を使っていたが、浅い層をQ-Netの入力にするようにして、Q-Netは層を増やしてCNNに変更した。
@@ -246,7 +245,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 </ul></li>
 </ul>
 
-<h3 id="学習させる環境をカスタマイズした人たち:67d9104e26470c11657cf8933878c27f">学習させる環境をカスタマイズした人たち</h3>
+<h3 id="学習させる環境をカスタマイズした人たち">学習させる環境をカスタマイズした人たち</h3>
 
 <ul>
 <li>ジャンプできるようにしてジャンプすれば取れる報酬とジャンプすると取れない報酬を用意して、ジャンプする行動としない行動を満遍なく学習できるようにした。</li>
@@ -297,7 +296,7 @@ ResetItemは触ると死ぬようになるぞ！</p>
 </ul></li>
 </ul>
 
-<h3 id="実世界と接続する系:67d9104e26470c11657cf8933878c27f">実世界と接続する系</h3>
+<h3 id="実世界と接続する系">実世界と接続する系</h3>
 
 <ul>
 <li>照度センサの値をUnityに反映させる
@@ -349,10 +348,10 @@ ResetItemは触ると死ぬようになるぞ！</p>
 
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/2016-02-28-LCDdisplay/" rel="prev">セグメント液晶のことを全然知らなかった話</a></span>
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/2016-02-28-lcddisplay/" rel="prev">セグメント液晶のことを全然知らなかった話</a></span>
     
     
-      <span class="next"><a href="http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/" rel="next">強化学習についてまとめる (1) MDPとベルマン方程式</a> &rarr;</span>
+      <span class="next"><a href="http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/" rel="next">強化学習についてまとめる (1) MDPとベルマン方程式</a> &rarr;</span>
     
   </nav>
 

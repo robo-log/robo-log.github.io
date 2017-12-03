@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on ROBO LOG</title>
+    <link>http://blog.syundo.org/categories/</link>
+    <description>Recent content in Categories on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
+    <lastBuildDate>Sun, 12 Apr 2015 23:19:51 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apache</title>
+      <link>http://blog.syundo.org/categories/apache/</link>
+      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beagleboneblack</title>
+      <link>http://blog.syundo.org/categories/beagleboneblack/</link>
+      <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/beagleboneblack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cnc</title>
+      <link>http://blog.syundo.org/categories/cnc/</link>
+      <pubDate>Sun, 19 Apr 2015 22:46:39 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/cnc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cpp</title>
+      <link>http://blog.syundo.org/categories/cpp/</link>
+      <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/cpp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Haskell</title>
+      <link>http://blog.syundo.org/categories/haskell/</link>
+      <pubDate>Thu, 21 May 2015 22:27:54 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/haskell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hew</title>
+      <link>http://blog.syundo.org/categories/hew/</link>
+      <pubDate>Fri, 28 Jan 2011 14:14:35 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/hew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://blog.syundo.org/categories/hugo/</link>
+      <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inventor</title>
+      <link>http://blog.syundo.org/categories/inventor/</link>
+      <pubDate>Thu, 22 Aug 2013 22:38:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/inventor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pepper</title>
+      <link>http://blog.syundo.org/categories/pepper/</link>
+      <pubDate>Sun, 21 Sep 2014 23:49:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/pepper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>アナスタシア</title>
+      <link>http://blog.syundo.org/categories/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/</link>
+      <pubDate>Sat, 04 Sep 2010 02:13:01 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>センサ</title>
+      <link>http://blog.syundo.org/categories/%E3%82%BB%E3%83%B3%E3%82%B5/</link>
+      <pubDate>Sat, 04 Jun 2011 03:59:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E3%82%BB%E3%83%B3%E3%82%B5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>デバッグ</title>
+      <link>http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</link>
+      <pubDate>Wed, 19 Jan 2011 00:00:27 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ロボット紹介</title>
+      <link>http://blog.syundo.org/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B/</link>
+      <pubDate>Sun, 30 Jan 2011 00:53:06 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>未分類</title>
+      <link>http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</link>
+      <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>雑記</title>
+      <link>http://blog.syundo.org/categories/%E9%9B%91%E8%A8%98/</link>
+      <pubDate>Wed, 01 Jan 2014 20:46:21 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/categories/%E9%9B%91%E8%A8%98/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

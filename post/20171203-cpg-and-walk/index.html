@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    非線形振動子の同期を用いた歩行 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20171203-cpg-and-walk/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "02e11161-0b6b-46d7-9b85-d7ed58578dfd", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>非線形振動子の同期を用いた歩行</h1>
+      <div class="meta">
+        Dec 3, 2017 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>複数の周期的現象が相互作用して同期する現象は実世界のいたるところにみられる。
+例えばホタルの発光が同期することはよく知られているし、</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HQ2YLH6S1Co" frameborder="0" allowfullscreen></iframe>
+
+<p>バラバラなタイミングで動いていたメトロノームの動きが揃ったり</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cDfFp34iJY4?start=120" frameborder="0" allowfullscreen></iframe>
+
+<p>ロンドンのmillennium bridgが橋の上で歩いている人々と橋が同期して振動してしまった事件なども同様の現象である。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eAXVa__XWZ8?start=10" frameborder="0" allowfullscreen></iframe>
+
+<p>歩行の周期的運動に着目すると、その生成回路として、CPG(Central Pattern Generator)が知られている。
+CPGのモデルを歩行ロボットに組み込む試みも数多くなされている。</p>
+
+<!-- このCPGとロボットの実際の運動を同期させることで、外乱に対して適応的な振る舞いを実現しようと考えている。 -->
+
+<p>本記事ではCPGとその同期について調査し、同期システムを用いた歩行制御についてシミュレーションと実機にて確認した結果について述べる。</p>
+
+<h1 id="背景">背景</h1>
+
+<p>ここでは、まずCPGとニューロンの発火モデル、非線形振動子の同期現象についてまとめる。
+また、森本らの振動子の同期現象を2即歩行ロボットの制御に利用した手法について説明する。</p>
+
+<h2 id="cpg">CPG</h2>
+
+<p>歩行などのリズミックな運動出力パターンを生成する回路のことをCPGと呼ぶ。
+この回路は脊椎動物であれば脊髄に備わっていることが知られている。
+大脳との神経的な接続を除去したネコをトレッドミルに乗せ、脊髄部分に電気的刺激を行うと、歩行動作を発現したという、除脳ネコの実験が有名である。
+これより脳幹部分からの電気的な刺激によって、脊髄部の回路が周期的に活性化し、脚部の筋肉を活性化することで歩行運動が生成されているということを推察することができる。</p>
+
+<p>CPGをモデル化して歩行制御に用いた例としては、多賀<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> による2足歩行運動の生成がある。</p>
+
+<h3 id="ニューロンの発火モデル">ニューロンの発火モデル</h3>
+
+<p>ニューロンは神経系を構成する細胞の一つである。
+活動していないときのニューロンの細胞内電位(膜電位)は細胞外に対して低くなっており、逆に活性化すると細胞外に対して高くなる。
+この電位差は細胞内外のイオン濃度の差によって生じる。<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>
+HodgkinとHuxleyはヤリイカの巨大軸索の電気的応答を調査することで、そのニューロンの非線形ダイナミクスを記述する微分方程式(Hodgkin-Huxley方程式)を導出した。
+詳細は述べないが、4変数でパラメタライズされ微分方程式となっている。<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>
+このHodgkin-Huxley方程式における膜電流(I)として適当な大きさの電流を加えると自励振動が生じる。
+宇佐美ら<sup class="footnote-ref" id="fnref:4"><a rel="footnote" href="#fn:4">4</a></sup>は自励振動に限らず周期的刺激に対するHodgkin-Huxleyのダイナミクスを示している。
+<!-- メモ: HH方程式について解説
+http://www.hi.is.uec.ac.jp/rcb/paper/PDF/H18_wada.pdf --></p>
+
+<p>Hodgkin-Huxleyより、神経のダイナミクスを更に簡略化したモデルとして、FitzHugh-南雲(FHN)モデルも知られている。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+\frac{du}{dt} = u - u^3 -v + I_{ext} \\<br />
+\frac{dv}{dt} = u - a - bv
+\end{aligned}
+\end{equation}</p>
+
+<p>ここで、$u$がニューロンの膜電位、$v$がニューロン内部の不活性化を表す変数、$a, b$はパラメタである。
+このモデルでも同様に周期的振動が生成される。ちなみにパラメタによって興奮性、振動性を示すことが知られている。
+<a href="http://brain.cc.kogakuin.ac.jp/~kanamaru/Chaos/FN/">フィッツヒュー・南雲 (FitzHugh-Nagumo) 方程式</a> にてその動作をシミュレーションできる。</p>
+
+<p>en:Balthasar van der Polが電気回路の振動について記述したファン・デル・ポール振動子は、FHNモデルについてa=0, b=0とした場合として理解できる。</p>
+
+<p>以上述べたことは、何らかの生物のCPGの神経回路について直接解析したものではない。
+また、実際のCPGは相互作用する複数のニューロンによって構成されており、ニューロン一つの振る舞いだけで説明できるものではない。
+しかし、こうした振る舞いの組み合わせとして、CPGのような機能が実現されていると想像することはできる。</p>
+
+<!-- では、歩行運動は複数の電気的な振動子、あるいは物理的な周期運動とどのように相互作用して生成されると考えられるのだろうか。 -->
+
+<!-- Experimental Studies of a Neural Oscillator for Biped Locomotion with QRIO -->
+
+<h2 id="非線形振動子">非線形振動子</h2>
+
+<p>これまでにニューロンのモデルで示したような周期振動する非線形システムは非線形振動子と捉えることができる。
+非線形振動子の特徴としては、その振動がリミットサイクルとして発現することにある。
+リミットサイクルとは、相図において特定の軌跡を描く動的安定状態である。
+サイクルから外れるような外乱が加わっても元の軌跡に復帰することで安定状態が保たれている。</p>
+
+<h3 id="非線形振動子の同期現象">非線形振動子の同期現象</h3>
+
+<p>復数の非線形振動子に相互作用を行わせると、条件によって同相、逆相で同期することが知られている。
+ファン・デル・ポール振動子に対して相互作用の項を加えて振動させると、同期現象を観察できる。</p>
+
+<p><img src="/images/2017/12/phase_douki.jpg" alt="同期現象" />
+画像は蔵本の書籍<sup class="footnote-ref" id="fnref:8"><a rel="footnote" href="#fn:8">5</a></sup>より引用</p>
+
+<p>周波数は元のどちらのものとも異なるものになる。
+このように同期していく振る舞いを引き込み効果と呼ぶ。</p>
+
+<h3 id="蔵本モデル">蔵本モデル</h3>
+
+<p>同期する非線形振動子のモデルとして蔵本らのモデルが知られている。
+以下のサイトで同期現象を視覚的に確認することができる。</p>
+
+<p><a href="http://titech-ssr.blog.jp/KuramotoModel/index.html">Kuramoto-Model Simulator</a></p>
+
+<h2 id="同期システムを用いた歩行制御">同期システムを用いた歩行制御</h2>
+
+<p>森本らは、歩行の物理的周期運動と歩行パターンを蔵本モデルで記述し、その相互作用によって外乱に対してアダプティブな歩容が生成されることを示した。<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">6</a></sup> <sup class="footnote-ref" id="fnref:6"><a rel="footnote" href="#fn:6">7</a></sup> <sup class="footnote-ref" id="fnref:7"><a rel="footnote" href="#fn:7">8</a></sup></p>
+
+<p>ロボットの物理的特性から発現する振動の位相を$\phi_r$、歩行を制御する振動子の位相を$\phi_c$としたとき、以下の結合振動子系を導入する。
+ここで、$\omega_r, \omega_c$は固有角振動数、$K_c, K_r$は結合強度である。
+物理特性が持つ振動子と、制御器の振動子を同期させるようにしている。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+\dot{\phi_r} = \omega_r + K_c \sin(\phi_c - \phi_r) \\<br />
+\dot{\phi_c} = \omega_c + K_c \sin(\phi_r - \phi_c)
+\end{aligned}
+\end{equation}</p>
+
+<p>ロボットの位相はロボットの足裏のセンサで検出する。
+位相の計算には、以下の式が用いられた。</p>
+
+<p>\begin{equation}
+\phi_{r}(x) = -\arctan \left( \frac{\dot{y}}{y} \right)
+\end{equation}</p>
+
+<p>ここで、$y$は左右方向の床反力中心位置である。
+$y$は両足裏に配置されたセンサによって床反力が左右それぞれ$F^l_z, F^r_z$と検出できるとしたとき、次のように求める。</p>
+
+<p>\begin{equation}
+y = \frac
+{y^l_{foot}F^l_z + y^r_{foot}F^r_z}
+{F^l_z + F^r_z}
+\end{equation}</p>
+
+<p>ただし、位相検出のためにはスケールは重要でないため、$y^l_{foot} = -y^r_{foot} = 1.0 [m]$としている。</p>
+
+<p>コントローラーの位相のダイナミクスには、次の位相振動子モデルに基づいたものを用いる。
+\begin{equation}
+\dot{\phi_{c_i}} =
+\omega_c + K_c \sin((\phi_r(x) - \alpha_i) - \phi_{c_i})
+\end{equation}</p>
+
+<p>$i={1, \dots ,N}$であり、$N$は関節数を表す。
+また、$\alpha_i$は目標位相差である。</p>
+
+<p>ロボットの関節角度は位相$\phi_c$を使って、以下のように決定する。
+\begin{equation}
+\theta^d_i = A_i \sin(\phi_i) + \bar{\theta_i}
+\end{equation}</p>
+
+<p>$A_i$は各関節の振幅を表すパラメタ、$\bar{\theta_i}$は基準姿勢のためのオフセットを表すパラメタである。</p>
+
+<h1 id="実験">実験</h1>
+
+<p>森本らの手法を参考にして、物理シミュレーション上と実機で実験を行った。</p>
+
+<h2 id="シミュレーション">シミュレーション</h2>
+
+<p>物理シミュレーション環境V-REP上で、ヒューマノイドロボットNAOのモデルを歩行させた。
+足裏には6次元力覚センサを配置し、$z$方向のみの値を使って、位相を検出した。
+パラメタの詳細は、森本らの論文を参照して決定した。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YDDVGxIdXZ8" frameborder="0" allowfullscreen></iframe>
+
+<p>停止状態から足踏みを開始し、歩行を継続できることを確認した。</p>
+
+<h2 id="実機への適用">実機への適用</h2>
+
+<p>足裏センサを用意することができなかったため、加速度センサを使って以下のようにロボットの位相を計測した。</p>
+
+<p>\begin{equation}
+\phi_{r}(x) = -\arctan \left( \frac{a}{v} \right)
+\end{equation}</p>
+
+<p>ここで、$a$は加速度センサの値である。
+$v$は加速度を積分して求めた。</p>
+
+<p>\begin{equation}
+v = \int_0^T a dt
+\end{equation}</p>
+
+<p>ただし、$v$にはドリフトが発生するため、周期的な値であることを利用して、$T$を歩行周期程度に設定した。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MjXD8uLvNrI" frameborder="0" allowfullscreen></iframe>
+
+<p>停止状態からの足踏みが安定化することを確認した。</p>
+
+<p>一方で、足の踏み出しを行うと、著しく不安定になるため、歩行は実現できなかった。</p>
+
+<h1 id="今後の課題">今後の課題</h1>
+
+<p>実機にて歩行できなかったのは、位相の計測方法に問題があったと思われる。
+加速度センサから積分した値を用いるため、位相に時間遅れが発生しているという問題がある。
+今後は原論文と同じように足裏にセンサを設置して位相を計測したい。</p>
+
+<p>上体が大きく揺れるような歩容になる結果になったのも、少し不自然であった。
+原論文では上体を水平に保つように最適レギュレーターを用いた制御が組み合わされていた。
+上体の制御は今後の課題である。</p>
+
+<p>振動子の位相から関節角度に変換する時の振幅やオフセットの調整は難しく、別の対処が必要であると思われる。
+強化学習を用いるなどして振幅を学習できないか取り組みたい。</p>
+
+<!-- http://www.k.mei.titech.ac.jp/members/nakao/Etc/phasereduction-iscie.pdf -->
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">G.Taga &ldquo;Self-organized control of bipedal locomotion by neural oscillators in unpredictable environment&rdquo; <a href="http://ci.nii.ac.jp/naid/10003836796">http://ci.nii.ac.jp/naid/10003836796</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">&ldquo;Parallel Conductance Neuron Model of Hodgkin-Huxley Type&rdquo; <a href="http://www.mbs.med.kyoto-u.ac.jp/cortex/23_HH_model.pdf">http://www.mbs.med.kyoto-u.ac.jp/cortex/23_HH_model.pdf</a>
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">&ldquo;Hodgkin–Huxley model&rdquo; <a href="https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model">https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model</a>
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+<li id="fn:4">宇佐見 哲平, 山田 泰司, 市瀬 夏洋, 合原 一幸 &ldquo;Hodgkin-Huxley 方程式とその周期刺激に対する応答&rdquo; <a href="https://www.jstage.jst.go.jp/article/sicejl1962/34/10/34_10_769/_article/-char/ja/">https://www.jstage.jst.go.jp/article/sicejl1962/34/10/34_10_769/_article/-char/ja/</a>
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+<li id="fn:8">蔵本 由紀 &ldquo;リズム現象の世界 (非線形・非平衡現象の数理)&rdquo;
+ <a class="footnote-return" href="#fnref:8"><sup>[return]</sup></a></li>
+<li id="fn:5">森本 淳 &ldquo;同期メカニズムを用いた2足歩行 ―人間の歩行計測とヒューマノイドロボットの歩行制御―&rdquo; <a href="https://www.jstage.jst.go.jp/article/jrsj1983/26/3/26_3_238/_article/-char/ja/">https://www.jstage.jst.go.jp/article/jrsj1983/26/3/26_3_238/_article/-char/ja/</a>
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+<li id="fn:6">J. Morimoto et.al &ldquo;Modulation of simple sinusoidal patterns by a coupled oscillator model for biped walking&rdquo; <a href="http://ieeexplore.ieee.org/document/1641932/">http://ieeexplore.ieee.org/document/1641932/</a>
+ <a class="footnote-return" href="#fnref:6"><sup>[return]</sup></a></li>
+<li id="fn:7">J. Morimoto et.al &ldquo;A Biologically Inspired Biped Locomotion Strategy for Humanoid Robots: Modulation of Sinusoidal Patterns by a Coupled Oscillator Model&rdquo; <a href="http://ieeexplore.ieee.org/document/4456756/">http://ieeexplore.ieee.org/document/4456756/</a>
+ <a class="footnote-return" href="#fnref:7"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+      
+			<div id="share-this" class="col span_10">
+				<span class='st_twitter_large' displayText='Tweet'></span>
+				<span class='st_facebook_large' displayText='Facebook'></span>
+				<span class='st_hatena_large' displayText='Hatena'></span>
+				<span class='st_linkedin_large' displayText='LinkedIn'></span>
+				<span class='st_email_large' displayText='Email'></span>
+			</div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/" rel="prev">強化学習についてまとめる (3) 方策勾配</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+

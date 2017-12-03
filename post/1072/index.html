@@ -85,32 +85,26 @@ ssh-keygen
 で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&gt;Securityより設定しておく．
 
 <h2>Apache 導入</h2>
-yum install -y httpd httpd-devel
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install -y httpd httpd-devel
 chkconfig httpd on
-service httpd start
-
+service httpd start</code></pre></div>
 <h2>PHP 導入</h2>
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd
-vi /etc/php.ini
-vi /etc/httpd/conf.d/php.conf
-
+yum --enablerepo<span style="color:#5bc4bf">=</span>remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd</code></pre></div><div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vi /etc/php.ini
+vi /etc/httpd/conf.d/php.conf</code></pre></div>
 <h2>MySQL 導入</h2>
-yum install mysql-community-release-el6-5.noarch.rpm
-yum install -y mysql-community-client mysql-community-devel mysql-community-server
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install mysql-community-release-el6-5.noarch.rpm
+yum install -y mysql-community-client mysql-community-devel mysql-community-server</code></pre></div>
 <p>Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．</p>
-sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dd <span style="color:#815ba4">if</span><span style="color:#5bc4bf">=</span>/dev/zero <span style="color:#ef6155">of</span><span style="color:#5bc4bf">=</span>/swapfile <span style="color:#ef6155">bs</span><span style="color:#5bc4bf">=</span>1M <span style="color:#ef6155">count</span><span style="color:#5bc4bf">=</span><span style="color:#f99b15">1024</span>
 mkswap /swapfile
 swapon /swapfile
-sudo sh -c "echo '/swapfile swap swap defaults 0 0' &gt;&gt; /etc/fstab"
+sudo sh -c <span style="color:#48b685">&#34;echo &#39;/swapfile swap swap defaults 0 0&#39; &amp;gt;&amp;gt; /etc/fstab&#34;</span>
 chkconfig mysqld on
-service mysqld start
-
+service mysqld start</code></pre></div>
 <p>MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</p>
-mysql_secure_installation
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql_secure_installation</code></pre></div>
 <p><h2>ムームードメインで取得したドメインを管理</h2>
 ムームードメインのメニューのネームサーバー設定変更より
 <a href="/images/2015/04/name_server.png"><img class="alignnone size-full wp-image-1079" src="/images/2015/04/name_server.png" alt="name_server"   />
@@ -122,64 +116,53 @@ mysql_secure_installation
 Digital OceanのDNS設定メニューより，
 <a href="/images/2015/04/DO_domain.png"><img class="alignnone size-full wp-image-1078" src="/images/2015/04/DO_domain.png" alt="DO_domain"   /></a>
 Aレコードにサブドメインを追加する．あとはApache側の設定が要る．</p>
-vim /etc/httpd/conf/httpd.conf
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/httpd/conf/httpd.conf</code></pre></div>
 <p>以下の部分を編集してポート指定．</p>
-NameVirtualHost *:80
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NameVirtualHost *:80</code></pre></div>
 <p>あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．</p>
-<VirtualHost *:80>
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;VirtualHost *:80&gt;
     ServerName syundo.org
     DocumentRoot /var/www/html/
-  <Directory /var/www/html/>
+  &lt;Directory /var/www/html/&gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   </Directory>
-</VirtualHost>
-<VirtualHost *:80>
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+&lt;VirtualHost *:80&gt;
     ServerName blog.syundo.org
     DocumentRoot /var/www/html/blog/
-  <Directory /var/www/html/blog/>
+  &lt;Directory /var/www/html/blog/&gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   </Directory>
-</VirtualHost>
-
+   &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></pre></div>
 <p><h2>PHPmyadmin導入</h2>
 Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
-yum -y install --enablerepo=remi ImageMagick-last
-yum -y install --enablerepo=remi-php55 phpMyAdmin
-vim /etc/httpd/conf.d/phpMyAdmin.conf
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum -y install --enablerepo<span style="color:#5bc4bf">=</span>remi ImageMagick-last
+yum -y install --enablerepo<span style="color:#5bc4bf">=</span>remi-php55 phpMyAdmin</code></pre></div><div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/httpd/conf.d/phpMyAdmin.conf</code></pre></div>
 <p>を編集．内容は忘れた．</p>
 
 <p><h2>データの移行</h2>
 MySQLで作業する．ログインしてパスワード設定する．</p>
-mysql -u root
-set password for root@localhost=password('hogehoge');
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -u root
+set password <span style="color:#815ba4">for</span> root@localhost<span style="color:#5bc4bf">=</span>password<span style="color:#5bc4bf">(</span><span style="color:#48b685">&#39;hogehoge&#39;</span><span style="color:#5bc4bf">)</span>;</code></pre></div>
 <p>データベース作る．</p>
-create database database_name
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">create database database_name</code></pre></div>
 <p>作業ユーザを作っておく</p>
-grant all on database_name.* to dbuser@localhost identified by 'piyopiyo';
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grant all on database_name.* to dbuser@localhost identified by <span style="color:#48b685">&#39;piyopiyo&#39;</span>;</code></pre></div>
 <p>以前のブログのデータベースの移行はPHPmyadimnを使って行う．これはググれば色んなサイトで解説されている．どれが正しいのかはいまいちわからなかった．<a href="http://websae.net/wordpress-backup-without-plugin-20140924/">http://websae.net/wordpress-backup-without-plugin-20140924/</a></p>
 
 <p>worldpressに使うデータベース名，作業ユーザー，パスワードを設定する．</p>
-vim wp-config.php
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim wp-config.php</code></pre></div>
 <p>Wordpressファイルの所有者の変更をしておく．こうしないとプラグインの更新とかで不具合が出る．</p>
-sudo chown -R apache:apache myblogdir
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo chown -R apache:apache myblogdir</code></pre></div>
 <p>どのグループ，ユーザーに権限を与えればいいかは， /etc/httpd/conf/httpd.conf　にある，</p>
-User apache
-Group apache
-
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">User apache
+Group apache</code></pre></div>
 <p>の部分を見ればわかる．</p>
 
 <p><h2>追記：</h2>

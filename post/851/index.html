@@ -72,62 +72,61 @@
       <p>CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．</p>
 
 <p>　Split(string &amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．</p>
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-
-using namespace std;
-vector<string> Split(string &src, string key);
-bool readCSV(string filename, int* p);
-int main(void){
-  int data[256];//ファイルから読み込んだ数値を入れる配列
-  readCSV("data.csv", data);//ファイルから読み込み
-
-  //最初の10個を表示させてみる
-  for(int i = 0; i < 10; ++i) {
-    cout << data[i] << endl;
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;iostream&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;fstream&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;sstream&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;string&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;vector&gt;</span><span style="color:#8d8687">
+</span><span style="color:#8d8687"></span>
+<span style="color:#815ba4">using</span> <span style="color:#815ba4">namespace</span> std;
+vector<span style="color:#5bc4bf">&lt;</span>string<span style="color:#5bc4bf">&gt;</span> Split(string <span style="color:#5bc4bf">&amp;</span>src, string key);
+<span style="color:#fec418">bool</span> <span style="color:#06b6ef">readCSV</span>(string filename, <span style="color:#fec418">int</span><span style="color:#5bc4bf">*</span> p);
+<span style="color:#fec418">int</span> <span style="color:#06b6ef">main</span>(<span style="color:#fec418">void</span>){
+  <span style="color:#fec418">int</span> data[<span style="color:#f99b15">256</span>];<span style="color:#8d8687">//ファイルから読み込んだ数値を入れる配列
+</span><span style="color:#8d8687"></span>  readCSV(<span style="color:#48b685"></span><span style="color:#48b685">&#34;data.csv&#34;</span>, data);<span style="color:#8d8687">//ファイルから読み込み
+</span><span style="color:#8d8687"></span>
+  <span style="color:#8d8687">//最初の10個を表示させてみる
+</span><span style="color:#8d8687"></span>  <span style="color:#815ba4">for</span>(<span style="color:#fec418">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i <span style="color:#5bc4bf">&lt;</span> <span style="color:#f99b15">10</span>; <span style="color:#5bc4bf">++</span>i) {
+    cout <span style="color:#5bc4bf">&lt;&lt;</span> data[i] <span style="color:#5bc4bf">&lt;&lt;</span> endl;
   }
 }
 
-bool readCSV(string filename, int* p) {
+<span style="color:#fec418">bool</span> <span style="color:#06b6ef">readCSV</span>(string filename, <span style="color:#fec418">int</span><span style="color:#5bc4bf">*</span> p) {
   fstream file;
   string str;
-  file.open(filename.c_str(), ios::in);
-  if(! file.is_open()) {
-    return false;
+  file.open(filename.c_str(), ios<span style="color:#5bc4bf">::</span>in);
+  <span style="color:#815ba4">if</span>(<span style="color:#5bc4bf">!</span> file.is_open()) {
+    <span style="color:#815ba4">return</span> false;
   }
-  while(getline(file, str)) {
-    vector<string> str_line = Split(str, (string)",");
-    int size = str_line.size();
-    for(int i = 0; i < size; ++i) {
+  <span style="color:#815ba4">while</span>(getline(file, str)) {
+    vector<span style="color:#5bc4bf">&lt;</span>string<span style="color:#5bc4bf">&gt;</span> str_line <span style="color:#5bc4bf">=</span> Split(str, (string)<span style="color:#48b685"></span><span style="color:#48b685">&#34;,&#34;</span>);
+    <span style="color:#fec418">int</span> size <span style="color:#5bc4bf">=</span> str_line.size();
+    <span style="color:#815ba4">for</span>(<span style="color:#fec418">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i <span style="color:#5bc4bf">&lt;</span> size; <span style="color:#5bc4bf">++</span>i) {
       stringstream sstr;
-      sstr << str_line[i];
-      sstr >> p[i];
+      sstr <span style="color:#5bc4bf">&lt;&lt;</span> str_line[i];
+      sstr <span style="color:#5bc4bf">&gt;&gt;</span> p[i];
     }
-    p += size;
+    p <span style="color:#5bc4bf">+=</span> size;
   }
   file.close();
-  return true;
+  <span style="color:#815ba4">return</span> true;
 }
-vector<string> Split(string &src, string key) {
-  string str = src;
-  vector<string> str_line;
-  int str_len = str.length();
-  int key_len = key.length();
-  int index = 0;
-  while(index < str_len) {
-    int oldindex = index;
-    index = str.find(key, index);
-    index = (index == string::npos ? str_len : index);
-    string tmp = str.substr(oldindex, index - oldindex);
+vector<span style="color:#5bc4bf">&lt;</span>string<span style="color:#5bc4bf">&gt;</span> Split(string <span style="color:#5bc4bf">&amp;</span>src, string key) {
+  string str <span style="color:#5bc4bf">=</span> src;
+  vector<span style="color:#5bc4bf">&lt;</span>string<span style="color:#5bc4bf">&gt;</span> str_line;
+  <span style="color:#fec418">int</span> str_len <span style="color:#5bc4bf">=</span> str.length();
+  <span style="color:#fec418">int</span> key_len <span style="color:#5bc4bf">=</span> key.length();
+  <span style="color:#fec418">int</span> index <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>;
+  <span style="color:#815ba4">while</span>(index <span style="color:#5bc4bf">&lt;</span> str_len) {
+    <span style="color:#fec418">int</span> oldindex <span style="color:#5bc4bf">=</span> index;
+    index <span style="color:#5bc4bf">=</span> str.find(key, index);
+    index <span style="color:#5bc4bf">=</span> (index <span style="color:#5bc4bf">==</span> string<span style="color:#5bc4bf">::</span>npos <span style="color:#5bc4bf">?</span> str_len : index);
+    string tmp <span style="color:#5bc4bf">=</span> str.substr(oldindex, index <span style="color:#5bc4bf">-</span> oldindex);
     str_line.push_back(tmp);
-    index += key_len;
+    index <span style="color:#5bc4bf">+=</span> key_len;
   }
-  return str_line;
-}
-
+  <span style="color:#815ba4">return</span> str_line;
+}</code></pre></div>
 
       
 			<div id="share-this" class="col span_10">

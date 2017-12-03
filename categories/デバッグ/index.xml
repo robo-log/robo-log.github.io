@@ -6,8 +6,11 @@
     <description>Recent content in デバッグ on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Wed, 19 Jan 2011 00:00:27 +0900</lastBuildDate>
-    <atom:link href="http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://blog.syundo.org/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>RAMデバッグ(sh7125)</title>
@@ -15,312 +18,26 @@
       <pubDate>Wed, 19 Jan 2011 00:00:27 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/877/</guid>
-      <description>&lt;p&gt;RAMデバッグの方法を解説したいと思います。&lt;/p&gt;
-
-&lt;p&gt;更新履歴&lt;/p&gt;
-
-&lt;p&gt;2009　8/9ひとまず完成&lt;/p&gt;
-
-&lt;p&gt;2009　8/10非公開にした後復活&lt;/p&gt;
-
-&lt;p&gt;2010　12/26一部修正&lt;/p&gt;
-
-&lt;p&gt;2011　1/18公開場所変更&lt;/p&gt;
-
-&lt;h3&gt;１．はじめに&lt;/h3&gt;
-
-&lt;p&gt;ここでは、開発環境としてHEW4を使っていることを前提とします。&lt;/p&gt;
-
-&lt;p&gt;私の手元にSTK-7125があるので具体的なことはSTK-7125について書きます。&lt;/p&gt;
-
-&lt;p&gt;ルネサスのモニタプログラムとHtermを使ってRAMデバッグ環境を整えていきましょう。&lt;/p&gt;
-
-&lt;h3&gt;２．なぜRAMデバッグするのか&lt;/h3&gt;
-
-&lt;p&gt;マイコンのROMというものには実は書き込み回数に制限があります。制限というのは具体的には、書き込み回数100回までしか動作は保証しかねるよ、というようなことです。10万回書き込めるようなマイコンもあります。しかしそうでないマイコンの場合は困ってしまいます。そんなときにRAMにプログラムを書き込むと便利です。RAMは書き込み回数には制限が無いので、安心してプログラムを書き換えられます。&lt;/p&gt;
-
-&lt;p&gt;RAMに書き込むといっても、マイコンは普通RAMだけを使って動作することはしません。RAMに書き込んでプログラムを実行させるためには何か他に手助けが要るわけです。その手助けをするものがエミュレーターだったりモニタプログラムだったりします。ここではモニタプログラムを使います。&lt;/p&gt;
-
-&lt;h3&gt;３．モニタプログラムとは&lt;/h3&gt;
-
-&lt;p&gt;モニタプログラムとは、マイコンに組み込まれて、ユーザープログラム（あなたが実行したいプログラム）をRAM上で実行できるようにしてくれるプログラムです。&lt;/p&gt;
-
-&lt;p&gt;このような組み込み型モニタの利点はマイコンのほかにエミュレータと呼ばれるデバッグを行うための機器を必要としないところです。もちろんエミュレータとは機能的には違うところもあるけど、とりあえず気にしなくていいです。&lt;/p&gt;
-
-&lt;h3&gt;４．ソフトを揃えよう&lt;/h3&gt;
-
-&lt;p&gt;必要なものをダウンロードしていきましょう。&lt;/p&gt;
-
-&lt;p&gt;ルネサステクノロジに行って、右上の検索BOXから「Hterm」と検索してください。&lt;/p&gt;
-
-&lt;p&gt;四つぐらい候補が出てきます。その中から自分のマイコン向けのページを選んでください。&lt;/p&gt;
-
-&lt;p&gt;そこで自分のマイコン向けのモニタプログラムとHtermをダウンロードします。自己解凍ファイルなので2つとも実行して好きなとこに解凍してください。解凍先にhtermというフォルダと、sh2というフォルダが出来ています（SHｰ2シリーズを選んだ場合）。&lt;/p&gt;
-
-&lt;h3&gt;５．モニタプログラムの設定をしよう&lt;/h3&gt;
-
-&lt;p&gt;フォルダsh2の中のmonitorという名前のHEWWorkSpaceFileを開いてください。プロジェクトの中にmonitor.cとmonitor.sub、そしてdependenciesには7040s.hというファイルがあります。&lt;/p&gt;
-
-&lt;p&gt;まずmonitor.cを編集しましょう&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;/*********************************************************/
-
-/*      SH7600 Monitor Program                          Ver. 2.0A       */
-
-/*              Copyright (C) 2003 Renesas Technology Corp.             */
-
-/*********************************************************/
-
-#include &lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;&#34;7125s.h&#34;&lt;/strong&gt;&lt;/span&gt;//①                              /*                      */
-
-/*********************************************************/
-
-/*      User Initialize Module                                          */
-
-/*              Input   PR      &lt;-- Return Address                      */
-
-/*              Output  Nothing                                         */
-
-/*              Used Stack Area --&gt; 0(0) Byte                           */
-
-/*********************************************************/
-
-#pragma noregsave(INITIALIZE)                   /* Non Register Save    */
-
-void INITIALIZE(void)                           /*                      */
-
-{                                               /*                      */
-
-&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;CPG.FRQCR.BIT.IFC = 1;&lt;/strong&gt;&lt;/span&gt; //②
-
-&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;PFC.PACRL4.BIT.PA15MD = 6;&lt;/strong&gt;&lt;/span&gt; //③
-
-&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;PFC.PACRL4.BIT.PA14MD = 6;&lt;/strong&gt;&lt;/span&gt;
-
-}                                               /* Goto Monitor Program */&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;赤太字の部分が変更したところです。&lt;/p&gt;
-
-&lt;p&gt;//①とかは説明用の番号なので書かなくていいですよ。&lt;/p&gt;
-
-&lt;p&gt;①sh7125用のヘッダファイルをインクルードします。&lt;/p&gt;
-
-&lt;p&gt;②sh7125はPLLからの分周割合を変更できます。Iφを1/2倍にします。&lt;/p&gt;
-
-&lt;p&gt;STK-7125には12Mhzのクロックが付いているから、Iφだけ12×8×1/2＝48MHzになります。&lt;/p&gt;
-
-&lt;p&gt;③モニタプログラムがパソコンと通信するときのポートを有効にしておきます。&lt;/p&gt;
-
-&lt;p&gt;STK-7125EVBの場合、PA14,PA15がUSBで繋がってます。&lt;/p&gt;
-
-&lt;p&gt;次にmonitor.subを編集しましょう&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;INPUT      SUPERH,MONITOR&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;,LOWER&lt;/strong&gt;&lt;/span&gt;//①
-
-LIST       MONITOR.MAP
-
-SHOW       SYMBOL
-
-OUTPUT     MONITOR.MOT
-
-FORM       STYPE
-
-CHANGE     INFORMATION=1320
-
-NOOPTIMIZE
-
-LIBRARY    SUPERH&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;,7125&lt;/strong&gt;&lt;/span&gt;//②
-
-LIBRARY    MONITOR
-
-DEFINE     $BRR=&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;13&lt;/strong&gt;&lt;/span&gt;//③
-
-DEFINE     $STACK=&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;FFFFC000&lt;/strong&gt;&lt;/span&gt;//④
-
-START      &lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;VECTOR,ROM,P,C/0,RAM,USER/FFFFA000,SCI/FFFFC080&lt;/strong&gt;&lt;/span&gt;//⑤&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;①モニタ上にprintfで文字を出力したり、scanfで入力できるようにするための設定です。&lt;/p&gt;
-
-&lt;p&gt;②マイコンの種類別の情報はライブラリファイルとして提供されています。自分のマイコンチップを選択しましょう。ここでは7040となっていたのを7125にしてます。&lt;/p&gt;
-
-&lt;p&gt;③SCI のビットレートを設定してます。この値は自分のマイコンチップのデータシートのSCIについての部分で、SCIのビットレートを設定するレジスタについての項を読んで決定します。周辺クロック数を確認し、通信速度を考えてからN（ボーレートジェネレーターのSCBRRの設定値）の値を読んで&lt;span style=&#34;color:#FF0000&#34;&gt;&lt;strong&gt;16進数に直してから&lt;/strong&gt;&lt;/span&gt;書いてください。SH7125の場合Pφ=24MHzに設定されてて（初期値）、38400bpsで通信したいから、データシートP.396をみて、N=19だと分かります。これを16進数に変換した値である13を書き込むのです。&lt;/p&gt;
-
-&lt;p&gt;④ユーザースタックの初期位置をRAMの最後尾に設定します。スタック領域はRAMの最後尾から伸びていくものですから。&lt;/p&gt;
-
-&lt;p&gt;⑤モニタプログラムをメモリ上にどう配置するか記述されてます。&lt;/p&gt;
-
-&lt;p&gt;ベクタ領域はROMの先頭に配置しなければなりません。VECTORセクションを先頭にして連続でROM,P,Cセクションを内蔵ROMに配置します。また、RAM,USERセクションはRAMの先頭から連続で配置します。最後に、使うチャネルのSCIの先頭アドレス（SMRのアドレス）をSCI/のところに書きます。SH7125について言うとSCSMR_1のアドレスを書いてます。&lt;/p&gt;
-
-&lt;p&gt;最後に、低水準インターフェースが使えるようにするために必要なファイルをプロジェクトに追加します「プロジェクト(P)」メニューの「ファイルの追加(A)&amp;hellip;」でProjectフォルダ「monitor」の中にある「lower.c」を追加してください。&lt;/p&gt;
-
-&lt;p&gt;以上設定してきましたが、ビルドすれば完成です。ビルド→すべてをビルドしてください。&lt;/p&gt;
-
-&lt;h3&gt;６．モニタプログラムをROMに書き込んでから実行してみよう&lt;/h3&gt;
-
-&lt;p&gt;どんな方法でもかまいません。ROMに書き込んでください。&lt;/p&gt;
-
-&lt;p&gt;MONITOR.MOTってやつです。&lt;/p&gt;
-
-&lt;p&gt;私はFlashWriterEXforsh7125を使って書き込みました。&lt;/p&gt;
-
-&lt;p&gt;この環境が限定的かもしれないので詳しくは書きません。&lt;/p&gt;
-
-&lt;p&gt;ルネサスではFDT（Flash Development Toolkit）ってやつを無償配布してるらしいのでそれでも使ってください。その使い方についても解説しませんできませんすいません（汗&lt;/p&gt;
-
-&lt;p&gt;書き込みができたら、パソコンにマイコンをつないでから「Hterm」を立ち上げてください。&lt;/p&gt;
-
-&lt;p&gt;そこで通信→切断をクリックし、通信を切断してから、ファイル→プロパティで、COMとビットレートを指定してください。(私の場合COM4、ビットレート38400)&lt;/p&gt;
-
-&lt;p&gt;OKを押すと勝手に通信接続します。ここでマイコンの電源を入れると&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;SH7125 Series SuperH RISC engine Monitor Ver. 2.0B
-
-Copyright (C) 2003 Renesas Technology Corp.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;このようなメッセージが表示されます。成功です。&lt;/p&gt;
-
-&lt;p&gt;次にコマンド→HELPをクリックしてください。&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Monitor Vector  00000000  -  0000038F
-
-Monitor ROM     00000390  -  00005641
-
-Monitor RAM     FFFFA000  -  FFFFA15F
-
-User    Vector  FFFFA160  -  FFFFA4EF
-
-.  : Changes contents of SH7600 registers.
-
-B  : Sets or displays or clear breakpoint(s).
-
-D  : Displays memory contents.
-
-DA : Disassembles memory contents.
-
-F  : Fills specified memory range with data.
-
-G  : Executes real-time emulation.
-
-L  : Loads user program into memory from host system.
-
-M  : Changes memory contents.
-
-R  : Displays contents of SH7600 registers.
-
-S  : Executes single emulation(s) and displays instruction and registers.
-
-SH : Displays contents of SH7125 peripheral registers.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;このようなものが表示されます。&lt;/p&gt;
-
-&lt;p&gt;これはモニタプログラムの中身がどのアドレスに割り当てられたかということと、モニタプログラムを操作するためのコマンドを表示しています。ひとまずコマンドは気にしなくていいです。&lt;/p&gt;
-
-&lt;p&gt;&lt;s&gt;ここで大切なのは&lt;/p&gt;
-
-&lt;p&gt;User    Vector  FFFFA160  -  FFFFA4EF&lt;/p&gt;
-
-&lt;p&gt;というところです。&lt;/s&gt;ユーザープログラムに与えられたベクタ領域を示しています。&lt;/p&gt;
-
-&lt;p&gt;ひとまずこれでモニタプログラムに関する作業は終わりです。次にRAM上で実行するユーザープログラムの設定をします。&lt;/p&gt;
-
-&lt;h3&gt;７．ユーザープログラムのセクション設定&lt;/h3&gt;
-
-&lt;p&gt;HEWで普通にワークスペースを作成し、何も設定を変更されていない状態では、完成したプログラムはマイコンのROMに書き込まれることが前提になっています。&lt;/p&gt;
-
-&lt;p&gt;最終的にロボットに積むときにはもちろんプログラムはROMに書き込まれているべきです。でもデバッグ時はそうではないのです。RAMでプログラムを実行できるようにユーザープログラムの設定を変更しましょう。SH7125について説明します。&lt;/p&gt;
-
-&lt;p&gt;HEWのメニューから、&lt;/p&gt;
-
-&lt;p&gt;ビルド(B)→SuperH RISC engine Standard toolchainを選んで、&lt;/p&gt;
-
-&lt;p&gt;最適化リンカのタブをクリック→カテゴリ：セクション、設定項目：セクションを選択します。&lt;/p&gt;
-
-&lt;p&gt;下記のようなセクションがあると思います。&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;DVECTTBL
-
-DINTTBL
-
-PIntPRG
-
-PResetPRG
-
-P
-
-C
-
-C&amp;BSEC
-
-C&amp;DSEC
-
-D
-
-B
-
-R
-
-S&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;編集(E)ボタンをクリックしてセクションの割り当てを編集します。&lt;/p&gt;
-
-&lt;p&gt;モニタプログラムで見た&lt;/p&gt;
-
-&lt;p&gt;User    Vector  FFFFA160  -  FFFFA4EF&lt;/p&gt;
-
-&lt;p&gt;の部分を参考にします。&lt;/p&gt;
-
-&lt;p&gt;セクションDVECTTBLをアドレスFFFFA160番地から配置します。&lt;/p&gt;
-
-&lt;p&gt;&lt;s&gt;FFFFA160～FFFFA4EFをDVECTTBLに割り当てることから、DINTTBL以降はFFFFA4F0番地から割り当てます。&lt;/s&gt;（修正→）DINTTBL以降はDVECTTBLと領域が被らないように配置すれば良いです。つまりモニタプログラムのユーザーベクタのところは開始アドレスだけを気にすれば問題ないです。&lt;/p&gt;
-
-&lt;p&gt;スタック領域を400byte確保するため、セクションSはFFFFBC00から割り当てます。（補足→）スタックサイズは各自計算して適切な値にしたほうがいいです。プロジェクト→構成の編集→スタックから変更できます。ここではデフォルト値である400で説明しています。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/miconplus/fig/photo.png&#34;&gt;&lt;img src=&#34;http://blog.syundo.org/images/miconplus/fig/photo.png&#34; alt=&#34;割り付け&#34; border=&#34;0&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;s&gt;こんな感じになりますね。&lt;/s&gt;（補足）上記修正によって、私のプログラムの一例では、DINTTBL以降の先頭アドレスは 0xFFFFA170に設定すれば良くなりました。あるいは、DINTTBL以降を特に意識せずに、DVECTTBLから自動的に連続に配置するようにアドレスの区切りを画像の例とは変えてもいいと思います。&lt;/p&gt;
-
-&lt;p&gt;OKを押して設定を終えてからいつものようにビルドしましょう。&lt;/p&gt;
-
-&lt;p&gt;&lt;s&gt;☆数学関数も使いたい&lt;/p&gt;
-
-&lt;p&gt;参考サイトを挙げておきます&lt;/p&gt;
-
-&lt;p&gt;勝手にリンクしてしまっていいのかと思いますが忘れてしまったら困るので。&lt;/p&gt;
-
-&lt;p&gt;すばらしい内容です。&lt;/p&gt;
-
-&lt;p&gt;標準ライブラリにmath.hを追加するのを忘れないこと！！！&lt;/p&gt;
-
-&lt;p&gt;設定の仕方はここの数学関数についてのとこ&lt;/s&gt;(追記)リンク切れしました。&lt;/p&gt;
-
-&lt;h3&gt;８．実行する&lt;/h3&gt;
-
-&lt;p&gt;「Hterm」を立ち上げ、通信の設定をしてから通信接続してください。&lt;/p&gt;
-
-&lt;p&gt;コマンド→LOADを押して、ユーザープログラムのabsファイルを読み込みます。多少時間がかかります。コマンド→GOで実行開始されます。&lt;/p&gt;
-
-&lt;p&gt;RAMに配置されているため、もし電源を切るとプログラムが消えます。LOADからやり直しになります。（まぁ仕方がない）&lt;/p&gt;
-
-&lt;h3&gt;９．さいごに&lt;/h3&gt;
-
-&lt;p&gt;以上、長々しく書いてきました！！&lt;/p&gt;
-
-&lt;p&gt;これでメモリの書き込み回数を気にせずにどんどん開発できるようになります！！&lt;/p&gt;
-
-&lt;p&gt;わかりにくい文章でしたが、最後まで読んでいただき有り難うございました。&lt;/p&gt;
-
-&lt;p&gt;今後、もう少しわかりやすくするため画像とか説明を補足していくことも考えています。&lt;/p&gt;
-
-&lt;p&gt;要望などありましたら是非お知らせください。それにお答えできないことは多々あると思いますが・・・・・・。努力はします。&lt;/p&gt;
-
-&lt;p&gt;さらにお願いしたいのですが、この文章に間違いがあったらどうか誰か教えてください。 私はこの分野についてまだ独学を始めたばかりでありますから、実は説明していることの根拠がいまひとつわかっていないところもあるのです。ですから、とんでもない間違いをしているかもしれません。それでも、自分のように悩んでいた人の役に立てたらとこれを書きました。より充実した内容にするため間違いがあったら指摘してくださるとありがたいです。&lt;/p&gt;
-
-&lt;p&gt;さて、最後にありきたりな一言。&lt;/p&gt;
-
-&lt;p&gt;この文章を参考にしたことによって生じた損害について&lt;/p&gt;
-
-&lt;p&gt;私は一切責任を負いませんよー！！&lt;/p&gt;
-</description>
+      <description>RAMデバッグの方法を解説したいと思います。
+更新履歴
+2009　8/9ひとまず完成
+2009　8/10非公開にした後復活
+2010　12/26一部修正
+2011　1/18公開場所変更
+１．はじめに ここでは、開発環境としてHEW4を使っていることを前提とします。
+私の手元にSTK-7125があるので具体的なことはSTK-7125について書きます。
+ルネサスのモニタプログラムとHtermを使ってRAMデバッグ環境を整えていきましょう。
+２．なぜRAMデバッグするのか マイコンのROMというものには実は書き込み回数に制限があります。制限というのは具体的には、書き込み回数100回までしか動作は保証しかねるよ、というようなことです。10万回書き込めるようなマイコンもあります。しかしそうでないマイコンの場合は困ってしまいます。そんなときにRAMにプログラムを書き込むと便利です。RAMは書き込み回数には制限が無いので、安心してプログラムを書き換えられます。
+RAMに書き込むといっても、マイコンは普通RAMだけを使って動作することはしません。RAMに書き込んでプログラムを実行させるためには何か他に手助けが要るわけです。その手助けをするものがエミュレーターだったりモニタプログラムだったりします。ここではモニタプログラムを使います。
+３．モニタプログラムとは モニタプログラムとは、マイコンに組み込まれて、ユーザープログラム（あなたが実行したいプログラム）をRAM上で実行できるようにしてくれるプログラムです。
+このような組み込み型モニタの利点はマイコンのほかにエミュレータと呼ばれるデバッグを行うための機器を必要としないところです。もちろんエミュレータとは機能的には違うところもあるけど、とりあえず気にしなくていいです。
+４．ソフトを揃えよう 必要なものをダウンロードしていきましょう。
+ルネサステクノロジに行って、右上の検索BOXから「Hterm」と検索してください。
+四つぐらい候補が出てきます。その中から自分のマイコン向けのページを選んでください。
+そこで自分のマイコン向けのモニタプログラムとHtermをダウンロードします。自己解凍ファイルなので2つとも実行して好きなとこに解凍してください。解凍先にhtermというフォルダと、sh2というフォルダが出来ています（SHｰ2シリーズを選んだ場合）。
+５．モニタプログラムの設定をしよう フォルダsh2の中のmonitorという名前のHEWWorkSpaceFileを開いてください。プロジェクトの中にmonitor.cとmonitor.sub、そしてdependenciesには7040s.hというファイルがあります。
+まずmonitor.cを編集しましょう
+/*********************************************************/ /* SH7600 Monitor Program Ver. 2.0A */ /* Copyright (C) 2003 Renesas Technology Corp. */ /*********************************************************/ #include &#34;7125s.h&#34;//① /* */ /*********************************************************/ /* User Initialize Module */ /* Input PR 0(0) Byte */ /*********************************************************/ #pragma noregsave(INITIALIZE) /* Non Register Save */ void INITIALIZE(void) /* */ { /* */ CPG.</description>
     </item>
     
   </channel>

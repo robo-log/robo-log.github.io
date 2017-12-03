@@ -6,8 +6,11 @@
     <description>Recent content in ロボット紹介 on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Sun, 30 Jan 2011 00:53:06 +0900</lastBuildDate>
-    <atom:link href="http://blog.syundo.org/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://blog.syundo.org/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>正直舐めてた「X-RHex」</title>
@@ -15,32 +18,18 @@
       <pubDate>Sun, 30 Jan 2011 00:53:06 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/891/</guid>
-      <description>&lt;p&gt;先日、ペンシルベニア大学の「X-RHex」について記事を書いたが&lt;a href=&#34;http://robottec.blog100.fc2.com/blog-entry-15.html&#34;&gt;6足ロボット「X-RHex」&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;正直なところ、&lt;/p&gt;
-
-&lt;p&gt;「まぁちょっと思いつけば作れるんじゃない？こんなくらい」などと思っていた（爆死&lt;/p&gt;
-
-&lt;p&gt;しかし私はとんでもない動画をみつけてしまった。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://karapaia.livedoor.biz/archives/51962870.html&#34;&gt;もはやロボットにしておくにはもったいない愛くるロボット「X-RHex」が更なる進化した姿を披露&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe title=&#34;YouTube video player&#34; class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;485&#34; height=&#34;386&#34; src=&#34;http://www.youtube.com/embed/dilEgVu-6fw&#34; frameborder=&#34;0&#34; allowFullScreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;これはさまざまなバージョンのX-RHexの動画をまとめたもので、X-RHexの開発記録である。&lt;/p&gt;
-
-&lt;p&gt;まず第一に、岩場や草原などの不整地を走行するには、普通のタイヤより圧倒的に速い！ということを再認識した。この一見簡単なように見える脚の構造自体がものすごく偉大な発見なのだ！！&lt;/p&gt;
-
-&lt;p&gt;そして動画の中でカメラを使って色を認識してボールを追いかけたり、ライントレースをしているところがある。非常に完成度の高いシステムなのである！！&lt;/p&gt;
-
-&lt;p&gt;最後に、最も驚いたところは、私が2足ロボット好きなこともあるが、3:00あたりのbiped mode（2足歩行モード）である！！なんともちょこちょこと安定して歩く（むしろ走っている）じゃないか！！&lt;/p&gt;
-
-&lt;p&gt;本当にアメリカの研究者はこの手の制御がうまい！！それになによりもこんなことやってる暇があるのがすごいのではないか？ちょっと2本脚で歩かせてみようぜ！ってできるものなのか！？&lt;/p&gt;
-
-&lt;p&gt;いやぁ。すごい。&lt;/p&gt;
-
-&lt;p&gt;本当に驚いたんですよ。見つけてよかった。&lt;/p&gt;
-</description>
+      <description>先日、ペンシルベニア大学の「X-RHex」について記事を書いたが6足ロボット「X-RHex」
+正直なところ、
+「まぁちょっと思いつけば作れるんじゃない？こんなくらい」などと思っていた（爆死
+しかし私はとんでもない動画をみつけてしまった。
+もはやロボットにしておくにはもったいない愛くるロボット「X-RHex」が更なる進化した姿を披露
+ これはさまざまなバージョンのX-RHexの動画をまとめたもので、X-RHexの開発記録である。
+まず第一に、岩場や草原などの不整地を走行するには、普通のタイヤより圧倒的に速い！ということを再認識した。この一見簡単なように見える脚の構造自体がものすごく偉大な発見なのだ！！
+そして動画の中でカメラを使って色を認識してボールを追いかけたり、ライントレースをしているところがある。非常に完成度の高いシステムなのである！！
+最後に、最も驚いたところは、私が2足ロボット好きなこともあるが、3:00あたりのbiped mode（2足歩行モード）である！！なんともちょこちょこと安定して歩く（むしろ走っている）じゃないか！！
+本当にアメリカの研究者はこの手の制御がうまい！！それになによりもこんなことやってる暇があるのがすごいのではないか？ちょっと2本脚で歩かせてみようぜ！ってできるものなのか！？
+いやぁ。すごい。
+本当に驚いたんですよ。見つけてよかった。</description>
     </item>
     
     <item>
@@ -49,32 +38,17 @@
       <pubDate>Tue, 25 Jan 2011 21:37:04 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/887/</guid>
-      <description>&lt;p&gt;GetRoboBlogさんの記事を見た感想。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.getrobo.com/getrobo_blog/2011/01/x-rhex.html&#34;&gt;足が両側で2＋1本ずつ動く6足ロボット「X-RHex」&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe title=&#34;YouTube video player&#34; class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;485&#34; height=&#34;386&#34; src=&#34;http://www.youtube.com/embed/VL0aiQAm4RU&#34; frameborder=&#34;0&#34; allowFullScreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;ペンシルベニア大学のロボットらしい。&lt;/p&gt;
-
-&lt;p&gt;動画の1:00のあたりで全部の足が浮いている瞬間がカメラに捕らえられている。&lt;/p&gt;
-
-&lt;p&gt;特別な制御をしているみたいでもないのに、走行状態になっているんだー。&lt;/p&gt;
-
-&lt;p&gt;どうもシミュレーションはしてあるみたいだけど。&lt;/p&gt;
-
-&lt;p&gt;脚の柔軟さがポイントなのかも。&lt;/p&gt;
-
-&lt;p&gt;二足ロボットにしても脚の構造自体が非常に重要みたいだし↓&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.getrobo.com/getrobo_blog/2010/12/athlete-robot.html&#34;&gt;日本のアスリート・ロボット、世界を駆け巡る&lt;/a&gt;&lt;/p&gt;
-
-&lt;iframe title=&#34;YouTube video player&#34; class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;485&#34; height=&#34;386&#34; src=&#34;http://www.youtube.com/embed/bXqUjiNw8fo&#34; frameborder=&#34;0&#34; allowFullScreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;これもまだ何も制御してないのに人間の走りそのものだよなぁ。&lt;/p&gt;
-
-&lt;p&gt;やっぱ構造は重要。&lt;/p&gt;
-</description>
+      <description>GetRoboBlogさんの記事を見た感想。
+足が両側で2＋1本ずつ動く6足ロボット「X-RHex」
+ ペンシルベニア大学のロボットらしい。
+動画の1:00のあたりで全部の足が浮いている瞬間がカメラに捕らえられている。
+特別な制御をしているみたいでもないのに、走行状態になっているんだー。
+どうもシミュレーションはしてあるみたいだけど。
+脚の柔軟さがポイントなのかも。
+二足ロボットにしても脚の構造自体が非常に重要みたいだし↓
+日本のアスリート・ロボット、世界を駆け巡る
+ これもまだ何も制御してないのに人間の走りそのものだよなぁ。
+やっぱ構造は重要。</description>
     </item>
     
   </channel>

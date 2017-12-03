@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/"/>
+  <link rel="canonical" href="http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -77,7 +77,7 @@
 <!-- 上式を見ればわかるように、そのためには状態遷移確率が既知である必要がある。
 扱いたいのは環境が未知の問題であるため、状態遷移確率を用いずに反復的に価値関数を求める。 --></p>
 
-<h1 id="価値推定と反復:0609effec2e538d5a738f7edd8890087">価値推定と反復</h1>
+<h1 id="価値推定と反復">価値推定と反復</h1>
 
 <p>価値関数についてのベルマン方程式において、常に最適な方策を取るという前提を置けば、以下の<strong>最適ベルマン方程式</strong>を定めることができる。
 \begin{equation}
@@ -120,7 +120,7 @@ $$</p>
 <p>また、実際に採用している方策と異なる方策を学習する方法は<strong>方策オフ型</strong>学習と呼ばれる。
 一方で、学習した方策をそのときどき採用する方法を<strong>方策オン</strong>型学習と呼ぶ。</p>
 
-<h2 id="td学習:0609effec2e538d5a738f7edd8890087">TD学習</h2>
+<h2 id="td学習">TD学習</h2>
 
 <p>MDPにおいて価値関数を推定したい。
 TD学習(Temporal difference learning)は、現在の推定値を学習中の目標値として使用することで、問題を解いていく手法である。</p>
@@ -128,7 +128,7 @@ TD学習(Temporal difference learning)は、現在の推定値を学習中の目
 <p>ベルマン方程式は、状態遷移確率が未知の場合、そのまま解くことはできない。
 そこで、状態遷移確率は実際に観測する(サンプリングする)ことによって、確率分布を近似し、ベルマン方程式を扱う。</p>
 
-<h3 id="td-0-法:0609effec2e538d5a738f7edd8890087">TD(0)法</h3>
+<h3 id="td-0-法">TD(0)法</h3>
 
 <p>以下のように価値関数の推定値を更新していく手法がTD(0)法である。
 \begin{equation}
@@ -141,7 +141,7 @@ V_{t+1}(s_t)
 <strong>TD</strong> 誤差として$\delta_t$を以下のように定義することで、TD誤差を小さくする方向に更新するアルゴリズムとして捉えることもできる。</p>
 
 <p>\begin{equation}
-\delta_t = (R_{t+1} + \gamma V_t(s_{t+1})) - V_t(s_t)\\
+\delta_t = (R_{t+1} + \gamma V_t(s_{t+1})) - V_t(s_t)\<br />
 V_{t+1}(s_t)
 \leftarrow
 V_t(s_t) + \alpha_t \delta_t
@@ -149,7 +149,7 @@ V_t(s_t) + \alpha_t \delta_t
 
 <p>$\delta_t$は目標値と現在の値の差分であるから、この立式のほうがわかりやすいかもしれない。</p>
 
-<h3 id="sarsa:0609effec2e538d5a738f7edd8890087">Sarsa</h3>
+<h3 id="sarsa">Sarsa</h3>
 
 <p>TD(0)法を行動価値数に拡張したものが、Sarsaである。</p>
 
@@ -161,7 +161,7 @@ Q(s_t, a_t)
 (1 - \alpha) Q(s_t, a_t) + \alpha (r_{t+1} + \gamma Q(s_{t+1}, a_{t+1}))
 \end{equation}</p>
 
-<h3 id="q-learning:0609effec2e538d5a738f7edd8890087">Q-Learning</h3>
+<h3 id="q-learning">Q-Learning</h3>
 
 <p>最適ベルマン方程式を解くためにで、以下の更新則でQ値を更新するのがQ-Learningである。</p>
 
@@ -217,10 +217,10 @@ Q値が求まったら、最も高いQ値を持つ行動$a$を選択すれば、
 
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20160410-Reinforcement-Learning-MDP-Belman-Equation/" rel="prev">強化学習についてまとめる (1) MDPとベルマン方程式</a></span>
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/" rel="prev">強化学習についてまとめる (1) MDPとベルマン方程式</a></span>
     
     
-      <span class="next"><a href="http://blog.syundo.org/post/20171117-Reinforcement-Learning-Policy-Gradient/" rel="next">強化学習についてまとめる (3) 方策勾配</a> &rarr;</span>
+      <span class="next"><a href="http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/" rel="next">強化学習についてまとめる (3) 方策勾配</a> &rarr;</span>
     
   </nav>
 

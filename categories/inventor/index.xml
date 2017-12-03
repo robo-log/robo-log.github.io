@@ -6,8 +6,11 @@
     <description>Recent content in Inventor on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Thu, 22 Aug 2013 22:38:37 +0900</lastBuildDate>
-    <atom:link href="http://blog.syundo.org/categories/inventor/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://blog.syundo.org/categories/inventor/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>InventorのシートメタルからDXFの書き出し</title>
@@ -15,50 +18,8 @@
       <pubDate>Thu, 22 Aug 2013 22:38:37 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/785/</guid>
-      <description>&lt;p&gt;Inventorでシートメタルを作成、フラットパターンに変換してから切り抜きのためにDXFを書き出すときは、&lt;/p&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=929,height=553,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo.png&#34;&gt;&lt;img title=&#34;Photo&#34; alt=&#34;Photo&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-&lt;div&gt;フラットパターンを右クリックし、「コピーに名前を付けて保存」でDXFを書き出す。&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;InventorからのDXFの書き出しにはいくつか方法があるが、&lt;/div&gt;
-
-&lt;div&gt;&lt;span style=&#34;color: #cc0033;&#34;&gt;&lt;span style=&#34;text-decoration: underline;&#34;&gt;以下のようにするとうまくいかない。&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;面を右クリックして&lt;/div&gt;
-
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=560,height=501,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo_2.png&#34;&gt;&lt;img title=&#34;Photo_2&#34; alt=&#34;Photo_2&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo_2.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;
-
-&lt;/div&gt;
-
-&lt;div&gt;「面に名前を付けてエクスポート」でDXFを書き出したり、&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;面にスケッチを貼り付けて、&lt;/div&gt;
-
-&lt;div&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=845,height=426,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/08/22/photo_3.png&#34;&gt;&lt;img title=&#34;Photo_3&#34; alt=&#34;Photo_3&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/08/22/photo_3.png&#34;   border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-&lt;div&gt;「スケッチに名前を付けてエクスポート」でDXFを書き出したりすると、&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;後にCAMで読み込んだときにポリラインが切れて認識されてしまう。&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div&gt;久しぶりに触ったらはまった。&lt;/div&gt;
-
-&lt;div&gt;&lt;/div&gt;
-</description>
+      <description>Inventorでシートメタルを作成、フラットパターンに変換してから切り抜きのためにDXFを書き出すときは、
+  フラットパターンを右クリックし、「コピーに名前を付けて保存」でDXFを書き出す。   InventorからのDXFの書き出しにはいくつか方法があるが、 以下のようにするとうまくいかない。  面を右クリックして   「面に名前を付けてエクスポート」でDXFを書き出したり、  面にスケッチを貼り付けて、  「スケッチに名前を付けてエクスポート」でDXFを書き出したりすると、  後にCAMで読み込んだときにポリラインが切れて認識されてしまう。  久しぶりに触ったらはまった。  </description>
     </item>
     
   </channel>

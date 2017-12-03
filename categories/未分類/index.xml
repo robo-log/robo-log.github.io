@@ -6,8 +6,11 @@
     <description>Recent content in 未分類 on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Thu, 07 May 2015 00:30:10 +0900</lastBuildDate>
-    <atom:link href="http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>ドコモを解約してIIJのみおふぉんにMNP転入した</title>
@@ -15,24 +18,12 @@
       <pubDate>Thu, 07 May 2015 00:30:10 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/1131/</guid>
-      <description>&lt;p&gt;携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。
-ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。&lt;/p&gt;
-
-&lt;p&gt;移行先はIIJの&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/&#34;&gt;みおふぉん&lt;/a&gt;にした。
-月3G音声通話つきで1600円のものを選んだ。
-容量はドコモにいたときと同じで値段は1/3ぐらいだ。&lt;/p&gt;
-
-&lt;p&gt;MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。
-今回は5月4日 am9:54にドコモsimが停止
-翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。
-都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。&lt;/p&gt;
-
-&lt;p&gt;通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。&lt;/p&gt;
-
-&lt;p&gt;音声通話は&lt;a href=&#34;https://www.iijmio.jp/hdd/miofone/dial.jsp&#34;&gt;みおふぉんダイアル&lt;/a&gt;を使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。&lt;/p&gt;
-
-&lt;p&gt;こうしてドコモは通信を流すだけの土管になるのだ。&lt;/p&gt;
-</description>
+      <description>携帯電話の料金が高すぎて、いい加減嫌気が差していたのでドコモを解約した。 ちょうど更新月であったから違約金が付かないはず。2年縛りとか自動更新とか怒りが爆発しそう。
+移行先はIIJのみおふぉんにした。 月3G音声通話つきで1600円のものを選んだ。 容量はドコモにいたときと同じで値段は1/3ぐらいだ。
+MNP転入するときに気になるのが、simカードが届くのに時間がかかるため通話できない期間が存在すること。 今回は5月4日 am9:54にドコモsimが停止 翌5月5日 am10:07にヤマト運輸でIIJのsimが到着した。 都内に住んでいたから早かったのかもしれないが、これなら週末のうちにでも手続きができそうだった。
+通信速度は別に問題ないように思う。WEBページを見ても動画を見ても体感で何も変わらない。ドコモ契約してた時に計測しておいて比較すればよかったけど忘れてた…。
+音声通話はみおふぉんダイアルを使えば安くなる。まだ試してないが、音声の品質についてはそんなに心配していない。
+こうしてドコモは通信を流すだけの土管になるのだ。</description>
     </item>
     
     <item>
@@ -41,52 +32,22 @@
       <pubDate>Mon, 13 Apr 2015 02:12:29 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/1068/</guid>
-      <description>&lt;p&gt;お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．&lt;/p&gt;
-
-&lt;p&gt;4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが．
-大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです．
-&lt;h2&gt;ROBO-ONEまでにうちのヴァニラがどう変わったか&lt;/h2&gt;
-こちらが改造に使った部品たちです．一部組み上がってますが…
-&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.07.35.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1100&#34; src=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.07.35.jpg&#34; alt=&#34;2014-11-08 21.07.35&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.12.58.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1101&#34; src=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.12.58.jpg&#34; alt=&#34;2014-11-08 21.12.58&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.14.27.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1102&#34; src=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.14.27.jpg&#34; alt=&#34;2014-11-08 21.14.27&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう．
-&lt;iframe src=&#34;https://www.youtube.com/embed/5eofgrGTjyo&#34; width=&#34;560&#34; height=&#34;315&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-&lt;p&gt;この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？
-&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2014-11-09-09.06.59.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1103&#34; src=&#34;http://blog.syundo.org/images/2015/04/2014-11-09-09.06.59.jpg&#34; alt=&#34;2014-11-09 09.06.59&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.14.06.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1106&#34; src=&#34;http://blog.syundo.org/images/2015/04/2014-11-08-21.14.06.jpg&#34; alt=&#34;2014-11-08 21.14.06&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;バリ取りとか塗装が間に合わなくてボツにしたんですが，腕カバーとか腰カバーを3Dプリントで作ったりしてました．ABSがテーブルから剥がれて反ることといったらもう泣けました．&lt;/p&gt;
-
-&lt;p&gt;これは腕カバー反らなければそれなりに使えそうなものができます．外装なので中身はスカスカ，充填率は10%です．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2015-02-19-04.07.08.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1104&#34; src=&#34;http://blog.syundo.org/images/2015/04/2015-02-19-04.07.08.jpg&#34; alt=&#34;2015-02-19 04.07.08&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;こちらは腰カバー．設計ミスがあってうまく嵌りませんでした…．焦ってやる仕事は良くないです…フィラメントがかなり無駄に…．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2015-02-22-20.43.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1105&#34; src=&#34;http://blog.syundo.org/images/2015/04/2015-02-22-20.43.47.jpg&#34; alt=&#34;2015-02-22 20.43.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．&lt;a href=&#34;http://blog.syundo.org/images/2015/04/2015-02-28-12.34.47.jpg&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-1107&#34; src=&#34;http://blog.syundo.org/images/2015/04/2015-02-28-12.34.47.jpg&#34; alt=&#34;2015-02-28 12.34.47&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．&lt;/p&gt;
-
-&lt;p&gt;予選の結果&lt;/p&gt;
-
-&lt;p&gt;40cm&lt;/p&gt;
-
-&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/dyA7645_rA4&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;敗因
-&lt;ul&gt;
-    &lt;li&gt;コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた．&lt;/li&gt;
-    &lt;li&gt;シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった．&lt;/li&gt;
-    &lt;li&gt;上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった．&lt;/li&gt;
-    &lt;li&gt;数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった．&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-
-&lt;p&gt;今後は歩行の安定性を高める予定です．アイディアはある…&lt;/p&gt;
-</description>
+      <description>お久しぶりです．今年の更新は今日が初めてです．これまで何をやっていたかというと，2月末までは修士論文を片付けていました．3月は研究の引き継ぎのための作業やら引っ越しの準備やらをしながらROBO-ONE参加をしてました．ともかくそんなこんなでなかなか落ち着かなかったわけです．有線ネットの環境も無かったりして…．
+4月になり今はWEB系のお仕事してる会社で働いています．といってもまだ研修ですが． 大学に入学したときには将来は家電メーカーとかに入って組み込み技術とかの研究開発の人になろうと思ってはいたんですが，なんだか興味が逸れていきまして，結果的にそういうことになりました．現在は東京在住です．秋葉原に近いところだと思っていたのですが，自転車が無いとちょっときついかな．どこに駐輪するのが安全かが最近気になっていることです． ROBO-ONEまでにうちのヴァニラがどう変わったか こちらが改造に使った部品たちです．一部組み上がってますが… 
+胴体ユニットに改造が施されまして，腰がロールピッチに動くようになっています．首は胸のあたりから2軸リンクしたのと，頭のなかの1軸で3軸方向に動きます．
+今回の改造の見どころはこの頭の機構です．ヴァニラを見た人から「目は動かないの？」と散々言われ続けてきたので，眼球が左右に動くようにしました．ついでにUSBカメラを搭載しました．型番は以前の投稿に書いたものと同じものです．
+動画はこちら．目線が常に平行にならないのがこの機構のまずいところですが…まぁなんとかなるでしょう． 
+この写真では見難いですが，腕の自由度もかなり増やしました．軸の構成は舞鈴堂さんのところの娘を参考に致しました…というかまったく同じかな？ 
+頭にはBeagleBoneが載っています．大きいですね！お人形ロボとは思えない大胆なスペースの使い方です．これが後に悲劇を呼ぶことはなんとなく予想はできてました…．
+バリ取りとか塗装が間に合わなくてボツにしたんですが，腕カバーとか腰カバーを3Dプリントで作ったりしてました．ABSがテーブルから剥がれて反ることといったらもう泣けました．
+これは腕カバー反らなければそれなりに使えそうなものができます．外装なので中身はスカスカ，充填率は10%です．
+こちらは腰カバー．設計ミスがあってうまく嵌りませんでした…．焦ってやる仕事は良くないです…フィラメントがかなり無駄に…．
+大会1週間前にこのような状態だったので，これは時間が無いかも…と思い始めたのです．そして…．
+14，15日にアミューあつぎで開催された，第26回ROBO-ONEに参加してきました．
+予選の結果
+40cm
+ 敗因  コントロールボードに使っているmbedのRAMが足りなくなってきて色々つらくなってきた． シリアル受信割り込みがうまく動かず，数日間手を焼かされたあげく結局どうにもできなかった． 上半身のサーボモータを増やしたらバランスに関してシビアになってしまって，胴体軌道がsin波じゃだめだった．でも取り掛かるのが遅すぎて倒立振子規範の軌道にできなかった． 数年前にバキュームフォームで作った外装がことごとく嵌らなかったため，Inventorでドールっぽい外装を設計して3Dプリンﾄしたりしていたが，所詮Inventorだから満足のできる形にならず不採用．そうこうしているうちに時間が無くなった． 
+今後は歩行の安定性を高める予定です．アイディアはある…</description>
     </item>
     
     <item>
@@ -95,12 +56,9 @@
       <pubDate>Sun, 12 Apr 2015 23:42:54 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/1090/</guid>
-      <description>&lt;p&gt;今月から，機械学習プロフェッショナルシリーズというものの発刊が始まる．今月は全29巻のうち，4冊が発売された．私はそのうち，&lt;a href=&#34;http://www.amazon.co.jp/%E6%B7%B1%E5%B1%A4%E5%AD%A6%E7%BF%92-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A1%E8%B0%B7-%E8%B2%B4%E4%B9%8B/dp/4061529021&#34;&gt;岡谷 貴之「深層学習」&lt;/a&gt;と，&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%88%E3%83%94%E3%83%83%E3%82%AF%E3%83%A2%E3%83%87%E3%83%AB-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%83%97%E3%83%AD%E3%83%95%E3%82%A7%E3%83%83%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E5%B2%A9%E7%94%B0-%E5%85%B7%E6%B2%BB/dp/4061529048/&#34;&gt;岩田 具治「トピックモデル」&lt;/a&gt;を購入した．&lt;/p&gt;
-
-&lt;p&gt;まだ深層学習のほうしか読めていないが，Deep Learningの日本語で読める資料は人工知能学会の特集しかなかったりしてなかなか勉強しづらかったこともあって，色々な情報が纏まっている本書はとても意義があると思う．&lt;/p&gt;
-
-&lt;p&gt;DeepNNを使って何かやってみたい．&lt;/p&gt;
-</description>
+      <description>今月から，機械学習プロフェッショナルシリーズというものの発刊が始まる．今月は全29巻のうち，4冊が発売された．私はそのうち，岡谷 貴之「深層学習」と，岩田 具治「トピックモデル」を購入した．
+まだ深層学習のほうしか読めていないが，Deep Learningの日本語で読める資料は人工知能学会の特集しかなかったりしてなかなか勉強しづらかったこともあって，色々な情報が纏まっている本書はとても意義があると思う．
+DeepNNを使って何かやってみたい．</description>
     </item>
     
     <item>
@@ -109,60 +67,33 @@
       <pubDate>Tue, 31 Dec 2013 21:46:52 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/955/</guid>
-      <description>&lt;p&gt;今年ももう終わるので振り返ってみたいと思います．&lt;/p&gt;
-
-&lt;p&gt;・2月&lt;/p&gt;
-
-&lt;p&gt;-卒論発表を終える．&lt;/p&gt;
-
-&lt;p&gt;-第22回ROBO-ONE予選に出場するも5歩目でコケる→ウィッグ転落．&lt;/p&gt;
-
-&lt;p&gt;・3月&lt;/p&gt;
-
-&lt;p&gt;-ドイツ旅行に行く．無事大学を卒業．&lt;/p&gt;
-
-&lt;p&gt;～8月&lt;/p&gt;
-
-&lt;p&gt;-大学院の授業をやたら沢山受講する．研究にも猛烈に追われ，休みのない日々を過ごす．&lt;/p&gt;
-
-&lt;p&gt;合意形成フォーメーション制御の課題　&lt;a href=&#34;https://github.com/syundo0730/VoidsModel&#34;&gt;https://github.com/syundo0730/VoidsModel&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;CPGに関する課題　&lt;a href=&#34;https://github.com/syundo0730/CPG&#34;&gt;https://github.com/syundo0730/CPG&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;・9月&lt;/p&gt;
-
-&lt;p&gt;-第23回ROBO-ONE予選に出場，前回よりも安定した歩行を見せるもコケる．&lt;/p&gt;
-
-&lt;p&gt;&amp;hellip;あれ&amp;hellip;Twitter見ながら必死に探したけど，今年はロボ活動が少なかったかもしれません？&lt;/p&gt;
-
-&lt;p&gt;とても充実していた気がするんだけどモノとして残っているものが無いからかなー．&lt;/p&gt;
-
-&lt;p&gt;でも，初めてROBO-ONEに出場したのは大きな進歩かと思います．&lt;/p&gt;
-
-&lt;p&gt;来年は，今年やりかけていて完成できなかったものを公開ができればいいなぁと思っています．&lt;/p&gt;
-
-&lt;p&gt;-足裏センサのための基板&lt;/p&gt;
-
-&lt;p&gt;-ブラウザで動くモーションエディタ&lt;/p&gt;
-
-&lt;p&gt;-MPU-6050のDMPを使ったプログラム&lt;/p&gt;
-
-&lt;p&gt;それ以外にやりたいことは&lt;/p&gt;
-
-&lt;p&gt;-コントロールボードの高性能化(大きさの面でAriaG25が気になっているから入手して使ってみたい．画像処理をやらせたい．)&lt;/p&gt;
-
-&lt;p&gt;-数歩分の歩容のリアルタイム最適化ができないかな？データベースから引っ張ってくるタイプも検討している&lt;/p&gt;
-
-&lt;p&gt;などです．&lt;/p&gt;
-
-&lt;p&gt;どうせ達成できないけどね．来年末に見返して絶望するといいよ＞自分．&lt;/p&gt;
-
-&lt;p&gt;今年は2回もROBO-ONEに参加し，そのたびにたくさんのひとにお世話になりました．ありがとうございました．&lt;/p&gt;
-
-&lt;p&gt;Twitterでも絡んでいただいてありがとうございます．Facebookのほうも大量友達申請しましたのでよろしくお願いします．&lt;/p&gt;
-
-&lt;p&gt;ではみなさま，良いお年を．&lt;/p&gt;
-</description>
+      <description>今年ももう終わるので振り返ってみたいと思います．
+・2月
+-卒論発表を終える．
+-第22回ROBO-ONE予選に出場するも5歩目でコケる→ウィッグ転落．
+・3月
+-ドイツ旅行に行く．無事大学を卒業．
+～8月
+-大学院の授業をやたら沢山受講する．研究にも猛烈に追われ，休みのない日々を過ごす．
+合意形成フォーメーション制御の課題　https://github.com/syundo0730/VoidsModel
+CPGに関する課題　https://github.com/syundo0730/CPG
+・9月
+-第23回ROBO-ONE予選に出場，前回よりも安定した歩行を見せるもコケる．
+&amp;hellip;あれ&amp;hellip;Twitter見ながら必死に探したけど，今年はロボ活動が少なかったかもしれません？
+とても充実していた気がするんだけどモノとして残っているものが無いからかなー．
+でも，初めてROBO-ONEに出場したのは大きな進歩かと思います．
+来年は，今年やりかけていて完成できなかったものを公開ができればいいなぁと思っています．
+-足裏センサのための基板
+-ブラウザで動くモーションエディタ
+-MPU-6050のDMPを使ったプログラム
+それ以外にやりたいことは
+-コントロールボードの高性能化(大きさの面でAriaG25が気になっているから入手して使ってみたい．画像処理をやらせたい．)
+-数歩分の歩容のリアルタイム最適化ができないかな？データベースから引っ張ってくるタイプも検討している
+などです．
+どうせ達成できないけどね．来年末に見返して絶望するといいよ＞自分．
+今年は2回もROBO-ONEに参加し，そのたびにたくさんのひとにお世話になりました．ありがとうございました．
+Twitterでも絡んでいただいてありがとうございます．Facebookのほうも大量友達申請しましたのでよろしくお願いします．
+ではみなさま，良いお年を．</description>
     </item>
     
     <item>
@@ -171,56 +102,30 @@
       <pubDate>Wed, 25 Sep 2013 00:25:41 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/925/</guid>
-      <description>&lt;p&gt;9月14日、第23回ROBO-ONE(予選)にヴァニラで参加してきました。&lt;/p&gt;
+      <description>9月14日、第23回ROBO-ONE(予選)にヴァニラで参加してきました。
+控え室でのヴァニラ
 
-&lt;p&gt;控え室でのヴァニラ&lt;/p&gt;
+人形つかいさんの茉莉花ちゃんと
 
-&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2013/09/DSC_0015.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-936&#34; alt=&#34;DSC_0015&#34; src=&#34;http://blog.syundo.org/images/2013/09/DSC_0015-168x300.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
+九州大学さんのサクさんと
 
-&lt;p&gt;&lt;a href=&#34;http://marionette.mtlab.jp/&#34;&gt;人形つかいさん&lt;/a&gt;の茉莉花ちゃんと&lt;/p&gt;
+女の子ロボがいてくれると楽しい･･･
 
-&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2013/09/DSC_0023.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-937&#34; alt=&#34;DSC_0023&#34; src=&#34;http://blog.syundo.org/images/2013/09/DSC_0023-300x168.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://9daihitogata.blog.fc2.com/blog-entry-21.html#more&#34;&gt;九州大学さん&lt;/a&gt;のサクさんと&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2013/09/DSC_0011.jpg&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-935&#34; alt=&#34;DSC_0011&#34; src=&#34;http://blog.syundo.org/images/2013/09/DSC_0011-300x168.jpg&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;女の子ロボがいてくれると楽しい･･･&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blog.syundo.org/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2.png&#34;&gt;&lt;img class=&#34;alignnone size-medium wp-image-938&#34; alt=&#34;ヴァニラ予選&#34; src=&#34;http://blog.syundo.org/images/2013/09/2889096c0dbeaeb3caf222e3ab86cdb2-300x276.png&#34;   /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;予選の結果は2.9mで59位(散財さん調べ)だったようです。&lt;/p&gt;
-
-&lt;p&gt;今回は半分を超えてゴムがあるゾーンの上も歩くことができて、大変嬉しかったです。&lt;/p&gt;
-
-&lt;p&gt;ただ、残り20秒の時点で転倒してしまったのは残念でした･･･。実はあの瞬間、予想外の安定ぶりにいい気になって歩幅を5mm増やすコマンドを送ってしまい、それが原因でコケました。片足支持期にバランスを崩してコケるより速く倒れたように見え、しかも後ろに倒れたので、コマンドが適用されたタイミングが悪く、両足接地時に歩幅が上昇してしまい、脚をゴムに引っ掛けてバランスを崩したのだと思います。&lt;/p&gt;
-
-&lt;p&gt;倒れてしまいましたが、それなりにまっすぐ歩けたのは良かったです。これは東京行きの新幹線の中で書いた、なんちゃってスラローム歩行が効きました。なんちゃってというのは逆キネ計算に股ヨー軸の回転を考慮していないのに無理矢理脚を回しているからです。足を摺ることになるので今回のようなゴムのある地形では良くないです。&lt;/p&gt;
-
-&lt;p&gt;忘れないうちにヨー軸の回転も入れ込もうと思います。&lt;/p&gt;
-
-&lt;p&gt;今後の方針としては、ROBO-ONE時点では飾りだった、足裏に搭載した感圧センサを生かした歩行を研究していこうと思っています。&lt;/p&gt;
-
-&lt;p&gt;感圧センサの使い途としては、バランス制御のようなことは考えておらず、歩行の周期のタイミング合わせのようなものに使おうと思っています。&lt;/p&gt;
-
-&lt;p&gt;歩容を生成するいわゆるCPGの周期を足裏から得られる実際の歩行周期に漸近させていきます。&lt;/p&gt;
-
-&lt;p&gt;物理シミュレーションでテストしてみた動画はこんな感じです。&lt;iframe src=&#34;//www.youtube.com/embed/YDDVGxIdXZ8&#34; height=&#34;315&#34; width=&#34;560&#34; allowfullscreen=&#34;&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-&lt;p&gt;元ネタは以下の論文です。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=1641932&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1641932&#34;&gt;Modulation of simple sinusoidal patterns by a coupled oscillator model for biped walking&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4456756&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756&#34;&gt;Modulation of Sinusoidal Patterns by a Coupled Oscillator Model&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;ロボット学会のセミナーで紹介され、やってみようと思いました。&lt;a href=&#34;http://ieeexplore.ieee.org/xpl/login.jsp?tp=&amp;amp;arnumber=4456756&amp;amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4456756&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;この方法だけでは、歩き始め、終わりの加減速が実現されないので、受動歩行規範の歩行パターンを用いたりできないかなと思っています･･･。&lt;/p&gt;
-
-&lt;p&gt;実機で足踏みできることを確認して、あとの開発はしばらくシミュレーションかな。&lt;/p&gt;
-</description>
+予選の結果は2.9mで59位(散財さん調べ)だったようです。
+今回は半分を超えてゴムがあるゾーンの上も歩くことができて、大変嬉しかったです。
+ただ、残り20秒の時点で転倒してしまったのは残念でした･･･。実はあの瞬間、予想外の安定ぶりにいい気になって歩幅を5mm増やすコマンドを送ってしまい、それが原因でコケました。片足支持期にバランスを崩してコケるより速く倒れたように見え、しかも後ろに倒れたので、コマンドが適用されたタイミングが悪く、両足接地時に歩幅が上昇してしまい、脚をゴムに引っ掛けてバランスを崩したのだと思います。
+倒れてしまいましたが、それなりにまっすぐ歩けたのは良かったです。これは東京行きの新幹線の中で書いた、なんちゃってスラローム歩行が効きました。なんちゃってというのは逆キネ計算に股ヨー軸の回転を考慮していないのに無理矢理脚を回しているからです。足を摺ることになるので今回のようなゴムのある地形では良くないです。
+忘れないうちにヨー軸の回転も入れ込もうと思います。
+今後の方針としては、ROBO-ONE時点では飾りだった、足裏に搭載した感圧センサを生かした歩行を研究していこうと思っています。
+感圧センサの使い途としては、バランス制御のようなことは考えておらず、歩行の周期のタイミング合わせのようなものに使おうと思っています。
+歩容を生成するいわゆるCPGの周期を足裏から得られる実際の歩行周期に漸近させていきます。
+物理シミュレーションでテストしてみた動画はこんな感じです。
+元ネタは以下の論文です。
+Modulation of simple sinusoidal patterns by a coupled oscillator model for biped walking
+Modulation of Sinusoidal Patterns by a Coupled Oscillator Model
+ロボット学会のセミナーで紹介され、やってみようと思いました。
+この方法だけでは、歩き始め、終わりの加減速が実現されないので、受動歩行規範の歩行パターンを用いたりできないかなと思っています･･･。
+実機で足踏みできることを確認して、あとの開発はしばらくシミュレーションかな。</description>
     </item>
     
     <item>
@@ -229,26 +134,38 @@
       <pubDate>Tue, 26 Feb 2013 02:09:40 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/784/</guid>
-      <description>&lt;p&gt;参加してきました．&lt;br /&gt;当日までの流れはこんな感じです．&lt;/p&gt;
-
-&lt;p&gt;1月：&lt;br /&gt;・卒研終わったらROBO-ONE観に行きたいなと思う．そして折角東京まで行くのならROBO-ONE出ておこうかなぁと思い始める(予選で歩くだけならなんとかなるかもという打算)．&lt;/p&gt;
-
-&lt;p&gt;2月15日：&lt;br /&gt;・卒論のぎりぎりさにビビりながら申し込み締め切りまでにエントリー．&lt;/p&gt;
-
-&lt;p&gt;18日：&lt;br /&gt;・卒論発表(提出)&lt;/p&gt;
-
-&lt;p&gt;～21日：&lt;br /&gt;・コントロールボード(mbed+宮田さんのLittle Burnig Core)基板の作成．&lt;br /&gt;・無線にはBluetooth USBドングルとSBDBTを用いたが，なかなかうまくいかず(コネクタの初期不良と判明し，部品を取り替えた)，悩む．&lt;/p&gt;
-
-&lt;p&gt;～23日早朝：&lt;br /&gt;・PWMサーボの配線．&lt;br /&gt;・上半身のシリアルサーボは動作させることを諦める．&lt;br /&gt;・モーションエディタも作りつつあったが，完成していない状況だったので，ターミナルで1軸ごと指定していこうとしたが，プログラムの不具合でうまくいかない．Scilabで逆キネ計算して歩行用のモーションファイルを生成→mbedのストレージに入れ読み込ませ再生という流れでなんとか足を上げて前に出し下ろす動きを実現．&lt;br /&gt;・ジャイロ，加速度センサを積んではいたが，プログラムに対応させることができておらず，「これはすぐ転ぶ」と確信する．起き上がりはできない．&lt;/p&gt;
-
-&lt;p&gt;23日昼：&lt;br /&gt;・新幹線で東京に向かう．&lt;br /&gt;・未来科学館に着くも，状況がよくわからず，机の無い控え室？の隅っこのほうでアウェー感に苛まれながらモーションを作ろうとする．が，ノーパソに入っていたScilabのバージョンが違ったせいで使えない関数があるとエラーが出てくる．代替の関数に書き換えたが，同等な結果が得られない(csvファイルうまく出してくれない)&lt;br /&gt;・部屋から人が居なくなってきた&amp;amp;機体審査してない気がする→予選開始ギリギリで審査してもらう．&lt;br /&gt;・このままでは予選の出番を逃してしまうと感じ，他の控え室っぽい部屋へ知っている人を探しに行く．人形つかいさんを発見し近くに座らせてもらう．&lt;br /&gt;・ScilabをモバイルネットワークからダウンロードしようとするもPCのWifiがちっともうまく動作しない．手作業でcsvファイル加工していくことを考えていたが，その他作業(ドールアイがずれて怖いことになってた，首が抜けやすかった，SBDBTのコネクタが抜けやすくなってすぐ通信不可になった，ことへの対応)をしているうちに時間がなくなる．&lt;br /&gt;・出走→6歩目でコケる→ウィッグが取れてパゲる→記録5cm&lt;br /&gt;&lt;br /&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=1280,height=800,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2013/02/26/snico1.jpg&#34;&gt;&lt;img   border=&#34;0&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2013/02/26/snico1.jpg&#34; title=&#34;Snico1&#34; alt=&#34;Snico1&#34; /&gt;&lt;/a&gt;
-
-&lt;br /&gt;&lt;br /&gt;・その後人形つかいさんなどとお話をし，時間になったので新橋に予約した宿に向かう．(公式の懇親会に申し込んでいたが，次の日にあるものとばかり思っていたのでスルーしてしまったorz　5000円が…．これを翌日Twitterを見て気づく．)&lt;/p&gt;
-
-&lt;p&gt;24日：&lt;br /&gt;・ごーすとさん，ロ技研のにゅくす君と会えたので一緒に観戦する．&lt;br /&gt;・ROBO-ONE終了．芝浦工大さんおめでとうございます．&lt;br /&gt;・人形つかいさんの茉莉花ちゃん，バンセイさんのロボと写真を撮れてうはうはする．あ！柔王丸の人だ！とお話したく思ったが，写真に夢中すぎて忘れる失態をする．&lt;br /&gt;・にゅくす君に案内してもらって東工大のロ技研を見学させてもらう．狭いながら，工作機械は結構本格的なものが揃っており感心する．HAKUたんの話など聞かせてもらう．&lt;br /&gt;・新幹線で帰宅．なぜか東京から乗る．&lt;/p&gt;
-
-&lt;p&gt;楽しかったです！&lt;br /&gt;できれば今度も，と思います．&lt;/p&gt;
-</description>
+      <description>参加してきました．
+当日までの流れはこんな感じです．
+1月：
+・卒研終わったらROBO-ONE観に行きたいなと思う．そして折角東京まで行くのならROBO-ONE出ておこうかなぁと思い始める(予選で歩くだけならなんとかなるかもという打算)．
+2月15日：
+・卒論のぎりぎりさにビビりながら申し込み締め切りまでにエントリー．
+18日：
+・卒論発表(提出)
+～21日：
+・コントロールボード(mbed+宮田さんのLittle Burnig Core)基板の作成．
+・無線にはBluetooth USBドングルとSBDBTを用いたが，なかなかうまくいかず(コネクタの初期不良と判明し，部品を取り替えた)，悩む．
+～23日早朝：
+・PWMサーボの配線．
+・上半身のシリアルサーボは動作させることを諦める．
+・モーションエディタも作りつつあったが，完成していない状況だったので，ターミナルで1軸ごと指定していこうとしたが，プログラムの不具合でうまくいかない．Scilabで逆キネ計算して歩行用のモーションファイルを生成→mbedのストレージに入れ読み込ませ再生という流れでなんとか足を上げて前に出し下ろす動きを実現．
+・ジャイロ，加速度センサを積んではいたが，プログラムに対応させることができておらず，「これはすぐ転ぶ」と確信する．起き上がりはできない．
+23日昼：
+・新幹線で東京に向かう．
+・未来科学館に着くも，状況がよくわからず，机の無い控え室？の隅っこのほうでアウェー感に苛まれながらモーションを作ろうとする．が，ノーパソに入っていたScilabのバージョンが違ったせいで使えない関数があるとエラーが出てくる．代替の関数に書き換えたが，同等な結果が得られない(csvファイルうまく出してくれない)
+・部屋から人が居なくなってきた&amp;amp;機体審査してない気がする→予選開始ギリギリで審査してもらう．
+・このままでは予選の出番を逃してしまうと感じ，他の控え室っぽい部屋へ知っている人を探しに行く．人形つかいさんを発見し近くに座らせてもらう．
+・ScilabをモバイルネットワークからダウンロードしようとするもPCのWifiがちっともうまく動作しない．手作業でcsvファイル加工していくことを考えていたが，その他作業(ドールアイがずれて怖いことになってた，首が抜けやすかった，SBDBTのコネクタが抜けやすくなってすぐ通信不可になった，ことへの対応)をしているうちに時間がなくなる．
+・出走→6歩目でコケる→ウィッグが取れてパゲる→記録5cm
+ ・その後人形つかいさんなどとお話をし，時間になったので新橋に予約した宿に向かう．(公式の懇親会に申し込んでいたが，次の日にあるものとばかり思っていたのでスルーしてしまったorz　5000円が…．これを翌日Twitterを見て気づく．)
+24日：
+・ごーすとさん，ロ技研のにゅくす君と会えたので一緒に観戦する．
+・ROBO-ONE終了．芝浦工大さんおめでとうございます．
+・人形つかいさんの茉莉花ちゃん，バンセイさんのロボと写真を撮れてうはうはする．あ！柔王丸の人だ！とお話したく思ったが，写真に夢中すぎて忘れる失態をする．
+・にゅくす君に案内してもらって東工大のロ技研を見学させてもらう．狭いながら，工作機械は結構本格的なものが揃っており感心する．HAKUたんの話など聞かせてもらう．
+・新幹線で帰宅．なぜか東京から乗る．
+楽しかったです！
+できれば今度も，と思います．</description>
     </item>
     
     <item>
@@ -257,10 +174,9 @@
       <pubDate>Thu, 03 Jan 2013 23:29:21 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/782/</guid>
-      <description>&lt;p&gt;帰省していたため遅くなりましたが，今年も宜しくお願い致します．&lt;/p&gt;
-
-&lt;p&gt;今年はできれば練習会を見に行きたいなと思っております．&lt;br /&gt;新しいことに挑戦し続けられる1年でありますように．&lt;/p&gt;
-</description>
+      <description>帰省していたため遅くなりましたが，今年も宜しくお願い致します．
+今年はできれば練習会を見に行きたいなと思っております．
+新しいことに挑戦し続けられる1年でありますように．</description>
     </item>
     
     <item>
@@ -269,30 +185,31 @@
       <pubDate>Mon, 31 Dec 2012 22:05:32 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/781/</guid>
-      <description>&lt;p&gt;更新するの久しぶりすぎてログインできないかと思った・・・。&lt;br /&gt;twitterやってるとブログ更新のハードルが上がりますね。&lt;/p&gt;
-
-&lt;p&gt;大晦日なので今年を振り返りたいと思います。&lt;/p&gt;
-
-&lt;p&gt;今年やったこと（時系列順）&lt;/p&gt;
-
-&lt;p&gt;・倒立2輪ロボを立たせることができた。&lt;br /&gt;・サークルの後輩達が、一度書類審査落ちたものの、色々あって鳥コン出られるようになり、結果優勝できた。&lt;br /&gt;・Digikey, AliExpress等海外通販にチャレンジした。&lt;br /&gt;・AquesTalkPicoを使ってみた。&lt;br /&gt;・FPGAを（ほんの僅か）触った（現在放置中・・・）。&lt;br /&gt;・組み込みボード（PandaBoard）にAndroid入れてみた（だけ）&lt;br /&gt;&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/12/31/a2lk_qdcaaa4iwyjpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A2lk_qdcaaa4iwyjpg_large&#34; title=&#34;A2lk_qdcaaa4iwyjpg_large&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/12/31/a2lk_qdcaaa4iwyjpg_large.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;br /&gt;・mbedでのモーション再生プログラムが8割方できた。&lt;br /&gt;宮田さんのLBCを参考に24軸ジッタフリーPWM出した。&lt;br /&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/12/31/a1g7q2zcaaabud8jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A1g7q2zcaaabud8jpg_large&#34; title=&#34;A1g7q2zcaaabud8jpg_large&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/12/31/a1g7q2zcaaabud8jpg_large.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/12/31/a1g6golcqaa3ll0jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A1g6golcqaa3ll0jpg_large&#34; title=&#34;A1g6golcqaa3ll0jpg_large&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/12/31/a1g6golcqaa3ll0jpg_large.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;br /&gt;・大学院入試クリアした。&lt;br /&gt;・CNCを入手。&lt;br /&gt;・卒研でOpenGL, PhysX, Lua等学んだ。&lt;br /&gt;・人形ロボの石膏型の気に入らなかった部分を削って調整した。&lt;br /&gt;・GUIライブラリのQtのPython版、PyQtをちょっと使えるようになった。&lt;br /&gt;・東工大のロ技研の人たちに教えてもらったLEDマトリクスディスプレイを入手し、表示させてみた。&lt;br /&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/12/31/a_mykgdcaai8wr_jpg_large.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;A_mykgdcaai8wr_jpg_large&#34; title=&#34;A_mykgdcaai8wr_jpg_large&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/12/31/a_mykgdcaai8wr_jpg_large.jpg&#34; /&gt;&lt;/a&gt; &lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Twitterとブログ見返しながら挙げてみましたが、大したことしていないなぁ・・・。&lt;br /&gt;来年は開発速度、学習速度、上げていきたいです。&lt;/p&gt;
-
-&lt;p&gt;最近はJavaScriptその他に興味が出ていて、ブラウザでモーション作れるようになったらいいなぁと思ってます。&lt;br /&gt;あと一度プリント基板を外注してみたいです。FusionPCB安い。&lt;/p&gt;
-
-&lt;p&gt;あとは卒論執筆ですね・・・。頑張らないと。&lt;/p&gt;
-
-&lt;p&gt;それでは良いお年を。&lt;/p&gt;
-</description>
+      <description>更新するの久しぶりすぎてログインできないかと思った・・・。
+twitterやってるとブログ更新のハードルが上がりますね。
+大晦日なので今年を振り返りたいと思います。
+今年やったこと（時系列順）
+・倒立2輪ロボを立たせることができた。
+・サークルの後輩達が、一度書類審査落ちたものの、色々あって鳥コン出られるようになり、結果優勝できた。
+・Digikey, AliExpress等海外通販にチャレンジした。
+・AquesTalkPicoを使ってみた。
+・FPGAを（ほんの僅か）触った（現在放置中・・・）。
+・組み込みボード（PandaBoard）にAndroid入れてみた（だけ）
+&amp;nbsp; ・mbedでのモーション再生プログラムが8割方できた。
+宮田さんのLBCを参考に24軸ジッタフリーPWM出した。
+  ・大学院入試クリアした。
+・CNCを入手。
+・卒研でOpenGL, PhysX, Lua等学んだ。
+・人形ロボの石膏型の気に入らなかった部分を削って調整した。
+・GUIライブラリのQtのPython版、PyQtをちょっと使えるようになった。
+・東工大のロ技研の人たちに教えてもらったLEDマトリクスディスプレイを入手し、表示させてみた。
+ 
+Twitterとブログ見返しながら挙げてみましたが、大したことしていないなぁ・・・。
+来年は開発速度、学習速度、上げていきたいです。
+最近はJavaScriptその他に興味が出ていて、ブラウザでモーション作れるようになったらいいなぁと思ってます。
+あと一度プリント基板を外注してみたいです。FusionPCB安い。
+あとは卒論執筆ですね・・・。頑張らないと。
+それでは良いお年を。</description>
     </item>
     
     <item>
@@ -301,65 +218,9 @@
       <pubDate>Fri, 30 Nov 2012 02:15:53 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/851/</guid>
-      <description>&lt;p&gt;CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．&lt;/p&gt;
-
-&lt;p&gt;　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．&lt;/p&gt;
-#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-#include &lt;sstream&gt;
-#include &lt;string&gt;
-#include &lt;vector&gt;
-
-using namespace std;
-vector&lt;string&gt; Split(string &amp;src, string key);
-bool readCSV(string filename, int* p);
-int main(void){
-  int data[256];//ファイルから読み込んだ数値を入れる配列
-  readCSV(&#34;data.csv&#34;, data);//ファイルから読み込み
-
-  //最初の10個を表示させてみる
-  for(int i = 0; i &lt; 10; ++i) {
-    cout &lt;&lt; data[i] &lt;&lt; endl;
-  }
-}
-
-bool readCSV(string filename, int* p) {
-  fstream file;
-  string str;
-  file.open(filename.c_str(), ios::in);
-  if(! file.is_open()) {
-    return false;
-  }
-  while(getline(file, str)) {
-    vector&lt;string&gt; str_line = Split(str, (string)&#34;,&#34;);
-    int size = str_line.size();
-    for(int i = 0; i &lt; size; ++i) {
-      stringstream sstr;
-      sstr &lt;&lt; str_line[i];
-      sstr &gt;&gt; p[i];
-    }
-    p += size;
-  }
-  file.close();
-  return true;
-}
-vector&lt;string&gt; Split(string &amp;src, string key) {
-  string str = src;
-  vector&lt;string&gt; str_line;
-  int str_len = str.length();
-  int key_len = key.length();
-  int index = 0;
-  while(index &lt; str_len) {
-    int oldindex = index;
-    index = str.find(key, index);
-    index = (index == string::npos ? str_len : index);
-    string tmp = str.substr(oldindex, index - oldindex);
-    str_line.push_back(tmp);
-    index += key_len;
-  }
-  return str_line;
-}
-</description>
+      <description>CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．
+　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．
+#include &amp;lt;iostream&amp;gt;#include &amp;lt;fstream&amp;gt;#include &amp;lt;sstream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt; using namespace std; vector&amp;lt;string&amp;gt; Split(string &amp;amp;src, string key); bool readCSV(string filename, int* p); int main(void){ int data[256];//ファイルから読み込んだ数値を入れる配列  readCSV(&amp;#34;data.csv&amp;#34;, data);//ファイルから読み込み  //最初の10個を表示させてみる  for(int i = 0; i &amp;lt; 10; ++i) { cout &amp;lt;&amp;lt; data[i] &amp;lt;&amp;lt; endl; } } bool readCSV(string filename, int* p) { fstream file; string str; file.open(filename.c_str(), ios::in); if(! file.is_open()) { return false; } while(getline(file, str)) { vector&amp;lt;string&amp;gt; str_line = Split(str, (string)&amp;#34;,&amp;#34;); int size = str_line.</description>
     </item>
     
     <item>
@@ -368,50 +229,9 @@ vector&lt;string&gt; Split(string &amp;src, string key) {
       <pubDate>Fri, 16 Nov 2012 01:15:57 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/850/</guid>
-      <description>&lt;p&gt;外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．&lt;/p&gt;
-
-&lt;p&gt;　3次元として持つための領域を動的に確保しているのでサイズが可変です．&lt;/p&gt;
-#include &lt;iostream&gt;
-using namespace std;
-int data[256]; //元となるデータ領域
-int main()
-{
-  //データ領域への値の代入
-  for(int i = 0; i &lt; 256; ++i) {
-    data[i] = i;
-  }
-  //3次元配列の大きさ
-  char size_z = 3;
-  char size_y = 4;
-  char size_x = 5;
-  //とりあえずポインタに元のデータ領域の先頭アドレスを代入
-  int* p = data;
-  //3次元配列arrayへの整形
-  int*** array = new int**[size_z];
-  for (int i = 0; i &lt; size_z; ++i) {
-    array[i] = new int*[size_y];
-    for (int j = 0; j &lt; size_y; ++j) {
-      array[i][j] = p + size_x * j;
-    }
-    p += size_x * size_y;
-  }
-  //確認のため表示
-  for (int i = 0; i &lt; size_z; ++i) {
-    for (int j = 0; j &lt; size_y; ++j) {
-      for (int k = 0; k &lt; size_x; ++k) {
-        cout &lt;&lt; array[i][j][k] &lt;&lt; endl;
-      }
-    }
-  }
-  //メモリの解放
-  for (int i = 0; i &lt; size_z; i++) {
-    delete[] array[i];
-  }
-  delete[] array;
-}
-
-&lt;p&gt;(sizeof int) * (1 + size_z)だけのメモリを消費します．&lt;/p&gt;
-</description>
+      <description>外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．
+　3次元として持つための領域を動的に確保しているのでサイズが可変です．
+#include &amp;lt;iostream&amp;gt;using namespace std; int data[256]; //元となるデータ領域 int main() { //データ領域への値の代入  for(int i = 0; i &amp;lt; 256; ++i) { data[i] = i; } //3次元配列の大きさ  char size_z = 3; char size_y = 4; char size_x = 5; //とりあえずポインタに元のデータ領域の先頭アドレスを代入  int* p = data; //3次元配列arrayへの整形  int*** array = new int**[size_z]; for (int i = 0; i &amp;lt; size_z; ++i) { array[i] = new int*[size_y]; for (int j = 0; j &amp;lt; size_y; ++j) { array[i][j] = p + size_x * j; } p += size_x * size_y; } //確認のため表示  for (int i = 0; i &amp;lt; size_z; ++i) { for (int j = 0; j &amp;lt; size_y; ++j) { for (int k = 0; k &amp;lt; size_x; ++k) { cout &amp;lt;&amp;lt; array[i][j][k] &amp;lt;&amp;lt; endl; } } } //メモリの解放  for (int i = 0; i &amp;lt; size_z; i++) { delete[] array[i]; } delete[] array; } (sizeof int) * (1 + size_z)だけのメモリを消費します．</description>
     </item>
     
     <item>
@@ -420,48 +240,46 @@ int main()
       <pubDate>Mon, 02 Apr 2012 00:47:26 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/778/</guid>
-      <description>&lt;p&gt;さすがに正月からずっと更新してないのはまずいだろうと思って更新です．&lt;br /&gt;3月にやろうと思ってたことが全然できなかったので1月2月のことですね．&lt;strong&gt;&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;
+      <description>さすがに正月からずっと更新してないのはまずいだろうと思って更新です．
+3月にやろうと思ってたことが全然できなかったので1月2月のことですね．
 
-&lt;p&gt;&lt;strong&gt;・倒立2輪ロボット&lt;/strong&gt;&lt;br /&gt;mbedに慣れるためとか現代制御の勉強するためとかで友達と協力して作りました．&lt;br /&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/BsqAqvYg6Rc&#34;&gt; &lt;/iframe&gt;
+・倒立2輪ロボット
+mbedに慣れるためとか現代制御の勉強するためとかで友達と協力して作りました．
+  最適制御なはずですけど微分項一個手でいじってます．まぁ…そんなもんでしょう．
+しかし配線とかプログラミングとか結局全部自分がやることになるので，パラメータだけ教えられて作るってのは結構辛いものがあるなと思いましたｗｗｗ俺は作業しかしてねぇぞとｗｗｗ
+もうちょっと安定させたいですね…．
+モータはステッピングモータです．
+DCモータの奴も作ったけどうまく立ってないです．エンコーダに難があるように思います．
+・AquesTalk pico
+MTMで販売されてその後Webショップでも入手出来ない状態だったものがリニューアルして販売．データ送るとすぐ喋ります．
+アンプに100円ローソンで売っている「ボリュームアンプ」という商品を使いました．お手軽．余計な配線も残ってるのであれですけど，アンプはボード下の黒い箱の中です．
+ PCのスピーカーで喋らせた様子
+ 使わないピンが多いのでちょっと邪魔かな．フラットパッケージのが出るらしいですね．
+・DE0購入
+FPGAの勉強したいと思いDigiKeyから購入しました．
+7セグに表示出してみた図．
+ でも論理回路のこと分からないしどうしようかと思っているところです．
+まぁ焦らず行こう．
+・DigiKeyで購入したもの
+DE0，PandaBoard，HMC5883L
+初めての海外通販でした．
+例によってPandaBoardは購入理由を聞かれましたが，カメラを使ったロボティクス云々書いておきました．でもしばらく触れないかも．
+HMC5883Lは地磁気センサですが，トラ技の記事によると0.1度程度の幅で方位が出るらしいです．
+動作テストがうまくいってません．裏返して無理矢理ユニバーサル基板にハンダ付けしたのでそれがまずかったのか，I2C通信のやり方が間違ってるのか不明です．
+ストロベリーリナックスで700円程度で実装されたのが売ってるので，それを買った方がよかったかも．チップは300円くらい．
+・胃腸風邪になる
+ホントつらかったです．熱も40度近くでました．
+下痢の症状は10日くらい続きました．
+健康に気をつけようと思いました．
+・サークルまた鳥コンに落ちる
+書類審査キビシーｗｗｗｗ
 
-&lt;/p&gt;
 
-&lt;p&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/w0vIesv7RxY&#34;&gt; &lt;/iframe&gt;
 
-&lt;br /&gt;&lt;br /&gt;最適制御なはずですけど微分項一個手でいじってます．まぁ…そんなもんでしょう．&lt;br /&gt;しかし配線とかプログラミングとか結局全部自分がやることになるので，パラメータだけ教えられて作るってのは結構辛いものがあるなと思いましたｗｗｗ俺は作業しかしてねぇぞとｗｗｗ&lt;br /&gt;もうちょっと安定させたいですね…．&lt;br /&gt;モータはステッピングモータです．&lt;br /&gt;DCモータの奴も作ったけどうまく立ってないです．エンコーダに難があるように思います．&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;・AquesTalk pico&lt;/strong&gt;&lt;br /&gt;MTMで販売されてその後Webショップでも入手出来ない状態だったものがリニューアルして販売．データ送るとすぐ喋ります．&lt;br /&gt;アンプに100円ローソンで売っている「ボリュームアンプ」という商品を使いました．お手軽．余計な配線も残ってるのであれですけど，アンプはボード下の黒い箱の中です．&lt;br /&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/04/02/aqtk.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;Aqtk&#34; title=&#34;Aqtk&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/04/02/aqtk.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;/p&gt;
-
-&lt;p&gt;PCのスピーカーで喋らせた様子&lt;br /&gt;&lt;iframe width=&#34;300&#34; height=&#34;180&#34; frameborder=&#34;0&#34; src=&#34;http://www.youtube.com/embed/oaXYkI9xVnc&#34;&gt; &lt;/iframe&gt;
-
-&lt;/p&gt;
-
-&lt;p&gt;使わないピンが多いのでちょっと邪魔かな．フラットパッケージのが出るらしいですね．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;・DE0購入&lt;/strong&gt;&lt;br /&gt;FPGAの勉強したいと思いDigiKeyから購入しました．&lt;br /&gt;7セグに表示出してみた図．&lt;br /&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/04/02/de0.jpg&#34;&gt;&lt;img   border=&#34;0&#34; alt=&#34;De0&#34; title=&#34;De0&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/04/02/de0.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;/p&gt;
-
-&lt;p&gt;でも論理回路のこと分からないしどうしようかと思っているところです．&lt;br /&gt;まぁ焦らず行こう．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;・DigiKeyで購入したもの&lt;/strong&gt;&lt;br /&gt;DE0，PandaBoard，HMC5883L&lt;br /&gt;初めての海外通販でした．&lt;br /&gt;例によってPandaBoardは購入理由を聞かれましたが，カメラを使ったロボティクス云々書いておきました．でもしばらく触れないかも．&lt;br /&gt;HMC5883Lは地磁気センサですが，トラ技の記事によると0.1度程度の幅で方位が出るらしいです．&lt;br /&gt;動作テストがうまくいってません．裏返して無理矢理ユニバーサル基板にハンダ付けしたのでそれがまずかったのか，I2C通信のやり方が間違ってるのか不明です．&lt;br /&gt;ストロベリーリナックスで700円程度で実装されたのが売ってるので，それを買った方がよかったかも．チップは300円くらい．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;・胃腸風邪になる&lt;/strong&gt;&lt;br /&gt;ホントつらかったです．熱も40度近くでました．&lt;br /&gt;下痢の症状は10日くらい続きました．&lt;br /&gt;健康に気をつけようと思いました．&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;・サークルまた鳥コンに落ちる&lt;/strong&gt;&lt;br /&gt;書類審査キビシーｗｗｗｗ&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;今日研究室決まるはずなのでどうなるのかなーと思ってます．&lt;br /&gt;院試の勉強もしないといけないしね！&lt;br /&gt;今年度は忙しくなりそう．&lt;/p&gt;
-</description>
+今日研究室決まるはずなのでどうなるのかなーと思ってます．
+院試の勉強もしないといけないしね！
+今年度は忙しくなりそう．</description>
     </item>
     
     <item>
@@ -470,22 +288,20 @@ int main()
       <pubDate>Wed, 04 Jan 2012 15:10:30 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/777/</guid>
-      <description>&lt;p&gt;あけましておめでとうございます。&lt;br /&gt;旧年中はお世話になりました。&lt;br /&gt;今年も宜しくお願いします。&lt;/p&gt;
-
-&lt;p&gt;ホントは去年の振り返りとか書いたほうがよかったけど、もう年越しちゃったので、今年の製作の目標をば書きましょう。&lt;/p&gt;
-
-&lt;p&gt;・現在mbedを制御ボードに仕立て上げようとしている。要求は多PWM出力。宮田さんのLBCを参考に製作中。&lt;br /&gt;ファイルシステムが使えるようにお膳立てされてるから、mbed内にcsvファイルなんかでモーションデータを保持できたら楽かな、と思う。&lt;/p&gt;
-
-&lt;p&gt;・mbedが一段落したら、BeagleBoadなんかに手を出したい。カメラをUSBで接続して画像認識させることが目標。今年中にできるとは思わない。&lt;br /&gt;BeagleBornなんていうもう少し小さいのも出るとか・・・。&lt;/p&gt;
-
-&lt;p&gt;・去年末にロボットバトル観て、気持ちはバトル方向にも傾いたんだけど、やっぱ当分はお人形ロボ作っていたい。お人形ロボはたぬたぬさんを目標に構想を始めたもので、ドールよりかぬいぐるみに近いけどぬいぐるみタイプで無い、ぐらいの等身を目指している。かわいさを、追求したい。そろそろモーションも作る・・・。&lt;/p&gt;
-
-&lt;p&gt;・友達と始めた倒立2輪ロボットの製作、Scilabでシリアルポートを介して制御しようとしたが、通信がうまくいかず、実は今年のとりあえずの課題となっている。写真↓&lt;br /&gt;&lt;a href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2012/01/04/snec_0633.jpg&#34;&gt;&lt;img border=&#34;0&#34;   alt=&#34;Snec_0633&#34; title=&#34;Snec_0633&#34; src=&#34;http://blog.syundo.org/images/robolog/blog/images/2012/01/04/snec_0633.jpg&#34; /&gt;&lt;/a&gt;
-
-&lt;br /&gt;これもなんとかしたい。&lt;/p&gt;
-
-&lt;p&gt;今年も頑張るぞー！&lt;br /&gt;研究室配属とか院試とか、あるけど、どうなるか、わからないけど。&lt;br /&gt;時間を有効に使わねば。&lt;/p&gt;
-</description>
+      <description>あけましておめでとうございます。
+旧年中はお世話になりました。
+今年も宜しくお願いします。
+ホントは去年の振り返りとか書いたほうがよかったけど、もう年越しちゃったので、今年の製作の目標をば書きましょう。
+・現在mbedを制御ボードに仕立て上げようとしている。要求は多PWM出力。宮田さんのLBCを参考に製作中。
+ファイルシステムが使えるようにお膳立てされてるから、mbed内にcsvファイルなんかでモーションデータを保持できたら楽かな、と思う。
+・mbedが一段落したら、BeagleBoadなんかに手を出したい。カメラをUSBで接続して画像認識させることが目標。今年中にできるとは思わない。
+BeagleBornなんていうもう少し小さいのも出るとか・・・。
+・去年末にロボットバトル観て、気持ちはバトル方向にも傾いたんだけど、やっぱ当分はお人形ロボ作っていたい。お人形ロボはたぬたぬさんを目標に構想を始めたもので、ドールよりかぬいぐるみに近いけどぬいぐるみタイプで無い、ぐらいの等身を目指している。かわいさを、追求したい。そろそろモーションも作る・・・。
+・友達と始めた倒立2輪ロボットの製作、Scilabでシリアルポートを介して制御しようとしたが、通信がうまくいかず、実は今年のとりあえずの課題となっている。写真↓
+ これもなんとかしたい。
+今年も頑張るぞー！
+研究室配属とか院試とか、あるけど、どうなるか、わからないけど。
+時間を有効に使わねば。</description>
     </item>
     
     <item>
@@ -494,14 +310,17 @@ int main()
       <pubDate>Fri, 23 Dec 2011 21:54:07 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/776/</guid>
-      <description>&lt;p&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=640,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2011/12/23/sdscf0580.jpg&#34;&gt;&lt;img border=&#34;0&#34;   src=&#34;http://blog.syundo.org/images/robolog/blog/images/2011/12/23/sdscf0580.jpg&#34; title=&#34;Sdscf0580&#34; alt=&#34;Sdscf0580&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/a&gt;
-
-&lt;br /&gt;（バトルは撮る余裕がなかったのでモーターショーの写真）&lt;br /&gt;今日は名古屋モーターショーと同時開催のあいちITSワールド内で行われたロボットバトルin名古屋モーターショーを観戦してきた。&lt;br /&gt;昼頃に友人と会場に入り、とりあえずはモーターショーの展示を一通り見て、その後２時頃からバトルを観戦した。バトルを生で見るのは第８回ROBO-ONE以来かなぁ。&lt;br /&gt;バトルも悪くない。とても楽しめた。優勝はレグホーン。一緒に居た友人も２足には詳しくないが、率直に楽しんでいたようだ。&lt;br /&gt;（あ、そういえば今期のディジタル回路の先生が解説をしていらっしゃった。大同大学の先生だとは聞いていたけどまさかバトルの解説してらっしゃるとは。）&lt;br /&gt;その後はモーターショーでまだ見てなかったブースを回り、時間になったので友人と別れロボット忘年会に合流した。バトル終わってからすぐ離脱せずに機体を見せてもらえばよかったかなぁとちょっと後悔。まぁ仕方が無い。&lt;br /&gt;忘年会ではネット上で知っていた方の名前と顔を一致させることができたｗｗｗ&lt;br /&gt;ちょっとモチベーション上がってきたかな。&lt;/p&gt;
-
-&lt;p&gt;とても楽しい一日だった。&lt;/p&gt;
-
-&lt;p&gt;あ、それと自分が知らないロボットがいっぱいいた。学生はネットに情報公開をあんまりしないという話もしたが、顧みると自分ももっと公開していかないといけないなぁとも思った。&lt;br /&gt;サーボは何使ってるかとか。身長も公開してないもんな自分。しっかり計ってないからだけど。重量も同じ。&lt;/p&gt;
-</description>
+      <description>（バトルは撮る余裕がなかったのでモーターショーの写真）
+今日は名古屋モーターショーと同時開催のあいちITSワールド内で行われたロボットバトルin名古屋モーターショーを観戦してきた。
+昼頃に友人と会場に入り、とりあえずはモーターショーの展示を一通り見て、その後２時頃からバトルを観戦した。バトルを生で見るのは第８回ROBO-ONE以来かなぁ。
+バトルも悪くない。とても楽しめた。優勝はレグホーン。一緒に居た友人も２足には詳しくないが、率直に楽しんでいたようだ。
+（あ、そういえば今期のディジタル回路の先生が解説をしていらっしゃった。大同大学の先生だとは聞いていたけどまさかバトルの解説してらっしゃるとは。）
+その後はモーターショーでまだ見てなかったブースを回り、時間になったので友人と別れロボット忘年会に合流した。バトル終わってからすぐ離脱せずに機体を見せてもらえばよかったかなぁとちょっと後悔。まぁ仕方が無い。
+忘年会ではネット上で知っていた方の名前と顔を一致させることができたｗｗｗ
+ちょっとモチベーション上がってきたかな。
+とても楽しい一日だった。
+あ、それと自分が知らないロボットがいっぱいいた。学生はネットに情報公開をあんまりしないという話もしたが、顧みると自分ももっと公開していかないといけないなぁとも思った。
+サーボは何使ってるかとか。身長も公開してないもんな自分。しっかり計ってないからだけど。重量も同じ。</description>
     </item>
     
     <item>
@@ -510,22 +329,20 @@ int main()
       <pubDate>Tue, 08 Nov 2011 20:35:36 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/775/</guid>
-      <description>&lt;p&gt;・新しいASIMOがスゴイ。片足ケンケンで横移動してるの見て感動した。&lt;br /&gt;&lt;a href=&#34;http://www.youtube.com/watch?feature=player_embedded&amp;amp;v=9CNf8iIY5fE&#34;&gt;動画&lt;/a&gt;　&lt;a href=&#34;http://www.fnn-news.com/news/headlines/articles/CONN00211116.html&#34;&gt;動画&lt;/a&gt;　&lt;a href=&#34;http://news.tbs.co.jp/newseye/tbs_newseye4872161.html&#34;&gt;動画&lt;/a&gt;&lt;br /&gt;こんなん自分のロボでできたらいいのになぁ・・・&lt;/p&gt;
-
-&lt;p&gt;・船場RFCの記事書くべきだったんだけど、全く動かない状態でステージに立ったこともあって、動くようになってから動画とともに紹介したいと思っていた。&lt;br /&gt;しかし時間の余裕ができるとイベント前の忙しさの反動であれもこれもと手を出してしまってロボットの作業は遅々として進んでいないのである。&lt;br /&gt;船場RFCに関しては色々な人とお話しできて(自分がいっぱいいっぱいだったのが問題だったけど)、非常に楽しかったことは報告させていただきたい。特に舞鈴堂さんの音叉ちゃんとはツーショット写真が実現してほんと幸せだった。&lt;br /&gt;自分のロボをどういう方向性で開発していくのか色々考えることにもなった。たまにはイベントにも参加していきたいものである。&lt;/p&gt;
-
-&lt;p&gt;・最近はmbedをいじっている。かなり乗り遅れてる感もあるけど。ものすごいポテンシャルを秘めたボードだなと思う。小型でロボット向けにも使いやすいかも知れない。&lt;br /&gt;とりあえずはサーボ動かしたりステッピングモータ動かしたりした。写真↓ブレッドボードに挿せるのがすごくイイネ。&lt;/p&gt;
-
-&lt;p&gt;&lt;a onclick=&#34;window.open(this.href, &#39;_blank&#39;, &#39;width=854,height=480,scrollbars=no,resizable=no,toolbar=no,directories=no,location=no,menubar=no,status=no,left=0,top=0&#39;); return false&#34; href=&#34;http://blog.syundo.org/images/robolog/photos/uncategorized/2011/11/08/photo.jpg&#34;&gt;&lt;img border=&#34;0&#34;   src=&#34;http://blog.syundo.org/images/robolog/blog/images/2011/11/08/photo.jpg&#34; title=&#34;Photo&#34; alt=&#34;Photo&#34; /&gt;&lt;/a&gt; &lt;/p&gt;
-
-&lt;p&gt;ステッピングモータは倒立2輪ロボ作りたいなーとふと思ったから買ってみた。&lt;/p&gt;
-
-&lt;p&gt;クラウドで開発(キリッ　ってのが大きなアピールポイントではあるのだろうけど、いかんせんエディタなどが使いにくく感じる。でもUSBに挿すだけで良いってのは確かに楽だ。最初は。&lt;/p&gt;
-
-&lt;p&gt;・他にはサークルで開発中のフライトシミュレータのためにArduino使って回転数計作ったりしてた。&lt;a href=&#34;http://aircraftact.blog53.fc2.com/blog-entry-39.html&#34;&gt;http://aircraftact.blog53.fc2.com/blog-entry-39.html&lt;/a&gt;&lt;br /&gt;明らかにオーバースペックだけど楽でいい。あとから拡張もしやすいし。&lt;/p&gt;
-
-&lt;p&gt;どんどん新しいことに挑戦していきたいな。ASIMOを見習って。え、これ伏線だったの。&lt;/p&gt;
-</description>
+      <description>・新しいASIMOがスゴイ。片足ケンケンで横移動してるの見て感動した。
+動画　動画　動画
+こんなん自分のロボでできたらいいのになぁ・・・
+・船場RFCの記事書くべきだったんだけど、全く動かない状態でステージに立ったこともあって、動くようになってから動画とともに紹介したいと思っていた。
+しかし時間の余裕ができるとイベント前の忙しさの反動であれもこれもと手を出してしまってロボットの作業は遅々として進んでいないのである。
+船場RFCに関しては色々な人とお話しできて(自分がいっぱいいっぱいだったのが問題だったけど)、非常に楽しかったことは報告させていただきたい。特に舞鈴堂さんの音叉ちゃんとはツーショット写真が実現してほんと幸せだった。
+自分のロボをどういう方向性で開発していくのか色々考えることにもなった。たまにはイベントにも参加していきたいものである。
+・最近はmbedをいじっている。かなり乗り遅れてる感もあるけど。ものすごいポテンシャルを秘めたボードだなと思う。小型でロボット向けにも使いやすいかも知れない。
+とりあえずはサーボ動かしたりステッピングモータ動かしたりした。写真↓ブレッドボードに挿せるのがすごくイイネ。
+ ステッピングモータは倒立2輪ロボ作りたいなーとふと思ったから買ってみた。
+クラウドで開発(キリッ　ってのが大きなアピールポイントではあるのだろうけど、いかんせんエディタなどが使いにくく感じる。でもUSBに挿すだけで良いってのは確かに楽だ。最初は。
+・他にはサークルで開発中のフライトシミュレータのためにArduino使って回転数計作ったりしてた。http://aircraftact.blog53.fc2.com/blog-entry-39.html
+明らかにオーバースペックだけど楽でいい。あとから拡張もしやすいし。
+どんどん新しいことに挑戦していきたいな。ASIMOを見習って。え、これ伏線だったの。</description>
     </item>
     
     <item>
@@ -534,14 +351,2733 @@ int main()
       <pubDate>Mon, 22 Aug 2011 00:53:02 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/774/</guid>
-      <description>&lt;p&gt;サークルで１年間制作してきた人力飛行機が完成し、３回のテストフライトも終え(本当は５回やる予定だったが雨で流れた)、非常に性能の良い機体であったことが分かりました。機速は当サークルでは歴代最速の8.3m/s程度です。昨年より小型化し、8kg程度軽量化出来たのが大きかったのではないかと思います。&lt;br /&gt;テストフライトの動画はこちらになります。&lt;br /&gt;&lt;a href=&#34;http://www.youtube.com/watch?v=S4J0JxsRe-Q&amp;amp;feature=youtu.be&#34;&gt;http://www.youtube.com/watch?v=S4J0JxsRe-Q&amp;amp;feature=youtu.be&lt;/a&gt;&lt;br /&gt;8:20～飛行場飛び切りしています。&lt;/p&gt;
+      <description>サークルで１年間制作してきた人力飛行機が完成し、３回のテストフライトも終え(本当は５回やる予定だったが雨で流れた)、非常に性能の良い機体であったことが分かりました。機速は当サークルでは歴代最速の8.3m/s程度です。昨年より小型化し、8kg程度軽量化出来たのが大きかったのではないかと思います。
+テストフライトの動画はこちらになります。
+http://www.youtube.com/watch?v=S4J0JxsRe-Q&amp;amp;feature=youtu.be
+8:20～飛行場飛び切りしています。
+先日、テレビで鳥人間コンテストが放送され、仲間と一緒に観て、大いに楽しめました。
+うちの大学は今年、書類選考で落ちてコンテストには出られず、結果、3年間全く鳥コンには縁がなかったということで残念でしたが、テレビ放送を観て、色々踏ん切りがついた思いです。
+何より元々自分はロボットとの二足のわらじを履いている状態でしたし、飛行機のこともロボットのことも同時に考えてきました。これからはロボットをじっくりやっていきたい思いがあります。在学中にロボットをやれる時間ももうあまりない気もしますから。実際、来る10月に行われる第2回船場ロボットファッションコンテストにもエントリー済みです。
+夏休みは船場ロボコンに向けてロボットを完成させたいです・・・。
+あとTOEIC</description>
+    </item>
+    
+    <item>
+      <title>あおいは！</title>
+      <link>http://blog.syundo.org/post/773/</link>
+      <pubDate>Sat, 14 May 2011 15:51:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/773/</guid>
+      <description>千石電商でsparkfunのbluetoothモジュールBluetoothMateを買いました。
+ストロベリー・リナックスで売っている同等品よりかは幾分か安い。
+ L型ピンヘッダを付けました。
+ 左がBluetoothMate、右がUSB→TTL変換基板。
+USB→TTL変換基板→BluetoothMate→(無線)→東芝BT-MicroEDR1X(USB)でPCの二つのCOMポートを繋げてテストしてみました。
+ 双方向の通信を確認できました。
+ここ←を参考に通信速度を38400bpsに変更できました。
+疑問なのがBluetoothドングルをSPPでCOMポートとして扱う場合、通信速度の設定はどうしたらいいんだろということです。色々設定を変えてみましたが、どれでも通信できたので、まぁそういうことなんでしょう。あまり気にしないようにしようと思いました・・・。
+さて、別ネタも放出。
+ ご丁寧にボタンに番号が書いてあるUSBゲームパッドが安かったので買いました。
+これをDirectX.DirectInputを使って読み取るプログラムを書きました。
+ ネットの情報を集めてコピペしたらなんとかできました。（あまり勉強にはならなかった）
+スティックのアナログ値も見えます。
+しかし例外処理がなんかうまく行っていないのが玉に瑕です。ゲームパッドを繋ぎ忘れるとTHE　END！でもひとまず放置です・・・。
+このゲームパッド、bluetoothネタと関連して、私が何をやりたいのか察しが付いている方も多いと思います。でもそうするとミニノートが欲しくなるわけです。うむ・・・。
+さらに別ネタ。
+ アミエさんに注文してたのが届きました。
+たまには手加工しろよ自分。と思いましたが。やっぱそんな時間はない。
+これで上半身を増強します。
 
-&lt;p&gt;先日、テレビで鳥人間コンテストが放送され、仲間と一緒に観て、大いに楽しめました。&lt;br /&gt;うちの大学は今年、書類選考で落ちてコンテストには出られず、結果、3年間全く鳥コンには縁がなかったということで残念でしたが、テレビ放送を観て、色々踏ん切りがついた思いです。&lt;/p&gt;
+最後に一言。
+追い詰められているときこそ、開発は進む！ある意味、現実逃避なの☆</description>
+    </item>
+    
+    <item>
+      <title>人形みたいな写真とかあるから注意</title>
+      <link>http://blog.syundo.org/post/918/</link>
+      <pubDate>Fri, 06 May 2011 01:58:20 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/918/</guid>
+      <description>て、今更ですけどねｗ
+去年から全く更新していなかったこのブログ。
+半年近く経っていたんですね。
+ちまちまと作業しながら、しかしあまり進んでいない感じです。
+・脚カバー
 
-&lt;p&gt;何より元々自分はロボットとの二足のわらじを履いている状態でしたし、飛行機のこともロボットのことも同時に考えてきました。これからはロボットをじっくりやっていきたい思いがあります。在学中にロボットをやれる時間ももうあまりない気もしますから。実際、来る10月に行われる第2回船場ロボットファッションコンテストにもエントリー済みです。&lt;/p&gt;
+作業中はフレームにくっつかないようにマスキングテープ貼ってあります。
 
-&lt;p&gt;夏休みは船場ロボコンに向けてロボットを完成させたいです・・・。&lt;br /&gt;あとTOEIC&lt;/p&gt;
-</description>
+フレームの一部が飛び出てもラインが出ていれば綺麗な足に見えるだろう、という着想からこういう風にしているんですが、最近続出の細い足のドールロボをみてるとかなりうらやましいです。（靴下も履けないしね！素足で靴履くのも変だしどうしようか考え中）
+肌色に塗ったらまた見え方変わってくるかも知れませんが。
+股関節の黒いのはHRP-4Cの真似です。（パンストで作った・・・orz）
+・顔
+以前作ったのがいまひとつ納得できていなかったので修正。
+
+目を大きく、鼻をとんがらせて、口元と顎をいじくりました。ボークスニュースを見ながら必死にやりました。写真で見るともう一息な気がしないでもないです。奥が深い。
+目と鼻の穴に空気抜きの穴を開けています。
+バキュームフォームで↓
+
+前回のは1mmのプラ板でやったんですが、試行回数とまんべんなく熱する努力が要求される割に綺麗に出来ないので、0.5mmのを重ねて使うことにしました。
+
+抜け勾配的にまずかったため、型から取るために切れ込みを入れたのもあります。(もう一個は力ずくで取った。しわが付いた・・・。）
+口元とかの複製精度に差があるのでやっぱ完全には重なりません。でも接着剤をたんまり塗ればなんとかなるのではないでしょうか。
+
+首振り軸をどう入れるか検討中なので接着するのもひとまず保留。強度を保ちつつ、整備しやすくしたいです・・・。
+腕の設計とか一部の部品の製作もなんとなく進めているので、後一、二ヶ月でうちのロボも完全体になれるのではないでしょうか。そうなるように頑張りましょう・・・。
+思いの丈を殴り書き↓
+俺規格で人形作っているからともかく着せられる服がない。
+伸縮性がありそうなSDの服を見つけてうっかり買ってももれなく着られない。
+自分が思ってるよりこやつはふとましいことを忘れないようにせねばならない。
+ウィッグもブライス用のを新調するつもり。
+この世には10インチまでのウィッグしかないと思っていたけどそうでもなかった。
+もし次作るならSDに合わせて作りたい。
+でもドールをフルスクラッチできることが分かったから、それなりの収穫だった。
+転んだら壊れるんじゃ無いだろうか。このロボ。
+大丈夫か！？バネとか入れるつもりだけども！
+ではでは！</description>
+    </item>
+    
+    <item>
+      <title>C言語のポインタについてまとめ</title>
+      <link>http://blog.syundo.org/post/894/</link>
+      <pubDate>Thu, 14 Apr 2011 22:54:39 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/894/</guid>
+      <description>ポインタの宣言 char *a;
+ とする。間接参照演算子*とは別。
+間接参照演算子* char *a;
+について間接参照演算子*を使うとその型は
+aはcharのポインタ *aはchar型
+ アドレス演算子&amp; char a;
+についてアドレス演算子&amp;amp;を使うとその型は
+aはchar型 &amp;aはcharのポインタ
+ ポインタと配列 宣言の仕方による違い色々
+char a[5];//←配列(要素数5) char *b[5];//←ポインタの配列(要素数5) char (*c)[5];//←配列(要素数5)へのポインタ char (*d[6])[5];//←配列(要素数5)へのポインタの配列(要素数6)
+ ポインタと構造体 以下のような構造体test1、構造体ポインタtest2について考える。
+struct TEST { char a; char b[5]; char *c; char *d[5]; char (*e)[5]; char (*f[6])[5]; }; struct TEST test1; struct TEST *test2;
+ それぞれの構造体のメンバへの値アクセスの方法は
+test1.a=10; test1.b[0]=10; *(test1.c)=10; *(test1.d[0])=10; *(test1.e)[0]=10; *(test1.f[0])[0]=10; test2-a=10; test2-b[0]=10; *(test2-c)=10; *(test2-d[0])=10; *(test2-e)[0]=10; *(test2-f[0])[0]=10;
+ </description>
+    </item>
+    
+    <item>
+      <title>サーボQ</title>
+      <link>http://blog.syundo.org/post/772/</link>
+      <pubDate>Sun, 10 Apr 2011 13:19:38 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/772/</guid>
+      <description>シリアル通信で動かすのが億劫で放置していた週刊ロボゼロ3号のRS306MD-DCを触ってみました。
+PWMで動かすこともできますが、折角のシリアルサーボなのでシリアルで動かしたいです。
+ともかくIDとか通信速度とかの設定をPCからいじってやらないと使い物にならないのでVBでプログラムを書きました。
+ROM用のデータを送ってからそれを書き込む命令を送って、1秒以上待つ。再起動。という流れが分かるまで苦労しました。
+配布されてるサンプルプログラムはID設定だけで、通信速度設定のはありません。
+このサンプルでは書き込みフラグと再起動フラグを同時に立ててまとめて命令送信していますが、これができるのはID設定だけ？で通信速度設定では出来ません。
+再起動は1秒以上待ってからする必要があるのです。
+ID設定には書き込み後の再起動は必要ではないが通信速度設定には必要、そしてもし書き込み後に再起動するなら1秒以上待たないといけない。
+でもややこしいからROM書き込みをやるときには書き込み命令後に1秒待って再起動。
+ということでいいのではないかと思います。
+う・・・資料をじっくり読んだ人でないと分からない内容な気がします・・・。
+IDや通信速度をいじっている間にどういう風に設定したか分からなくなってしまったサーボが出てきました。
+IDと通信速度を合わせてやらないと通信できないので、サーボの中身も見られない。
+なんというジレンマでしょう・・・。手動で設定を変えながら何回も送信したら反応してくれて、結局解決したんですが、忘れないうちにサーボ設定値初期化の記述も書かないと危ないなぁと思いました。
+というか双葉が設定用のプログラム配布してないんですかね？
+まぁ見つからなかったから自分で作ったわけですが。
+あっても良い物でしょう。
+そういえばほんとにサーボが動くか試しにコマンド送ってみたときにこのソフトを使いました。
+http://kondo-robot.com/sys/archives/354 ま、実際これでサーボに命令するのはかなり面倒なんですけどね・・・。
+でもシンプルで使いやすいと思いました。</description>
+    </item>
+    
+    <item>
+      <title>SH7125でPWM12本生成</title>
+      <link>http://blog.syundo.org/post/893/</link>
+      <pubDate>Sat, 09 Apr 2011 00:21:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/893/</guid>
+      <description>SH7125のCMTとMTUを使ってサーボモーターを動かす方法を解説します。
+概要 SH7125のMTUにはPWMモードというのがあります。これはその名の通りPWM信号生成に特化されたモードで、MTUに必要な設定をしてやれば割り込みを使わなくても任意の周期、デューティーのPWM信号を作ってくれるというモードです。
+でも、今回はこのモードには設定しません。なぜなら、MTUの5チャネルの全部を使っても12本しかPWMを作れないからです（PWMモード2）。
+では、どうするのか。CMTに周期、MTUにデューティーを担当させてPWMを作ればいいのです。これなら12本のPWMを作るにしてもMTU3チャネルで実現出来ます。
+CMT（コンペアマッチタイマ） ＳＨ7125には2チャネルのＣＭＴがあります。どちらを使ってもいいので、今回はチャネル0を使いましょう。
+力尽きた。続きはいつか。
+2010/01/09追記
+全部書ききる自信がないので、私がPWM信号を16本生成した方法を大雑把に書き殴っておきます。
+周期にCMT、デューティーにはMTUを使う。
+CMTで周期ごとに割り込みを発生させる。このとき設定するのが、
+INTC.IPRJ、CMCSR、CMCOR
+また、割り込み発生後は、CMCSRのCMFというフラグをクリアする必要がある。
+CMTの割り込みでMTUを立ち上げる。
+CMT割り込みがなされる度にMTUの設定をしなくてはならない。
+このとき設定するのが、
+TRWER、TOER、TCR、TMDR、TIOR
+まず最初にTSTRでMTUを停止し、TCNTをゼロクリアして、上記項目を設定し、TGRにデューティーに対応する数値を書き込んでから、TSTRでカウントスタートさせる。
+私のプログラムを載せておきます。
+#include &amp;#34;iodefine.h&amp;#34;//プロトタイプ宣言 void main(void); void initIo(void); void pwm(void); void initCMT0(void); //サーボの初期値 (1125-1)～(3487.5-1) #define RL0 2305.25f #define RL1 2305.25f #define RL2 2305.25f #define RL3 2305.25f #define RL4 2305.25f #define RL5 2305.25f #define LL0 2305.25f #define LL1 2305.25f #define LL2 2305.25f #define LL3 2305.25f #define LL4 2305.25f #define LL5 2305.25f  //大域変数の設定 int rl[]={RL0,RL1,RL2,RL3,RL4,RL5}; int ll[]={LL0,LL1,LL2,LL3,LL4,LL5}; //関数 void main(void){ //provide clock to cmt  STB.</description>
+    </item>
+    
+    <item>
+      <title>非直交軸の逆キネ</title>
+      <link>http://blog.syundo.org/post/771/</link>
+      <pubDate>Sun, 20 Mar 2011 03:23:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/771/</guid>
+      <description>Dream Drive! blogさんで非直交軸の逆キネが紹介されていて、あれ？自分も前にこれ計算したよな。でもなんか自分のと違う希ガス。と思っていたのだが・・・面倒で放置していた。
+さっき重い腰を上げて過去ログから自分のを見てみると、なんかすごく遠回りな計算をしていた・・・。相変わらずだな。トホホという感じ。
+式を変形していくと（第1余弦定理）同じになることを確認し、明らかに計算が速いであろうみっちーさんの方法にプログラムを修正した。感謝です。
+
+
+
+サークルが忙しくてロボットやれていないが、お人形型ロボットにはやっぱSHIN-WALKのようなものが適しているのではと思ったり。だって、やっぱ膝曲げ歩行やらせたら不気味だったし。
+SHIN-WALK構造で重心が上下動しないように（もちろん支持脚の膝は曲げない）拘束すると歩幅は構造によって決まるし、左右の重心移動は正弦波、前後は余弦波になる（どの時点を基準にするとかあるけど）。これが線形倒立振子モデルの重心軌跡とあまりに乖離すると歩かない（かも）特に前後方向が駄目な気がする。歩き出す前の姿勢が振り子の振幅最大のところになっているのも問題で、遊脚を上げられないのではと思ったりもする。
+もしかしたら膝を曲げるにしても膝曲げ量を小さくできるのかな。計算してみないと。もしそうなら、ロール軸だけでなくもピッチ軸も膝曲げ分だけオフセットしておけば一番綺麗な見た目で歩けるのか？それは設計段階から歩容考えないと、ということなんだなー。キビシー
+まー何にしてもロボットのコンセプトが定まってないからあれこれ考えたり手を出したりしてなかなか纏まらないんだと思う。でも割り切るのって難しい。</description>
+    </item>
+    
+    <item>
+      <title>掲載場所移動のおしらせ</title>
+      <link>http://blog.syundo.org/post/770/</link>
+      <pubDate>Sun, 30 Jan 2011 01:33:42 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/770/</guid>
+      <description>現在、この技術情報にあるいくつかのページを他のブログに移し替える作業をしています。
+現状では、RAMデバッグ(sh7125)、HEW使う(sh-2)をすでに移し替えました。
+それぞれ以下のURLです。
+マイコンプラス：RAMデバッグ(sh7125)
+マイコンプラス：【初心者のための】ルネサスHEWの使い方【チェック】&amp;nbsp;
+読みやすい構成に変わりましたし、大部分加筆しています。
+ここにある他の文章も移し替える予定です。
+ぜひブックマーク登録をお願いします。</description>
+    </item>
+    
+    <item>
+      <title>2足歩行ロボットキット一覧</title>
+      <link>http://blog.syundo.org/post/884/</link>
+      <pubDate>Sun, 23 Jan 2011 23:57:02 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/884/</guid>
+      <description>ホビー向け2足歩行ロボットキットを各社まとめてみました(2011/2/22現在)
+今は販売していないものには(終)をつけています。市場に全く出回っていないかはわからないですが。
+一応大手の販売元を網羅してますが、細かいことを言えばまだ他に2足歩行ロボットキットは存在する気がします。気づいたら追加します。
+近藤科学
+KHR-1(終)
+KHR-2HV
+KHR-1HV
+KHR-3HV
+Vstone
+Robovie-M ver.3(終)
+Robovie-MS(終)
+RB2000
+RB300
+Robovie-i
+Robovie-X
+Robovie-nano
+京商
+MANOI PF01
+MANOI AT01
+ハイテックマルチプレックスジャパン
+ROBONOVA-Ⅰ
+姫路ソフトワークス
+JO-JERO
+STD-ZERO
+HPIジャパン
+GR-001
+杉浦機械設計事務所
+BIOLOID PREMIUM Kit
+ベストテクノロジー
+BTH050:FREEDOM jr.III Basic Kit
+BTH051:FREEDOM jr.III Complete Kit
+BTH060:ROBOBUILDER
+アイ・ビー
+Pirkus・R　Type-01
+Pirkus・R　Type-01 DX
+エスケイパン
+GogicFive
+ビーエルオートテック
+Varibo(終)
+エルエルパレス
+Neebo
+共立電子産業　ワンダーキット
+Weird-7(終)
+プチロボ(終)
+プチロボ改
+プチロボMS5
+プチロボX
+浅草ギ研
+AT-WALKER
+Remo HKP(HumanoidKit/P)
+日本遠隔制御
+RB1000(終)
+RB2000(Vstoneへ移管)
+RB300(Vstoneへ移管)</description>
+    </item>
+    
+    <item>
+      <title>ロボットの構成要素</title>
+      <link>http://blog.syundo.org/post/880/</link>
+      <pubDate>Wed, 19 Jan 2011 14:51:30 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/880/</guid>
+      <description>ロボットは主に以下のように構成されている。
+センサ
+アクチュエータ、骨格
+コントローラ
+電源
+その他
+・センサ
+センサは人間で言うところの感覚器官である。姿勢のバランスを保ったり、音声認識させるためのものである。ジャイロセンサ、加速度センサ、地磁気センサ、圧力センサ、距離センサ、軸力センサ、タッチセンサetc.
+・アクチュエータ
+人間で言うところの筋肉である。ロボットの動作の源である。モーター、人工筋肉etc.
+・骨格(フレーム)
+アクチュエータと他の要素を結合するためのものである。アルミやその他合金、プラ、カーボンなどで作られる。
+・コントローラ
+人間で言うところの脳である。ロボットを制御するためのコンピュータ。
+マイコンやPCが使われる。
+・電源
+電源がなければロボットは動かない。
+家庭用の交流電源からACアダプタなどを用いてロボットの電源としているのものや、ロボットにバッテリーを積み込んでいるものがある。
+・その他
+アクチュエータとは違う方法でロボットの状態を外部に伝えるもの。
+例えば、LCDディスプレイや、スピーカー、LEDなどである。</description>
+    </item>
+    
+    <item>
+      <title>うっうー</title>
+      <link>http://blog.syundo.org/post/769/</link>
+      <pubDate>Mon, 17 Jan 2011 02:22:57 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/769/</guid>
+      <description>・ちょっと間を空けるとすぐに興味が無くなってしまうから困る。
+モーションプラス及び村田ジャイロの進展はなし。
+・V-Sido・・・ニコニコで話題になったユニコーンガンダムの人のソフトがKinectに対応したらしい。個人レベルであそこまでやってのける氏の力量には愕然とするしかない。
+・実家に帰ったとき、2006年のロボコンマガジンを読んだが、マイコンの使われ方や、ロボットの構成について今と殆ど変化がないように思われた。
+しかし着実にPCは小型化してスマートフォンも普及してきている。もう趣味レベルでもマイコンだけでロボットを動かさなくても良くなってくる。タブレットPCやスマホの台頭は今年、組み込み趣味に大きな進歩をもたらすのではないかと思う。
+・いまのアナスタシアプロジェクト（開発中のロボット群のコードネームｗ）には、吉野さんの60日でできる・・・のサンプルプログラムをほぼ流用させてもらっている。でも自分で作ったもので無いので一度理解しても少し間を空けるとすぐに理解不能になってしまう。これは時間の無駄なので主要なところを図にまとめてみた。
+無いよりましな感じ。
+いつか自分で全部書き直した方が良いと思う。想定外の使い方をすることで無駄が生じている・・・ような気がする・・・。</description>
+    </item>
+    
+    <item>
+      <title>あけましておめでとうございます2011</title>
+      <link>http://blog.syundo.org/post/768/</link>
+      <pubDate>Tue, 04 Jan 2011 22:49:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/768/</guid>
+      <description>あけましておめでとうございます。今年も宜しくお願いいたします。
+実家より帰還しました。
+また成人式のときに帰ります。岐阜は近いなー。
+ところで、タイミングが良すぎます。良すぎるのです！
+実家にwiiが導入されてました。時期的にかなり乗り遅れているのでは・・・とも思えますが、去年の11月にwiiリモコンプラスが出たということを考えるとかなりグッジョブかもです。
+ちょうどWiiResortもあったので、ジャイロの働き具合を確認してきました。wiiリモコンプラスのジャイロ（2軸+1軸）はモーションプラスのものと同じらしいのです。
+リモコンをかなりゆっくり動かしてもちゃんと追従してきます。
+初期化に10秒ほどかけています。ジャイロの原点だしだけでは無いと思いますが。（机の上に置けと言われる）
+どのようにドリフトをキャンセルして積分しているのか気になるところですが、それはわからないんですよねー。しょうがない。
+さっそく名古屋に戻ってから、Arduinoで読み取ってみました。
+ 出回っていたサンプルをそのまま使えました。Arduinoの種類が変わっても全く同じものが使えるというのはすごく新鮮。面白いものを手に入れたなー。
+ただ、wiiモーションプラスからの6バイトのデータについて自分がいまひとつまだ理解できていないので（解析はもうされてる）、角度を出すのはちょっと時間かかるかもしれないです。
+あとは村田ジャイロもいじりたいなー。
+わんだほー2月･･･</description>
+    </item>
+    
+    <item>
+      <title>OH～波、ばんばばんばん</title>
+      <link>http://blog.syundo.org/post/767/</link>
+      <pubDate>Wed, 29 Dec 2010 01:05:08 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/767/</guid>
+      <description>茶色いバカンスよ
+というわけで明日、というか今日帰省します。
+ブログ開設以来の連続更新記録が止まってしまうのが残念。
+今日は性懲りもなくジャイロ試験しました。
+加工したものの設計ミスや変更で使えなくなったものたちを貼り合わせてサーボとジャイロセンサを合体しました。
+ 0度から-90度→0度に回した様子↓
+ うわぁ。これはひどい。帰りの感度が行きの2倍になってる！？
+ともあれなんか突破口は見えそう。やってみてよかった。
+Arduinoやwiiモーションプラスも含めて来年に持ち越しだなー。残念。
+あ、そういえば忘れてたけど前にこんなのも買いました。
+ http://www.aitendo.co.jp/product/2456
+USB→TTL変換のやつ。普通に動きました。カバー付いてないから差し込みにくいです。
+それでは良いお年を！</description>
+    </item>
+    
+    <item>
+      <title>ミニミニミクロ電子・・・</title>
+      <link>http://blog.syundo.org/post/766/</link>
+      <pubDate>Tue, 28 Dec 2010 01:33:52 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/766/</guid>
+      <description>sh7125、RAMが小さくてデバッグしにくい！
+ちょっと凝ったことやろうとしても試せない！
+タイニー君だから増設もできない！
+ううううう！
+ゼロ点電圧付近で積分しない幅を作ってみた。静止状態では値がぶれなくなったが、昨日までの問題は解決せず。
+ゼロ点よりー９０度まわしてとめた様子↓
+ プラスに回してもマイナスに回しても最終的には＋４程度に収束していくみたい。
+なんだろーなんだろー。
+しかし微小変異（系列１）を足し合わせていくと系列２のグラフになるのか？ぱっと見そうは見えないけど。そうだとしたら（そうなんだけど）とてつもなく微妙で繊細なことをやろうとしてるんだなー。
+埒が明かないからサーボと組み合わせたものを作ってしっかり計測してみるかなー。
+それかひとまず放置してArduino+wiiモーションプラスに戻ろうかなー。
+それならUSBケーブル！寒いけど！買いに行こうよ！</description>
+    </item>
+    
+    <item>
+      <title>溢れてくるのはこの気持ち</title>
+      <link>http://blog.syundo.org/post/765/</link>
+      <pubDate>Mon, 27 Dec 2010 01:58:46 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/765/</guid>
+      <description>まだまだ世の中には分からないことがいっぱいあるなー（笑）という気持ち。そして気怠さ。
+ジャイロのドリフトってのは思いのほかもの凄かった。
+何も動かしていないのに値が増え続けるときの焦燥感・・・。
+補正してみても、時間経ってからもう一回やってみると殆ど効かなくなってくる。
+しかし角度にそれほど精度はいらないから、どこかで桁を落としてやるといいのかも。でもそうすると積分値がずれてくるだろう。これがいたちごっこか。
+温度ドリフトはまだいいが、せめて相対角度くらいちゃんと出したいものである。
+プログラムに不備があるのかわからないが、やはりセンサを静止させると原点からの角度によらず、原点近傍の値に収束していってしまう。
+原点から90°回して静止した様子↓
+
+90°回したのに90にならないのは係数がおかしいからだろうからまぁいいが（納得できてないけど）、そのまま静止させてるのにどんどん値が0に向かって減少してしまう。
+角速度と合わせたグラフ。別の試行↓
+ 静止させるとゼロ点電圧よりも出力電圧が低くなっていて減少するという仮定は温度ドリフトで角度が増加していく傾向とは逆だからおかしい。そもそも減少率がかなり大きく、センサの特性でこんなになることはないだろう。
+単純に積分してるだけなのになぁ。ハイパスフィルタとかローパスフィルタのせいなのだろうか？そのへんよく知らない。調べるかー。
+台形積分は温度ドリフトの影響をもろに受けて難しいのでひとまず保留した。
+ArduinoのためのUSBケーブルは外が寒すぎて買いに行けない・・・。おお寒い。寒いよー。</description>
+    </item>
+    
+    <item>
+      <title>ぐるぐる使い</title>
+      <link>http://blog.syundo.org/post/764/</link>
+      <pubDate>Sun, 26 Dec 2010 03:48:40 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/764/</guid>
+      <description>Arduinoが届くまで暇だったので、村田のジャイロスター搭載ボードAE-GYRO-SMDで角速度積分による動的角度計測をやってみようとした。
+wiiモーションプラスいじる前にこれをやってみるべきだったんですがねホントは・・・。
+しかしこれが意外にも手強く、静止状態ではそれが原点でなくても角度が０となってしまうよくわからない挙動になってしまった。
+#define K_GYR&amp;nbsp; (5*1000/1023)/0.67*10.1
+#define D_T&amp;nbsp; 0.01
+void main(void){
+&amp;nbsp; &amp;nbsp; int i;
+&amp;nbsp; &amp;nbsp; int sum=0; &amp;nbsp; &amp;nbsp; float angle=0,delta=0;
+&amp;nbsp; &amp;nbsp; int adc0,adc1;
+&amp;nbsp; &amp;nbsp; for(i=0;i&amp;lt;10;i++){
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; sum+=Get_ADC();
+&amp;nbsp; &amp;nbsp; }
+&amp;nbsp; &amp;nbsp; adc0=sum/10;
+&amp;nbsp; &amp;nbsp; //無限ループ
+&amp;nbsp; &amp;nbsp; while(1){
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; adc1 = Get_ADC();
+&amp;nbsp; &amp;nbsp; }
+}
+//CMT0割り込み関数
+void CMT0_interrupt(void){
+&amp;nbsp; &amp;nbsp; CMT0.CMCSR.BIT.CMF=0;
+&amp;nbsp; &amp;nbsp; delta = (adc1-adc0)*K_GYR;
+&amp;nbsp; &amp;nbsp; angle += delta*D_T;</description>
+    </item>
+    
+    <item>
+      <title>山河あり</title>
+      <link>http://blog.syundo.org/post/763/</link>
+      <pubDate>Fri, 24 Dec 2010 00:26:30 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/763/</guid>
+      <description>PIC12F683、タイマ比較レジスタ値調整してPCと通信はできるようになった。
+早速見てみたが、wiiモーションプラスにデータを100kbpsで送っても反応なし、ACKも来てない事がわかった。
+もう戦略的撤退をするべきか。どうにもならない。
+そこでふいにスイッチサイエンスのホームページを見る。
+あ、送料無料じゃん。ArduinoUNOをポチリ。
+これでWiiRemote界隈で流行ってるArduinoのサンプルスケッチを試せる。
+何やってるんだろ
+何やってるんだろ
+これでwiiモーションプラス関連に1万五千円程度つぎ込んだことになる。
+これもう普通に高性能なジャイロ単体で買ったほうが良かったんじゃない？
+家庭教師のバイト今月で無くなるんじゃないの？
+＿＿＿
+／　＼
+／ノ　＼　u. ＼　！？
+／ （●） （●） ＼　|　（__人__）　u. |　＼　u.｀ ⌒´　／
+ノ　＼
+／´　ヽ</description>
+    </item>
+    
+    <item>
+      <title>your best clock</title>
+      <link>http://blog.syundo.org/post/762/</link>
+      <pubDate>Thu, 23 Dec 2010 03:27:26 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/762/</guid>
+      <description>セラロックを外付けしたらI2Cの速度が100kbps出るようになった。
+配線が長いと良くないっていうんでいくつかのサイトを参考にブレッドボード向けの形にした。
+  最後にノイズ出てるけどACK受信するところだからだった。
+I2Cが速くなったのはいいけど、今度はソフトUSARTの速度が合わなくなってきた。
+調整が要りますな・・・。また明日・・・。</description>
+    </item>
+    
+    <item>
+      <title>最近怠けすぎ</title>
+      <link>http://blog.syundo.org/post/761/</link>
+      <pubDate>Tue, 21 Dec 2010 23:06:04 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/761/</guid>
+      <description>もうすぐ冬休みで休講がなんか多いし、もうやり放題。駄目人間になっているな・・・。
+それはともかくwiiモーションプラス。
+どうやらpic12f863の内蔵クロックではIC2の通信速度が50kbpsくらいしかいかないから発振子外付けしないといけないみたい。
+Wiiリモコン系のI2Cは一応、高速I2C(400kbps)だと分かっているみたいで、できるなら400kbpsで通信したほうがいい。
+でも、こっち側がマスターの場合はそれほどシビアでなく、標準の100kbpsでも反応が確認されている（らしい）。
+外付けクロックの周波数を上げるにも限度があって、ソフトI2Cの通信は100kbpsくらいにしかならないから、もしセラロック買ってきて付けても駄目だったらひとまずあきらめようかなと。
+ところでロボゼロ、全国販売決まってたんだｰ！！
+やったー。最初にサーボが付くのは2月22日発売のやつだと思う。来年のお楽しみだなーwktk</description>
+    </item>
+    
+    <item>
+      <title>この気持ちを今あえて言葉にするなら･･･</title>
+      <link>http://blog.syundo.org/post/760/</link>
+      <pubDate>Tue, 21 Dec 2010 02:16:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/760/</guid>
+      <description>特殊ドライバーセットが届いたのでWiiモーションプラスを分解した。
+ネジ二つ外すために3000円のドライバーセット買うのってかなりお馬鹿ではないか。
+  PICマイコンでソフトUSARTとI2Cを実装した。ある書籍のサンプルプログラムをごっそり借用したのだが、まさかタイマがスタートされていなかったとは。動作確認してあるものじゃないのかね・・・。（ちゃんと設定してあった・・・今となっては何が悪かったのか分からない・・・）まぁでも怠けずに自分でデータシートを確認しておけばあんな悩むことは無かったな。
+  ともかく下地は出来たのだが、データを送っても案の定wiiモーションプラスからの反応が無いようである。うーん・・・。
+周波数が合ってない？I2Cって周波数にうるさいものでないような感じだけどよく分からない。
+Wiiモーションプラスの出力ピンを間違えている？Arduinoと繋いでるのを紹介しているサイトの通りにしてるのだが、どうも外国のサイトの情報とは違うような気がしなくもない。よく分からない。
+配線が長すぎる？いや、どうだろう・・・。
+うまくいくといいな。
+使われているジャイロのスペック値がはっきりわからないし、ある一定の角速度以上になるとWiiモーションプラスの測定レンジが変わる(計算式はどうもあやふや)らしいから、角度の測定にはもしかしたら使えないかも。今更ですけど。見て見ぬフリをしていましたけど。でも最近これにはまっていていつでもどこでも気になるから当然続ける。
+あとは2ヶ月放置したらまったく手に負えなくなってしまったロボのモーション再生プログラムとかをなんとかしないと。
+それと足カバー。</description>
+    </item>
+    
+    <item>
+      <title>記者の善永と申します</title>
+      <link>http://blog.syundo.org/post/759/</link>
+      <pubDate>Fri, 17 Dec 2010 00:14:15 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/759/</guid>
+      <description>wiiモーションプラス届いた。
+早速分解しようとしたけどネジが特殊。無理矢理やってなんかペキっという基盤にダメージをあたえたっぽい音がしたところで（大丈夫だよねー？）手を止め、素直にドライバーを注文した。前から欲しいと思っていたし！いいもん！
+ああ。中間テスト終わった勢いで徹夜で開発する計画は儚くも頓挫。
+読み取りはPICマイコンでやろうと思い、PIC12F683とPICkit2を買ってきた。
+8ピンでちっこくて可愛くていとおしい。
+初めてのPIC、ついにアセンブラに挑戦か？と思うも、なんか割とコンパイラも揃ってるみたいで、自分ではもうやらないだろうなと思う。PICのうまみを消しているとも言えるけど・・・。容量が足りるのかだけは心配。
+I2CモジュールもUSARTさえもないからソフトで実装しなくちゃいけない。
+そこは8ピンPICマイコンの使い方がよくわかる本
+に詳しく書いてあるっぽかったから（立ち読みです）買おうかな。大学生協の割引率が上がる日を狙って・・・なんかこう勢いづいてるのはテスト前によくある、他のことを勉強したくなる衝動によるものだった気がする。
+その衝動に関係してだけども、半年前くらいに買ってたITORONの解説本を読み直し・・・いや読み始めたりした。
+製作ガイドの続編であるROBO-ONEで進化する・・・を読んでHOS入れてみたいなと思ったから。interfaceのSH-2A基盤に関する記事でも使ったりしてるしまた興味が湧いてきた。
+前だったら新しいことに挑戦すると、まだロボット出来てもいないのに・・・っていう気分になったけど一応未完成ながら船場ロボコンにエントリーしたことで(パレードですけど！ロボコンマガジンでは一切触れられてませんでしたけど。全くかまいませんけど。)気が楽になったかも。
+ソフトばっかじゃなくてロボット本体もいじっていかないといけないとは思うけども。
+腕のサーボとして使いたいRS306MDが広島限定の週間ロボゼロに低価格で付属しているらしい。どう頑張ってもロボゼロは買えないんだけど、サーボ定価で買うには踏ん切りがつかない。びんぼーしょー。
+鳥人間もがんばるよ！</description>
+    </item>
+    
+    <item>
+      <title>角度計測</title>
+      <link>http://blog.syundo.org/post/758/</link>
+      <pubDate>Sun, 12 Dec 2010 23:53:39 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/758/</guid>
+      <description>またまた久しぶりの更新。
+youubeでとある動画を見つけて、ジャイロセンサの出力を積分して動的な姿勢角を得る方法が思っていた以上に使えるのではないかと思った。
+ジャイロセンサで角度を得ることは最近、普通の会社員の日記の人のところで知っていたが（ロボット制御では割とよくやることなのか？）、ピッチ軸、ロール軸の動的角度を得られてもとても使いこなせないなと思っていた。（極座標→直交座標とか考えるだけでうう・・・。）
+しかし、ヨー軸の動的角度は二足歩行ロボットを真っ直ぐ歩かせるために是非とも利用してみたいものではないか？この手の目的で地磁気センサやGPSなんかを検討したりしなかったりしたが、これはもしかしたら使えるかも。
+問題はジャイロセンサの温度ドリフトや、積分回数を重ねるごとに累積する誤差。
+ヨー軸方向を加速度センサで補償することはできないし、コンパスモジュールで補ったらよけいずれそう。
+秋月の基盤で村田製作所のジャイロスターを使った物は、何も工夫しなければ左右に90°ずつ振るたびに3°くらいのずれが出てくるそうな。手元にあるAE-GYRO-SMDで自分でやってみれば早いのだが（汗
+このずれを解消するのはなかなか難儀なものらしく・・・調べると先人達の苦労の跡が・・・。
+まぁ結局、人間が操縦するわけだからある程度誤差が出てきても歩行を止める度にゼロ点リセットすればそんなに気にならないのかもしれない。どうだろう。
+そしてWiiモーションプラスに使われているジャイロセンサがなかなかにドリフトが出にくく良い感じだという情報も発見。定価1500円で三軸のジャイロがついてくるなんて良いんじゃないかこれ。と思って条件反射的にポチッとな。在庫少ないらしく一個しか買わせてもらえなかった。
+ただ、このWiiモーションプラス、調べても作例が何故かArduino使った物ばっかり・・・。モーションプラスとはI2Cで通信しなきゃいけないそうだが、それが理由なのかよくわからない。
+あ、そしてよく考えたらSH7125ってI2Cモジュール無かった。どうしよう。
+I/Oポートを直接叩いて通信してたりする作例を発見・・・。うっほ・・・。
+村田製作ジャイロとwiiモーションプラス、どっちが近道なのかはよくわからない。（でも多分モーションプラスはタンスの肥やしに・・・）
+でも当分のあいだ、これに熱中できそうである。
+ほかにやるべき事がたくさんあるはずなのに。
+　／￣￣￣＼
+／　─　─ ＼
+／　&amp;lt;○&amp;gt; &amp;lt;○&amp;gt;　＼.
+|　（__人__）　|　ぽけー
+＼　｀ ⌒´　／
+／ ＼</description>
+    </item>
+    
+    <item>
+      <title>縮小粘土物語</title>
+      <link>http://blog.syundo.org/post/916/</link>
+      <pubDate>Sun, 28 Nov 2010 23:33:19 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/916/</guid>
+      <description>Mr.クレイ、乾くと縮む縮む！
+盛って、乾かして、取れたら瞬接を繰り返す。
+うーむ根気の要るもんだなぁ。
+正直これでフィギュア一体出来るとかならいいんだが、足カバーか･･･。
+そして、サフを吹くと表面が毛羽立ちまくるらしい。
+溶きパテとかいうのをやればいいのか。
+ああ、あとエアブラシも欲しいかも。
+店で見てきたがコンプレッサー無しなら意外と安価なもんなんだな。
+うーん･･･
+いやぁ･･･</description>
+    </item>
+    
+    <item>
+      <title>パブロフの犬だ！パブロフの犬だ！</title>
+      <link>http://blog.syundo.org/post/915/</link>
+      <pubDate>Sat, 27 Nov 2010 03:28:38 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/915/</guid>
+      <description>もうなんもやる気しない･･･が最近の口癖のようになっていましたが、先行き不透明だったことの終わりがなんとなく見えてきて気が楽になったようす。休日も潰してストレスを溜め込みに行くなんて碌なことじゃあないよ！という主張も結局は気の持ちようというもので･･･。
+さて、プログラムの方をいじらなきゃという気持ちはあるもののなかなか手が進まないので工作をば。
+足の見栄えを良くしようとしました。
+
+バキュームフォームで作ったカバーでは足の付け根の部分に隙間ができてしまう、手で持ったときにぐらぐら動いて扱いにくい、合わせ目の隙間がいかんともし難い、というような理由から石膏粘土で足カバー（の型？）を作ろうかと思います。
+
+Mr.クレイが思ったより軽量だったのでこの表面にパテを塗って固めたらいいのではないか？でもせっかくだからこれの見えない部分を肉抜きしたものを型にしてレジンキャストとかしてみたほうがいいのか？やったことないけど、重いか？というような色々な打算の結果ざっと粘土を盛ってみている様子です。最終的にはもっと丁寧に造形しないとね！
+
+見栄えが悪いけどこういう過程を残しておくのが製作記というものではないでしょうかっ！？（目をカッと見開いている）
+実際のとこ明日になって乾いてくれないと良いかどうか分からない･･･
+お人形型をやると決めてから今まで触れたことのない材料を扱うようになってなんかちょっと楽しいかも。</description>
+    </item>
+    
+    <item>
+      <title>おお</title>
+      <link>http://blog.syundo.org/post/757/</link>
+      <pubDate>Tue, 26 Oct 2010 00:59:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/757/</guid>
+      <description>宮田さんのところのブログが2年ぶりに更新されている。
+すげえ。なんかすごい。
+よくわかんないけど一度聴いてみたいなぁ。
+でもウォークマン持ってないんだよなぁ・・・。
+ipodの容量が一杯になったから、これを機に移行するのもいいかも・・・。
+でもあの小っちゃい箱に入ってた奴が今でも凄く気になっているんですが・・・。
+つまり持ち歩きたい・・・。</description>
+    </item>
+    
+    <item>
+      <title>部屋中粉だらけ</title>
+      <link>http://blog.syundo.org/post/914/</link>
+      <pubDate>Thu, 21 Oct 2010 01:19:31 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/914/</guid>
+      <description>さて、更新。
+バキュームフォームで作った外装に手を加えました。
+以前までは形が完璧に抜けていなかったので、ボディの継ぎ目が気になる出来でした。
+
+綺麗に抜けるまでやり直すということも考えられますが、それまでにいくら失敗するか考えるだけでも鬱になります。バキュームフォーマーを改良しないと。
+そんなことやってられないので、スキマをパテで埋めました。
+
+これはこれで結構時間がかかりました･･･
+部屋も粉っぽくなるし･･･。
+見た目完璧とは言えないけどまぁ綺麗になったかなと。
+誰がこんなところを見るのかと言うと自分だけな気がしますが･･･。これを足のカバーにもやれば良いと思います。
+次、
+船場ロボコンのときにはただの発泡スチロールの塊だったヘッドの中身を作り直しました。
+
+これで頭の中に受信機とか入れられるし、首回したりできるです。
+頭頂部が出っぱっていますが、これはこうしないとウィッグがはまらないから｡
+カイン技師さんに教えて貰った首のケーブルが捻れない構造です。
+いわゆる萌え軸は入れない予定。
+最近、小手先なことばっかやってる気がするのでガツーンとロボットやりたい。
+でも他にもやること多すぎぃぃぃ</description>
+    </item>
+    
+    <item>
+      <title>船場ロボットファッションコンテスト及びパレード</title>
+      <link>http://blog.syundo.org/post/913/</link>
+      <pubDate>Tue, 12 Oct 2010 03:25:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/913/</guid>
+      <description>やっぱ忘れないうちに書いておこうと思いまして。
+パレードに参加しました。
+
+うちの娘が一番可愛いに違いないと思って行ったんですが、徹夜で作ったこともあって、他のロボットと比べて見劣りする点も多々ありました。腕が作れず、発泡スチロールだったのは本当に可愛そうだった･･･。
+舞鈴堂さんにはドールの手先を貸して頂きました。
+ご自身がお忙しい中、色々気を掛けて頂いてありがとうございました。
+カイン技師さん、私の大好きなロボットの一人であるマヌイちゃん（とその内部構造）を生で見られて感激でした。ありがとうございました。
+その他の方々も不審な動きをする僕に対応していただいてありがとうございました。
+他にも写真を。と。
+
+妙に写真映りがよろしくないのも何とかしたいです。
+やっぱ表面の微妙な凸凹に陰ができてしまうんですかね。磨き上げねば。
+あと多分塗装（メイク）の仕方ももうちょっとしっかり学んだほうが良いと思います。
+
+あ、まつげがずれてる。アイもちょっとずれてる･･･
+それと、ふたえに見えるような塗装が必要だったか･･･？
+
+パレードについて。
+結果一歩も歩けなかったわけですが、一つにはバッテリーが傷んでいてもう殆ど容量がない感じだった、もう一つはパンチカーペットの上を歩くのは想定していなかったというのがありました。残念。
+もし今度同じような大会があったら準備を怠らないようにしたいです･･･。
+これから暇を見つけながらロボット界で一番可愛い子に仕上げていけたらなぁと思います。
+もちろん動きも含めて。
+歩行に関しても研究していきたいなぁ･･･</description>
+    </item>
+    
+    <item>
+      <title>船場ロボコン・パレード</title>
+      <link>http://blog.syundo.org/post/756/</link>
+      <pubDate>Sun, 10 Oct 2010 20:56:23 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/756/</guid>
+      <description>うちの娘がいちばん可愛いに違いない。
+と思って行ったら、普通に皆さんクオリティ高くてかわいかったー。
+写真はまた別にどこかで。
+舞鈴堂さん、ご自身がお忙しい中、色々気を掛けて頂いてありがとうございました。
+手先があるかどうかでかなり違いました。
+カイン技師さん、私の大好きなロボットの一人であるマヌイちゃん（とその内部構造）を生で見られて感激でした。ありがとうございました。
+その他の方々も不審な動きをする僕に対応していただいてありがとうございました。
+さて、今回の反省。
+・前日に作業をしすぎた（前日までに残しすぎた）。実質16時間連続作業。朝8時完了、8時半出発。異常ですよ。
+・荷造りを怠った。具体的には2つのニッケル水素バッテリーが死んでいることを当日まで気づかなかった、充電器も持って行かなかった。パソコンも。パソコン等は結局要らなかったかも知れないと思うけども。
+・整備しにくすぎるロボットである。電源入れるのも一苦労。
+・整備するときに人の目が気になった。バスタオル等必要・・・。
+こんなもんでしょうか。
+パレードについては結局一歩も歩けなかったわけですが、どだいカーペットの上を歩くなんて無理だったから諦められた。</description>
+    </item>
+    
+    <item>
+      <title>いてきま</title>
+      <link>http://blog.syundo.org/post/755/</link>
+      <pubDate>Sun, 10 Oct 2010 08:04:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/755/</guid>
+      <description>化けて出そうなしあがり・・・
+なんとかなるのか？
+さらし者にされてかわいそうな我がロボよ</description>
+    </item>
+    
+    <item>
+      <title>せんばろぼこん</title>
+      <link>http://blog.syundo.org/post/754/</link>
+      <pubDate>Sat, 09 Oct 2010 23:41:31 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/754/</guid>
+      <description>KRC-1の受信機からの信号がいっこうに読み取れないｗｗｗ
+ニッケル水素バッテリーを過放電で死なしていたｗｗｗｗｗｗ
+雨降ってて塗装出来ないｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
+まｗｗにｗｗｗｗｗｗあｗｗｗｗわｗないｗｗｗｗｗｗｗｗｗｗｗｗｗ
+ここ数ヶ月のプログラミングにかけた手間暇は結局なんだったのｗｗｗ
+またほかのチャンスがあるさｗｗｗ
+今回はRCB-1をつかおうｗｗｗｗｗpgrpgrpgr</description>
+    </item>
+    
+    <item>
+      <title>お洋服買った</title>
+      <link>http://blog.syundo.org/post/912/</link>
+      <pubDate>Mon, 04 Oct 2010 00:31:23 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/912/</guid>
+      <description>前回更新から一ヶ月、パレードまであと一週間もない。
+思うように製作を進められなかった。
+グチりたい。しかし書くまい。
+最低限、服を着せていないと表に出せないので慌てて買ってきた＠大須
+写真多めでいきますです。
+
+azoneの60cmドール用ワンピース。
+肩から先が丸見えになってしまい、誤魔化せないので、腕を作っていない現状を考えるとリスキー。
+しかし、切り開きやすそうなのを優先。そう。どう見ても入りそうになかったんだよなぁこれが。
+
+ほらやっぱり。
+
+切開する。思いっきり全部開いてしまったことを後悔。
+後に綺麗な縫い目が無駄に汚い手縫いになってしまう。
+
+大学のクラス写真とかいうものを撮るのに使った黒いネクタイ。百均のもの。こんなもん一生使わんだろ。
+
+開いた。簡単に縫い目が解けるｗｗｗ三角形に切って縫い付けた。
+
+
+仮縫いのつもりでやっていたが、終わったときにはもうやり直す気力など無かった。
+びらびらになってるところをいつか処理したい。この反対側の縫い目が更に酷くお見せできない。全体の型崩れにまで発展している。なんとか時間を作ってそこは縫い直したい。
+ひとまず入ることがわかったのでまあ安心。
+
+前から。しかし丈がひどく短いなぁ。破廉恥。やっぱサイズ合ってないとこうなる。
+
+うしろから。
+間に合うのか！？間に合わせるのか！？
+そもそも歩くのか！？
+がんばろう！
+やるべきこと
+・肌の塗装
+・入らないウィッグを入れるために、二段構造の頭を作る。
+（ああそうなんですよ10インチのウィッグ買ったんですが入らなかったんですよね。あれってもっとゴムがびょんびょん伸びるものだと思っていた･･･。もう一息大きければなぁ。）
+・歩かせる
+・無線化←これがいちばんやばい。もう誤認識しまくりでもいいや。アナログ入力もとうの昔に諦めた。最悪、懐かしのRCB-1に頑張ってもらうことになるだろう･･･ェ</description>
+    </item>
+    
+    <item>
+      <title>外装被せてみた。</title>
+      <link>http://blog.syundo.org/post/911/</link>
+      <pubDate>Sat, 04 Sep 2010 02:36:18 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/911/</guid>
+      <description>ロボットの骨格が出来たから、バキュームフォームで作った外装を被せてみた。
+そういえばバキュームする記事書いてなかった･･･。もういいや。
+これ骨格
+
+被せた。前から。
+
+後ろから。
+
+外装の表面が凸凹しているし、極端に薄いところもある。
+塗装のテストをしてみてから新しいのを作らねば。
+ヒートガンを買ったからその威力を確かめてミネバ・ザビ
+足のカバーも型は出来てるからバキュームしたいな。
+腕はどうなるか不明。</description>
+    </item>
+    
+    <item>
+      <title>お人形制作過程５</title>
+      <link>http://blog.syundo.org/post/910/</link>
+      <pubDate>Thu, 15 Jul 2010 01:31:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/910/</guid>
+      <description>じゃじゃーん。
+
+ちょっと首元の造形に違和感が。鎖骨作ってなかったそういえば。
+いつか修正しよう・・・。
+
+こんなかんじに真っ二つに切ってしまいます。ああ。
+
+人形の開き。
+頭のほうも真っ二つにします。（あれ？写真撮ってなかったか・・・）
+これでやっとバキュームフォームの型ができたわけです。
+いつか普通の球体関節人形として完成させてあげたい・・・。</description>
+    </item>
+    
+    <item>
+      <title>お人形制作過程４</title>
+      <link>http://blog.syundo.org/post/909/</link>
+      <pubDate>Thu, 15 Jul 2010 01:30:04 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/909/</guid>
+      <description>表面の凸凹を消すための作業をします。
+クロスクレイとかいうものを使うといいらしいんですが、お人形作りだけが目標じゃないのでちょっと買うのを躊躇しました。
+代わりにラドールを削ったときに出てきた粉を水で溶いて使いました。
+
+（なんか余計なゴミが入っててあんま良くない状態だった・・・）
+
+
+鮭ほぐし！！
+
+筆でひたすら塗る。
+
+こいつの表面をやすれば良い感じになるでしょう・・・。
+
+顔も。
+
+こんな感じ。</description>
+    </item>
+    
+    <item>
+      <title>お人形制作過程３</title>
+      <link>http://blog.syundo.org/post/908/</link>
+      <pubDate>Thu, 15 Jul 2010 01:20:43 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/908/</guid>
+      <description>次に頭を作ります。
+造形的に細かいものがありますし、見た目に直に関わってくるところなので大変です。
+
+うっうー。難しい。
+
+でもごにょごにょと頑張る。
+
+なんとか形になったか！？
+
+鼻と口元を修正。
+うーん。劣化したような気もする。好みの問題か。
+後悔してもしゃーない。
+乾燥させて。
+
+目の位置の当てをつけて。
+
+彫ってみた。目を書き込んでみる。
+最終的にはドールアイを入れるんですが。
+
+なんかイケメンな子になっちゃいましたね。
+まあ、これはこれでありなのでひとまず終了。
+うーん。やっぱ奥深い。難しい。1ヶ月くらいかけて造形したかった・・・。</description>
+    </item>
+    
+    <item>
+      <title>お人形制作過程２</title>
+      <link>http://blog.syundo.org/post/907/</link>
+      <pubDate>Thu, 15 Jul 2010 01:09:49 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/907/</guid>
+      <description>発砲スチロールの型に粘土を巻き付けます。
+石膏粘土の「ラドール」というものを使いました。
+まずは胴体から。
+
+
+乾燥させたら、更に粘土を盛っていって、リアルにします。
+
+
+
+指でのばして、こんな感じ。
+
+
+造形的に納得できないところもありますが、こればっかりやってられないのでひとまず胴体は終わり。
+難しいです。奥が深いです・・・。</description>
+    </item>
+    
+    <item>
+      <title>お人形制作過程</title>
+      <link>http://blog.syundo.org/post/906/</link>
+      <pubDate>Thu, 08 Jul 2010 01:24:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/906/</guid>
+      <description>外装の型にするためにまずドール一体作ってしまいます。
+現在は頭と胴体のみですが。
+その過程を紹介。
+まず発砲スチロールを切り出す。
+
+アイミさんのサイトの設計図を基にしています。ありがとうございます。
+
+
+
+やする
+
+
+ラップを巻いて剥離しやすくする
+
+あ、頭もできてますね。
+今回はここまで。</description>
+    </item>
+    
+    <item>
+      <title>設計だす</title>
+      <link>http://blog.syundo.org/post/905/</link>
+      <pubDate>Thu, 08 Jul 2010 01:08:04 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/905/</guid>
+      <description>こんなのに外装被していこうと思ってます。</description>
+    </item>
+    
+    <item>
+      <title>はじまり</title>
+      <link>http://blog.syundo.org/post/904/</link>
+      <pubDate>Sun, 04 Jul 2010 12:43:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/904/</guid>
+      <description>ドール型ロボットを作るプロジェクトについて、
+親や友人にブログを見つかってしまっている、
+という理由から書くことがはばかられるようなものがでてきたので、
+某年某月ドールロボ隔離を発動したわけであります。
+このブログではドール型ロボのハードウェアに関して
+制作過程を紹介していきたいと思います。
+果たしてうまく完成するのでしょうか！！？</description>
+    </item>
+    
+    <item>
+      <title>絶望した</title>
+      <link>http://blog.syundo.org/post/748/</link>
+      <pubDate>Sun, 04 Apr 2010 02:29:06 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/748/</guid>
+      <description>久しぶりの更新。弟よ。見ているかｗｗｗ
+進捗具合を報告。
+PCからサーボの角度を調整したり、サーボを等角速度または加減速して動かす仕組みは出来ました。出来ています。
+といっても吉野さんの60日で（ryのサンプルプログラムをほぼ流用させていただいたんですが。（あ、加減速で思い出しましたがこのサンプルに動作には影響しない間違いを発見しましたです。servo_data.directionのとこ。もう訂正されているのか？）
+それはともかく、モーションを作れば歩ける可能性が高くなってきたわけです。
+となると計算歩行について始めなきゃということになります（理由は不明ｗｗ
+計算歩行と言っても、今までは単に3次元線形倒立振子規範の動作をさせることを考えていました。解析解が分かってるのでプログラムに組み込むだけで楽チンだからです。すぐ出来ます。
+この方向性が合っているのか検討したくてしまけんさんのラムダロボ研（別に面識は無いです汗）の過去ログを読ませていただきました。
+しまけんさんは画像処理とか受け身とか色々取り組んでいらっしゃいますが、歩行に関して変遷を追えば
+線形3次元倒立振子規範→y軸(左右方向)だけ普通の倒立振子→股関節ロール軸は固定で足首を回す→二重倒立振子→更に剛体振り子？相当単振子？で考える→ZMP規範の歩行→関節負荷？動力学フィルタとかその関連？なのか？の考慮
+という感じではないかと思います。
+これを受けて、将来的に難しいことをやろうとは思うけどひとまず線形倒立振子かなというふうに考えていたんですが、まともに歩けないようならそれに拘るのは危険かなというように考えるようになりました。
+つまり、うまくいかなかった場合、しまけんさんのようにモデルを変えていったりZMP規範にしたりするのはあまりにもツライだろうと。今まではそれに立ち向かうだけの心づもりはあったんですが、いつまでもマイロボットが完成しない状況が恐ろしいのです。
+そういうことに取り組むのは自分の能力が十分上がってからとかもっと良い開発環境が出てからにするべきでしょう。
+ですからひとまず線形倒立振子規範のを試してからある程度パラメーター変えても駄目なら諦めて、モーション決めうち歩行にすることもやむ無しかもですね。
+計算で出したy軸方向の重心位置↓
+これにポテンシャルの山を越えてるかどうかとかの問題が含まれてるかが不明。
+全然想像と違う動きなんですもん。
+もう一度ヒューマノイドロボット読まねば。</description>
+    </item>
+    
+    <item>
+      <title>ロボットのためのC言語</title>
+      <link>http://blog.syundo.org/post/746/</link>
+      <pubDate>Sun, 14 Mar 2010 03:20:57 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/746/</guid>
+      <description>１．構造体のじょーずな使い方
+　ファイルや関数をまたいだ構造体の使い方について書いてみます。
+何故構造体なのかというと、大きなデータを簡単に受け渡しできるため、ロボットのプログラミングには非常に便利だからです。
+複数のファイルから使う変数を値ではなく参照で共有することにより、プログラムが軽くなっていることに注目してください。
+（まあ、実はコンパイラの設定によっては、自動的にグローバル変数を参照渡ししてくれたりするらしいんですけど･･･。なんか気持ち悪いから。これについては「SuperHファミリのCプログラミング」などの本を読まれるといいと思います。たしか。）
+早速以下にサンプルを示しながら説明します（そんな大層なものでもないけど）
+any_define.h, main.c, function.c の三つのファイルがあるとして見てください。
+//any_define.h
+struct TEST
+{
+&amp;nbsp; &amp;nbsp; unsigned int&amp;nbsp; &amp;nbsp; test1;
+&amp;nbsp; &amp;nbsp; unsigned char&amp;nbsp; &amp;nbsp; test2[4];
+&amp;nbsp; &amp;nbsp; unsigned int&amp;nbsp; &amp;nbsp; *test3;
+};
+　ヘッダファイルで構造体を定義しておきます。
+ここでは実体は生成してません。
+//main.c
+#include &amp;quot;any_define.h&amp;quot;
+void main(void)
+{
+&amp;nbsp; &amp;nbsp;&amp;nbsp; struct TEST test;　//ここで（メイン関数内で）生成する
+test.test1=10;　//初期値を与える（他のメンバにも適宜行う）
+&amp;nbsp; &amp;nbsp;&amp;nbsp; function(&amp;amp;test); //サブルーチンへは構造体testのアドレス（先頭アドレス）を渡す
+}
+　メイン関数内で構造体の実体を生成しています。
+サブルーチンへはアドレスを渡していることに注目してください。
+test.test1に初期値を与えているのは、function1内で構造体のメンバを使うときに値が不定にならないようにするためです。なぜtest1だけなのかと言うとほかのメンバを例として使うのが面倒だったから（笑）。test2もtest3も使うなら初期化すべきです。
+//function.c
+#include &amp;quot;any_define.h&amp;quot;
+void function1(struct TEST *test)
+{
+&amp;nbsp; &amp;nbsp; int a;</description>
+    </item>
+    
+    <item>
+      <title>首が無いんだ</title>
+      <link>http://blog.syundo.org/post/745/</link>
+      <pubDate>Sat, 13 Mar 2010 02:14:33 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/745/</guid>
+      <description>一応設計が終わったようです。他人事みたいですが。
+おかしなところがないかもう少しチェックしますです。
+ 手がショボいのは仕様です。
+ひとまず歩かせることに集中したいからとかプロポーションの問題からです。
+起き上がれるか不明。
+首のあたりも設計しましたが、inventerが言うこと聞いてくれなくてくっつかなかったので敢えて努力はやめました。CPU負荷がすごいし。
+あとは膝のオフセットアームも設計してあるのですが、折り曲げ加工がうまくいくか不明だったので基本はこのブラケットということに。一応オフセットのも製作します。
+さあ、次はソフトの充実だ。
+ジャイロと加速度センサつける。</description>
+    </item>
+    
+    <item>
+      <title>動画紹介</title>
+      <link>http://blog.syundo.org/post/744/</link>
+      <pubDate>Mon, 01 Mar 2010 04:26:45 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/744/</guid>
+      <description>ぽちっとな
+あまりにも凄すぎてどうコメントしたらいいのか分からないの・・・。
+僕がやりたいのはこういうことだと思うの・・・</description>
+    </item>
+    
+    <item>
+      <title>辛いが旨い</title>
+      <link>http://blog.syundo.org/post/743/</link>
+      <pubDate>Fri, 26 Feb 2010 16:50:13 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/743/</guid>
+      <description>こたつ上開発環境。
+狭いが快適。
+ この後ろにデスクトップのディスプレイがあったり、こたつの周りに専門書が散らばってたりする。
+部屋はどんどん汚くなる。
+足先軌道計算→モーションについての考察
+歩行の一周期分を計算しておいて再生
+なのか、その場その場で計算していくのか。
+前者はモーション保存用の領域が要るが、</description>
+    </item>
+    
+    <item>
+      <title>やがて洪水がすべて夜の青の色に染めていくように</title>
+      <link>http://blog.syundo.org/post/738/</link>
+      <pubDate>Mon, 15 Feb 2010 22:10:00 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/738/</guid>
+      <description>Inventorの背景の青色がなんか変な色だけどディスプレイの設定がよくないらしい。
+よくわからない。
+それはともかく今日はこんなリンクの入出力角について考えてみたよ。
+ ボールジョイントの描き方が分からなかったから、作業点をメイト拘束した。
+図がわかりにくいかも。４節リンクで一方が垂直に立ってるやつ。
+角度を計算してみたのだけどなんだか間違っているみたいだった。
+機構学とかいうものの本を読んでみればわかるのかも。
+え・・・空間４節連鎖とかで調べると論文みたいなの出てくるんですけど・・・。</description>
+    </item>
+    
+    <item>
+      <title>サーボ描いた</title>
+      <link>http://blog.syundo.org/post/737/</link>
+      <pubDate>Mon, 15 Feb 2010 03:08:02 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/737/</guid>
+      <description>今日は測定し直したりしながらサーボ描いたよ。
+ だいたいInventorの使い方は分かってきた。
+まだシートメタルのやつを触ってないのでそこを習得しないと。</description>
+    </item>
+    
+    <item>
+      <title>仮想パーティ</title>
+      <link>http://blog.syundo.org/post/736/</link>
+      <pubDate>Sun, 14 Feb 2010 02:41:11 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/736/</guid>
+      <description>テストおわった。
+逆キネで計算した姿勢がどうなっているか確かめるため、Inventorでダミー君を作った↓
+  角度拘束をエクセルでいじれるようになっている。</description>
+    </item>
+    
+    <item>
+      <title>最近読んだ本</title>
+      <link>http://blog.syundo.org/post/735/</link>
+      <pubDate>Sun, 17 Jan 2010 14:52:40 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/735/</guid>
+      <description>CPUの創りかた
+ CPUの創りかた 著者：渡波 郁
+販売元：毎日コミュニケーションズ
+Amazon.co.jpで詳細を確認する
+ 今期の期末テストは難易度高そうなので最近はロボを自粛して勉強しようとしているけど合間にこの本を読んだりする。
+出版社はあの神作「60日で出来る二足ほｋ・・・以下略」を出版してるマイコミ。
+この本も驚きのクオリティである。10個のICとその他電子部品でCPUを作るのを目標としている。笑えるのが、このCPUのROMが「手動」なのである。つまりスイッチをいっぱい繋げたやつなのだｗｗクロックも１Hzという驚愕のスペックｗｗ動作がテスターで追えるらしい。
+CPU内部まで自分の手でデバッグできるなんて信じられないことだね。
+この本を読めばマイコンに関することはかなり効率的に超初級から勉強できると思う。アマゾンでの評価の高さも見て欲しい。間違いなく誰もが認める良書である。そんなわけで表紙はきわどいけどおすすめ！
+ふう。勉強しよ。</description>
+    </item>
+    
+    <item>
+      <title>泥沼から逃れる</title>
+      <link>http://blog.syundo.org/post/734/</link>
+      <pubDate>Sat, 09 Jan 2010 13:30:40 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/734/</guid>
+      <description>sh7125MTU出力端子の一部からPWM信号が出てこなかった件についてやっと解決した。
+MTU3と4の設定が足りなかったのだ。
+ずっと、設定している部分について間違いがないか調べていたが（間違いはなかった）、まだ設定しなくてはならない項目があったとは・・・・・・。
+MTU23と24はなんか特別らしく、レジスタへの誤った書き込みを防止したり、MTU出力をデフォルトでブロックする機能があったのだ。
+まったく・・・・・・。TRWER、TOERの設定を忘れてはダメです。
+これから得た教訓はデータシートをもっとしっかり読みましょう、と言ったところか。</description>
+    </item>
+    
+    <item>
+      <title>倉庫</title>
+      <link>http://blog.syundo.org/post/733/</link>
+      <pubDate>Wed, 06 Jan 2010 22:41:26 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/733/</guid>
+      <description>「haisen.xlsx」をダウンロード
+「kine.xlsx」をダウンロード
+「kokansetulink.xlsx」をダウンロード
+「stk-7125-evb.xlsx」をダウンロード INPUT&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;SUPERH,MONITOR,LOWER
+LIST&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; MONITOR.MAP
+SHOW&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; SYMBOL
+OUTPUT&amp;nbsp; &amp;nbsp;&amp;nbsp; MONITOR.MOT
+FORM&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; STYPE
+CHANGE&amp;nbsp; &amp;nbsp;&amp;nbsp; INFORMATION=1320
+NOOPTIMIZE
+LIBRARY&amp;nbsp; &amp;nbsp; SUPERH,7125
+LIBRARY&amp;nbsp; &amp;nbsp; MONITOR
+DEFINE&amp;nbsp; &amp;nbsp;&amp;nbsp; $BRR=13
+DEFINE&amp;nbsp; &amp;nbsp;&amp;nbsp; $STACK=FFFFC000
+START&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;VECTOR/0,ROM,P,C/390,RAM,USER/FFFFA000,SCI/FFFFC080
+「MONITOR.MAP」をダウンロード 「MONITOR.MOT」をダウンロード
+21.182mm
+28.02 deg
+43.348
+20mmオフセット
+67mm
+0xffffa617
+0xffffa700
+2*12*64=1536
+1536*2=3072
+ffffb2ff
+ffffb300
+2*14*8=224
+224*2=448
+ffffb4bf
+スタック領域計算すべし。</description>
+    </item>
+    
+    <item>
+      <title>ゾロ目見過ごし</title>
+      <link>http://blog.syundo.org/post/732/</link>
+      <pubDate>Tue, 05 Jan 2010 12:06:29 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/732/</guid>
+      <description>遅くなりましたがあけましておめでとうございます。
+アクセスカウンターがもう少しで11111になるなーと思ってたのに、見過ごしてしまいました。
+いつのまにかこんなになってた・・・・・・。
+どうもSTK-7125のRAMデバッグの記事が好評らしいです。
+いや、好評かはわからないけどグーグル先生の検索の上の方に出てくるみたい。
+今、7125開発ボードは紆余曲折を経て、こんなんになってまーす↓
+そしてこれが↓裏側でーす。ぎゃああ
+新しく買ったSTK-7125もうまく動きませんでした。
+デバッガで見てみてもちゃんと設定は出来ています。ああ、無駄なことをした。
+とりあえずEVB-KITから切り離して開発できるようにしてみようと思います。
+というわけでなんとなく作業が停滞している様子が伝わったことと思いますが、ええと暖かい目で本年も見守っていてください。ﾍﾟｺﾘ</description>
+    </item>
+    
+    <item>
+      <title>メリクリ</title>
+      <link>http://blog.syundo.org/post/731/</link>
+      <pubDate>Thu, 24 Dec 2009 00:49:22 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/731/</guid>
+      <description>なんかsh-7125の調子が悪くて12本の信号線のうち、6本しか出力が無かった。
+汎用ポートとして利用するとハイレベルもローレベルも出力するのだが。
+MTUの設定もあれこれいじったけどどうにもならないので、もう思い切って新しいのをぽちっと注文した。約三千円送料込みの支出。
+SHマイコンボードだと考えれば格別に安いのだが。予想GUYの支出はﾂﾗｲでござるよ。
+自炊！自炊！自炊こそ命！
+これでだめだったらどうしよう。
+支出がつらいのはあれですよ。サークルでも使うって言うんで、ちょっと良いデジタルノギスを買っちゃったんですよね。てへ。
+ミツトヨのデジノギ純国産・・・・・・！
+いいでしょ。正確さといったらないよ。
+そんなに正確がいいならマイクロメーター使えって話だけど、これでもかなり正確だから。</description>
+    </item>
+    
+    <item>
+      <title>あわや</title>
+      <link>http://blog.syundo.org/post/730/</link>
+      <pubDate>Sun, 20 Dec 2009 01:40:53 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/730/</guid>
+      <description>先日書いた股関節軸が直交でない場合の逆運動学計算をプログラムしてみた。
+出力ピンをオシロで当たってみると、LOWレベルのままだったり、HIGHレベルのままだったりした端子があった。
+何が原因かわからない。
+ああ恐ろしや。
+ともかくも段階を踏んでじっくりやることの大切さを感じた。
+テスタでたどっても線は切れていないようだ。
+プログラムの問題か。
+TCNTがオーバフローして・・・・・・？
+よくわかんなーい。
+逆キネはオミットして全端子の出力をチェックしてみよう。</description>
+    </item>
+    
+    <item>
+      <title>ビルドできないとき</title>
+      <link>http://blog.syundo.org/post/729/</link>
+      <pubDate>Sat, 19 Dec 2009 18:30:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/729/</guid>
+      <description>C言語でプログラムを作ってもビルド、もといコンパイルするときにエラー、警告が発生する事があります。そんなときどういう失敗をしている可能性があるのか、気付いたことからちょくちょく書き連ねていこうと思います。
+・文法的には何も間違ってないところを指摘される
+その直前におかしなところが有る可能性が・・・・・・
+☆直前の関数のコードブロックが閉じていない。｛｝の対応をチェック。
+☆セミコロンを付けていない。；のチェックはもはや基本としか言いようがない。
+☆Illegal character code &amp;quot;81&amp;quot;→どこかに全角スペースが入ってる可能性アリ
+・数学関数のとこにエラーがでる
+標準ライブラリにmath.hが追加されていません。
+ここの３．数学関数を使いたい！を参考に。
+・変数の大きさをオーバーしてると言われる
+エラーにはならないけど気になりますよね。
+float型の場合
+☆defineで定義した定数が適当な精度か？
+円周率などやたら桁数を多くしても意味がない
+続きは気が向いたら。</description>
+    </item>
+    
+    <item>
+      <title>やりたくねーったらやりたくねー</title>
+      <link>http://blog.syundo.org/post/728/</link>
+      <pubDate>Mon, 14 Dec 2009 23:34:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/728/</guid>
+      <description>ああもう英語のプレゼンテーション発表とかもうホント一体どういうこと。
+やりたくないったらやりたくない。
+しかし期日は迫るばかり。
+今A4原稿2枚くらいできた。
+これによるともう僕は卒業できるらしいwwwwwww
+ああ、でもほんと英語って使いにくい言語だなあ。
+英作文をしていると日本語の繊細さ、柔軟さをしみじみと感じる。
+日本語って、文法的に複雑になってきても、長々とした文にならないところがいいよね。
+まあ、日本語のレポート書くときも日本語に悩んだりするから、もしかしたら日本語にしても英語にしても丁寧な文を書くってのが難しいのかもなあ。どっちだよ。こんな論理が通ってない文章をだらだらと書いても日本語能力はあがらないなあwww
+それはともかく、ロボットやりたいよおお（泣）
+電磁気学の中間テストもあるしあああああああ。
+ロボットは設計に寸法間違いがあって殆どの部品がダメになったので、新しい構造にしてみるつもり。試しにラジコン用のロッドエンドを買ってきた。
+これでスリムなボディができるはず。ああ設計したい。
+大学から大須までそんなに遠くなかった。
+最近は自転車でお出かけする事が多い。
+やっぱりいいところだあそこは。
+ROBOBASEさんにももっと頑張って欲しい。
+リンク　リンク</description>
+    </item>
+    
+    <item>
+      <title>算数のお時間</title>
+      <link>http://blog.syundo.org/post/727/</link>
+      <pubDate>Thu, 10 Dec 2009 03:12:44 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/727/</guid>
+      <description>直交じゃない場合の逆キネ。メモメモ。
+ほんとにこんなんでいいのだろうか。
+高校生でもできるよ。もっとかっこよく解きたかった。
+それはともかく
+＊のとこはこうしたら少しでも計算速くなるかなぁと思った変形。
+実際のところどうなんだろう。
+三角比関係の項は少なくするに越したことは無いと思うのだけど。
+リンク　リンク</description>
+    </item>
+    
+    <item>
+      <title>うわー全然更新してない</title>
+      <link>http://blog.syundo.org/post/726/</link>
+      <pubDate>Wed, 28 Oct 2009 21:46:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/726/</guid>
+      <description>いろいろ書きたいこともあったような気がする。
+だから書いてみよう。
+robotwatchで高橋さんの「ロピット」を見た。
+ベルトを平行リンクみたいに使うのはたぶん誰でも考えてたと思うけど、実際やってみて動くんだからすごい。足を細くしたいときに使えそう。
+それと、あのその場旋回！！何あの速さ！！あれがジャイロ２つ乗っけた効果なのか。久々に感動した。
+automo06の紙樹脂固めについて。軽くて良さそう。
+でも外装の展開図をどう作れば･･････。
+バキュームフォーマーの枠を作った。ちょっと前にね。
+もう一息完成度高くしたかったけどやっぱ構造上の問題なんだろうか。ふにゃふにゃする。
+本みつけた。
+トランジスタ技術forフレッシャーズCプログラミングはじめの一歩
+なにこのいい本。こんなのあったら苦労しなかったよ。
+後期になってC言語の授業が始まったよ。アドバンテージを生かしつつもより高みを目指したいお。いや、いい加減C++をマスターしたい。
+夏休みにやるとか言ってたVBについて。ええ！やりましたとも。夏休み勉強しましたよ。でも実際使ってないからもう忘れちゃったよ。どういうことなの。
+先輩に「ふーんC#もできるんだー」って家の本棚見て言われたけど。できないのですよ。だった。その後オブジェクト指向から逃れる道はないという話になった。VBもオブジェクト指向してんなよと言いたくなる。クラスとかなんぼのもんじゃーい。
+最近、忙しい。でも社会人の皆さんのことを考えると全然なんだろうと思う。
+でもロボット以外でやらなければならないことが尽きない・・・・・・。多種多様に。うはあ。</description>
+    </item>
+    
+    <item>
+      <title>Vstone速すぎ</title>
+      <link>http://blog.syundo.org/post/725/</link>
+      <pubDate>Mon, 31 Aug 2009 20:01:49 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/725/</guid>
+      <description>今日の朝DXFデータ送ってアルミ加工サービス注文したら、夕方には発送の連絡があった。
+スペシャルエクスプレスサービス恐るべし・・・・・・。
+&amp;nbsp; </description>
+    </item>
+    
+    <item>
+      <title>やっぱギリギリ（笑</title>
+      <link>http://blog.syundo.org/post/724/</link>
+      <pubDate>Wed, 12 Aug 2009 16:55:42 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/724/</guid>
+      <description>数学関数をROMから呼び出すようにしたら、なんとかRAMに収まった。
+でもfloat型変数を一個新しく使っただけで容量が足りなくなったｗｗｗ
+だめだこりゃｗｗｗやっぱ無謀すぐるｗｗ
+逆キネはなんとなくうまくいってるみたいなので、ひとまず数学関数はオミットしてA/D変換のテストとかしようかなｗｗｗ</description>
+    </item>
+    
+    <item>
+      <title>なんかギリギリ</title>
+      <link>http://blog.syundo.org/post/723/</link>
+      <pubDate>Mon, 10 Aug 2009 23:42:44 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/723/</guid>
+      <description>数学関数sinとかtanを使うようになったらRAMの容量が全然足りないようになった。
+モニタプログラムの標準入出力の部分を削るか・・・・・・？
+どうしたものか</description>
+    </item>
+    
+    <item>
+      <title>更新したお</title>
+      <link>http://blog.syundo.org/post/722/</link>
+      <pubDate>Sun, 09 Aug 2009 23:54:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/722/</guid>
+      <description>技術情報のとこ更新しました。
+RAMデバッグについては一応完成。
+新しくHEWについても書いてみました。
+まだPWMのとこが残ってます。
+PWMとかもういいよね。わかりきってるよね・・・・・・。
+もう更新する気力もないです。
+「ヒューマノイドロボット」一通り読みました。なんとなく分かったけど、細部は他の書籍を参考にしないと難しいのかなと思います。でもひとまず前期勉強してきたことが役に立ったと思います。よかった。
+ほかにもいろいろやってますが、ぱっとしないのでまたいつか。(/ω＼)ﾊｽﾞｶｼｰｨ</description>
+    </item>
+    
+    <item>
+      <title>ちょｗｗｗローゼン凄すぎｗｗ</title>
+      <link>http://blog.syundo.org/post/720/</link>
+      <pubDate>Sun, 26 Jul 2009 01:30:13 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/720/</guid>
+      <description>自分のよく見るサイトにわんだほーの写真とかがうｐされてきて、なんか辛抱たまらんくなったので、前から温めていたダミーシステムに粘土を盛ってみた。
+ホームセンターで売ってた粘土ですよ。
+なんのこっちゃって感じだけど。
+時間がないのに、息抜きのつもりで･･････とかいって始めちゃったので、やっぱ中途半端。
+全然思ったとおりにならないのでトーンダウン。
+どうしよう。この方法無理っぽい。
+クオリティ最低。
+きれいにする努力もしない。時間ないので。
+折角だから今公開。でも説明はしない。時間ないので</description>
+    </item>
+    
+    <item>
+      <title>あまりにもショックだったから試験期間中のブログ更新禁止ルールを破った</title>
+      <link>http://blog.syundo.org/post/719/</link>
+      <pubDate>Sat, 18 Jul 2009 17:21:30 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/719/</guid>
+      <description>チーズにカビが生えてた
+けっこう残ってたのに
+よく見たら賞味期限も過ぎてた
+今度からは小さめのやつを買おう</description>
+    </item>
+    
+    <item>
+      <title>まいっちんぐ</title>
+      <link>http://blog.syundo.org/post/718/</link>
+      <pubDate>Wed, 01 Jul 2009 12:31:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/718/</guid>
+      <description>どうも新機体作成は夏休みになだれ込む模様。
+なんか急に忙しくなってきたぞー？
+なんとか逆キネは今週中に完成させたい。
+最近思ったこと
+加速度センサを動的に使う場面ってどんなんだろ。
+ジャイロセンサだけで事足りるような。加速度センサは起き上がり判定のみかなあ。
+坂道を上るときに使えそうかも？ともかくセンサからの値を見てみないとねー（汗
+図書館の本を延滞して、しかもその本が『ロリータ』だったとしてもそんなぶっきらぼうにしかも厳しく当たらなくてもいいじゃないですか、図書館の受付のひと。いや、ごめんなさい僕が悪かったです。</description>
+    </item>
+    
+    <item>
+      <title>アニメじゃなくないしホントのことでもない</title>
+      <link>http://blog.syundo.org/post/717/</link>
+      <pubDate>Sun, 28 Jun 2009 17:47:15 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/717/</guid>
+      <description>初日にエヴァの劇場版見てきました。
+感想↓
+「綾波が作ってたのって絶対味噌汁だよなー萌える・・・・・・ぐふっ！」
+って帰り道で前を歩いていた腐女子が言ってるのを聞いて、激しく同意しました。</description>
+    </item>
+    
+    <item>
+      <title>おお眠い</title>
+      <link>http://blog.syundo.org/post/716/</link>
+      <pubDate>Wed, 24 Jun 2009 02:27:24 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/716/</guid>
+      <description>サーボ用のピンヘッダつけた
+電源回路も作ってあるけどまだ繋がってない。
+反対側のマイコン端子が固定されていないのがダメだけどめんどくさいから放置。
+どう影響があるのか。
+裏↓
+無計画にやるとこうなる。
+正式なのはEAGLEで設計してからやろうかなあ。そんでいっそのことプリント基板に・・・・・・いかんいかん自分でハードル上げすぎている。でもいつか挑戦したいということは確か。
+テストボードにするにはもったいないくらい苦労した・・・・・・。
+なんか写真で見るとすごくへたくそに見えるなあ。
+おさる君より下手なのは確実。</description>
+    </item>
+    
+    <item>
+      <title>届いた</title>
+      <link>http://blog.syundo.org/post/715/</link>
+      <pubDate>Tue, 23 Jun 2009 22:46:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/715/</guid>
+      <description>いろいろ届きましたー
+届いたものが思ってたよりたいした量じゃなかったとき、後悔の念が湧いてくるのはなぜだろう。
+ジャイロセンサと加速度センサは秋月で、ネジやらはウィルコで買いました。
+ウィルコさんは2100円以上の注文で送料タダになるのですよ。すげー。
+でも2100円も買うもの無かったです。ネジって結構安いのね。
+チタンネジとかも買っておくべきだったか。
+それよりか、手に取ってみると長さが足りない様な気がするこの買ったネジ。
+ギリギリを狙いすぎたぜ・・・・・・。数種類買っておけばよかったかびんぼうしょー。
+そしてナイロンブッシュ。手に取ってみると思ってたのと違う。これで反対軸作れるのだろうか。</description>
+    </item>
+    
+    <item>
+      <title>雛[hina]ちゃん週間ランク1位！！！！</title>
+      <link>http://blog.syundo.org/post/714/</link>
+      <pubDate>Mon, 22 Jun 2009 15:54:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/714/</guid>
+      <description>あ
+あ　あ
+た　あ
+き　ぁ っ あ
+ぁ ！
+あ
+ぁ　・　!
+あ
+ぁ
+あ
+ぁ あ
+あ 1日1回ぽっちとなニコニコ</description>
+    </item>
+    
+    <item>
+      <title>なんというかデカルチャー</title>
+      <link>http://blog.syundo.org/post/713/</link>
+      <pubDate>Thu, 18 Jun 2009 22:41:29 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/713/</guid>
+      <description>ニコニコ動画でclockworkの人のロボットを見つけた。
+今日うｐされたみたいだけど数時間で再生数が2倍になっててﾜﾛﾀ。
+いつのまにか大百科も書かれてるし。
+もうこのまま週間ランキング1位まで行って欲しいです。
+うらやましいなあ。あんなロボットほしいなあ。
+ツインテールにしたということについてGJと言うほか無い。</description>
+    </item>
+    
+    <item>
+      <title>頭が無いのは自分</title>
+      <link>http://blog.syundo.org/post/712/</link>
+      <pubDate>Wed, 17 Jun 2009 22:13:27 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/712/</guid>
+      <description>設計をしているとネジの頭が凄く邪魔に感じる。
+サーボモータ本体やサーボホーンの出っ張りのせいでやりにくいってのに更に追い打ちをかけてくれる。低頭ネジでも邪魔。もーいや。
+そこでネジの頭が無ければいいということに気づいた。
+無い頭にひっかかるものなど無い！まさに無敵！
+検索してみるとありました頭のないやつ。止めネジっていう名前らしい。
+やったー。これで設計に2mmも余裕ができたぞー！！
+早速注文、注文・・・・・・
+危うく注文するとこでしたよ！！！！！！！
+頭のないネジでどうやって固定するつもりだったのか。
+疲れてるな・・・・・・俺
+ところで名古屋にネジのデパートってとこがあるみたい行ってみたい。
+でもべつに欲しいネジもない・・・・・・ちなみにその止めネジってやつも売ってるみたいよそこで。
+6/18追記
+どこで引っかかるかということについて
+今回設計しているときに邪魔になったのはサーボホーンを留めているネジなのでした。
+脚部ロール軸に最近流行の前田式長穴減速リンク（なんじゃそりゃ）を採用しまして、そうするとサーボホーンのネジの上をリンクのガイドが横切るようになるんです。
+寸法いい加減なとこあるけど股関節あたりの図↓
+ここらへんを設計してるときにサーボホーンを留めているネジがあまりにも邪魔で、かといってサーボホーン削るわけにはいかないのでネジの頭よ無くなれ！と思ったのです。
+そしてこの頭なしネジを全身に使えばネジの頭を気にして皿ネジ加工する手間がもう一切無くなる！天才か自分。とか思ったのです。疲れてたんです。ええ。
+ちなみにホーンのとこのネジはしょうがないから低頭ネジにして対応することにしました。</description>
+    </item>
+    
+    <item>
+      <title>なかなか進まぬ</title>
+      <link>http://blog.syundo.org/post/711/</link>
+      <pubDate>Wed, 17 Jun 2009 00:21:50 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/711/</guid>
+      <description>いろいろあって全然ロボットに触れない。時間をうまく作ろう。無駄にだらだらしすぎなんだ。
+vistoneに切削依頼しようかと思ったけど、サークルの先輩にフライス盤とかの使い方教えてもらえそうなので、見送り。複雑なやつはアミエさんに頼もう。あと先輩がCNC自作しているので完成すればいつか使わせてもらえるかもしれない。さすがに無理か。
+あ、ちなみにサークルは飛行機作るとこです。
+反対軸の部品調達にミスミeカタログをあてにしていたのに、よく読んでみたら個人向けに取引はしてなかった。がっくり。反対軸には代わりにウィルコさんのテフロンブッシュを使おうと思う。数量増やせば安ーい。わああ無駄に買いたくなるううう。チタンネジも買おう。
+C++の勉強が全然はかどらないので、もうあきらめてVBを勉強しようと思う。入門書読んでみたけど、2週間ぐらい頑張れば使えるようになりそう。
+新しい機体完成するまで時間かかりそうなのでいまあるT-RACで重心移動の逆キネ、ZMP規範のやつをテストしてみようと思う。非直行軸で足を前に出すと一気に複雑になるからy軸方向だけなの。ピンヘッダを半田付けせねば。
+第三の手が欲しい。以前千石通商で見かけたような気がするのに売ってない。ES-POEWRSHOPでも売ってた気がしたので検索してみると、なんと倒産していた！！受験勉強中ににいろいろ変わってるようわああ。この世はままならぬー。もっと買いたいものあったのに。
+しょうがないのでそれっぽいのを作ってみた。意外と使いやすい。
+なんか大須に新しいロボットショップができるらしい。もうすぐ開店。中間テスト終わったら行きたい。ろぼとまやロボスポットみたいにアルミ板切削サービスしてくれないかなあ。そういえば名古屋ツクモの王国はどうなってるんだろ。</description>
+    </item>
+    
+    <item>
+      <title>3DCAD</title>
+      <link>http://blog.syundo.org/post/708/</link>
+      <pubDate>Sun, 24 May 2009 01:34:42 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/708/</guid>
+      <description>CoCreateとかいう3DCADが無料だってトラ技に書いてあったから、ダウンロードしてみました。
+無料のわりには凄いのではと思いました。
+でも使い方というか、どういう構成になってるのかわかりません。
+円を描くアイコンが2つあるんだけどその違いがわかりません。
+めんどくさがりの自分にはメニューがいっぱいありすぎて理解しようとする気が起こらないのが問題か。もう2Dでいいもん！って思ってしまいます。
+どこか解説してくれてるとこ無いかなあ。無いんだなこれが。と思ったら公式に配布してるチュートリアルがあった。勉強しよ。気はすすまないけど。
+マイコンのほうはAD変換やってみないとねとか思ってます。
+それと足先の座標をなんか行列でくねくね指定できないかと必死で「ヒューマノイドロボット」読んでるんですがどうもわかりません。他の本も参考にしてみようかなあ。問題はページを読み進めるたびに前の内容を忘れてしまうことかもしれない。
+ああ、そろそろロボットとして形のあるものが欲しいなあと思ってきました。でも今考えてる構造がほんと設計しにくくて。見た目も気になるし。ああ、でも練習会とか出たい。
+ぐだぐだ言わずやれって感じですが。ほんと自分と同年代のひとが行動力ありすぎて見習いたいです。ごーすとさんとかエクセリオンのはっしーさんとか。
+五月病なのだろうか。</description>
+    </item>
+    
+    <item>
+      <title>まさにムダ状態！！</title>
+      <link>http://blog.syundo.org/post/707/</link>
+      <pubDate>Mon, 18 May 2009 01:45:48 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/707/</guid>
+      <description>現在ののSTK7125EVBの様子↓
+何も無いね。つまらんね。
+これ実験用ボードって位置づけだけどさすがに三段重ねはおもしろい。
+USBで開発出来るってのが便利だから切り離せない。いや、それよりもこれだけで8千円くらいするから使い倒してやろうという気持ちのほうがウエイトとして大きいのかも。
+だってこれほんといっちゃあ悪いけどXrossFinderうまく使いこなせないひとにはUSBぐらいしか価値ないよほんと。不甲斐ないよ、自分が。H-UDIとか書いてあるけどわけわからんし。そんでこんな三段重ね作ってから、秋月に連結フレームなるものが売っていることを知った。くそおおおお。これだったら、実験終わったら切り離せばオッケーじゃん。オシロ買うときに一緒に・・・・・・。そんでオシロ買ったよ。
+大きさのわりに軽い！軽いぞおおお！説明書が英語だあああ。
+でもなんとか使えた。よかった。
+しかし、つらい出費なのであった。</description>
+    </item>
+    
+    <item>
+      <title>RAMデバッグとか</title>
+      <link>http://blog.syundo.org/post/705/</link>
+      <pubDate>Sat, 16 May 2009 22:03:49 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/705/</guid>
+      <description>なんとかRAM上にプログラム展開できるようになりました。
+これでいちいちフラッシュROM書き換えしなくて良くなります。
+XrossFinderはなんか難しすぎて調べてもよくわかんなかったので、ルネサスが配布しているSH-2用モニタプログラムとHterm、Flash書き込みはSTK-7125EVBについてきたFlashWriterEXforSH7125、という組み合わせでデバッグ環境を整えました。
+これは便利ですねー。難しい設定しなくても文字が出力出来るのがまた良い。
+あ、それと秋月でオシロスコープ買いました。
+これでコントロールボードの信号見てみると、思うとおりに出力できていたので、サーボにつないでみると、ばっちりセンターに！当たり前か。
+ジッタも無いみたいでいい感じです。理論的にはデューティーはズレがないはずだから当たり前か。
+RAMデバッグの方法とかPWM生成法について詳しいことはは忘れないうちに技術情報として書いておこうと思います。
+ページ左上に乞うご期待！まあ、このブログ定期的に見てるひとなんていないだろうけど。</description>
+    </item>
+    
+    <item>
+      <title>HEW･･････なんて頼もしいの！！</title>
+      <link>http://blog.syundo.org/post/703/</link>
+      <pubDate>Tue, 31 Mar 2009 11:19:44 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/703/</guid>
+      <description>HEW４は自動的にいろんなファイルを生成してくれるから逆に超初心者には分かりづらいです。
+何ができていて何を自分で記述しなければならないのか。
+うーん。まだまだだけどわかったことを自分のためのメモとして書いておきます。
+・resetprg.cにパワーオンリセット時の動作が記述してある。そこでmain()が呼び出されているので、やっぱりmain()はmain関数っぽく扱えばよい。_INITSCTライブラリ関数も用意されていて、これも呼び出されている。
+・dbsct.cは_INITSCT()のためのものらしい。ここで各セクションの番地情報が記述されている。
+・intprg.cにはやっぱり割り込み時の動作を記述すればいい。vect.hがインクルードされているから#pragma interrupt　云々は書かなくても良いかも。vect.hに書いてあった。
+・vecttbl.cはベクタテーブル
+・sbrk.cはよく分からないけどヒープ領域ってやつに関する記述みたい。
+・iodefine.hはレジスタ操作用の構造体とかの宣言。「C言語でH8マイコンを使いこなす」で詳しく説明してある。
+・sbrk.hはよくわからん。ヒープ領域関係。
+・stacksct.hはスタック領域のサイズの設定
+・typedefine.hは意味不。ﾍ(ﾟдﾟ)ﾉ ﾅﾆｺﾚ?
+・vect.hにはベクタテーブルの関数のプロトタイプ宣言がしてある。
+こんなもんでしょうか。手探りなかんじなので間違ってるかもしれません。
+しかし何故動かないサーボよ。
+ハードウェア的な問題なのか？</description>
+    </item>
+    
+    <item>
+      <title>アルミ塗装法</title>
+      <link>http://blog.syundo.org/post/701/</link>
+      <pubDate>Sun, 29 Mar 2009 15:13:01 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/701/</guid>
+      <description>アルミ塗装について
+１</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜ</title>
+      <link>http://blog.syundo.org/post/700/</link>
+      <pubDate>Sun, 29 Mar 2009 11:41:11 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/700/</guid>
+      <description>RCB-1について
+１、２、３、４、５</description>
+    </item>
+    
+    <item>
+      <title>戦力確認</title>
+      <link>http://blog.syundo.org/post/696/</link>
+      <pubDate>Fri, 13 Mar 2009 00:14:31 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/696/</guid>
+      <description>おひさしぶりですー。やっと受験勉強も終わりました。
+一年のブランクがあったため持ち物を確認します。
+まず一回だけ大会に出場したロボットT-RAC
+サーボ20個使用。現在、除脳ロボットになってますがRCB-1とATmega32ボードで制御してました（しようとしました・・・・・・）
+次！ロポタルさんからクリスマスに頂いたプレゼント
+PRSFF09Ⅱ10個セット！
+ロポタルさんの期待に応えられず1年間放置ｗ（いや別に何も依頼されてませんよ。しかし使うのが使命だと思いこんでました。）
+全く触っていないマイコンボード達
+SH7125ボード、インターフェース付録基盤V850とFRマイコン。
+なんで買ったのだろうか。付録ってのに弱いんだなあ。
+これには当分手を付けられないと思います・・・・・・。
+1年のうちになにか新しいサーボ出たのだろうか。
+ハイトルクサーボはもう値段的に私が関われるレベルでないのでまあいいか。
+ちょっとずつなにかやっていきたいです。
+・・・・・・最近気になってるのは、メカトロ仙術のほりさんの記事のリンク先にあった球体関節人形のページ。簡単ではないけどなんとか作れそう。
+あれをそのまま外装にするのは忍びないのでバキュームで作るのもいいかもしれない。
+骨格としてはやっぱりベルトドライブ直交が必要かな。それで身長は60センチ程度。なんとかきれいに球体関節を動かしたい。アイディアはあるので図面に起こしてみようかなあ。</description>
+    </item>
+    
+    <item>
+      <title>釈迦はいいひとだったから！</title>
+      <link>http://blog.syundo.org/post/695/</link>
+      <pubDate>Sun, 30 Mar 2008 19:05:25 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/695/</guid>
+      <description>これ以上開発を進めるために超えなければならない技術的壁が大きいのがある時点で分かっていたのでもう進まないことにしてました。
+故にわんだほーには出たかったけど出られませんでした。
+中学生のときから目指してたロボワンもついに出ませんでした。
+一年後には志望の大学に受かって、思いっきり好きなロボットに打ち込みたいです。
+一年後また戻ってきます。
+それまでこのブログは休止します。</description>
+    </item>
+    
+    <item>
+      <title>仮定</title>
+      <link>http://blog.syundo.org/post/694/</link>
+      <pubDate>Tue, 12 Feb 2008 16:53:49 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/694/</guid>
+      <description>一年後こうだったらいいな。
+サーボモーターがもっと安くなる。
+小型CNCのもっと安いの出る。
+ロボワン地方大会が岐阜でも開催される。
+・・・・・・もう思いつかない。
+一年後こうしたいな。
+新機体作る。
+自作のコントロールボードにする。
+物理っぽい演算で求めたモーション。
+自律動作。
+センサ搭載。カメラも。
+スピーカー搭載。
+OS搭載。
+俺サーボに挑戦。
+誰もやってないことをやる。</description>
+    </item>
+    
+    <item>
+      <title>帯鋸</title>
+      <link>http://blog.syundo.org/post/693/</link>
+      <pubDate>Sat, 15 Dec 2007 19:56:13 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/693/</guid>
+      <description>おはこんばんはー。
+どっちだよ。
+さて、前から買おうかなーとか思っていたバンドソーをついに買いました。
+ホーザンのとか4万くらいしちゃうからどうせ高いんだろなーと思ってましたが、6000円くらいの見つけましたのでつい。EC-1405Sってやつ。
+大丈夫なのか？まだ使ってないんで分かりません。ボール盤も5000円くらいのだからもういいやと思ったり（爆
+組み立ててみると、テーブルが不安定。なんかガタガタ動きました。しかしびくとも動かない会心の固定位置を発見し、ネジをぎゅっと締め、なんとか安定させることに成功。ふう。
+英語の説明書と、日本語の説明書が入ってました。日本語のは注意警告各部名称が書いてあるだけ。英語のは絵が描いてあるだけで、ほら、簡単でしょ？とでも言いたげな感じ。それよりも問題なのはその絵と届いた品がまったく違うこと！
+まあよくあることです・・・・・・。
+説明書を見ながら、僕はバンドソーが暴走して、のこぎりがきゅるきゅる飛び出してきて手が血だらけになる様を想像していたのでした。バンドソー怖いね。
+中はこんな感じ。ちゃんと蓋が閉まってるかチェックするスイッチがついてました。（写真に写ってるのは電源スイッチなんでこれじゃない）
+なぜだかちょっと安心。
+変速はできんようです。
+のこぎりの張りの強度が微妙で、ちょっと強く張りすぎるとプーリの端に寄ってきてしまうらしい。（弟談
+買おうと思ったのには少しばかり理由がありまして・・・・・・
+この部品を切るためです。足の部品計16点・・・・・・。
+さすがに今までのジグソー＋糸鋸では僕の寿命縮みます。
+平行リンク足にしようと思いまして。
+一部穴あけ、ポンチしてあります。
+まあ、じつはこの足、欠陥に気づきまして、全部ボツです（泣
+穴が開いてないところを使ってもう一回設計貼り直します・・・・・・。
+だってリンクの軸間20㍉って、いくらなんでも狭すぎですもん。
+眠たい状態で設計するとすごいことになりますね。朝3時までやったんですから。
+貼る前に気づけよ。
+ところでぼやき日記の彼よ。1000番踏んだので、プレゼントくれwww</description>
+    </item>
+    
+    <item>
+      <title>うまくいきました・・・・・・が</title>
+      <link>http://blog.syundo.org/post/692/</link>
+      <pubDate>Wed, 21 Nov 2007 22:14:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/692/</guid>
+      <description>えまのんさん。コメントしてくださり、ありがとうございます。
+感謝感謝でいっぱいです！！涙
+やっぱり受信バッファクリアするとこがおかしかったみたいです。
+2バイト受信毎にクリアしないと前のキー入力が残るという現象があったので、そうしていたんですが（受信データ確認するifを入れるまではこれでうまくいってた）、消してみても、問題なくいきました。受信のタイミングがずれたとき、1バイト読み取るようにもしてみました。
+さて、晴れて思い通りの信号を送ることに成功したわけですが、どうもRCB-1の反応が良くない・・・・・・RCB-1よ。お前は一体何なんだ！！あと何が足りない！！ツンデレ？
+こんなときオシロスコープなんかがあったらいいのかなあと思ったのであった・・・・・・。
+メイン関数だけ載っけてみます。
+void main(void)// メイン関数
+{
+&amp;nbsp; rs_init (br2400, txb, sizeof(txb), rxb, sizeof(rxb));
+&amp;nbsp; fdevopen(rs_putchar, rs_getchar, 0);
+&amp;nbsp; SREG |= (1&amp;lt;&amp;lt;SREG_I); &amp;nbsp; unsigned char a,b;//受信データ用
+&amp;nbsp; rs_rx_purge ();//一応受信バッファクリア
+&amp;nbsp; &amp;nbsp; while(1){
+&amp;nbsp; &amp;nbsp; if (rs_rx_buff ()) {//受信バイト数が０でなければ真
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;a=rs_getc();//前１バイト受信
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;b=rs_getc();//後１バイト受信
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;switch(a){//前一バイトチェック
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; case 0xf1 :
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp; switch(b){//後一バイトチェック
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;case 0x01 :send_command(0xf1,0x01);//２バイト送信</description>
+    </item>
+    
+    <item>
+      <title>うんざり</title>
+      <link>http://blog.syundo.org/post/691/</link>
+      <pubDate>Sun, 18 Nov 2007 00:26:15 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/691/</guid>
+      <description>何がうんざりってプログラムがうまくいかなくてうんざりです。
+ずっとこのブログをみていただいている人（いるのか？）は気づいておられるかもしれませんが、ATmega32マイコンボードのBTC067とRCB-1を繋げて、BTC067をいわゆるセンサーボードに仕立て上げようとしています。何ヶ月も。
+約２ヶ月前に無線からのコマンド読みとりはできていて、今それに応じてモーション再生させる段です。もちろんRCB-1にコマンド送るってことですよ？
+RCB-1にコマンド送る際にネックになってるのは、一定周期で何らかのデータを送信し続けないと、RCB-1が待機状態になってしまうこと。
+そのために、無線からの受信データが無いときは0xf000を送信するようにしたいんです。これ、メカトロ仙術さんの日記を参考にさせていただきました。
+そしてそれを実現すべく書いたプログラムが下。
+しかし残念ながら受信データがスルーされてる？っぽくて受信データ無しを送信しまくります。
+これを応用して距離センサや加速度センサを使いたいと思っているのですが・・・・・・。
+だれかアドバイスお願いします・・・・・・と言いたいところだけどこんな限定的な環境下について理解してくださるひとはいるのだろうか・・・・・・。
+＊以上の文章を読んでない方、以下のプログラムはうまくいってないので参考にしてはいけませんよ。コンパイルはできてるけど。そもそもこのブログを信用してはいけませんよ。
+#include &amp;lt;avr/io.h&amp;gt;
+#include &amp;lt;avr/interrupt.h&amp;gt;
+#include &amp;lt;rs.h&amp;gt;
+char txb[10],rxb[10];&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;//通信用バッファ
+//指定したｍS間待つ関数
+void wait_ms(int msec)
+{
+&amp;nbsp; int count;
+&amp;nbsp; TCCR2 |= (1&amp;lt;&amp;lt;CS22);
+&amp;nbsp; for (count = 0; count &amp;lt; msec; count++)
+&amp;nbsp; {
+&amp;nbsp; &amp;nbsp; TCNT2 = 0x00;
+&amp;nbsp; &amp;nbsp; while(TCNT2&amp;lt;250){}
+&amp;nbsp; }
+}
+void send_command(unsigned char a, unsigned char b)//２バイト送信する関数
+{
+&amp;nbsp; int count2;</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜまたーりと(5)</title>
+      <link>http://blog.syundo.org/post/690/</link>
+      <pubDate>Sun, 30 Sep 2007 18:20:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/690/</guid>
+      <description>今回はKONDOロボット用コントローラーKRC-1の受信機KRR-1からの信号について。
+いつかの日記でKRR-1からの信号はスタートビット等がマイコンと反転しているので、そのまま繋ぐと読み取れないということを書いたと思います。
+それで、今回は74HC04をPD0にかませて、反転させました。（マイコン側の形式を反転させる方法があるかもしれませんが僕にはわからない～）
+反転させた受信機からの信号は以下のようになります。
+2400bps,8ビット,ストップビット1,パリティ無し,フロー制御無し
+＜シフト＞
+無し　：0xf00x0f
+左手上：0xf1 0x1f
+左手下：0xf2 0x2f
+右手上：0xf4 0x4f
+右手下：0xf8 0x8f
+＜ボタン左手＞
+無し：0x00
+上：0x01
+右上：0x05
+右：0x04
+右下：0x06
+下：0x02
+左下：0x0A
+左：0x08
+左上：0x09
+＜ボタン右手＞
+無し：0x00
+上：0x10
+右上：0x50
+右：0x40
+右下：0x60
+下：0x20
+左下：0xA0
+左：0x80
+左上：0x90
+信号は2バイトで、1バイト目がシフトキー、2バイト目が16個のボタンと対応しています。
+なんか自分用のメモ的要素が強いです。というかメモです。
+2010/10/9
+間違いを発見、修正しました。
+いやぁ、ずいぶんと長い間誤った情報を発信し続けていたのですねー・・・</description>
+    </item>
+    
+    <item>
+      <title>KRC-1&#43;KRR-1からの信号読み取り成功</title>
+      <link>http://blog.syundo.org/post/689/</link>
+      <pubDate>Sat, 29 Sep 2007 23:29:54 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/689/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>つーてんかくの本棚</title>
+      <link>http://blog.syundo.org/post/688/</link>
+      <pubDate>Thu, 27 Sep 2007 23:24:21 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/688/</guid>
+      <description>知ってましたか？管理人のＨＮはつーてんかくなんですよ？
+大阪人でもないのにこんなのを使ってしまったことをものすごく後悔しております。
+ところで最近ノートパソコンにもＡＴＯＫが入って、変換が楽になりました。
+やっと期末テストが終わったので更新しようと思います。
+今回は私の本棚にあるロボット関係の本の紹介です。
+ ROBO‐ONEのための二足歩行ロボット製作ガイド (RoboBooks)販売元：オーム社
+Amazon.co.jpで詳細を確認する
+
+ROBO-ONEとはなんぞや。って人におすすめ。まずはイメージをつかめる。
+３年前に買った本なので、ルールについての情報は古いｗ。
+しかし今となっても参考になる王道が示されている。
+ただし初心者がいきなり全部理解できるレベルではない。
+ 二足歩行ロボット製作超入門―バッテリーからRCサーボまで (RoboBooks)著者：浅草ギ研
+販売元：オーム社
+Amazon.co.jpで詳細を確認する
+
+これを読むまでタイマでパルスをどう作るか解らなかったｗ。ほんとに入門に最適。
+ 60日でできる! 二足歩行ロボット自作入門著者：吉野耕司
+販売元：毎日コミュニケーションズ
+Amazon.co.jpで詳細を確認する
+
+いつまでたっても目指す機能を実現する方法がわからないので、二足歩行ロボットを作ってある程度高度なことをするには何が必要か知りたいと思って買った。最近。
+この本はC、VB、C++の知識が無いとはっきり言って何にも分からないと思う。
+プログラミングの勉強するのに60日で足りるかというと、疑問。
+そんなわけで、帯には、対象が現役プログラマーのみなさん、だと書いてあった。
+まあプログラミングの勉強は避けては通れない道ってことですよ。
+まったく同じコントロールボード作れば、プログラム配布されてるので、そのまま使うという手もあるかと思ったのだが（それが目的で買ったわけでないが）、マイコンがもう販売されていないとのことで残念。良い本だけに残念。
+ H8マイコン完全マニュアル著者：藤沢 幸穂
+販売元：オーム社
+Amazon.co.jpで詳細を確認する
+
+マイコンがどんなものなのかわかる。ただ、アセンブリを追っていかないといけないってのが辛かったので結構読み飛ばしたｗ。
+まあしかし今でもアセンブリに挑戦したほうがいいのか悩む。
+デバッグの項もなんか難しかった覚えが。
+ C言語でH8マイコンを使いこなす著者：鹿取 祐二
+販売元：オーム社
+Amazon.co.jpで詳細を確認する
+
+組み込み系のためのプログラミング手法。そういうものをつかめる。
+いろいろ難しいこと説明して、その後、HEWを使えば簡単ですよ～という流れで面白かった。統合開発環境はひとをダメにするな。
+ SH‐1 &amp;amp; SH‐2マイコン入門―組み込み機器に最適なCPUのアーキテクチャから応用まで (TECHI)販売元：CQ出版
+Amazon.co.jpで詳細を確認する
+
+SHマイコンの勉強のために買ってみたけど、まだあんまり読めていない。
+Interfaceの連載記事を本にしたみたい。SH-2中心な内容。
+ いまからはじめる電子工作著者：町田 秀和
+販売元：オーム社
+Amazon.co.jpで詳細を確認する
+
+ものすごくわかりやすかったという覚えもない。製作例が示されているのはいいけど、その回路図が理解できなくてひどく落ち込んだような。
+もうすこし物理勉強しないとだめなのかも。どうだろう。
+ トランジスタ技術 SPECIAL (スペシャル) 2008年 01月号 [雑誌]販売元：CQ出版</description>
+    </item>
+    
+    <item>
+      <title>さようならさようならこんな遠い異国の果てでお別れするなんて本当に辛い</title>
+      <link>http://blog.syundo.org/post/687/</link>
+      <pubDate>Mon, 27 Aug 2007 22:17:48 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/687/</guid>
+      <description>筋少の。
+まさに「majic touch」ですね。
+やりすぎはよくないと言っておきながら、最後はどうみてもやりすぎ（違う意味で。
+すいません最近ネタ無いんで。
+ロボ開発中。
+更に追加
+ガチだと思う</description>
+    </item>
+    
+    <item>
+      <title>宿題が倒せない</title>
+      <link>http://blog.syundo.org/post/686/</link>
+      <pubDate>Sat, 18 Aug 2007 20:55:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/686/</guid>
+      <description>宿題が～終わら～ないよ～。
+夏は短かったようです。
+しかし今年の夏は良かったですねー。
+初めて大会出られましたし。
+Robot Watch の写真において目線が変、仏頂面であることは心残りですが（それだけかい
+書くの忘れてたけれど、ロボットフォースの岩木さんには初参加だからとよくしてもらえました。ありがとうございました。
+香川の本大会出たいですなー。しかし時間ないかもしれません。模試とかあるし。
+もう潮時か・・・・・・？。早いなあ・・・・・・。
+いまは平行リンクによってサーボ二つ減らす設計を考えたり描いたりしております。
+平行に動いちゃうということで、感覚どおりに動かせないような感じだったので、独自に立式して計算で求められないかと試行錯誤しておりましたが、できませんでした。いかんせんsin,cosがまとめれません。
+よく考えてみると、モデルベース開発の本にも書かれているROBO-ONEでよくつかわれている式をそのまま使えることに気づきました。平行リンクだからって頑張りすぎました（？
+膝の角度を出さなくていいだけ・・・・・・。
+ヲレ数学は依然だめだなー・・・・・・。大丈夫か理系。
+あとは一年かけてもできていないRCB-1との通信を・・・・・。やらないからできないんですが。いいところでマイコン焼いちゃったし。</description>
+    </item>
+    
+    <item>
+      <title>自重汁！！</title>
+      <link>http://blog.syundo.org/post/685/</link>
+      <pubDate>Sat, 11 Aug 2007 20:17:51 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/685/</guid>
+      <description>学校の図書館にリクエストしたら買ってもらえた
+だれが読むんだよこれｗｗｗ
+図書館って予算そんなにあるのかなあ。
+  二足歩行ロボットのモデルベース開発 販売元：オーム社
+Amazon.co.jpで詳細を確認する 
+ これならわかるSuperHマイコン 著者：藤沢 幸穂
+販売元：オーム社
+Amazon.co.jpで詳細を確認する</description>
+    </item>
+    
+    <item>
+      <title>遅れた</title>
+      <link>http://blog.syundo.org/post/684/</link>
+      <pubDate>Thu, 09 Aug 2007 20:36:45 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/684/</guid>
+      <description>更新するのが遅れた。もうタイミングを逃したのではないかと・・・・・・。
+いや、まあそんなことを言ってないで書きましょう。
+ロボットバトルin大同工業大学
+まず、11時に集合だったのに30分遅れてしまいました。朝までねばっていたのがいけませんでした。徹夜どこの騒ぎじゃありませんでしたよ。学習したこと・・・・・・バッテリーのサイズは変えてはいけない。
+変則３ｍ走
+対戦？相手はころいどくん。思った以上に安定した歩きで、40秒くらいで転ばずに完走できました。総合順位は１２？位くらいだったかなーと。（いやもうそんなこと気にしてる余裕なしでした）
+チームDE箱押し
+３ｍ走での結果がなかなかだったので、レグホーンとRL03　Indra　なんてすごいロボとチームになってしまいました。体重差ありすぎー。
+他のロボに近寄ると倒れる、倒れるために起き上がる・・・・・・ような状況に。
+終盤は横から見学♪ふっふーん♪でした（？）
+体重を意識したもっと捨て身なモーションを用意しておけば良かったなーと思いました。
+ロボビリヤード
+右足キックモーションのみで挑戦・・・・・・1点も入れられませんでした。他の人が手を使ってボールを動かしているのを見て、自分の準備不足を痛感。そういえばT-RACもしゃがめば下に手がつきました。
+そんなかんじで、３ｍ走２ポイント、箱押し1ポイント、ビリヤード0ポイントで予選順位18位でした。
+大会に出てみて、意外だったのは、自動起き上がりをしているひとが少なかったこと。起き上がりを素早くできるから、あえて自動化しなくても落ち着いて操作すればよいからでしょうか。また、強豪の移動のスピードと安定性には驚きました。どうすればあんなんになるんでしょうか・・・・・・。
+ロボットの大会に参加するのはすごくおもしろい。観るのとは全然違いますね。
+もっと強くて決勝に進出できるようなロボットを作りたいと思いました。
+モチベーション維持のためにも定期的に大会参加するのはとってもいいことだと思います。今も頭の中野望で一杯（笑</description>
+    </item>
+    
+    <item>
+      <title>いってくるお</title>
+      <link>http://blog.syundo.org/post/683/</link>
+      <pubDate>Thu, 02 Aug 2007 20:18:09 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/683/</guid>
+      <description>明日はげんしけんのある某大学のオープンキャンパスに行きます。
+結構遠いし、午前中から始まるので、始発でも間に合いません。もうすぐ夜行バスに乗って東京へ向かいます。
+ねー明後日は大同の練習会だってーのにねー。いい度胸だねと。
+キックやら箱押しのモーションは一応完成しているので、帰ってきたら微調整といったところでしょうか。初の大会参加だからいまいちどんな風にすりゃあいいのかわかりません。
+歩行系はなかなかいい感じにまとまったのではないかと思います。動画公開しようかな。暇がないなあ。
+つくづく不安になる内容。大丈夫かよ。</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜまたーりと(4)</title>
+      <link>http://blog.syundo.org/post/682/</link>
+      <pubDate>Mon, 30 Jul 2007 10:36:41 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/682/</guid>
+      <description>今回はRCB-1とは切っても切れない関係にある Heart to Heart によるモーション作成について。
+モーションのデータはパソコンではCSVファイルとして保存されます。このデータはホームポジションを基準としての角度になってます。だからホームポジションが変わっても同じ動きが再現できるんですねー。ということはサーボを挿す位置を気をつければ、多少軸配置が違っても、KHR-１のサンプルモーションが使えちゃうのですー。たぶん。
+そこで私が考え出したのが、エクセルDE加算歩行。ホームポジションは角度0のデータになることを利用したものです。二番煎じかもしれませんが。
+どういうものかというと、歩行の要素を重心移動、足の上げ下げ、足の振りに分けて、それぞれモーションを作り、最終的にはエクセルで加算し、なめらかな動きを作ろうというものです。じつはこの歩行の方法はかの九州大学のカンファレンス資料を参考にしています。というか、パクリ。こういうことね↓
+  １から３を加算すれば歩行っぽくなります。
+これに加えて上体の傾き、接地直前の足裏の動き、手の振り等他いくつかのパラメーターを設けて、調整するとなんとか歩くようになりました。
+まあ加算っていっても僕はCSVファイルの数値をコピーしてSUM関数使ってるだけなんで、なんとも簡単なんですが。もっとかっこよくやる方法もあるでしょうが・・・・・・。
+歩行動画 途中で右旋回をしてます。</description>
+    </item>
+    
+    <item>
+      <title>月曜日なのに機嫌悪いのどうするよ</title>
+      <link>http://blog.syundo.org/post/681/</link>
+      <pubDate>Mon, 30 Jul 2007 09:23:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/681/</guid>
+      <description>もうたまりません。マイコン焼いちゃいましたよ。RCB-1のほうでなくてよかったけど。
+周辺回路の影響かなんかでうまく書き込めなかったので、電源回路から外して、安定化電源を電源にしたら、まんまとプラスマイナス間違えてました。
+やっぱり眠いときに危険なことをやると失敗は起こりますね。
+じゅっ！と音がして煙出てきましたから。
+時が見えてきそうな心境でした。
+「僕は取り返しのつかないことをしてしまった！！マイコンを殺してしまった！！」
+「安定化電源は大変なものを盗んでいきました。あなたのマイコンです。」
+「マイコンっつーのはどこを間違えると焼けるんだっけ？」
+「電源です。肺の下の。」
+「肺の下ってーと」「ここか」
+「はうっ」
+「そこはみぞおちですよー」
+もういいや。すぐに王国に注文したけれども、間に合うかどうか・・・・・・。</description>
+    </item>
+    
+    <item>
+      <title>とっぷらんなー</title>
+      <link>http://blog.syundo.org/post/680/</link>
+      <pubDate>Sat, 21 Jul 2007 19:03:24 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/680/</guid>
+      <description>あまりの驚きに、携帯から投稿してみる。いまちょっと家にいないから。
+今日、NHK教育のトップランナーにあの高橋さんが出演するみたい。番組表をみるところ。
+あ、といっても、改造バカの高橋さんじゃないですよ？
+クロイノの高橋智隆さんです･･････（笑）
+会場騒然！ロボ走る
+デザインとメカの両立
+『中腰でなく、人間のようにヒザを伸ばして二足歩行するロボットを作る。
+ロボットクリエーター高橋智隆は、技術者たちが長年かけてクリアできなかった課題を克服した･･････』　楽しみー。
+23時からです。たぶん。
+  ロボットの天才 著者：ロボットクリエイタ-・高橋智隆
+販売元：メディアファクトリー
+Amazon.co.jpで詳細を確認する 
+次、マガイモ。いやいや。
+  高橋敏也の動く!改造バカ一台 著者：高橋 敏也
+販売元：air impress
+Amazon.co.jpで詳細を確認する</description>
+    </item>
+    
+    <item>
+      <title>なんか出るココ！</title>
+      <link>http://blog.syundo.org/post/679/</link>
+      <pubDate>Mon, 16 Jul 2007 20:18:24 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/679/</guid>
+      <description>なんか弟が書いててくれたので補足。一応このブログは弟とのロボット関連共用になってるらしいですよ？弟と仲がいいねー。ですって？いやー。彼はKHR-1買う時にお金出してくれましたからねー。いやー。僕が信じているのはこれだけですよ・・・・・・ﾌﾌ。（人差指と、親指でわっかを作り、ほかの指をのばし手のひらが天井に向くように、胸の前で手を固定。眉毛は下げ、やらしい笑みをうかべる）
+さて補足。
+電池はニッケル水素。2300mAh、十個で約四千円。若松で買いました。
+容量の割に完成品より安くて夢のようなんですが、ハンダ付けが怖い。「ば、爆発しちまう・・・・・・っ！！」という機動戦士のキャノンのひとのセリフが頭をよぎります。
+充電器は秋月で。急速充電でいいのか不安な急速充電器です。ほんとに小一時間で完了しちゃいます。急速との切り替えができるようにスイッチつけてみようかな。
+で、題名の、なんか出るココ。についてですが、やっと練習会に出ることにしました。
+ロボットバトルin大同工業大学　に出ます。
+まだ歩けてないけど！！！やばいやん。なんとかしてー。
+休日は宿題の消化に追われてしまいまつ。集中力がたりないんだよなー。</description>
+    </item>
+    
+    <item>
+      <title>訂正</title>
+      <link>http://blog.syundo.org/post/678/</link>
+      <pubDate>Sun, 15 Jul 2007 21:05:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/678/</guid>
+      <description>バッテリー変わりました。（はやっ！
+　青色になりました。ちなみに弟が更新中！
+　物干しざおカバーというものでカバーしました。全長４ｍ。長いです。
+&amp;nbsp; 　搭載するとこうなります。このまえとあんまかわってねー！
+そうとうもったいないのですが、完成度はものすごいです。
+　なんだかひとつ、ポエムを書きたくなりました。
+しかし書く予定はありません。期待しない様に。</description>
+    </item>
+    
+    <item>
+      <title>バッテリー（あさのあつこ著ではない）</title>
+      <link>http://blog.syundo.org/post/677/</link>
+      <pubDate>Sun, 15 Jul 2007 18:34:21 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/677/</guid>
+      <description>　弟です。今回は兄に代わって更新します。ああ。
+&amp;nbsp; 　バッテリーが完成しました。ただそれだけのことです。（え？
+送検微茶。
+　そのバッテリーの充電器が完成しました。ちなみに私がつくりました。
+　基板うらの様子です。ちょっと改造しています。
+なにがしたかったのかは不明、私にはわかりません。
+　バッテリーはこのように搭載する予定です。
+バーコード頭にみえます。いわゆる教頭あたま。
+　このバッテリーがあればズオンはあと１０年は闘えますよ。
+　以上です。なんかまとまらないな。　（つぎの更新も弟がやっちゃうよ！　え？　だめですか・・・
+　</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜまた-りと(3)</title>
+      <link>http://blog.syundo.org/post/676/</link>
+      <pubDate>Mon, 02 Jul 2007 19:14:29 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/676/</guid>
+      <description>今回は低速シリアルについて。前回の反省を生かし、文字のみ。
+白→RXD
+赤→受信機用の電源。５V。
+黒→GND
+入力できる信号はTTLレベルのみ。そもそも線の並びが違うので、間違ってもCOMポートと繋いではならないらしい。
+2400bps、データ8bit、1ストップ、パリティ無し
+まあ、信号の形式については近藤科学さんのページの製品紹介→サポートを見てください。
+低速シリアルと純正でないその他製品とをつなげるときに注意することは、入力信号のスータートビットがHigh、ストップがLowになっていること、つまるところ、たいていのマイコンのと反転しているということです。
+RCB-1のPICはスタートLow、ストップHighだったと思うので、どっかで反転させてるのかも。送受信機の仕様の関係でそうなのかな？詳しくないのでわかりませんが。
+7404などのロジックをかませて反転させてから入力するとよい。
+いや、別にトランジスタで組んでもらってもかまいませんよ？僕の知識の及ぶところではない。
+なんかまとまらないけど、おわり。
+＊この内容について問題、欠陥等ございましたら、すみませんがコメントかメールでお知らせください。すぐさま改善、または削除します。</description>
+    </item>
+    
+    <item>
+      <title>色ついた</title>
+      <link>http://blog.syundo.org/post/675/</link>
+      <pubDate>Sun, 01 Jul 2007 22:30:52 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/675/</guid>
+      <description>塗装しました。
+どうやって塗ろうかと調べましたが、なかなか参考になるサイトが少なかったので、この機会にここに書き留めておこうと思います。
+（１）やすりをかける
+300から500番の荒さの耐水ペーパーで削ります。これはなぜかというと、（２）にある、メタルプライマーの食いつきを良くするためです。プラモデルなどに使う、サーフェーサーはプラスチックの表面を溶かして、食いつきを良くする作用があるらしいですが、メタルプライマーにはありません。しっかりとまんべんなくやってください。本当にめんどくさいですけどね。めんどうなときは弟にやらせましょう（笑）
+疲れた弟、倒れるの図
+僕の布団で寝ないでほしい・・・・・・。とは言えない。言ったが。
+（２）脱脂
+工業的には、電気分解？とか使ってやるらしいですが、油が落ちればいいので、台所用洗剤で洗います。水で煮沸するとかいう方法もあるらしいですが、効果のほどは不明。
+（３）メタルプライマーを吹く
+まんべんなく吹いてください。
+（４）色を塗る
+一度に厚く塗り過ぎるとだまになります。二、三回に分けて、薄くまんべんなく塗るといいでしょう。近くで吹きすぎると、泡？が発生して表面がつぶつぶになってしまします。多少離して吹きましょう。しかし、遠すぎると風に流れていつまでたっても色がつきません（経験済みｗｗｗｗ）
+（５）検査
+塗れてないところがあったら塗ります（笑）。つぶつぶがあったら、削って、塗りなおします。私、じつは今回めんどくさくなってきたので、つぶつぶは放置してあります・・・・・・。このつぶつぶはおいしそうなつぶつぶだからいいつぶつぶなんだ！！と言い聞かせましょう。
+（１）から（４）までのどれかを省くとうまくいかないらしいらしいです。アルミの塗装は金属塗装のうちでも難しいものなので、気をつけましょう。
+おわり</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜまた-りと(2)</title>
+      <link>http://blog.syundo.org/post/674/</link>
+      <pubDate>Sat, 30 Jun 2007 19:46:06 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/674/</guid>
+      <description>第二弾っ！RCB-1高速シリアルはどうなってるか！はー・・・・・・。
+115200bps、データ8bit、ストップ1bit、パリティ無し
+これはフツーに既知でしょうなー。というか前回のを考えればこういう配置だってのはわかるわけで・・・・・・。まー。でも確かRCB-1コマンドリファレンスには書いてなかったから。
+うーん。しかし文字で書けば分かる内容だなあ。前回記事の影響もあって図解というのにこだわり過ぎた。勉強しろよ高校生。
+
+
+
+
+＊この内容について問題、欠陥等ございましたら、すみませんがコメントかメールでお知らせください。すぐさま改善、または削除します。</description>
+    </item>
+    
+    <item>
+      <title>RCB-1を攻略しようぜまた-りと</title>
+      <link>http://blog.syundo.org/post/673/</link>
+      <pubDate>Fri, 29 Jun 2007 00:28:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/673/</guid>
+      <description>今の私は１年前の私とは違う！！　地道に研究してその結果をまとめて保存してゆくのだ。
+ICSｰPC　インターフェース　2　のピンアサイン
+分解すりゃあわかりますな。これは・・・・・・。</description>
+    </item>
+    
+    <item>
+      <title>届いた</title>
+      <link>http://blog.syundo.org/post/672/</link>
+      <pubDate>Tue, 26 Jun 2007 22:03:18 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/672/</guid>
+      <description>王様から頼んだ品が届いた。
+ＵＳＢ－ＲＳ２３２Ｃ変換ケーブル
+Heart to Heartで動作確認。良好。これでもう短いケーブルと、ホコリまみれのパソコンの裏との格闘をしなくても済む。しかし、ドライバがＦＤに入ってたのは唖然とした。メーカーのサイトでダウンロードした。次
+１１ＴＨロボワンのＤＶＤ。販売はべステクらしい。「ＲＯＢＯ－ＯＮＥは株式会社ベストテクノロジーの登録商標です。」となっていて驚いた。そうなんだなー。
+画質はあんまり良くなかったように思える。
+予選は入っていない。軽量、重量それぞれ決勝戦が入っている。
+まだ軽量級しか見ていないが、ずいぶんシビアになったものだなあと思った。
+スリップしないような安定した歩行が必須なんだな。まあわかってたことだが・・・・・・。
+今日はこんなことで終わり。</description>
+    </item>
+    
+    <item>
+      <title>黄泉かえる</title>
+      <link>http://blog.syundo.org/post/671/</link>
+      <pubDate>Mon, 25 Jun 2007 21:48:09 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/671/</guid>
+      <description>模試とか中間とか実力とか諸々のテストを潜り抜け、いま、ここに復活！！
+さて、次のロボワンにはなんとかして出るぞー！！できればなんか練習会に出るぞー！
+と思ったけど、結構定員が埋まっちゃってるのが多かったー！！ぎりぎりだ。なんとかして歩かせないと申し込めない。
+今何をやってるか。性懲りもなくＲＣＢ－１の信号とか探ってます。またかよー！！
+だってー。アプリがないとモーション作るの大変なんだもーん。甘えたこといってんじゃねえ！！
+いや、visual C#とか勉強し始めましたが・・・・・・難しくてなかなか習得できないのよー。
+仕方ないのよ。
+まずはリベンジということで、ＢＴＣ０６７と通信させてみて、ダメだったら、つぎはＳＨで。もう必要なクロックオシレータは購入済み。やるぞー。
+ＳＨで通信できたら、疑似逆キネみたいなの（どんだけ－？）をやれるんじゃないかと思う。ははは。夢だけ広がるとまた桜田一門。
+大会出るには派手じゃないとだめだなー。色ないとだめだなー。と思って、どんな感じになるか、シュミレート。以下
+ あくまでシュミレート。ＰＣ上で色を塗ってみるの術。ちなみに弟にやらせた。
+イメージは「アッ○マー」。モノアイ貼るかどうかが問題。
+勢いがなくなる前にいろいろやろうと思う。</description>
+    </item>
+    
+    <item>
+      <title>本</title>
+      <link>http://blog.syundo.org/post/670/</link>
+      <pubDate>Mon, 25 Jun 2007 21:46:48 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/670/</guid>
+      <description>なんか面白い本を発見したので紹介します。
+「ぼくらのみかたん。―黒森高校未科研です」です。
+二足歩行ロボットでロボコンに出ようとするお話です。
+ZMPとか言い出すのでおもしろいですよー。
+なにより、あとがき必見って感じですよ。
+ちょっと登場人物多すぎて、というより、描写が少なくて、終始わからないキャラクターがいるのが気になりますが。
+もうあえてここには感想書きません。それはこれがアレな作品だからです・・・。
+ラノベに慣れないひとには書店で見つけるのが難しいと思われます。
+ここは一発、アマゾンで。
+たくさん売れれば続編が出るかもしれない。
+はは。俺は何をやってる。
+  ぼくらのみかたん。―黒森高校未科研です 著者：富永 浩史
+販売元：富士見書房
+Amazon.co.jpで詳細を確認する</description>
+    </item>
+    
+    <item>
+      <title>生存報告</title>
+      <link>http://blog.syundo.org/post/669/</link>
+      <pubDate>Wed, 04 Apr 2007 18:55:08 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/669/</guid>
+      <description>いやー。全く更新しないと見捨てられちゃうよー。と思いまして。
+ｓｈ７１２５のデータシートとか、HEWのヘッダファイルとかを印刷して、研究して、なんとかもうすぐPWM信号を出すプログラムが書けそうです。
+なら書け！って感じですけど、ひとまず宿題が終わらないー。旅行しすぎましたー。準備の時間も要りましたし、いろいろ心配で心配で勉強に手がつかなかったというのもあります。
+帰りに秋葉によったりしましたしね！かの有名な王国にも行ってきましたよー。いやー。こんなこと言ってもなんですが、意外と狭かったー。エレベーターしか無いって不便じゃないすか。
+ところでふつうヘッダファイルって印刷するんかなあ。紙に出力しないと理解できないんすよねー。
+オールドタイプの限界か！なんのこった。
+ボーイスカウトのプロジェクトとして「ロボワン参加への道！」とかやろうかなーと思ったりしています。趣味でアワード一つクリアできるなんていいですからね。あ、関係者にしか分からない感じに・・・。
+まあ色々頑張りますわ。
+夢見るために生まれたー♪５！４！３！２！１！飛べるよ頑張る男の子ー♪</description>
+    </item>
+    
+    <item>
+      <title>ひとよひとよに</title>
+      <link>http://blog.syundo.org/post/668/</link>
+      <pubDate>Wed, 28 Feb 2007 22:01:22 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/668/</guid>
+      <description>さてさて、サクラダファミリア路線まっしぐらの最近です。
+HEW　I/O関連のヘッダファイルについて。
+iodefine.hという名前で自動作成？されてます。
+サンプルプログラムとかで見かける、MTUとかDDRとかそういう名前は最近やっとわかったんですが・・・・・・ヘッダファイルの中での構造体や共用体で宣言されています。
+Cでロボ動かしたい人、構造体、ポインタ、ビットフィールドとかまで勉強したほうがいいです。
+私はまったく手探りで、どうやったらマイコンでC言語が使えるのかと思いながら、悶々とCの勉強をしてまいりました。ということで今回は超初心者は何をしたらいいかというお話です。
+ともかく、サーボ動かすため、マイコンの勉強をしなければなりません。
+PICとかは知りませんが、H8とかSHを使ってる方が多いので、まずはH８マイコンの勉強をしてみるといいのでは。（入門にはPICがいいとか聞きますが・・・・・・）
+Cはそのあいだに勉強してください。Cで組み込み系を動かすためには、マイコンの知識が不可欠なので、並行して勉強を。パソコンで動くプログラムはできるけど、マイコンではどうしたらいいんだろう・・・・・・と思いはじめるかもしれませんが、Cの基礎知識がないと、参考書も読めません。あるていど読みましょう。
+マイコンではどうしたらいいのだろうということですが、ここでおすすめな本が「C言語でH８マイコンを使いこなす」です。実際のレジスタの操作方法や、スタック量の算出についてまで解説されています。Cの構造体やポインタまで知ってないと読んでもわかりません。
+加えて、電子工作関連の本も読むといいかもしれません。俺サーボとかやるためです。
+俺サーボは漢の浪漫・・・・・・。憧れますね。
+なーんて、未熟者の私が書いたところでなんとやら。
+でも実際、いろいろ解説してくれているページはあるけれども、じゃあこれらを理解するためには何を勉強したらいいの！！とロボはじめたての私は困りました。専門用語が多すぎて何のことやらわからなかったのです。
+これを参考にしていただいて、一緒にロボットはじめましょう。私も駆け出し。ゼロから始めました。
+誰かの役に立つ文章を書けたかもしれないと満悦。
+自己満足か。ではでは。</description>
+    </item>
+    
+    <item>
+      <title>新兵器は化けも！！</title>
+      <link>http://blog.syundo.org/post/667/</link>
+      <pubDate>Fri, 16 Feb 2007 17:44:08 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/667/</guid>
+      <description>あー。もう近藤さんの信号探るのはまっぴらだー。心が折れそうー。
+のあああああぁぁっっ！！
+と奇声をあげて、いつのまにか買っていました。
+STK-7125EVB-KIT。
+一応、入門にぴったり！！ということなので、がんばりましょうか。
+ともかく、届いたので見てみましょう。
+箱に入っていました。おお！！
+中身はこんな感じ。（ピンヘッダを半田付けした後の図
+USBで開発ができる・・・・・・。
+ひとまず「ROBO-ONEのための二足歩行ロボット製作ガイド」を参考にして、サーボ用パルスを出せるようにしようと思います。
+あー。そういえば、この本は初めて買ったロボット関連の本だったなあ。当時は意味不明だったけど。
+ヘッダファイルってあるのかなあ。HEWの使い方わからんなあ・・・。</description>
+    </item>
+    
+    <item>
+      <title>無題です</title>
+      <link>http://blog.syundo.org/post/666/</link>
+      <pubDate>Wed, 31 Jan 2007 17:44:03 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/666/</guid>
+      <description>最近タブブラウザの存在を知りました。タブブラウザって使いやすいなあ・・・・・・。まあ、VISTA出てから気づいてももう遅いんですけども。VISTAに付属の新しいIEはタブブラウザになってるらしいですから。
+近状。スキー研修から帰ってきて、やったーこれでロボができるぞと思っていると、すぐ外部模試の予定がありました。その次の日には英検がありました。勉強せざるを得ませんでした。その試練を潜り抜け、さて、やるか。と思っていたら、来週には実力テストが・・・・・・。ひどく範囲広いです！
+来週の実力テストを潜り抜ければ、あとは特色化選抜の関係で、休みがたっぷりなので、それまでおあずけ。みんな頑張ってるんですもん・・・・・・。
+考えるだけで作業ができないこのごろ、やはり思考は逆運動学へ。
+やってみたいなあ。逆キネ歩行。
+中学のころは専門書読んでも何にもわかりませんでしたが、最近はわりと理解できるようになりました。そんなことで、学校の数学の授業とかは楽しいですよね・・・・・・。特に今、三角関数やってますから、どうしても逆運動学のことを・・・・・・。</description>
+    </item>
+    
+    <item>
+      <title>ひさし</title>
+      <link>http://blog.syundo.org/post/665/</link>
+      <pubDate>Sun, 21 Jan 2007 08:11:05 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/665/</guid>
+      <description>修学旅行やらなんやらで（長野県へスキー。隣だよ！近！）、ロボットは進展せず、ああロボワン出られるかな。でも、驚いたことには、弟がブラケットの曲げをやっておいてくれたのですよ。帰ってきたら、足付いてたので驚きました。
+まあ、しかし、ボクは頑張ったのですよ。旅行の前日まで、コンパイル→動かん→コンパイル→回路をいじる→動かん→コンパイル･･････を繰り返していたのです。
+そして、ついに動きました。
+が、なんでこんなに安定しないのか。
+幾多もの挫折の末、RCB-1との通信は高速シリアルでするようにしていますが、マイコンからの信号では安定しないのか、プログラムががさつすぎるのか･･････。
+もうRCB-1の時代じゃないかな･･･････なんて考えたりしますが･･････。いや、実際ネット巡っても、RCB-1との通信は難航を極めるようで。
+RCB-3とかEZ-SERVOとか買っちゃうか･･････。いや、どうせならSHマイコンで･･････。
+まあ、せっかくちょっとうまくいったので、もうちょっとやってみます。</description>
+    </item>
+    
+    <item>
+      <title>あけましておめでとうございます</title>
+      <link>http://blog.syundo.org/post/664/</link>
+      <pubDate>Mon, 01 Jan 2007 01:11:00 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/664/</guid>
+      <description>実はまだロボの名前が決まっていません。
+そこで、この機会に、決めようと思います。候補は
+放下著　
+洗心　
+雨奇晴好　
+回光返照　
+和敬清寂　
+柳緑花紅真面目
+ははは。打つの疲れた・・・。笑えない冗談もほどほどに。
+ああ、じゃあ今思いついた　T-RAC　にしよう。
+T－RAC、T-RAC。T-RACを今年もよろしくおねがいします。</description>
+    </item>
+    
+    <item>
+      <title>ぺ</title>
+      <link>http://blog.syundo.org/post/663/</link>
+      <pubDate>Sat, 30 Dec 2006 20:24:45 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/663/</guid>
+      <description>なーんで通信うまくいかないのか、紙一重で分かりそうに無い日々。
+反転したあとに 00001110 としたいので、元データは
+11110001、
+Cでは二進数無理なので　0ｘｆ1　とする。
+データは２バイトなので、もうひとつのデータは先ほどとおなじようにして、仮に　00000001、0ｘ01としまして（ちなみにRCB-1低速シリアル通信コマンドにおいて１バイト目はシフトキーの状態、２バイト目は方向キーの状態を表す。２バイト送信後の約16ｍｓのリセットを忘れずに。）
+配列を作って、あとはGCC　Developer　Liteのライブラリ関数を使い、
+「for (i=0; i&amp;lt;2; i++){
+&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;rs_putc(data[i]);
+&amp;nbsp; &amp;nbsp; }
+//data[ ]は２バイトの配列、ここに先ほどのデータを入れる」
+TXDから送信！！
+そうするとマイコンはRCB-1と輝かしい通信を行い、ロボットは動き出す！！DASU！！ださない！！なぜ！！
+私の思考パターンに欠如をみとめられたどなたか、どうぞアドバイスをください。コメントしてください。おまえ何あほなことやってんだよとつっこんでください。それとも、意味ワカンネーよ説明しろでも。説明不能な可能性かなり高いですが。</description>
+    </item>
+    
+    <item>
+      <title>とほほ</title>
+      <link>http://blog.syundo.org/post/662/</link>
+      <pubDate>Fri, 29 Dec 2006 21:48:40 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/662/</guid>
+      <description>最近全く進展ありません・・・。
+いろいろやりましたけどね！！例えば・・・
+1.kondoの無線ｋｒｃ－１をcomポートに繋いで
+simple termでどんな信号かよんでみよう！！作戦
+手元にmax232などｒｓ232ｃドライバレシーバICが無かったので、この前買ったインバータICで信号反転のみした。それで良かったのか不明だが、なんとなく通信はできた。
+ボタンを押すたびに現る奇怪な文字を楽しむ。押しても何も現れないボタンが多く、なんの実験にもならなかった。
+2.なんでもいいからとにかく反応してくれ、やみくもモーション設定作戦
+RCB-1の外部コントローラ設定で、広範囲にわたって、同じモーションを設定し、どんなふざけた信号が低速シリアルから入ってきても、どこかのコントロール割付が該当して、反応してくれる可能性をあげて、もし動いたら喜ぶ作戦。
+動いても意味は無く、しかも、全く動いてくれなかったので、やる気最低レベルへ。
+3.atmegaとrcb-1低速シリアルの間に挟んでみたインバータICを取ってみる作戦。
+どんなふざけた通信がなされているのか、rcb-1は反応する。しかし、二つ指定したモーションのひとつだけ再生される。ははは。
+4.Ｄｒ－ＧＩＹさんのところで紹介されてたｋｒｃ－１、ｒｃｂ－１直結回路を74ｈｃ04を使って作って遊ぶ。ちゃんとうごくから嬉しい。ううん・・・。だから低速シリアルには反転した信号を入れなきゃならんと思うのだが、3.の結果はなんだろう。
+
+これから、機体のほうももう少し手直し必要なので、それをはじめようと思います。停滞状態から、自分の無知から、少し逃げることに・・・。ははは。息抜きです息抜き</description>
+    </item>
+    
+    <item>
+      <title>なぜなぜ？</title>
+      <link>http://blog.syundo.org/post/661/</link>
+      <pubDate>Sat, 23 Dec 2006 21:03:09 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/661/</guid>
+      <description>さあて、まともに信号反転もできない人ですよ。どうしましょう。
+入力しても出力してないような感じですよ。74ｈｃ04ですよ。なんででしょう。
+低速シリアルでｒｃｂ－１とマイコン繋げるときには反転しなくちゃならん。というのはネット巡っててわかったんすけども。それ以前にICの使い方がいまいちわからん！勉強不足甚だしい。回路図を下に。抵抗の根拠はなし。なんとなく。勘。（だからだめなんだなあ・・・）
+ここで豆知識 KONDOのケーブル、赤がRXD、白がTXD、黒がGND　ですよ～
+別に豆知識じゃねーー！</description>
+    </item>
+    
+    <item>
+      <title>涼宮ハルヒのＫＨＲ－1</title>
+      <link>http://blog.syundo.org/post/660/</link>
+      <pubDate>Fri, 15 Dec 2006 20:22:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/660/</guid>
+      <description>なんかすごいのを発見してしまった！！↓</description>
+    </item>
+    
+    <item>
+      <title>いいタイトル思いつかない</title>
+      <link>http://blog.syundo.org/post/659/</link>
+      <pubDate>Fri, 15 Dec 2006 19:56:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/659/</guid>
+      <description>信号反転してやればうまく通信できるかな・・・と思って74ｈｃ04をつけてみる。
+うまくいかない。ああ、そういえば抵抗入れとかないかんかも。
+半田づけ慣れていないせいか手がプルプルする。
+うまく動いた　という報告が非常にしたい今日このごろ。この沼にはまってから、さて何ヶ月経つだろう・・・。
+さっきクレヨンしんちゃん見てたら、明らかに真紅のパクリキャラがでていた。
+それに、あのネコ耳はアルティメットガールの・・・？
+そういえばもうすぐローゼンの特別編やるなあ・・・オデルーテュレ？だったっけ？</description>
+    </item>
+    
+    <item>
+      <title>ぬーん</title>
+      <link>http://blog.syundo.org/post/658/</link>
+      <pubDate>Tue, 05 Dec 2006 18:33:27 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/658/</guid>
+      <description>ATmegaのスイッチがwrite側なのにサーボが動いてしまう。リセットボタン押すたびに動いてしまう・・・。これは・・・！！何だ！？
+ATmega32のデータシート読んでみる（好意により日本語訳されたやつ・・・）
+・・・分からん
+一応RCB－１との通信はできているようなのだが、再生させたい二つのモーションのうち、ひとつだけしか再生してくんない。ツンデレ？</description>
+    </item>
+    
+    <item>
+      <title>やっと終わったぜ・・・</title>
+      <link>http://blog.syundo.org/post/657/</link>
+      <pubDate>Tue, 05 Dec 2006 18:22:42 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/657/</guid>
+      <description>長かった中間テストもやっと終わりました。おつかれさまです。
+しかし、家に帰るまでが中間テストです。気を抜かずに安全に気をつけましょう。
+つきましては2週間後に課題テストがあります。
+しっかり勉強し・・・・・・何っ！？何だって！？これは陰謀か！ええい俺はロボットをやってやるんでい！散々我慢させやがって！もうだめだだめだだめだ・・・・・・特に理数科系教科がやばいのに理系に進もうなんてしてる人はちゃんと勉強しましょう・・・・・・（言葉を失う）
+このまま学年末まで走らせるつもりか！
+こんなことばかり言ってても仕方が無いので腕の長さを新ロボワン規定に合わせる。
+（なにが仕方が無いのやら・・・）
+写真↓まだ撮ってないけど</description>
+    </item>
+    
+    <item>
+      <title>はぁ・・・</title>
+      <link>http://blog.syundo.org/post/656/</link>
+      <pubDate>Sat, 18 Nov 2006 14:55:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/656/</guid>
+      <description>RCB-1の低速シリアルとATmega32を繋げてるんですが。どうもうまくいかない。
+１．RCBの電源入れておいてATmegaでプログラム走らせる→無反応
+２．RCBの電源入れておいて、ATmegaのスイッチをWrite側にして電源入れて、その後スイッチを反対に動かす→脱力した後、動き出す。しかし1モーション目だけ。2つのモーションを無限繰り返しにしているつもりなのに。もう1度同じ操作をすると、もう1方のモーションが1回だけ再生。
+３．1モーション目と2モーション目の間隔を20ｍｓから1000ｍｓに変えると、脱力、再生、脱力を繰り返しながらモーション1と2を無限再生する。20ｍｓの理由はRCB-1コマンドリファレンスに
+「信号は2バイトですが、2バイト目を送出後、次の信号を送るまでの間に約17ｍｓのリセットが必要となります」
+と書いてあったから。
+ぬーん・・・。この世の中はままならぬものですたい（意味不明）
+なんとかなりませんかね・・・
+もしよかったらアドバイスいただけると僕はまたぴるぴるできるかもしれません。</description>
+    </item>
+    
+    <item>
+      <title>先生</title>
+      <link>http://blog.syundo.org/post/655/</link>
+      <pubDate>Wed, 15 Nov 2006 17:02:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/655/</guid>
+      <description>僕のクラスの担任は数学の先生です。とっても分かりやすくて良いです。
+しかし、それにも関わらず、僕のクラスは学年最下位をキープしまくってます。
+悲しいです。僕にもその要因があるので・・・。先生もかたみが狭いです。
+そんなこともあって先生は今日から中間テストまで朝早く来てみんなで勉強することを提案されました。テーマは「10分早く起きて10点アップ・・・ッ！」だそうです。
+数学実力テスト平均切り組の私が参加しないわけにはいきません。
+今日は早く起きました。
+先生はちゃんとしたプリントを作ってくれていました。いい問題です。
+えー。めんどくさいし出たくないなあという気持ちも無いことはなかったのですが、先生の気持ちとその有難さを考えると、次の中間いい点取ってやる！という気持ちになります。
+中間テストに向けマジ勉強する気になったので、ロボットはおあずけ。ちっと作れませんね・・・（涙　追記11月18　やっぱ無理少しはロボットやる！！ははは・・・なんという意志の弱さ・・・</description>
+    </item>
+    
+    <item>
+      <title>近状</title>
+      <link>http://blog.syundo.org/post/654/</link>
+      <pubDate>Mon, 06 Nov 2006 21:07:28 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/654/</guid>
+      <description>日曜に名古屋の模試を受けに行ったので、これはチャーンス・・・とロボット関係諸々のスポットを訪ねました。
+1.ロボットミュージアムin名古屋
+ロボットの展示とか、買い物できる場所があります。
+展示室の入場料が高校生1000円だったので、自分の財布の状況におののき、結局入りませんでした。びんぼーしょー。
+ロボットデパートにはぬーぼとか、まのいとか、RB1000とかがいました。（入場料無料）
+番龍もいたんですが・・・誰が買うんだろ・・・あんなの。
+2.大須のとあるビル
+中にツクモロボット王国がありました。そこでR-Blue Tシャツを購入。あとコネクタとか。
+外国人のあまりの多さに驚く。秋葉原もそうなんでしょうか・・・？
+3.　と箇条書きした割にはいろいろ行ってないことに気が付く。まあ一応模試をうけるため・・・ですからね。
+帰ってからプログラムを書く。意味不明、予想不可な動きをする。
+がんばろう・・・。</description>
+    </item>
+    
+    <item>
+      <title>RCB 動いた</title>
+      <link>http://blog.syundo.org/post/653/</link>
+      <pubDate>Sat, 28 Oct 2006 17:37:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/653/</guid>
+      <description>おおー・・・・。うあああぁっぁっぁ・・・。低速シリアルで繋げたら普通に動きました。でもまだ不確定未知不思議なことがあるので詰めていかないと・・・うーんでもテスト近すぎ！ああ、そのうえ外部模試まで申し込んでしまっているーっ！きー！時間ねー！高校生こんなに忙しいと思わなんだ。
+最近、なんでもいいからロボットの大会に出たい心境です。あ、できればROBO-ONE決勝出場権つきの・・・。
+さっさとテストを終わらして（できれば好成績・・・ふふ・・・あぁ・・・）無限歩行をしこみたいです！あと無線も！</description>
+    </item>
+    
+    <item>
+      <title>フフフ・・・（なにやら不敵な笑み）</title>
+      <link>http://blog.syundo.org/post/652/</link>
+      <pubDate>Wed, 04 Oct 2006 18:06:23 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/652/</guid>
+      <description>ついにやってしまった、やってしまいましたよ。　曲げの精度に急激に目覚めた僕は最高の神器たる折り曲げ機（４サーボ）を無意識的に購入してしまったのですよ。フフフフフ
+これで曲げの精度は完璧でしょう。これがあればジ○ンはあと10年は戦えますよ！
+（追記　10/7　と、思いきや、90度にまげるには結構繊細な感覚が必要でした。それに、曲げるところに穴がないと、やはり折り曲げ機といえどもきついです）
+　
+　</description>
+    </item>
+    
+    <item>
+      <title>あ、でけた</title>
+      <link>http://blog.syundo.org/post/651/</link>
+      <pubDate>Sat, 30 Sep 2006 15:54:18 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/651/</guid>
+      <description>ええと、件（くだん）のプログラムについてですけども・・・・・・なんかですね・・・十六進数なのに0xつけ忘れておりまして・・・・・・そりゃあデータのとこにエラーでるわなと。んで、コンパイルはできましたよ。
+でもですね、RCB-1に繋いでも動かないんすね。意味無いっすね。
+コマンドについてもう少し調べなくては。</description>
+    </item>
+    
+    <item>
+      <title>あふああ</title>
+      <link>http://blog.syundo.org/post/650/</link>
+      <pubDate>Fri, 29 Sep 2006 21:05:30 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/650/</guid>
+      <description>ｂｔｃ067でｒｃｂ－１をうごかすヤシですが・・・・・・まったく進歩しましぇん（泣
+期末考査のせいで最近手をつけてなかったので、今日プログラムしてみましたが、やっぱりコンパイルできないのですよ。手詰まりです。うう。どうすりゃいいかな・・・・・・。
+「男は黙って思索する」・・・R-Blueの吉村さんのページでみかけたような・・・・・・？
+だまって考えましょうかね</description>
+    </item>
+    
+    <item>
+      <title>こ・ま・ん・ど？</title>
+      <link>http://blog.syundo.org/post/649/</link>
+      <pubDate>Sat, 19 Aug 2006 21:11:50 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/649/</guid>
+      <description>ｂｔｃ０６７でＲＣＢ－１を動かしてやる計画ですが・・・。どうもプログラムがうまくいきません。ええと・・・渡すコマンドのところにエラーが出るので、どうもコマンドに間違いがあるらしいが？うんと・・・どうすりゃいいでしょうねぇ・・・。
+いかんせんプログラムの勉強不足で、超入門の本を読んでいるだけではどうにも難しいです。なんとなくデータ型が、渡すデータに合ってないような気がするんですけども・・・。
+もうちょっとググッたりして調べてみることにします。</description>
+    </item>
+    
+    <item>
+      <title>誕生日</title>
+      <link>http://blog.syundo.org/post/648/</link>
+      <pubDate>Sat, 05 Aug 2006 11:59:01 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/648/</guid>
+      <description>８月３日は妹の誕生日でした。・・・・・・僕の誕生日は７月３０日ですが、まあそれはどうでも良い。
+妹のケーキは大好きな（妹が！！）プリキュアのものでした。写真↓
+キュアイーグレット（舞）ですね。この絵はケーキ屋さんの手描きらしくて、下手なイラストレーターより断然うまいなあと感動しました。（感激のあまり写真とりまくり！！）
+しかし！！残念ながらケーキは食べるためにあって、それ以外のものではありません！！すなわち↓
+なんかとってもシュールな光景です。これを見て妹は大喜びしてました・・・・・・。
+「あははは、かおきれてるー！！」って。
+来年は、咲（キュアブルーム）がいいなあ・・・・・・。
+おい、早くロボを作れ。はいはい。</description>
+    </item>
+    
+    <item>
+      <title>なぜ？</title>
+      <link>http://blog.syundo.org/post/647/</link>
+      <pubDate>Tue, 01 Aug 2006 15:52:40 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/647/</guid>
+      <description>ＲＣＢ－１との通信がうまくいきませんー。線いじっちゃだめだった？そんなことは無いはず。ちゃんと直しましたもん。うぅぅぅぅ。考えよう。</description>
+    </item>
+    
+    <item>
+      <title>いっきに</title>
+      <link>http://blog.syundo.org/post/646/</link>
+      <pubDate>Tue, 01 Aug 2006 15:46:14 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/646/</guid>
+      <description>ＲＣＢ－１つなげていっきに２０軸動かしてやるー！！
+ということで、ＲＣＢ－１をＢＴＣ０６７につなげることをもくろんでおります。
+ＲＳ２３２Ｃレベルのを出せばＫＨＲ－１をＰＣで動かすのといっしょになるのではないかと思うのです。はい。だからATmegaのＣＮ３からコマンドを出してやろうかな～と。
+うまくいくかなあー。
+話は飛びますが、僕は金が惜しかったのでＢＴＣ０６７をＰＣにつなぐための通信ケーブルを買っておりません。だからＲＣＢ－１用？のケーブルを使っています。問題は線の配置が違うこと。ＲＣＢ－１に書き込むときとＢＴＣ０６７に書き込むときにはいちいちマイナスドライバでピンを入れ替えなければなりません。
+これを簡単にできないものかとも考えております。
+脳内で妄想していてもしょーがないのでさっそくやってみようと思います。</description>
+    </item>
+    
+    <item>
+      <title>野望（なんだか恥ずかしくなってきたので改題</title>
+      <link>http://blog.syundo.org/post/645/</link>
+      <pubDate>Mon, 31 Jul 2006 15:44:59 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/645/</guid>
+      <description>宿題をやっていて分からなくなってくると、ついついロボットの設計を考えてしまいます。いまのところまったくそんな予算は無く、そんな予定も無いのですが。
+でも、もし作れるならば次の機体は「萌え」方面だー！！と思ってかきかき↓
+落書きの神はとどまることを知らず・・・・・・↓
+&amp;nbsp; そこで突然変異！！おお！！グレイト！！・・・・・・↓
+萌え機体の課題は細い腕と、細い足にあるようですね。
+足の付け根を描くときに行き詰まって、ごまかしてしまいました。
+まあ体を大きくすれば、見た目のバランスは良くなるでしょうが、中身がスカスカなのはちょっとなあ。
+ここで「こんなのを作る技術が君にはあるのか？」と自問自答。「・・・・・・」
+夢をもってやるのは良いことです。ハイ。
+まずは今作ってる機体をば完成へと。ですね</description>
+    </item>
+    
+    <item>
+      <title>プログラムしてみたお</title>
+      <link>http://blog.syundo.org/post/643/</link>
+      <pubDate>Mon, 31 Jul 2006 15:00:31 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/643/</guid>
+      <description>「二足歩行ロボット超入門」を参考にしてプログラムしてみました。（参考と言うより丸写ししたと言ったほうが正しい）
+ええと、どういうプログラムかというと、ボードから”Ｈｅｌｌｏ”という文字が送られてくるというものでして、つまりええと・・・・・・。</description>
+    </item>
+    
+    <item>
+      <title>初めてユニバーサル基盤で</title>
+      <link>http://blog.syundo.org/post/642/</link>
+      <pubDate>Mon, 31 Jul 2006 14:38:59 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/642/</guid>
+      <description>王様で注文したＢＴＣ０６７が届きましたので早速Ｉ／Ｏボード（と言えばいいのだろうか？）を作りました。なにしろ初めてユニバーサル基盤で配置を考えながら作ります。とっても緊張しました。
+テスターで計ったところ、ちゃんと５Ｖ電源が動いてました。よかった。
+なんだか自分の考えた配置ということで、とても嬉しいですね。
+
+
+&amp;nbsp; </description>
+    </item>
+    
+    <item>
+      <title>もうすこし</title>
+      <link>http://blog.syundo.org/post/640/</link>
+      <pubDate>Tue, 25 Jul 2006 14:38:24 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/640/</guid>
+      <description>もうすこしでアクセス２００です・・・・・・。
+どういう手違いでかこんなブログに足を運んでくださり、カウンターを回してくださる人々にものすごく感謝しています。
+２００を踏んだ方にプレゼントはありません。
+どうして２００でプレゼント企画が発生するのか不明で、説明などできないからです。
+プレゼントできるようなものがないという理由もあります。
+PS.そもそも我がブログには一般公開できるカウンターがありませんでした。ははは</description>
+    </item>
+    
+    <item>
+      <title>超入門で・・・</title>
+      <link>http://blog.syundo.org/post/639/</link>
+      <pubDate>Sun, 23 Jul 2006 15:59:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/639/</guid>
+      <description>浅草ギ研さん著の「２足歩行ロボット超入門」を参考にしてatmega32を使ってみたいと思います。センサーが使えるようになりそうなので、ワクワクです。
+そういえばＮＨＫの「つくってあそぼ」は「つくってわくわく」に名前が変わってから内容がつまらなくなったように感じた記憶があります。なに昔のこと言ってるんでしょう。
+といっても僕は平成生まれなので、ノッポさんは知りませんよ？</description>
+    </item>
+    
+    <item>
+      <title>プレセット電圧に注意</title>
+      <link>http://blog.syundo.org/post/638/</link>
+      <pubDate>Tue, 18 Jul 2006 15:59:08 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/638/</guid>
+      <description>ＲＯＢＯ－ＯＮＥに出るロボットは電源をその機体に積まなければならないという規則により 、すべてがバッテリーを積んでいます。
+しかし、自宅でプログラムをするときなどはすぐに容量が切れてしまうバッテリーを使うのは面倒です。何度も充電しなければならないからです。
+そんなときに便利なのが「安定化電源」です。はい。僕も使っています
+まあ今日の本題は安定化電源について浅知恵を披露することにあらず、怖い失敗談について書きたいのです。
+←　安定化電源
+僕の使ってる安定化電源にはプレセット電圧を設定する機能があります。
+簡単に言うと、スイッチを入れるだけで決まった電圧を出力してくれるということらしいです。裏側にあるスイッチでプレセット電圧を設定するか切り替えられます。 
+
+土曜日にロボのモーションを作ろうとして安定化電源を使ったとき、恐ろしい事をしでかしていました。
+電源投入後、ロボに触れると、凄い勢いでぶるぶると発振しだしてその振動で移動を始めました。おおすごい！！アホです。よく考えればここまで発振するロボットではなかったハズです。なのに気楽に、あははははは。何でこんなに振るえるんだろうね？とか思っていました、一分ほど。そして、こんなに振るえているとき、電流はどれほど流れるのだろうと思って、電圧計から電流計に切り替えようと手を伸ばしました。そして気づいたのです。なんと約１４ボルトかかっていました。１４ボルト！！！！！！ななななんあな？？？ｑあｗせｄｒｆｔｇｙふじこｌｐ；＠：「」ちょwwwwwwwおまwwwwww！！！！パニク、パニック！！急いでボリュームを絞るも、もう絞れません。ボリュームをどう動かしても電圧は変わりませんでした。
+そしてすこし考え、そうか！！電圧計が壊れてるのか！！と思いつきました。買ったばかりなのにひどいです・・・・・。コラ。そんなわけがありません。そうすぐに壊れてたまるか。それに普通こんなに発振せんだろう！！
+パニック状態のときにはなにもやってはいけません。ともかく電源を切って一休みしました（ＳＥ　一休さんのＢＧＭ）一休さんのポーズで考えること約１分、プレセット電圧について思い出しました。そうです。裏のスイッチが入っていたんですね。ははは。アホ。
+定格６Ｖのロボに約３分間１４Ｖをかけていました。そりゃ、あんなふうに振るえ出すだろうよ。基盤は壊れていません。良かったです。けっこう大丈夫なものなのかな！！？？コラ
+プレセット電圧は安全のために最低にしておいたほうがいいようです。何の拍子にスイッチが入ってしまうかわからないので。このスイッチをいじらなければいいんだろとまったくさわっていなかったのがよくありませんでした。しばし反省。</description>
+    </item>
+    
+    <item>
+      <title>ロボットってそもそも・・・・・・</title>
+      <link>http://blog.syundo.org/post/637/</link>
+      <pubDate>Fri, 14 Jul 2006 18:53:12 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/637/</guid>
+      <description>最近、ロボットって何なんだろうとよく思います。
+ドラえもんやアトムは間違いなくロボットです。彼らは自分で考えて行動しているし、おそらく自意識までもっているのですから！！
+でも、ガンダムはどうでしょう。あれは中に人間が入って、操縦しているからこそ動きます。僕はそれでは厳密にはロボットではないのではないかと思いました。
+「ロボットと暮らす」という本がありますが、それを学校の図書館で発見したので読んでみました。それには今のところ、経済産業省で定められているロボットの定義が載っていました。 「力センサーやビジョンセンサー等により外界や自己の状況を認識し、これによって得られた情報を解析し、その結果に応じた動作を行う」
+うぅぅぅ・・・。なんとも難しいですね。ガンダムが自己の状態を認識しているかというと・・・・・・しているかもしれません。だってどんな場所でもうまく歩けるように、間違いなくセンサーが入っているでしょうし、そのセンサーの値に応じてパイロットの命令に補正をかけている可能性があるからです。
+「結果に応じた動作」というのがどこまでを指すのかということもありますね。
+移動などの動作の最終意志はパイロットに任されていますが、センサーが入っているならば、結果に応じたなんらかの動作をしているのでしょう。そうじゃなかったらセンサーの意味がないですから。
+全く完璧な人工知能が入っていたら、話が楽なんですけどね。
+ところで、重大な事実を発見しました。経済産業省の定義によると僕のＫＨＲ－１改造機はロボットではない可能性が高いのです。というか間違いなくロボットではありません。
+一応センサーはジャイロセンサというものを積んでいます。でもそのセンサの値はコントロールボードのマイコンには入らず、独立した制御を行う構成になっているのです。ロボットが自己の状態を認識しているとは到底思えません。
+となると、ぼくのアレ（ロボットではないならどう呼んでいいのか分からないので）はただの操り人形なのです！ラジコンカーと同等！そうとしか言いようがないですぅ・・・・・・。そうなんです・・・・・・。
+とってもくやしいです。エプロンのすそが唾液でだらだらです。うぅぅぅぅぅ。かみかみ。破れた。新しいの買わないと
+「いつか必ずぼくのアレをセンサを認識して行動できるようにしてやるぅ！きっと！あの先端が壊れたこうもり傘にかけて！！」　近所迷惑でした。
+でもこれから、ロボットについての定義はどんどん変わっていくと思います。技術の進化によってはＡＳＩＭＯさえロボットと呼べなくなるでしょう。
+最先端技術の結晶であるロボット開発。その最終目標はやはりアトムやドラえもんなのでしょうか。まだまだ目標に遠いですね。近い未来のロボットのあり方についてもっと考える必要があるのかもしれません。
+・ソフトバンク新書　「ロボットと暮らす」　著者　大和信夫　から一部引用しました。</description>
+    </item>
+    
+    <item>
+      <title>報告</title>
+      <link>http://blog.syundo.org/post/636/</link>
+      <pubDate>Sun, 09 Jul 2006 19:24:18 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/636/</guid>
+      <description>現状報告です。百聞は一見にしかず、画像を載せてみます。
+これはＫＯＮＤＯ製、対有機生命体コンタクト用ヒューマノイドインターフェイス・・・・・・じゃなくて、ええと。二足歩行ロボットを改造したものです。
+販売時には１７自由度でしたが、サーボを４つたして、一個壊れて、今は２０自由度になっています 。コントロールボードはＲＣＢ－１というもので２４軸まで動かせます。
+ フレームは必要な部分だけは自作してあります。純正フレームは精 度がとても良いので、できるだけ利用したかったからです。フレームに使ったアルミはホームセンターで売っているもので、軟らかいです。厚さは1.5mmです。  今の課題はコントロールボードにあると思います。
+ただモーションを再生するだけでは面白くありません。ともかく、まず連続して歩けるようにしたいです。そしてなめらかな方向転換・・・・・・。
+技術的に今のままではむずかしいです。本読んで学習しないと。
+
+
+PS.ＫＨＲ－２ＨＶはいい ですね。あのコントロールボード・・・・・・あの価格。でもいろんなことに挑戦したいから、市 販のボードは我慢です。出来る限り自分の力で・・・・・・・。金もないし。</description>
+    </item>
+    
+    <item>
+      <title>ロボットの進化</title>
+      <link>http://blog.syundo.org/post/634/</link>
+      <pubDate>Tue, 04 Jul 2006 19:56:36 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/634/</guid>
+      <description>二足歩行ロボットの大会、ＲＯＢＯ－ＯＮＥが始まってから４年あまりたちました。出場するロボットの性能は驚くほど向上していき、とても安定した「走り」をも再現できるようになりました。平らな床でしかまともに歩けなかったころが嘘のようです。でもこれはＲＯＢＯ－ＯＮＥ常連最強クラスのこと。
+僕のロボットは２年ほど前から性能が向上していません。もちろん、キットのそのままの形ではなく、フレームを付け足したり、モータを増やしたりしました。でも、ソフトがそのままなんです。いくら関節が多くても、それをうまく制御できなくちゃだめです。　制御できなくちゃだめだ。　制御できなくちゃだめだ。制御できなくちゃだめだ。制御できなくちゃだめだ。制御できなくちゃだめだ。　本読んで勉強したいと思います。　</description>
+    </item>
+    
+    <item>
+      <title>はじめまして</title>
+      <link>http://blog.syundo.org/post/632/</link>
+      <pubDate>Sat, 24 Jun 2006 23:08:06 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/632/</guid>
+      <description>ココログでブログ始めました。
+市販二足歩行ロボットＫＨＲ－１を改造してＲＯＢＯ－ＯＮＥ出場を目指します。
+ロボットの名前は未定。いいのがないかしらと思う今日この頃。</description>
     </item>
     
   </channel>

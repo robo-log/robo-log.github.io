@@ -6,8 +6,11 @@
     <description>Recent content in Pages on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Sun, 25 Aug 2013 09:19:47 +0900</lastBuildDate>
-    <atom:link href="http://blog.syundo.org/page/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://blog.syundo.org/page/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>About</title>
@@ -15,12 +18,8 @@
       <pubDate>Sun, 25 Aug 2013 09:19:47 +0900</pubDate>
       
       <guid>http://blog.syundo.org/page/2/</guid>
-      <description>&lt;p&gt;syundo&lt;/p&gt;
-
-&lt;blockquote&gt;名古屋在住の院生です&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;span style=&#34;line-height: 1.5;&#34;&gt;それでは、お楽しみください !&lt;/span&gt;&lt;/p&gt;
-</description>
+      <description>syundo
+名古屋在住の院生です それでは、お楽しみください !</description>
     </item>
     
   </channel>

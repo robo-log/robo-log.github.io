@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/20171117-Reinforcement-Learning-Policy-Gradient/"/>
+  <link rel="canonical" href="http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -103,14 +103,14 @@
 
 <p>などの欠点がある。</p>
 
-<h1 id="方策のモデルと勾配:d282ab77251597e53cc889d5b2950abb">方策のモデルと勾配</h1>
+<h1 id="方策のモデルと勾配">方策のモデルと勾配</h1>
 
 <p>$\theta$でパラメタライズされた確率的な方策$\pi_{\theta}$を求める問題を考える。
 $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動空間でのパス)$\tau=(s_0, a_0, \dots, s_H, a_H)$としたとき、方策の評価関数として以下を考える。</p>
 
 <p>\begin{equation}
 \begin{aligned}
-U(\theta) &amp;=&amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\
+U(\theta) &amp;=&amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\<br />
 &amp;=&amp; \sum_{\tau} P(\tau ; \theta) R(\tau)
 \end{aligned}
 \end{equation}
@@ -136,11 +136,11 @@ P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t)
 
 <p>\begin{equation}
 \begin{aligned}
-\nabla_{\theta} U(\theta) &amp;=&amp; \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau) \\
-&amp;=&amp; \sum_{\tau} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\
-&amp;=&amp; \sum_{\tau} \frac{P(\tau ; \theta)}{P(\tau ; \theta)} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\
-&amp;=&amp; \sum_{\tau} P(\tau ; \theta) \frac{\nabla_{\theta} P(\tau ; \theta)}{P(\tau ; \theta)} R(\tau) \\
-&amp;=&amp; \sum_{\tau} P(\tau ; \theta) \nabla_{\theta} \log P(\tau ; \theta) R(\tau) \\
+\nabla_{\theta} U(\theta) &amp;=&amp; \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau) \\<br />
+&amp;=&amp; \sum_{\tau} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\<br />
+&amp;=&amp; \sum_{\tau} \frac{P(\tau ; \theta)}{P(\tau ; \theta)} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\<br />
+&amp;=&amp; \sum_{\tau} P(\tau ; \theta) \frac{\nabla_{\theta} P(\tau ; \theta)}{P(\tau ; \theta)} R(\tau) \\<br />
+&amp;=&amp; \sum_{\tau} P(\tau ; \theta) \nabla_{\theta} \log P(\tau ; \theta) R(\tau) \\<br />
 \end{aligned}
 \end{equation}</p>
 
@@ -166,10 +166,10 @@ P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t)
 \begin{aligned}
 \nabla_{\theta} \log P(\tau^{(i)} ; \theta)
 &amp;=&amp; \nabla_{\theta} \log
-\left[ \prod_{t=0}^H P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)}) \pi_{\theta}(u_t^{(i)} | s_t^{(i)}) \right] \\
+\left[ \prod_{t=0}^H P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)}) \pi_{\theta}(u_t^{(i)} | s_t^{(i)}) \right] \\<br />
 &amp;=&amp; \nabla_{\theta} \left[ \sum_{t=0}^H \log P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)}) \right] +
-\nabla_{\theta} \left[ \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \right] \\
-&amp;=&amp; \nabla_{\theta} \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \\
+\nabla_{\theta} \left[ \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \right] \\<br />
+&amp;=&amp; \nabla_{\theta} \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \\<br />
 &amp;=&amp; \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)})
 \end{aligned}
 \end{equation}</p>
@@ -179,7 +179,7 @@ P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t)
 <p>結局、勾配は
 \begin{equation}
 \begin{aligned}
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \nabla_{\theta} \log P(\tau^{(i)} ; \theta) R(\tau^{(i)}) \\
+\hat{g} = \frac{1}{m} \sum_{i=0}^m \nabla_{\theta} \log P(\tau^{(i)} ; \theta) R(\tau^{(i)}) \\<br />
 where \hspace{15pt}
 \nabla_{\theta} \log P(\tau^{(i)} ; \theta) =
 \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)})
@@ -194,7 +194,7 @@ where \hspace{15pt}
 
 <p>で表され、方策の$\theta$での勾配のみで表現できることがわかる。</p>
 
-<h2 id="baseline:d282ab77251597e53cc889d5b2950abb">Baseline</h2>
+<h2 id="baseline">Baseline</h2>
 
 <p>式\eqref{eq:policy_gradient}にbaseline $b$という値を追加する。
 \begin{equation}
@@ -236,8 +236,10 @@ where \hspace{15pt}
 
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171110-Reinforcement-Value-Policy-Iteration/" rel="prev">強化学習についてまとめる (2) 反復による価値の推定</a></span>
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/" rel="prev">強化学習についてまとめる (2) 反復による価値の推定</a></span>
     
+    
+      <span class="next"><a href="http://blog.syundo.org/post/20171203-cpg-and-walk/" rel="next">非線形振動子の同期を用いた歩行</a> &rarr;</span>
     
   </nav>
 
