@@ -20,11 +20,11 @@
       <guid>http://blog.syundo.org/post/20171203-cpg-and-walk/</guid>
       <description>複数の周期的現象が相互作用して同期する現象は実世界のいたるところにみられる。 例えばホタルの発光が同期することはよく知られているし、
  バラバラなタイミングで動いていたメトロノームの動きが揃ったり
- ロンドンのmillennium bridgが橋の上で歩いている人々と橋が同期して振動してしまった事件なども同様の現象である。
+ ロンドンのmillennium bridgeが橋の上で歩いている人々と同期して振動してしまった事件なども同様の現象である。
  歩行の周期的運動に着目すると、その生成回路として、CPG(Central Pattern Generator)が知られている。 CPGのモデルを歩行ロボットに組み込む試みも数多くなされている。
 本記事ではCPGとその同期について調査し、同期システムを用いた歩行制御についてシミュレーションと実機にて確認した結果について述べる。
-背景 ここでは、まずCPGとニューロンの発火モデル、非線形振動子の同期現象についてまとめる。 また、森本らの振動子の同期現象を2即歩行ロボットの制御に利用した手法について説明する。
-CPG 歩行などのリズミックな運動出力パターンを生成する回路のことをCPGと呼ぶ。 この回路は脊椎動物であれば脊髄に備わっていることが知られている。 大脳との神経的な接続を除去したネコをトレッドミルに乗せ、脊髄部分に電気的刺激を行うと、歩行動作を発現したという、除脳ネコの実験が有名である。 これより脳幹部分からの電気的な刺激によって、脊髄部の回路が周期的に活性化し、脚部の筋肉を活性化することで歩行運動が生成されているということを推察することができる。
+背景 ここでは、まずCPGとニューロンの発火モデル、非線形振動子の同期現象についてまとめる。 また、森本らの振動子の同期現象を2足歩行ロボットの制御に利用した手法について説明する。
+CPG 歩行などのリズミックな運動出力パターンを生成する回路のことをCPGと呼ぶ。 この回路は脊椎動物であれば脊髄に備わっていることが知られており、 大脳との神経的な接続を除去したネコをトレッドミルに乗せ、脊髄部分に電気的刺激を行うと、歩行動作を発現したという、除脳ネコの実験が有名である。 これより脳幹部分からの電気的な刺激によって、脊髄部の回路が周期的に活性化し、脚部の筋肉を活性化することで歩行運動が生成されているということを推察することができる。
 CPGをモデル化して歩行制御に用いた例としては、多賀1 による2足歩行運動の生成がある。
 ニューロンの発火モデル ニューロンは神経系を構成する細胞の一つである。 活動していないときのニューロンの細胞内電位(膜電位)は細胞外に対して低くなっており、逆に活性化すると細胞外に対して高くなる。 この電位差は細胞内外のイオン濃度の差によって生じる。2 HodgkinとHuxleyはヤリイカの巨大軸索の電気的応答を調査することで、そのニューロンの非線形ダイナミクスを記述する微分方程式(Hodgkin-Huxley方程式)を導出した。 詳細は述べないが、4変数でパラメタライズされ微分方程式となっている。3 このHodgkin-Huxley方程式における膜電流(I)として適当な大きさの電流を加えると自励振動が生じる。 宇佐美ら4は自励振動に限らず周期的刺激に対するHodgkin-Huxleyのダイナミクスを示している。 Hodgkin-Huxleyより、神経のダイナミクスを更に簡略化したモデルとして、FitzHugh-南雲(FHN)モデルも知られている。
 \begin{equation} \begin{aligned} \frac{du}{dt} = u - u^3 -v + I_{ext} \\
@@ -36,7 +36,21 @@ en:Balthasar van der Polが電気回路の振動について記述したファ�
     </item>
     
     <item>
-      <title>強化学習についてまとめる (3) 方策勾配</title>
+      <title>強化学習についてまとめる(4) 方策勾配に基づくアルゴリズム、Actor-Critic</title>
+      <link>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</link>
+      <pubDate>Sat, 02 Dec 2017 16:41:14 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</guid>
+      <description>前回は方策の勾配の求め方、勾配の分散を減少させるための、baselineを導入するところまでまとめた。 今回は、方策勾配を用いて方策を更新する実際のアルゴリズムについて扱う。
+vanilla policy gradient baselineの調整と方策の更新を逐次的に更新していくという、方策勾配法の基本的な方法に則った基本的なアルゴリズムを、vanilla policy gradient method と呼ぶことにする。 vanilla policy gradient methodの擬似コードは以下のようになる。
+ パラメタ $\theta$, ベースライン$b$の初期化 $for$ $i=1,2,\dots$ $do$ 現在の方策に従って行動し、復数パスを収集し、$R_t = \sum_{t&amp;rsquo;=t}^{H-1} \gamma^{t&amp;rsquo;-t} R_{t&amp;rsquo;}$を計算する。 $|R_t - b|^2$ を最小にするようにbaselineを調整する $\hat{g} = \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)$で勾配を更新する $end$ $for$  baselineの調整と、勾配の更新を繰り返していき、方策を最適化する。
+REINFORCE アルゴリズム 上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$R_t$を使う方法は REINFORCE アルゴリズムとして知られている。 baselineとしては報酬の平均値$\bar{b} = \frac{1}{MT} \sum_{m=1}^M \sum_{t=1}^T R_t^m$がよく用いられるらしい。
+Actor-Critic baselineを導入したとこで、方策の更新は、方策の分散を小さくする評価部と、方策を更新する部分の2つに分けられることがわかる。 ここで、baselineとして、価値関数$V^{\pi}$を使うと ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$の代わりに行動価値関数$Q^{\pi}(s, a)$を、baselineとして価値関数$V^{\pi}(s)$を使うことにする。 baselineとして状態$s$の関数を用いても、勾配の平均値には影響がないため、baselineとして採用できる。
+以下の行動価値感数と状態価値関数の差分$A^{\pi}(s, a)$をアドバンテージ関数と呼ぶ。 \begin{equation} A^{\pi}(s, a) = Q^{\pi}(s, a) - V^{\pi}(s) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(3) 方策勾配</title>
       <link>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</link>
       <pubDate>Fri, 17 Nov 2017 03:15:08 +0900</pubDate>
       
@@ -52,7 +66,7 @@ en:Balthasar van der Polが電気回路の振動について記述したファ�
     </item>
     
     <item>
-      <title>強化学習についてまとめる (2) 反復による価値の推定</title>
+      <title>強化学習についてまとめる(2) 反復による価値の推定</title>
       <link>http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/</link>
       <pubDate>Fri, 10 Nov 2017 19:54:59 +0900</pubDate>
       
@@ -64,7 +78,7 @@ en:Balthasar van der Polが電気回路の振動について記述したファ�
     </item>
     
     <item>
-      <title>強化学習についてまとめる (1) MDPとベルマン方程式</title>
+      <title>強化学習についてまとめる(1) MDPとベルマン方程式</title>
       <link>http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/</link>
       <pubDate>Sun, 10 Apr 2016 15:19:17 +0900</pubDate>
       
