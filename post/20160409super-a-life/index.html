@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    超人工生命ハッカソンに行ってきた | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20160409super-a-life/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>超人工生命ハッカソンに行ってきた</h1>
+      <div class="meta">
+        Apr 9, 2016 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>4月9日(土)、<a href="http://connpass.com/event/28982/">超人工生命ハッカソン</a>に行ってきた。</p>
+
+<!-- 当日のスケジュールはこんな感じだった。
+
+* 開会の言葉　山川宏
+* チュートリアル 清水亮
+* ソースコード詳細解説 中村政義
+* ハッカソン開始 11:00
+* 集合、ハッカソン終了 15:30
+* 発表会 16:00
+* 表彰 17:30
+* 終了 18:00
+
+## 超人工生命とは？
+当日のチュートリアルでは主催者の一人であるUEIの清水亮氏から、人工知能 + 人工生命 = 超人工生命だ、という説明がされた。
+人工生命といえば、セルオートマトンとかで数十年前にさんざん流行っていたが、最近あまり聞かなくなっていたと、清水氏は言う。近年の人工知能技術の人気の高まりに乗じて、人工生命のときと同じような盛り上がりにしようと、人工知能技術を使ったエージェントを「超人工生命」と呼ぶことにしたらしい。 -->
+
+<h2 id="どんなのができるの">どんなのができるの?</h2>
+
+<p>こんなの。
+<img src="/images/2016/04/lis.gif" alt="" /></p>
+
+<ol>
+<li>緑の箱に触ると報酬GET</li>
+<li>黄色のボールに触ると報酬DOWN</li>
+<li>赤の箱に触ると死ぬ</li>
+</ol>
+
+<p>という状況の中で、左右どの方向に進むのか、ジャンプするのかを決めて勝手に動き回る。</p>
+
+<p>使っているのは、一人称視点のカメラの情報(とDepthセンサの深度情報)だけ！！！</p>
+
+<p>これはすごい！！！！！！</p>
+
+<h3 id="セットアップ">セットアップ</h3>
+
+<p>ここらへんを見よう！</p>
+
+<ul>
+<li><a href="https://github.com/wbap/lis">https://github.com/wbap/lis</a></li>
+<li><a href="http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80">http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80</a></li>
+</ul>
+
+<p>mac環境でしかやってないけど、とくにハマることもなくできた。
+シミュレーションが起動するまで数分待たないといけないので、根気よく待つ。</p>
+
+<h3 id="簡単にできるカスタマイズ">簡単にできるカスタマイズ</h3>
+
+<h4 id="アクションを増やす">アクションを増やす</h4>
+
+<p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">actions <span style="color:#5bc4bf">=</span> [<span style="color:#f99b15">0</span>,<span style="color:#f99b15">1</span>,<span style="color:#f99b15">2</span>,<span style="color:#f99b15">3</span>]</code></pre></div>
+<p>にしてみる。ジャンプもするようになるぞ！同じ要領で
+<a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
+を変更すると、動作を追加できる。</p>
+
+<h4 id="負の報酬も与えるようにする">負の報酬も与えるようにする</h4>
+
+<p>Hierarchey &gt; SceneController &gt; items にMinusRewardItem を追加する。
+ResetItemは触ると死ぬようになるぞ！</p>
+
+<h2 id="使われている技術">使われている技術</h2>
+
+<p>今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムを使うことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。</p>
+
+<ul>
+<li>python側
+
+<ul>
+<li>Unity側から画像データを受け取る</li>
+<li>ImageNet + DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。</li>
+</ul></li>
+<li>Unity側
+
+<ul>
+<li>python側から行動の命令を受け取って、実際のエージェントの動作に反映する。</li>
+<li>エージェントの望ましい行動に対して与える報酬を決定する。</li>
+<li>エージェントに固定されたカメラから得られる画像と、報酬をpython側に送る</li>
+</ul></li>
+</ul>
+
+<p>というような役割になっている。</p>
+
+<h2 id="当日僕がやったこと">当日僕がやったこと</h2>
+
+<h3 id="コードを読む">コードを読む</h3>
+
+<p>ハッカソンが始まると、まずpython側のコードを読んだ。DQNには以前から興味があったが、なかなか触る機会がなかったので、今回のハッカソンを機に親しみたいと思っていたからだ。以下はコードを読んだときのメモ。</p>
+
+<ul>
+<li>ImageNetのプーリング層に入れる前の層(256 * 6 * 6 次元)をQ-Networkの入力にしている
+
+<ul>
+<li>なぜここなのかというと、物体がある位置のニューロンが活性化するようになっている層だかららしい。チュートリアルで、写真と、活性化している位置の画像を並べたのを見せてもらいながらそういった説明を受けた。いきなり生の画像を入力するのではなく、すでにチューニングされたネットワークを使うことで学習時間を短縮しようということなのか。なるほど。</li>
+</ul></li>
+<li>ImageNetのほうは強化学習によって学習せず、DQNのほうのネットワーク(Q-Net)だけオンラインで学習していくようになっている。</li>
+<li>Q-Netは中間層が1層(255次元) のネットワーク
+
+<ul>
+<li>中間層1層なので全然Deepじゃない。複雑な行動を学習させていないから、これで表現力としては十分なのだろう。</li>
+<li>4step分の状態を使って学習できるようになっているが、デフォルトでは1stepだけの入力を使っている。</li>
+<li>action はデフォルトで3つ(左右旋回、前進)</li>
+</ul></li>
+</ul>
+
+<p>ここまで理解したときには45分くらいが経っていた。
+次にUnity側を読みに行った。</p>
+
+<ul>
+<li>ランダムに環境を構築するようになっていた。</li>
+<li>アクションのコマンドをpython側から受けて、左右旋回、直進の動作に変換している</li>
+<li>カメラの画像をバイナリ列に変換して送っている。</li>
+<li>Cubeに触ると正のリワードや負のリワード、学習のリセット(死亡)を行うようになっている。</li>
+</ul>
+
+<p>ここまでで1時間が経過した。この時点あたりから、実はUnityが触れないと結構つらいのではないかという予感が浮かんできた。</p>
+
+<h3 id="パラメータいじり">パラメータいじり</h3>
+
+<p>コードを読み終わった後、Unity側の動作を変更してみた。</p>
+
+<ul>
+<li>負のリワードを与える
+
+<ul>
+<li>負の報酬を与えるオブジェクトのモック(プレハブ?)はすでにUnityプロジェクト内に用意がしてあった。Unityの操作がわからず、30分くらい格闘してしまった。学習の初期段階だからなのか、ガンガンぶつかりに行っている。一晩置いてみたい。</li>
+</ul></li>
+<li>ジャンプさせる
+
+<ul>
+<li>ジャンプするコードはすでにUnityプロジェクト側に用意してあったので、Q-Netから出力するactionの次元を3から4に変えてやればいいだけだった。</li>
+<li>段差のあるステージを用意するといいんだろうなと思って用意したが、短時間では面白い動作にはならなさそうだった。</li>
+</ul></li>
+<li>道路に沿って落ちないように移動する
+
+<ul>
+<li>ROBO-ONEの予選のような環境で、1本道を落ちないように移動することを学習させようとした。</li>
+<li>板のようなオブジェクトの上に、正の報酬を与える餌を置いてやって、落ちたら死ぬようにすればいいと考えた。だがしかし、結局Unityの書き方が理解できず、何もできなかった。</li>
+</ul></li>
+</ul>
+
+<h2 id="発表会">発表会</h2>
+
+<p>いいものができた人17人を選抜して、一人3分で発表してもらうことになった。
+名前などメモできていないので、ざっくりと紹介する。</p>
+
+<h3 id="エージェントの行動と報酬をカスタマイズした人たち">エージェントの行動と報酬をカスタマイズした人たち</h3>
+
+<ul>
+<li>旋回と同時に前にも進むようにした</li>
+<li>時間経過とともにお腹が空くようにした</li>
+<li>伏し目にして下を見れるようにしてみた</li>
+<li>ダッシュ機能をつけた</li>
+</ul>
+
+<h3 id="ニューラルネットワークを改良した人たち">ニューラルネットワークを改良した人たち</h3>
+
+<ul>
+<li>デフォルトではQ-Netへの入力として、AlexNetの比較的深い層を使っていたが、浅い層をQ-Netの入力にするようにして、Q-Netは層を増やしてCNNに変更した。
+
+<ul>
+<li>学習の進み具合がよくなったらしい。</li>
+<li>いろいろやり方はあるだろうけど、何がどう効いてくるのかはよくわからないなーと思った。</li>
+</ul></li>
+<li>推し松を追いかけるようにした。
+
+<ul>
+<li>おそ松さんの顔認識のためにトレーニングしたネットワークを使った(使おうとした)</li>
+<li><a href="http://bohemia.hatenablog.com/entry/2015/11/22/174603">おそ松さん判別器</a>で話題になったぼへみあさん</li>
+<li>カラ松好きなエージェントを育てるなら、カラ松の顔画像が貼り付けられたボックスに接触すると報酬が高くなるようにする、とかそういうことをやっている。おもしろい。</li>
+<li>chainerのバージョンの違いで、そのまま使うことができず、当日トレーニングをし直したが、間に合わなかったとのこと。</li>
+</ul></li>
+</ul>
+
+<h3 id="学習させる環境をカスタマイズした人たち">学習させる環境をカスタマイズした人たち</h3>
+
+<ul>
+<li>ジャンプできるようにしてジャンプすれば取れる報酬とジャンプすると取れない報酬を用意して、ジャンプする行動としない行動を満遍なく学習できるようにした。</li>
+<li>自作ゲームと接続した
+
+<ul>
+<li>Unityなので簡単に組み合わせられるかというとそうでもなかったらしい。すごい。</li>
+</ul></li>
+<li>地面を球体にした
+
+<ul>
+<li>地平線の向こう側に餌があって見えないことがあるらしい。どういった行動が学習されるのか興味がある。</li>
+</ul></li>
+<li>エージェントを動いているターゲットを追いかける変質者にした
+
+<ul>
+<li>何を言っているかわからないかもしれないが、変質者だった。</li>
+</ul></li>
+<li>ATARIのPONをプレイさせた
+
+<ul>
+<li>DQNといえば、ATARI。それを俯瞰視点を使わず、プレイヤー目線で3Dの環境で学習させたというのがおもしろい。</li>
+</ul></li>
+<li>パックマンみたいな環境にした
+
+<ul>
+<li>Unityがうまく使えず、完成しなかったらしい。気持ちよく分かる。</li>
+</ul></li>
+<li>スーパーマリオみたいな環境にした
+
+<ul>
+<li>今回優勝の人</li>
+<li>落ちたら死ぬ + 後ろから触れると死ぬ壁が追ってくる　環境を作ることでマリオっぽいものを学習させていた。</li>
+<li>短時間ながらそれっぽい動きを学習させることに成功していた。後ろを振り返りながら逃げる姿が超かわいい。</li>
+</ul></li>
+<li>マルチエージェントで追いかけっこするようにした
+
+<ul>
+<li>鬼はタッチすると正の報酬を得て、タッチされたほうは負の報酬になるようにした。</li>
+<li>会敵しやすいように。枠で囲って行動を制限していた。</li>
+</ul></li>
+<li>テクスチャを入れ替えた
+
+<ul>
+<li>skyboxに空のテクスチャを貼った</li>
+<li>cubeが光るようにした</li>
+<li>デフォルトの環境で学習させた後、この環境に投入してやるとどれくらいの時間で学習できるのか</li>
+</ul></li>
+</ul>
+
+<h3 id="実世界と接続する系">実世界と接続する系</h3>
+
+<ul>
+<li>照度センサの値をUnityに反映させる
+
+<ul>
+<li>実世界のセンサの値に応じてシミュレーション内に報酬を与えるようにした。</li>
+</ul></li>
+<li>iphoneで動かした
+
+<ul>
+<li>Unity側をiphoneで動くようにした</li>
+<li>カメラに映った画像に応じて報酬を与えるようにした。</li>
+<li>ついでにエージェントもUnityちゃんにした。</li>
+</ul></li>
+</ul>
+
+<p>短い時間だったが、かなり完成度が高いものを発表する人が多くて驚いた。
+僕もUnityを使えるようになって引き続き触っていきたい。</p>
+
+<p>ではでは。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/2016-02-28-lcddisplay/" rel="prev">セグメント液晶のことを全然知らなかった話</a></span>
+    
+    
+      <span class="next"><a href="http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/" rel="next">強化学習についてまとめる(1) MDPとベルマン方程式</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    第8回ROS勉強会に参加してきた | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/ros%E5%8B%89%E5%BC%B7%E4%BC%9A/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>第8回ROS勉強会に参加してきた</h1>
+      <div class="meta">
+        Oct 4, 2015 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>2015/10/04に開催された、第８回ROS勉強会に参加してきた。</p>
+
+<p><a href="https://ros-users.doorkeeper.jp/events/30434">https://ros-users.doorkeeper.jp/events/30434</a></p>
+
+<h2 id="dronecodeの概要とrosの対応について-himamura-さん">Dronecodeの概要とROSの対応について @himamura さん</h2>
+
+<p>Droncodeとはオープンソースのフライトコントローラ(のソフト)のことらしい。
+これのROS対応を進めているらしい。
+Linuxを積んだボードなのでその中でROSが動く。</p>
+
+<p>遠隔操作をROSのメッセージでもって行うのはやっていないし、難しそうという話が会場から出た。</p>
+
+<h2 id="kotlinでrosノードを動かしてみた-iwata-n-さん">kotlinでROSノードを動かしてみた @iwata_n さん</h2>
+
+<p>slackのメッセージを受けてROSに送るプロキシみたいなものをkotlinで書いたということ。</p>
+
+<h3 id="何をするのか">何をするのか</h3>
+
+<ol>
+<li>ROSJavaのインストール</li>
+<li>kotlinを書く</li>
+<li>intelliJを使ってkotlinからJavaに変換する</li>
+<li>ROSの上でkotlinが動く</li>
+</ol>
+
+<p>kotlinはJavaを書くよりマシだというだけでなく、
+pythonより幾分か素敵な文法と機能を持っているという点で魅力的だと思う。</p>
+
+<p>ただ、文法がC的でないという理由で馴染めない人も多かろうからROSでは流行らない。</p>
+
+<h2 id="sphinxcontrib-ros-otamasan-さん">sphinxcontrib-ros @otamasan さん</h2>
+
+<p>ROSのドキュメント生成をソースのクラス定義などを使って一部自動化したという話。
+ROSのドキュメントの置き場、生成法にはいろいろ派閥があるそうで、新しい選択肢として名乗りを上げてほしい。</p>
+
+<h2 id="自律型生活支援ロボットmini-ken-demu-さん">自律型生活支援ロボットMini @ken_demu さん</h2>
+
+<p>発表者が17歳だった。
+これを17歳が作れるのかというのがにわかには信じられない。
+圧倒されて会場の空気が変わってた。
+ものすごい実装力。
+オープンソースのものをうまく組み合わせて高度な機能を実現していた。</p>
+
+<h2 id="テーブルトップ型対話ロボットsotaの紹介-masato-ka-さん">テーブルトップ型対話ロボットSotaの紹介 @masato_ka さん</h2>
+
+<p>NTTデータのロボット事業の紹介。
+SotaとNTT研究所の研究成果を組み合わせた例。
+高齢者見守りなどに使えるらしい。
+例えば夜間に寝床を抜けて徘徊しそうなとき、声をかけてそれを止めたりする。</p>
+
+<p>最後に未来館でのデモを実演してくれた。
+Sotaはまだ一般には売られていないが、将来的に10万程度で買えるらしい。
+かわいい。ほしい。</p>
+
+<h2 id="euslispでロボットプログラミング-hyaguchijsk">euslispでロボットプログラミング @hyaguchijsk</h2>
+
+<p>jskではこれが使われているんだなぁ。
+一部だろうけど。
+機械系出身のひとにはいきなりLispはきつかろうと思う。</p>
+
+<p>でも東大生ならなんてことないのかもしれない。
+会場では取り残されている人が続出していた様子だ。</p>
+
+<h2 id="ros2-0時代に備えるためのc-11-14-otl-さん">ROS2.0時代に備えるためのc++11, 14 @OTL さん</h2>
+
+<p>発表中に挙手でアンケートが取られたのだが、
+C++11, 14 を普段から使っている人は0だった。</p>
+
+<p>私はここ半年触っていないなぁと思ったので手を挙げなかったが、
+ここはC++勉強会で無かったのでC++14, 17とかいうものの存在を知っているだけで珍しいのだった。
+カルチャーショックだ。</p>
+
+<h2 id="rviz-rqtなどによるオンライン可視化-ログデータのオフライン可視化-仮-garaemon-coder-さん">rviz、rqtなどによるオンライン可視化、ログデータのオフライン可視化(仮) @garaemon_coder さん</h2>
+
+<p>可視化はマルチスレッドのプログラムになるから難しいが、ROSのpub/sub型の通信方式によって可視化がしやすくなった</p>
+
+<h3 id="どの方法を使って可視化をするか">どの方法を使って可視化をするか</h3>
+
+<h4 id="タイムスタンプが重要かどうか">タイムスタンプが重要かどうか</h4>
+
+<ul>
+<li>重要 =&gt; オフラインでの可視化
+
+<ul>
+<li>rqt_bag</li>
+</ul></li>
+<li>重要でない =&gt; オンラインでの可視化
+
+<ul>
+<li>rqt &lt;- 基本的に使わない。rvizに2次元情報をオーバーレイすればいいから。</li>
+<li>rviz &lt;- プラグインを使ってカスタマイズすればとても便利に</li>
+</ul></li>
+</ul>
+
+<p>JSKのリポジトリを見れば幸せになれる。</p>
+
+<p>気になったもの</p>
+
+<ul>
+<li>image_view2
+
+<ul>
+<li>画像を表示するだけでなく、マウスでクリックした座標などがトピックとして取得できる</li>
+</ul></li>
+<li>footstepの可視化のやつ(名前忘れた)
+
+<ul>
+<li>初期位置とゴールを手動で指定してやれば、その間の歩行計画をした結果を可視化してくれる</li>
+<li>グリッド状にばらまいたノードも可視化されていて、Footstep planningに覚えがある人にはたまらない画面だった。</li>
+</ul></li>
+</ul>
+
+<h2 id="osxではじめるrosプログラミング-youtalk-さん">OSXではじめるROSプログラミング @youtalk さん</h2>
+
+<p>OSをアップデートしたらXcodeがアップデートされてしまってROS環境が壊れてしまったらしい。
+Macだめじゃん。みたいな空気で終わってしまった。</p>
+
+<h2 id="rosと機械学習でroombaを覚醒させたい-準備編-longjie0723-さん">ROSと機械学習でRoombaを覚醒させたい（準備編） @longjie0723 さん</h2>
+
+<p>RNNを教師あり学習で学習して赤外線センサとバンパセンサの情報を使って自動走行を実現していた。
+PFNの例の車のデモを1台で、教科学習でなくて人手で行ったもの。</p>
+
+<h2 id="おわりに">おわりに</h2>
+
+<p>面白い発表ばかりだった。ヴァニラをROS対応して勉強会で発表できる日が来るのかなぁ。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/robo-one-27th/" rel="prev">ROBO-ONE 27th</a></span>
+    
+    
+      <span class="next"><a href="http://blog.syundo.org/post/souhatu20151123/" rel="next">記号創発システムシンポジウムに行ってきた</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
