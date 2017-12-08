@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Written by Shundo Kishi</copyright>
-    <lastBuildDate>Sun, 03 Dec 2017 23:41:06 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 Dec 2017 22:39:35 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>強化学習についてまとめる(5) 自然方策勾配法とTRPO</title>
+      <link>http://blog.syundo.org/post/20171204-natural-policy-gradient-trpo/</link>
+      <pubDate>Mon, 04 Dec 2017 22:39:35 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171204-natural-policy-gradient-trpo/</guid>
+      <description>前回 は方策勾配法についてまとめた。 方策勾配を用いる方法では、方策の更新方向の決定が非常に重要になる。 悪い方策を採用したことで低い報酬しか取れないようにずれてくると、回復が難しくなってしまう。 今回は方策の勾配の決定をKLダイバージェンスに基いて決定する方法についてまとめる。
+自然勾配 方策の確率分布のパラメタ$\theta$のうち、あるパラメタ$\theta_1, \theta_2$の距離を$\|\theta_1 - \theta_2\|^2$とする、ユークリッド距離において定めたのが、以下の方策の更新方向であった。
+\begin{equation} E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) A^{\pi}(s, a)] \label{eq:policy_gradient} \end{equation}
+ここで、確率分布間の疑距離をKLダイバージェンスで定めると、自然勾配という勾配方法が導出される。 自然勾配は、通常の勾配にフィッシャー行列の逆行列を掛けたものになる
+\begin{equation} \tilde{\nabla_{\theta}} J (\theta) = F^{-1} (\theta) \nabla_{theta} J(\theta) \end{equation}
+ここで、$F(\theta)$はフィッシャー行列である。 一般的に、勾配法において、自然勾配を用いると良い性能が得られることが知られている。
+Natural Actor-Critic 式\eqref{eq:policy_gradient}のアドバンテージ関数を線形モデル
+\begin{equation} A^{\pi}(s, a) = w^{\mathrm{T}} \nabla_{\theta} \log \pi_{\theta} (a | s) \end{equation} で近似することにすると、
+\begin{equation} \nabla_{\theta} J (\theta) = E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) \nabla_{\theta} \log \pi_{\theta} (a | s) ^ {\mathrm{T}} ] w \\</description>
+    </item>
     
     <item>
       <title>非線形振動子の同期を用いた歩行</title>
@@ -41,7 +58,7 @@ en:Balthasar van der Polが電気回路の振動について記述したファ�
       <pubDate>Sat, 02 Dec 2017 16:41:14 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</guid>
-      <description>前回は方策の勾配の求め方、勾配の分散を減少させるための、baselineを導入するところまでまとめた。 今回は、方策勾配を用いて方策を更新する実際のアルゴリズムについて扱う。
+      <description>前回 は方策の勾配の求め方、勾配の分散を減少させるための、baselineを導入するところまでまとめた。 今回は、方策勾配を用いて方策を更新する実際のアルゴリズムについて扱う。
 vanilla policy gradient baselineの調整と方策の更新を逐次的に更新していくという、方策勾配法の基本的な方法に則った基本的なアルゴリズムを、vanilla policy gradient method と呼ぶことにする。 vanilla policy gradient methodの擬似コードは以下のようになる。
  パラメタ $\theta$, ベースライン$b$の初期化 $for$ $i=1,2,\dots$ $do$ 現在の方策に従って行動し、復数パスを収集し、$R_t = \sum_{t&amp;rsquo;=t}^{H-1} \gamma^{t&amp;rsquo;-t} R_{t&amp;rsquo;}$を計算する。 $|R_t - b|^2$ を最小にするようにbaselineを調整する $\hat{g} = \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)$で勾配を更新する $end$ $for$  baselineの調整と、勾配の更新を繰り返していき、方策を最適化する。
 REINFORCE アルゴリズム 上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$R_t$を使う方法は REINFORCE アルゴリズムとして知られている。 baselineとしては報酬の平均値$\bar{b} = \frac{1}{MT} \sum_{m=1}^M \sum_{t=1}^T R_t^m$がよく用いられるらしい。
@@ -59,7 +76,7 @@ Actor-Critic baselineを導入したとこで、方策の更新は、方策の�
 今回は、前回までとは全く違うアプローチとして、方策勾配法 をまとめる。 方策勾配法は、方策をあるパラメタで表される関数とし、そのパラメタを学習することで、直接方策を学習していくアプローチである。
 方策を直接扱うことで
  $V^{\pi}$や$Q^{\pi}$を求めるような複雑でメモリを消費する手法を使わなくて良い 連続空間での行動が扱いやすくなる  などの利点がある。 一方で、
- 方策オン型の学習になるため、行動のタイミングで方策を更新しなくてはならず、学習効率が落ちる 行動に対して学習が敏感に影響を受けてしまうため、学習ステップの決定が難しい  などの欠点がある。
+ 方策オン型の学習になるため、行動のタイミングで方策を更新しなくてはならず、学習効率が落ちる 価値反復による方法と違って、最適な状態への収束を保証するものがない。つまり、局所最適に陥る可能性がある。 行動に対して学習が敏感に影響を受けてしまうため、学習ステップの決定が難しい  などの欠点がある。
 方策のモデルと勾配 $\theta$でパラメタライズされた確率的な方策$\pi_{\theta}$を求める問題を考える。 $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動空間でのパス)$\tau=(s_0, a_0, \dots, s_H, a_H)$としたとき、方策の評価関数として以下を考える。
 \begin{equation} \begin{aligned} U(\theta) &amp;amp;=&amp;amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\
 &amp;amp;=&amp;amp; \sum_{\tau} P(\tau ; \theta) R(\tau) \end{aligned} \end{equation} ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$としている。 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より \begin{equation} P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t) \label{eq:p_tau_theta} \end{equation} である。</description>

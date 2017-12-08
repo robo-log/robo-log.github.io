@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    強化学習についてまとめる(4) 方策勾配に基づくアルゴリズム、Actor-Critic | ROBO LOG
+    強化学習についてまとめる(5) 自然方策勾配法とTRPO | ROBO LOG
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/"/>
+  <link rel="canonical" href="http://blog.syundo.org/post/20171204-natural-policy-gradient-trpo/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -62,63 +62,69 @@
   
   <main id="single" role="main">
     <div class="article-header">
-      <h1>強化学習についてまとめる(4) 方策勾配に基づくアルゴリズム、Actor-Critic</h1>
+      <h1>強化学習についてまとめる(5) 自然方策勾配法とTRPO</h1>
       <div class="meta">
-        Dec 2, 2017 &nbsp;
+        Dec 4, 2017 &nbsp;
         
       </div>
     </div>
     <article>
       
 
-<p><a href="../20171117-Reinforcement-Learning-Policy-Gradient">前回</a>
-は方策の勾配の求め方、勾配の分散を減少させるための、baselineを導入するところまでまとめた。
-今回は、方策勾配を用いて方策を更新する実際のアルゴリズムについて扱う。</p>
+<p><a href="../20171202-Reinforcement-Learning-Policy-Gradient-Algorithm">前回</a>
+は方策勾配法についてまとめた。
+方策勾配を用いる方法では、方策の更新方向の決定が非常に重要になる。
+悪い方策を採用したことで低い報酬しか取れないようにずれてくると、回復が難しくなってしまう。
+今回は方策の勾配の決定をKLダイバージェンスに基いて決定する方法についてまとめる。</p>
 
-<h1 id="vanilla-policy-gradient">vanilla policy gradient</h1>
+<h1 id="自然勾配">自然勾配</h1>
 
-<p>baselineの調整と方策の更新を逐次的に更新していくという、方策勾配法の基本的な方法に則った基本的なアルゴリズムを、vanilla policy gradient method と呼ぶことにする。
-vanilla policy gradient methodの擬似コードは以下のようになる。</p>
+<p>方策の確率分布のパラメタ$\theta$のうち、あるパラメタ$\theta_1, \theta_2$の距離を$\|\theta_1 - \theta_2\|^2$とする、ユークリッド距離において定めたのが、以下の方策の更新方向であった。</p>
 
-<ol>
-<li>パラメタ $\theta$, ベースライン$b$の初期化</li>
-<li>$for$ $i=1,2,\dots$ $do$</li>
-<li>現在の方策に従って行動し、復数パスを収集し、$R_t = \sum_{t&rsquo;=t}^{H-1} \gamma^{t&rsquo;-t} R_{t&rsquo;}$を計算する。</li>
-<li>$|R_t - b|^2$ を最小にするようにbaselineを調整する</li>
-<li>$\hat{g} = \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)$で勾配を更新する</li>
-<li>$end$ $for$</li>
-</ol>
-
-<p>baselineの調整と、勾配の更新を繰り返していき、方策を最適化する。</p>
-
-<h2 id="reinforce-アルゴリズム">REINFORCE アルゴリズム</h2>
-
-<p>上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$R_t$を使う方法は <strong>REINFORCE</strong> アルゴリズムとして知られている。
-baselineとしては報酬の平均値$\bar{b} = \frac{1}{MT} \sum_{m=1}^M \sum_{t=1}^T R_t^m$がよく用いられるらしい。</p>
-
-<h1 id="actor-critic">Actor-Critic</h1>
-
-<p>baselineを導入したとこで、方策の更新は、方策の分散を小さくする評価部と、方策を更新する部分の2つに分けられることがわかる。
-ここで、baselineとして、価値関数$V^{\pi}$を使うと
-ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$の代わりに行動価値関数$Q^{\pi}(s, a)$を、baselineとして価値関数$V^{\pi}(s)$を使うことにする。
-baselineとして状態$s$の関数を用いても、勾配の平均値には影響がないため、baselineとして採用できる。</p>
-
-<p>以下の行動価値感数と状態価値関数の差分$A^{\pi}(s, a)$をアドバンテージ関数と呼ぶ。
-\begin{equation}
-A^{\pi}(s, a) = Q^{\pi}(s, a) - V^{\pi}(s)
+<p>\begin{equation}
+E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) A^{\pi}(s, a)]
+\label{eq:policy_gradient}
 \end{equation}</p>
 
-<p>アドバンテージを使って、勾配は
-\begin{equation}
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) A^{\pi}(s, a)
-\label{eq:base_lined_policy_gradient}
-\end{equation}
-で更新できる。
-このアドバンテージを小さくする <strong>Critic</strong> と方策を更新する <strong>Actor</strong> を組み合わせた方法全般を <strong>Actor-Critic</strong> 法と呼ぶ。</p>
+<p>ここで、確率分布間の疑距離をKLダイバージェンスで定めると、自然勾配という勾配方法が導出される。
+自然勾配は、通常の勾配にフィッシャー行列の逆行列を掛けたものになる</p>
 
-<p>ActorとCriticはそれぞれ様々な方法で実装できる。
-Criticとしては前々回までで扱った価値反復法や、最小二乗法を用いることができる。
-Actorは通常の方策勾配法や、自然勾配を用いる方法など様々考えられる。</p>
+<p>\begin{equation}
+\tilde{\nabla_{\theta}} J (\theta) = F^{-1} (\theta) \nabla_{theta} J(\theta)
+\end{equation}</p>
+
+<p>ここで、$F(\theta)$はフィッシャー行列である。
+一般的に、勾配法において、自然勾配を用いると良い性能が得られることが知られている。</p>
+
+<h2 id="natural-actor-critic">Natural Actor-Critic</h2>
+
+<p>式\eqref{eq:policy_gradient}のアドバンテージ関数を線形モデル</p>
+
+<p>\begin{equation}
+A^{\pi}(s, a) = w^{\mathrm{T}} \nabla_{\theta} \log \pi_{\theta} (a | s)
+\end{equation}
+で近似することにすると、</p>
+
+<p>\begin{equation}
+\nabla_{\theta} J (\theta) =
+E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s)
+\nabla_{\theta} \log \pi_{\theta} (a | s) ^ {\mathrm{T}} ]
+w \\<br />
+= F(\theta) w
+\end{equation}</p>
+
+<p>となる。
+さらに方策の勾配として、自然勾配を用いると</p>
+
+<p>\begin{equation}
+\tilde{\nabla_{\theta}} J (\theta) =
+F^{-1} (\theta) \nabla_{theta} F(\theta) w \\<br />
+= w
+\end{equation}</p>
+
+<p>となり、方策はアドバンテージ感数のパラメタ$w$のみを用いて更新できる。</p>
+
+<!-- ## TRPO -->
 
       
       
@@ -151,10 +157,8 @@ Actorは通常の方策勾配法や、自然勾配を用いる方法など様々
   
   <nav class="pagination">
     
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/" rel="prev">強化学習についてまとめる(3) 方策勾配</a></span>
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171203-cpg-and-walk/" rel="prev">非線形振動子の同期を用いた歩行</a></span>
     
-    
-      <span class="next"><a href="http://blog.syundo.org/post/20171203-cpg-and-walk/" rel="next">非線形振動子の同期を用いた歩行</a> &rarr;</span>
     
   </nav>
 
