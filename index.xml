@@ -14,10 +14,10 @@
     
     <item>
       <title>強化学習についてまとめる(5) 自然方策勾配法とTRPO, PPO</title>
-      <link>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo/</link>
+      <link>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/</link>
       <pubDate>Mon, 04 Dec 2017 22:39:35 +0900</pubDate>
       
-      <guid>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo/</guid>
+      <guid>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/</guid>
       <description>前回 は方策勾配法のアルゴリズムについてまとめた。 今回も前回同様、アルゴリズムについてまとめるが、 最適解に収束しない方策勾配を用いる方法において、いかに勾配を改良するかという部分に軸を置く。 方策勾配を用いる方法では、方策の更新方向の決定が非常に重要になる。 悪い方策を採用したことで低い報酬しか取れないようにずれてくると、回復が難しくなってしまうからだ。 方策の勾配の決定をKLダイバージェンスに基いて決定する方法やその近似を用いたについてまとめる。
 自然勾配 方策の確率分布のパラメタ$\theta$のうち、あるパラメタ$\theta_1, \theta_2$の距離を$\|\theta_1 - \theta_2\|^2$とする、ユークリッド距離において定めたのが、以下の方策の更新方向であった。
 \begin{equation} \hat{g} = E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) A^{\pi}(s, a)] \label{eq:policy_gradient} \end{equation}
