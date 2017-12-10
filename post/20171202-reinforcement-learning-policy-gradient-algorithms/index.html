@@ -93,7 +93,7 @@ vanilla policy gradient methodの擬似コードは以下のようになる。</
 
 <h2 id="reinforce-アルゴリズム">REINFORCE アルゴリズム</h2>
 
-<p>上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$R_t$を使う方法は <strong>REINFORCE</strong> アルゴリズムとして知られている。
+<p>上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$r_t$を使う方法は <strong>REINFORCE</strong> アルゴリズムとして知られている。
 baselineとしては報酬の平均値$\bar{b} = \frac{1}{MT} \sum_{m=1}^M \sum_{t=1}^T R_t^m$がよく用いられるらしい。</p>
 
 <h1 id="actor-critic">Actor-Critic</h1>
