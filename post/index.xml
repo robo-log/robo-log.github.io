@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Written by Shundo Kishi</copyright>
-    <lastBuildDate>Mon, 04 Dec 2017 22:39:35 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 06 Dec 2017 03:41:20 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>強化学習についてまとめる(6) モデルベース強化学習</title>
+      <link>http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/</link>
+      <pubDate>Wed, 06 Dec 2017 03:41:20 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/</guid>
+      <description>前回までは、MDPにおける状態遷移について、何の仮定も置かない方法を扱ってきた。 例えば、TD誤差を用いる方法では、状態遷移確率はサンプリングによって近似していたし、 方策勾配法では状態遷移確率は扱わなくても良いものであった。 今回は、状態遷移確率をモデルとして陽に扱う手法を扱う。 これをモデルベース強化学習と呼ぶ。
+さて、強化学習全般の大まかな流れは以下のようになっていると言える。
+ 適当な方策を実行し、サンプルを集める モデルを更新する(Q-Learning, Actor-Criticでは$Q$の更新, モデルベースでは$P(s&amp;rsquo;|s,a)$の推定) 方策を更新する(方策の更新、最大のQ値を取る$a$の選択)  モデルベース強化学習では、上記2.については教師あり学習で行う。 そして、3.の部分で状態遷移確率を使って方策を更新する。
+そのため、モデルベース強化学習の利点として
+ サンプル数が少なくても学習できる 学習したモデルを他のタスクに転移して利用することができる。つまり汎用的な学習ができる。  ということが挙げられる。
+基本的なアルゴリズム 現在の状態$s_t$と行動$a_t$を取って、次の状態$s_{t+1}$を生成する関数を$f_{\phi}(s_t, a_t)$とする。 以下にモデルベース学習で用いられるアルゴリズムの概要を示す。 以下では、学習したいタスクの一連の系列を一イテレーションとして、そのindexを$k$としている。
+ サンプル$\mathcal{D}=\left\{ (s, a, s&amp;rsquo; )_i \right\}$を集めるために、何らかの方策$\pi_0(a_t|s_t)$(例えばランダム)を実行する $for$ $k=1,2,\dots$ $do$ $f_{\phi}(s_t, a_t)$ を学習する ($\sum_i \| f_{\phi}(s_t, a_t) -s&amp;rsquo;_i\|^2$ を最小化) $f_{\phi}(s_t, a_t)$ を使って$\pi_{\theta}(a_t | s_t)$を最適化する $\pi_{\theta}(a_t | s_t)$実行して、タプル$(s, a, s&amp;rsquo;)$を$\mathcal{D}$に記録する $end$ $for$  ただし、以上のように、全イテレーションにおいて、共通の$f_{\phi}(s_t, a_t)$を学習する方法では
+ すべての状態において収束する性質の良いモデルを学習しなければならない モデルが未学習のため、状態を楽観的に評価してしまうなどして、誤った方向に方策を学習してしまう  などの問題がある。 そこで、時変の関数として$f_{\phi}(s_t, a_t)$を学習するようにする。 そのようなモデルをlocal modelと呼ぶ。</description>
+    </item>
     
     <item>
       <title>強化学習についてまとめる(5) 自然方策勾配法とTRPO, PPO</title>

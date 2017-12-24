@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    強化学習についてまとめる(6) モデルベース強化学習 | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>強化学習についてまとめる(6) モデルベース強化学習</h1>
+      <div class="meta">
+        Dec 6, 2017 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>前回までは、MDPにおける状態遷移について、何の仮定も置かない方法を扱ってきた。
+例えば、TD誤差を用いる方法では、状態遷移確率はサンプリングによって近似していたし、
+方策勾配法では状態遷移確率は扱わなくても良いものであった。
+今回は、状態遷移確率をモデルとして陽に扱う手法を扱う。
+これをモデルベース強化学習と呼ぶ。</p>
+
+<p>さて、強化学習全般の大まかな流れは以下のようになっていると言える。</p>
+
+<ol>
+<li>適当な方策を実行し、サンプルを集める</li>
+<li>モデルを更新する(Q-Learning, Actor-Criticでは$Q$の更新, モデルベースでは$P(s&rsquo;|s,a)$の推定)</li>
+<li>方策を更新する(方策の更新、最大のQ値を取る$a$の選択)</li>
+</ol>
+
+<p>モデルベース強化学習では、上記2.については教師あり学習で行う。
+そして、3.の部分で状態遷移確率を使って方策を更新する。</p>
+
+<p>そのため、モデルベース強化学習の利点として</p>
+
+<ul>
+<li>サンプル数が少なくても学習できる</li>
+<li>学習したモデルを他のタスクに転移して利用することができる。つまり汎用的な学習ができる。</li>
+</ul>
+
+<p>ということが挙げられる。</p>
+
+<!-- # 状態遷移確率のモデル化
+モデルベース強化学習では、状態遷移確率$P(s'| s, a)$を何らかの形式でモデル化し、教師あり学習によってそのパラメタを更新していく。
+モデルとしてはガウス分布、ニューラルネットワーク、ガウス混合モデルなどが用いられる。 -->
+
+<h1 id="基本的なアルゴリズム">基本的なアルゴリズム</h1>
+
+<p>現在の状態$s_t$と行動$a_t$を取って、次の状態$s_{t+1}$を生成する関数を$f_{\phi}(s_t, a_t)$とする。
+以下にモデルベース学習で用いられるアルゴリズムの概要を示す。
+以下では、学習したいタスクの一連の系列を一イテレーションとして、そのindexを$k$としている。</p>
+
+<ol>
+<li>サンプル$\mathcal{D}=\left\{ (s, a, s&rsquo; )_i \right\}$を集めるために、何らかの方策$\pi_0(a_t|s_t)$(例えばランダム)を実行する</li>
+<li>$for$ $k=1,2,\dots$ $do$</li>
+<li>$f_{\phi}(s_t, a_t)$ を学習する ($\sum_i \| f_{\phi}(s_t, a_t) -s&rsquo;_i\|^2$ を最小化)</li>
+<li>$f_{\phi}(s_t, a_t)$ を使って$\pi_{\theta}(a_t | s_t)$を最適化する</li>
+<li>$\pi_{\theta}(a_t | s_t)$実行して、タプル$(s, a, s&rsquo;)$を$\mathcal{D}$に記録する</li>
+<li>$end$ $for$</li>
+</ol>
+
+<p>ただし、以上のように、全イテレーションにおいて、共通の$f_{\phi}(s_t, a_t)$を学習する方法では</p>
+
+<ul>
+<li>すべての状態において収束する性質の良いモデルを学習しなければならない</li>
+<li>モデルが未学習のため、状態を楽観的に評価してしまうなどして、誤った方向に方策を学習してしまう</li>
+</ul>
+
+<p>などの問題がある。
+そこで、時変の関数として$f_{\phi}(s_t, a_t)$を学習するようにする。
+そのようなモデルをlocal modelと呼ぶ。</p>
+
+<p>また、$\pi_{\theta}(a_t | s_t)$を直接算出することはせず、別の扱いやすい方策を計算し、それに$\pi_{\theta}(a_t | s_t)$をフィッティングすることで任意の方策を学習できるようにする方法をGuided policy searchと呼ぶ。
+例えば、簡素な方策として線形ガウスモデル化を使い、より複雑な方策のモデルとしてニューラルネットワークを使うということがある。</p>
+
+<!-- local modelを使って方策を計算し、任意の方策のパラメタを目標に
+方策の更新を進めていく方法をguided policy searchと呼ぶ。
+
+この記事完成 -16:00
+* 論文読み - 19:00
+DeepDQN 記事 - 18:00
+
+逆強化学習勉強 - 19:00
+その記事 - 20:30 -->
+
+<h2 id="未知のダイナミクスを用いた-guided-policy-search">未知のダイナミクスを用いた guided policy search</h2>
+
+<p>Levineら<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>はダイナミクス$f_{\phi}(s_t, a_t)$の学習と、guided policy search を組み合わせて、少ないサンプル数でもペグの穴への挿入や、歩行などの複雑なタスクをシミュレーション上で実現した。</p>
+
+<p>さらに前イテレーションでの方策と現在の方策の間のKLダイバージェンスによる制約を適応的に変化させることで更にサンプル数を減少させ、実機でのタスクも実現した。<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup></p>
+
+<p>guided policy searchと組み合わせたモデルベース学習の概略を以下に示す。
+<!-- ただし、方策は前イテレーションと大きく乖離して学習を悪化させないようにKLダイバージェンスによる制約を加えている。 --></p>
+
+<ol>
+<li>サンプル$\mathcal{D}=\left\{ (s, a, s&rsquo; )_i \right\}$を集めるために、何らかの方策$\pi_0(a_t|s_t)$(例えばランダム)を実行する</li>
+<li>$for$ $k=1,2,\dots$ $do$</li>
+<li>local model $f_{\phi}(s_t, a_t)$ をサンプルにフィッティングする</li>
+<li>サンプル$\mathcal{D}$を使って、任意の方策をguided policy searchする</li>
+<li>local model $f_{\phi}(s_t, a_t)$ を使ってlocalな方策$p(a_t | s_t)$を最適化する (KLダイバージェンスで制約)</li>
+<li>$\pi_{\theta}(a_t | s_t)$から生成される一連の行動を実行して、タプル$(s, a, s&rsquo;)$を$\mathcal{D}$に記録する</li>
+<li>$end$ $for$</li>
+</ol>
+
+<h3 id="ダイナミクスのフィッティング">ダイナミクスのフィッティング</h3>
+
+<p>アルゴリズムのstep 3. では、仮定したダイナミクスのモデルをサンプルにフィッティングする。
+モデルとしては、以下の線形ガウスモデルや、</p>
+
+<p>\begin{equation}
+\begin{aligned}
+p(s_{t+1} | x_t, a_t) =
+\mathcal{N} (f(s_t, a_t), \Sigma) \\<br />
+f(s_t, a_t ) = \frac{df}{d s_t} s_t + \frac{df}{d a_t} a_t
+\end{aligned}
+\end{equation}</p>
+
+<p>ガウス混合モデル（Gaussian mixture model, GMM) や、ニューラルネットワークを用いることができる。</p>
+
+<p>ロボットの関節が多くモデルが複雑で、高次元のシステムの場合、時変のモデルをフィッティングさせるために非常に長い訓練時間が必要になってしまう。
+しかし、時間ステップ的に近いサンプルや、前イテレーションのサンプルも現在のイテレーションのある時間と強く関連していると想定できるならば、サンプル数をかさ増しし、訓練時間を短縮させることができる。
+Levineら<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>は方策更新ステップでのKLダイバージェンスの制約をコストに応じて適応的に変化させることで、現在時刻の周辺のサンプルと前イテレーションの同一時刻のサンプルを利用できるようにし、学習のイテレーション数を抑えている。</p>
+
+<h3 id="パラメタライズされた任意の方策の利用">パラメタライズされた任意の方策の利用</h3>
+
+<p>学習時に扱う方策$p(a_t | s_t)$とは別に実際に実行する方策として任意の関数$\pi_{\theta}(a_t | s_t)$(例えばニューラルネットワーク)を用意し、フィッティングするようにパラメタを調整する方法がguided policy searchであった。</p>
+
+<p>方策を近似する仮定を入れることで、もとの価値最適化問題は</p>
+
+<p>\begin{equation}
+\underset{\theta, p(\tau)}{\text{minimize }}
+E_{p(\tau)} [ l(\tau) ]
+\text{ s.t. } D_{KL}(p(s_t) \pi_{\theta}(a_t | s_t) || p(a_t, s_t)) = 0
+\end{equation}</p>
+
+<p>を解く問題となる。
+ここで、$\tau=(s_0, a_0, \dots, s_H, a_H)$であり、$l(\tau)$は軌道におけるコストを表す。(ここでは報酬の最大化ではなくコスト最小化問題として扱っているが、報酬の最大化と同一の問題である)
+また、$p(\tau)$は$s, a$で表現される軌道における存在確率を表す。</p>
+
+<p>これをラグランジュの未定乗数法で変形すると、以下の$\mathcal{L} (\theta, p, \lambda)_{GPS}$の最小化問題となる。
+\begin{equation}
+\mathcal{L} (\theta, p, \lambda)_{GPS}
+= E_{p(\tau)} [ l(\tau) ]
++ \sum_{t=0}^T \lambda_t D_{KL}(p(s_t) \pi_{\theta}(a_t | s_t) || p(a_t, s_t))
+\end{equation}</p>
+
+<p>アルゴリズムのstep 4. では収集したサンプル$\mathcal{D}=\left\{ (s, a, s&rsquo; )_i \right\}$を用いて、各時間ステップ$t$について以下を最小化する
+\begin{equation}
+\sum_{t=0}^T \lambda_t D_{KL}(p(s_t) \pi_{\theta}(a_t | s_t) || p(a_t, s_t))
+\end{equation}</p>
+
+<h3 id="方策の更新">方策の更新</h3>
+
+<p>状態遷移確率のモデルを
+\begin{equation}
+\begin{aligned}
+p(s_{t+1} | x_t, a_t) =
+\mathcal{N} (f(s_t, a_t), F_t) \\<br />
+f(s_t, a_t ) = \frac{df}{d s_t} s_t + \frac{df}{d a_t} a_t
+\end{aligned}
+\end{equation}</p>
+
+<p>と仮定し、
+アルゴリズムのstep 5. ではiLQR(iterative Linear Quadratic Regulator)を使って最適な方策を求める。
+詳細は省略するが、最適な方策$p^{*} (a_t | s_t)$を状態フィードバックの形で書き下すことができる。</p>
+
+<h1 id="おまけ">おまけ</h1>
+
+<p>Levineら<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>の方策関数としてニューラルネットワークを使ったときの動画がYoutubeに上がっていたので、貼っておく。</p>
+
+<p>ペグの挿入、歩行</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jyjhkJ8oDU4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+<p>歩行</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Htw5kNb8W4w" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+<p>なんか難しそうなタスク</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KphCbR5w4rQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+<p>以上、モデルベース強化学習についてまとめたが、カメラ画像などのより高次元な観測情報$o_t$がある場合にどのようにモデルベース学習するかについては触れられなかった。
+そのあたりは<a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp</a>
+のModel-Based Deep RLで解説されている。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">S.Levine et.al &ldquo;Learning Neural Network Policies with Guided Policy Search under Unknown Dynamics&rdquo; <a href="https://people.eecs.berkeley.edu/~svlevine/papers/mfcgps.pdf">https://people.eecs.berkeley.edu/~svlevine/papers/mfcgps.pdf</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">S.Levine et.al &ldquo;Learning Contact-Rich Manipulation Skills with Guided Policy Search&rdquo; <a href="https://arxiv.org/pdf/1501.05611.pdf">https://arxiv.org/pdf/1501.05611.pdf</a>
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/" rel="prev">強化学習についてまとめる(5) 自然方策勾配法とTRPO, PPO</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
