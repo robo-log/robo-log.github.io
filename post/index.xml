@@ -7,10 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Written by Shundo Kishi</copyright>
-    <lastBuildDate>Mon, 15 Jan 2018 04:09:32 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2018 22:48:02 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TOF型距離センサVL53L0Xを使って測域センサを作った</title>
+      <link>http://blog.syundo.org/post/20180117-home-maid-lrf/</link>
+      <pubDate>Thu, 18 Jan 2018 22:48:02 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180117-home-maid-lrf/</guid>
+      <description>第2回ROBO-ONE Autoに出す(出そうとした)ために作ったヴァニラスケルトンだが、その目玉は360度全周囲計測可能な測距センサを搭載していることであった。 (ヴァニラスケルトンと名付けているが、フレームは大半をヴァニラから流用したもの。見た目があまりにも醜くなってしまったので、別プロジェクトだと明言することによって、誤魔化そうとしたのであった。)
+TOF(Time Of Flight)型の測距センサVL53L0Xを使った測距モジュールを4個取り付けてあり、サーボモータを使ってセンシング部を90度ずつ左右に反復回転させることで、360度の範囲の計測をできるようにしている。
+2足ロボの頭に搭載してROBO-ONEの狭いリングをセンシングするには、ちょっと下向きを見たいので、 センサは水平から60度下向きに取り付けてある。 市販のLRFだと水平にしか計測できないけど、自作するとこういうことができるのが良い点だと思う。
+ 一方で、動画を見ていただけるとわかるが、サーボモータの回転速度が遅いのでセンシング周期はとても遅い。 解像度?も10度ずつしか計測していないので低くて、とても荒い状態しか取れない(ROBO-ONEにはそれでも十分そうだが)。
+とりあえず作ってみることを優先して指定の角度まで動かす=&amp;gt;計測=&amp;gt;動かすという実装になっているので、まだまだ改善はできると思う。 Raspberry Piごと回しているのもすごく無駄がある。 これは実は最初は回すつもりはなくて4方向だけ取れればいいかと思っていたのが、作ってみたらやっぱり回してみたくなったのと、ヴァニラの骨格をベースに作っているのが原因。
+とりあえずRaspberry Pi Zeroで直接センサを読んでいる。 計測できるデータは36次元で、プロットしてみると以下のようになる。
+これは周りに何も置いていないとき。 
+これは左に箱を置いたとき。 
+横軸はデータのindexで、縦軸は距離(mm)である。 ほぼ全域に外れ値があるが、物を置いたほうの外れ値じゃない部分はなんとなく距離が近くなっているのがわかる&amp;hellip;辛うじて。
+外れ値の原因は、
+ 計測不能な遠距離を計測すると 8000mm以上の値が返ってくること 計測完了したタイミングで値を取得していない  ことにあるようだ。 恐らく、2番目の理由が致命的で、このセンサモジュールは計測完了時に割り込みピンをraise upさせるのだが、その割り込みをキャプチャせずに適当なタイミングで計測している。 これも締め切り間近になって手を抜いた結果なので、割り込みキャプチャによって改善ができるか試したいと思っている。
+ただ、外れ値を除いてざっくり8方向に平均化すれば、なんとなく使えそうなデータが出てくる。
+これは前に箱を置いた場合。 
+左に箱を置いた場合。 
+まとめ LRFみたいなやつを作ってみたけど、まだ理想の形にはなっていない。 なんとなく8方向の距離は計測できた。 今後は、センサを左右に振らないで回転させ続けられないか試す(配線が捻れないように無線で飛ばす)、割り込みピンを使う、計測したデータを使って適当にロボットの動作を決めたときにうまく動くか試す、などをやりたい。
+あるいは最近、RPLIDARを買ったので、そもそも自作した意味無くなってくるが、それもうまく2足に積んで使えないかやってみたい。 反射材を使って曲げる的なことできないかという感じのことを考えている。</description>
+    </item>
     
     <item>
       <title>強化学習についてまとめる</title>
@@ -117,10 +141,12 @@ Actor-Critic baselineを導入したとこで、方策の更新は、方策の�
       
       <guid>http://blog.syundo.org/post/20171116-rplidar/</guid>
       <description>RPLIDAR a2を買った。 アマゾンで買ったけど、今はちょっと値上がりしているみたい。 ROSを使って動かすのが正統派な使い方のようだが、もっと単純に不良品でないかくらい知りたいので、とりあえずセンサを回してそれっぽい値が取得できるか確かめた。
-とりあえずサンプルコードを動かしてみる (macで) セットアップ ここからDriverを持ってくる。 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers v5はうまく動かなかったので、V4を使ったらうまくいった。 V5をインストールした後であれば、インストーラーを2回実行するとV5が消えてV4がインストールされるらしい。 https://www.silabs.com/community/interface/knowledge-base.entry.html/2017/01/10/legacy_os_softwarea-bgvU
+とりあえずサンプルコードを動かしてみる (macで) セットアップ ここからDriverを持ってくる。 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers v5はうまく動かなかったので、V4を使ったらうまくいった。
+V5をインストールした後であれば、インストーラーを2回実行するとV5が消えてV4がインストールされるらしい。 https://www.silabs.com/community/interface/knowledge-base.entry.html/2017/01/10/legacy_os_softwarea-bgvU
 RPLIDAR SDKを落としてくる http://www.slamtec.com/en/Support#rplidar-a2
 ビルドする
-$ cd sdk $ make  macの場合、sdk/output/Darwin/Release 以下にバイナリが生成されている。 UIに表示するプログラムはWindows向けのものしか無いらしい。 部屋の輪郭がなんとなく取れてるかくらい見たかったけど、それはROS使ってやったほうがよさそう。
+$ cd sdk $ make  macの場合、sdk/output/Darwin/Release 以下にバイナリが生成されている。
+UIに表示するプログラムはWindows向けのものしか無いらしい。 部屋の輪郭がなんとなく取れてるかくらい見たかったけど、それはROS使ってやったほうがよさそう。
 おわり。</description>
     </item>
     
