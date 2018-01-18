@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.syundo.org/post/20171215-reinforcement-learning/</loc>
+    <loc>http://blog.syundo.org/post/20180115-reinforcement-learning/</loc>
     <lastmod>2018-01-15T04:09:32+09:00</lastmod>
   </url>
   
@@ -30,6 +30,11 @@
   <url>
     <loc>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</loc>
     <lastmod>2017-11-17T03:15:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171116-rplidar/</loc>
+    <lastmod>2017-11-16T02:16:29+09:00</lastmod>
   </url>
   
   <url>

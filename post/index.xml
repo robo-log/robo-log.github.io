@@ -14,10 +14,10 @@
     
     <item>
       <title>強化学習についてまとめる</title>
-      <link>http://blog.syundo.org/post/20171215-reinforcement-learning/</link>
+      <link>http://blog.syundo.org/post/20180115-reinforcement-learning/</link>
       <pubDate>Mon, 15 Jan 2018 04:09:32 +0900</pubDate>
       
-      <guid>http://blog.syundo.org/post/20171215-reinforcement-learning/</guid>
+      <guid>http://blog.syundo.org/post/20180115-reinforcement-learning/</guid>
       <description>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたいと思っている。 元ネタとして以下のサイト、書籍を参考にしている。
  Deep RL Bootcamp これからの強化学習 速習 強化学習  記事一覧
  MDPとベルマン方程式 反復による価値の推定 - TD学習 方策勾配 方策勾配に基づくアルゴリズム、Actor-Critic 自然方策勾配法とTRPO、PPO モデルベース強化学習  作成予定
@@ -108,6 +108,20 @@ Actor-Critic baselineを導入したとこで、方策の更新は、方策の�
 方策のモデルと勾配 $\theta$でパラメタライズされた確率的な方策$\pi_{\theta}$を求める問題を考える。 $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動空間でのパス)$\tau=(s_0, a_0, \dots, s_H, a_H)$としたとき、方策の評価関数として以下を考える。
 \begin{equation} \begin{aligned} U(\theta) &amp;amp;=&amp;amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\
 &amp;amp;=&amp;amp; \sum_{\tau} P(\tau ; \theta) R(\tau) \end{aligned} \end{equation} ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$としている。 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より \begin{equation} P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t) \label{eq:p_tau_theta} \end{equation} である。</description>
+    </item>
+    
+    <item>
+      <title>RPLIDAR を買ったのでとりあえず動かす</title>
+      <link>http://blog.syundo.org/post/20171116-rplidar/</link>
+      <pubDate>Thu, 16 Nov 2017 02:16:29 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171116-rplidar/</guid>
+      <description>RPLIDAR a2を買った。 アマゾンで買ったけど、今はちょっと値上がりしているみたい。 ROSを使って動かすのが正統派な使い方のようだが、もっと単純に不良品でないかくらい知りたいので、とりあえずセンサを回してそれっぽい値が取得できるか確かめた。
+とりあえずサンプルコードを動かしてみる (macで) セットアップ ここからDriverを持ってくる。 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers v5はうまく動かなかったので、V4を使ったらうまくいった。 V5をインストールした後であれば、インストーラーを2回実行するとV5が消えてV4がインストールされるらしい。 https://www.silabs.com/community/interface/knowledge-base.entry.html/2017/01/10/legacy_os_softwarea-bgvU
+RPLIDAR SDKを落としてくる http://www.slamtec.com/en/Support#rplidar-a2
+ビルドする
+$ cd sdk $ make  macの場合、sdk/output/Darwin/Release 以下にバイナリが生成されている。 UIに表示するプログラムはWindows向けのものしか無いらしい。 部屋の輪郭がなんとなく取れてるかくらい見たかったけど、それはROS使ってやったほうがよさそう。
+おわり。</description>
     </item>
     
     <item>
