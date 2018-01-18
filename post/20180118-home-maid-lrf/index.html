@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    TOF型距離センサVL53L0Xを使って測域センサを作った | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20180118-home-maid-lrf/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>TOF型距離センサVL53L0Xを使って測域センサを作った</h1>
+      <div class="meta">
+        Jan 18, 2018 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>第2回ROBO-ONE Autoに出す(出そうとした)ために作ったヴァニラスケルトンだが、その目玉は360度全周囲計測可能な測距センサを搭載していることであった。
+(ヴァニラスケルトンと名付けているが、フレームは大半をヴァニラから流用したもの。見た目があまりにも醜くなってしまったので、別プロジェクトだと明言することによって、誤魔化そうとしたのであった。)</p>
+
+<p>TOF(Time Of Flight)型の測距センサVL53L0Xを使った<a href="https://www.switch-science.com/catalog/2869/">測距モジュール</a>を4個取り付けてあり、サーボモータを使ってセンシング部を90度ずつ左右に反復回転させることで、360度の範囲の計測をできるようにしている。</p>
+
+<p>2足ロボの頭に搭載してROBO-ONEの狭いリングをセンシングするには、ちょっと下向きを見たいので、
+センサは水平から60度下向きに取り付けてある。
+市販のLRFだと水平にしか計測できないけど、自作するとこういうことができるのが良い点だと思う。</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5KiL0H3xg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>一方で、動画を見ていただけるとわかるが、サーボモータの回転速度が遅いのでセンシング周期はとても遅い。
+解像度?も10度ずつしか計測していないので低くて、とても荒い状態しか取れない(ROBO-ONEにはそれでも十分そうだが)。</p>
+
+<p>とりあえず作ってみることを優先して指定の角度まで動かす=&gt;計測=&gt;動かすという実装になっているので、まだまだ改善はできると思う。
+Raspberry Piごと回しているのもすごく無駄がある。
+これは実は最初は回すつもりはなくて4方向だけ取れればいいかと思っていたのが、作ってみたらやっぱり回してみたくなったのと、ヴァニラの骨格をベースに作っているのが原因。</p>
+
+<p>とりあえずRaspberry Pi Zeroで直接センサを読んでいる。
+<img src="/images/2018/01/board_close_up.jpg" alt="Home maid LRF raspi" /></p>
+
+<p>計測できるデータは36次元で、プロットしてみると以下のようになる。</p>
+
+<p>これは周りに何も置いていないとき。
+<iframe width="660" height="415" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSdUjyqCYW1DlT4eCL6nJ63yC6BSE-VuNcm1CCI5Vi1cDfEf3ibGNSSkZy8OfgfUw9LAUQutqWPh_hD/pubchart?oid=521443742&amp;format=image"></iframe></p>
+
+<p>これは左に箱を置いたとき。
+<iframe  width="660" height="415" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN0nOHDY_WP1bkwXZJ1any1O2kw6NMn-IwGtUbG-xsLO7g53W50gCInmYiXYRXfBhbIZecDzyo-GLc/pubchart?oid=652289347&amp;format=image"></iframe></p>
+
+<p>横軸はデータのindexで、縦軸は距離(mm)である。
+ほぼ全域に外れ値があるが、物を置いたほうの外れ値じゃない部分はなんとなく距離が近くなっているのがわかる&hellip;辛うじて。</p>
+
+<p>外れ値の原因は、</p>
+
+<ul>
+<li>計測不能な遠距離を計測すると 8000mm以上の値が返ってくること</li>
+<li>計測完了したタイミングで値を取得していない</li>
+</ul>
+
+<p>ことにあるようだ。
+恐らく、2番目の理由が致命的で、このセンサモジュールは計測完了時に割り込みピンをraise upさせるのだが、その割り込みをキャプチャせずに適当なタイミングで計測している。
+これも締め切り間近になって手を抜いた結果なので、割り込みキャプチャによって改善ができるか試したいと思っている。</p>
+
+<p>ただ、外れ値を除いてざっくり8方向に平均化すれば、なんとなく使えそうなデータが出てくる。</p>
+
+<p>これは前に箱を置いた場合。
+<img src="/images/2018/01/measureing_front.jpg" alt="front" />
+<iframe width="660" height="415" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTmlQ--wzVazXq4y03thtX8cBddNnt3e2dThicC4SsEe7PyeF__gAo02iAJaFe_24w2M_pj3V26bg0i/pubchart?oid=1926959665&amp;format=image"></iframe></p>
+
+<p>左に箱を置いた場合。
+<img src="/images/2018/01/measureing_left.jpg" alt="left" />
+<iframe width="660" height="415" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQnsels2-90FdNdC8beApuVriIDFTZRFOwnN7SsKqOBAUbnoUxtbqnCIymfkZmepOSt1rMt3rod_jIb/pubchart?oid=1930359957&amp;format=image"></iframe></p>
+
+<h1 id="まとめ">まとめ</h1>
+
+<p>LRFみたいなやつを作ってみたけど、まだ理想の形にはなっていない。
+なんとなく8方向の距離は計測できた。
+今後は、センサを左右に振らないで回転させ続けられないか試す(配線が捻れないように無線で飛ばす)、割り込みピンを使う、計測したデータを使って適当にロボットの動作を決めたときにうまく動くか試す、などをやりたい。</p>
+
+<p>あるいは<a href="../20171116-rplidar">最近、RPLIDARを買った</a>ので、そもそも自作した意味無くなってくるが、それもうまく2足に積んで使えないかやってみたい。
+反射材を使って曲げる的なことできないかという感じのことを考えている。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20180115-reinforcement-learning/" rel="prev">強化学習についてまとめる</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+

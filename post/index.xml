@@ -14,10 +14,10 @@
     
     <item>
       <title>TOF型距離センサVL53L0Xを使って測域センサを作った</title>
-      <link>http://blog.syundo.org/post/20180117-home-maid-lrf/</link>
+      <link>http://blog.syundo.org/post/20180118-home-maid-lrf/</link>
       <pubDate>Thu, 18 Jan 2018 22:48:02 +0900</pubDate>
       
-      <guid>http://blog.syundo.org/post/20180117-home-maid-lrf/</guid>
+      <guid>http://blog.syundo.org/post/20180118-home-maid-lrf/</guid>
       <description>第2回ROBO-ONE Autoに出す(出そうとした)ために作ったヴァニラスケルトンだが、その目玉は360度全周囲計測可能な測距センサを搭載していることであった。 (ヴァニラスケルトンと名付けているが、フレームは大半をヴァニラから流用したもの。見た目があまりにも醜くなってしまったので、別プロジェクトだと明言することによって、誤魔化そうとしたのであった。)
 TOF(Time Of Flight)型の測距センサVL53L0Xを使った測距モジュールを4個取り付けてあり、サーボモータを使ってセンシング部を90度ずつ左右に反復回転させることで、360度の範囲の計測をできるようにしている。
 2足ロボの頭に搭載してROBO-ONEの狭いリングをセンシングするには、ちょっと下向きを見たいので、 センサは水平から60度下向きに取り付けてある。 市販のLRFだと水平にしか計測できないけど、自作するとこういうことができるのが良い点だと思う。
