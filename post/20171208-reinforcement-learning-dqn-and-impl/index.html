@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    強化学習についてまとめる(7) DQNとDDQN | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20171208-reinforcement-learning-dqn-and-impl/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>強化学習についてまとめる(7) DQNとDDQN</h1>
+      <div class="meta">
+        Dec 28, 2017 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>今回は<a href="../20171110-reinforcement-value-policy-iteration/">Q-Learningの回</a>で取り上げた手法をニューラルネットを使って近似するように発展させたもの(DQN)についてまとめる。</p>
+
+<p>DQN(Deep Q-Network)は行動価値関数$Q(s,a)$を深層ニューラルネットワークを用いて推定し、Q-Learningを行う手法である。
+DQNでは行動と状態の組$(s,a)$に対してスカラー値$Q^{*}(s,a)$を割り当てるのでは<strong>なく</strong>、
+状態$s$において行動$a_1, \dots, a_N$を採用したときの値$Q^{*}(s,a_1), \dots, Q^{*}(s,a_N)$を予測している。
+つまり、入力が状態、出力が各行動を採用した時のQ値となっているニューラルネットワークを使ってQ関数の代わりとする。</p>
+
+<p>この工夫によって、例えば、状態としてニューラルに多次元の画像をそのまま入力することができるようになり、ゲーム画面を入力としてそのままゲームを学習することができるようになった。
+Atariのいくつかのゲームにおいて人間より良いスコアを記録するなど目覚しい成果を上げた。</p>
+
+<p>関数近似を用いたQ-Learningのアルゴリズムは以下になる。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+\delta_t = R_{t+1} + \gamma \max_{a^{\prime} \in A} Q_{\theta_t}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t) \\<br />
+\theta_{t+1} = \theta_t + \alpha_t \delta_{t+1} \nabla_{\theta} Q_{\theta_t} (s_t, a_t)
+\end{aligned}
+\end{equation}</p>
+
+<p>関数近似を用いた場合、つまりDQNのような場合でもQ-Learningのアルゴリズムはほぼ同じだが、Q関数を近似しているために、最適行動価値関数への収束は保証されない。</p>
+
+<h2 id="dqn">DQN</h2>
+
+<p>そこで、DQNでは学習が収束しない問題に対処するためや、学習されたネットワークを他のタスクに転用しやすくするためにいくつかの工夫をしている。</p>
+
+<ul>
+<li>Experience Replayの利用
+
+<ul>
+<li>観測したサンプル $(s_t, s_{t+1}, a_t, R_{t+1})$ をリプレイバッファに蓄積し、それをランダムに並べ替えてからバッチ的に学習する。</li>
+<li>これによって、サンプルの系列において時間的相関があると確率的勾配法がうまく働かなくなる問題を緩和している。</li>
+</ul></li>
+<li>Target Networkの利用
+
+<ul>
+<li>Q-Learningの更新則における目標値の計算において、学習中のネットワーク$Q_{\theta_t}$の代わりに、パラメータが古いもので固定されたネットワーク$Q_{\theta_t^{-}}$を利用する。</li>
+<li>これによって、Q-Learningの目標値$R_{t+1}+\gamma \max_{a^{\prime} \in A} Q_{\theta_t}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t)$と現在推定している行動価値関数$Q_{\theta_t}$の間の相関があるために、学習が発散、振動しやすくなる問題を緩和している。</li>
+</ul></li>
+<li>報酬のクリッピング
+
+<ul>
+<li>得られる報酬を$[-1, 1]$の範囲にしている。</li>
+<li>これによって、復数のゲーム間で同じネットワークを使って学習をすることができる。</li>
+</ul></li>
+</ul>
+
+<p>結局、DQNのTD誤差は以下のようになる。
+\begin{equation}
+\delta_t = R_{t+1} + \gamma \max_{a^{\prime} \in A} Q_{\theta_t^{-}}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t)
+\end{equation}</p>
+
+<p>試しに、Open AIのCartpoleを使ったサンプルを[実装してみた]。(<a href="https://github.com/syundo0730/RL-samples/blob/master/dqn/main.py">https://github.com/syundo0730/RL-samples/blob/master/dqn/main.py</a>)
+Qネットワークの目標値の計算は<a href="https://github.com/syundo0730/RL-samples/blob/master/dqn/main.py#L59">L59</a>で行っている。</p>
+
+<pre><code>target = self.mainQ.model.predict(state)
+target[0][action] = reward if done else reward + self.gamma * np.max(self.subQ.model.predict(next_state)[0])
+</code></pre>
+
+<p>ここで、<code>subQ</code>と名付けているのが、Target netrowkである。Target networkの同期は2エピソードに1回にしてみた。</p>
+
+<pre><code>if e % 2 == 0:
+    self.mainQ = self.subQ
+</code></pre>
+
+<h2 id="ddqn">DDQN</h2>
+
+<p>DQNでは目標値の計算のなかにmaxを取る操作があるが、
+$\max_{a^{\prime} \in A} Q_{\theta_t}(s_{t+1}, a^{\prime})$で、最大のQ値を実現するという$a^{\prime}$は、推定中のQ関数がたまたまその$a^{\prime}$について最大値を取っているだけかもしれない。
+Q関数が推定中で、特定の$a^{\prime}$について推定誤差がある場合にこういうことが起こるが、これは行動空間が大きくなるほど起こりやすくなる。</p>
+
+<p>これを防ぐため、DDQN(Double DQN)では、目標値を以下の$y_t^{\text{DoubleDQN}}$と置き換える。
+\begin{equation}
+y_t^{\text{DoubleDQN}}
+= R_{t+1} + \gamma Q_{\theta_t^{-}}(s_{t+1}, \underset{a^{\prime} \in A}{\text{argmax }} Q_{\theta_t}(s_{t+1}, a^{\prime}))
+\end{equation}
+こうすると、仮に$Q_{\theta_t}(s_{t+1}, a^{\prime})$の推定誤差によって、$a^{\prime}$が選ばれても、$Q_{\theta_t^{-}}$にも推定誤差があるために、過度に目標値が大きく見積もられることを抑制できるという。</p>
+
+<p>DDQNの場合のQネットワークの目標値の計算は<a href="https://github.com/syundo0730/RL-samples/blob/master/dqn/main.py#L65">L59</a>のようになる。</p>
+
+<pre><code>target = self.mainQ.model.predict(state)
+next_action = np.argmax(target[0])
+target[0][action] = reward if done else reward + self.gamma * self.subQ.model.predict(next_state)[0][next_action]
+</code></pre>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/" rel="prev">強化学習についてまとめる(6) モデルベース強化学習</a></span>
+    
+    
+      <span class="next"><a href="http://blog.syundo.org/post/20180115-reinforcement-learning/" rel="next">強化学習についてまとめる</a> &rarr;</span>
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
