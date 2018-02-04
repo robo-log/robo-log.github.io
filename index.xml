@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Written by Shundo Kishi</copyright>
-    <lastBuildDate>Thu, 18 Jan 2018 22:48:02 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Feb 2018 20:21:14 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Open AI Gym &amp; MuJoCo を使う</title>
+      <link>http://blog.syundo.org/post/20180204-open-ai-gym/</link>
+      <pubDate>Sun, 04 Feb 2018 20:21:14 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180204-open-ai-gym/</guid>
+      <description>OpenAI Gym は強化学習のアルゴリズムを開発するためのツールキットである。 強化学習における環境と報酬、可視化の部分を担う共通のプラットフォームなので、利用するアルゴリズムについての前提は無い。 これを用いると、強化学習を行うときに一番手間が掛かる環境を製作する部分は飛ばして、アルゴリズムの開発に集中できる。 また、皆が同じ問題を扱うことで強化学習のアルゴリズムの性能を比較しやすくなるという利点もある。 実際に、近年は強化学習のベンチマーク環境としてOpenAI Gymを使った論文は多数出てきている。
+インストール pipでインストールできる。
+pip install gym  使ってみる とりあえずこれで、シミュレーションを回せる。
+import gym env = gym.make(&#39;CartPole-v0&#39;) env.reset() for _ in range(1000): env.render() env.step(env.action_space.sample()) # take a random action  メソッドなどの使い方 env envは環境を表していて、MDPに関するメソッドやフィールドを色々持っている。
+import gym env = gym.make(&#39;CartPole-v0&#39;) print(env.action_space) #&amp;gt; Discrete(2) print(env.observation_space) #&amp;gt; Box(4,)  env.action_spaceは行動の空間を表している。 CartPole-v0の場合は、action_spaceの型はDiscreteになっている。 Discrete(n)は非負のn個の離散値[0, ..., n-1] を表すので、CartPole-v0では0か1のどちらかが左右どちらかへの移動を表す行動を取れるということになる。
+また、env.observation_spaceは観測の空間を表している。 CartPole-v0の場合は、observation_spaceの型はBoxで、4次元の連続値になっている。
+Spaceのメソッドとプロパティ SpaceはOpenAPI Gymの空間を表す抽象クラス(インターフェース)である。 さきほどのDiscreteやBoxはこのSpaceを継承している。
+Spaceが持ってるメソッドには以下のものがある
+sample() sampleはSpaceが取り得る値をランダムに生成する。 行動の初期値を作るのに使える。
+import gym env = gym.</description>
+    </item>
     
     <item>
       <title>TOF型距離センサVL53L0Xを使って測域センサを作った</title>

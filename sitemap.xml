@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.syundo.org/post/20180204-open-ai-gym/</loc>
+    <lastmod>2018-02-04T20:21:14+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/20180118-home-maid-lrf/</loc>
     <lastmod>2018-01-18T22:48:02+09:00</lastmod>
   </url>
@@ -1105,13 +1110,13 @@
   
   <url>
     <loc>http://blog.syundo.org/post/</loc>
-    <lastmod>2018-01-18T22:48:02+09:00</lastmod>
+    <lastmod>2018-02-04T20:21:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2018-01-18T22:48:02+09:00</lastmod>
+    <lastmod>2018-02-04T20:21:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
