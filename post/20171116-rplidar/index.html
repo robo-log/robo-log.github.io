@@ -80,8 +80,6 @@ ROSを使って動かすのが正統派な使い方のようだが、もっと�
 
 <h1 id="とりあえずサンプルコードを動かしてみる-macで">とりあえずサンプルコードを動かしてみる (macで)</h1>
 
-<h2 id="セットアップ">セットアップ</h2>
-
 <p>ここからDriverを持ってくる。
 <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers</a>
 v5はうまく動かなかったので、V4を使ったらうまくいった。</p>
@@ -103,7 +101,39 @@ $ make
 <p>UIに表示するプログラムはWindows向けのものしか無いらしい。
 部屋の輪郭がなんとなく取れてるかくらい見たかったけど、それはROS使ってやったほうがよさそう。</p>
 
-<p>おわり。</p>
+<h1 id="rosを使って動かしてみる">ROSを使って動かしてみる</h1>
+
+<ul>
+<li>環境
+
+<ul>
+<li>Ubuntu 16.04</li>
+<li>ROS Kinetic Kame</li>
+</ul></li>
+</ul>
+
+<p><a href="http://wiki.ros.org/rplidar">rplidar_ros</a> packageを使う。
+デバイスドライバのインストールは不要だった。
+<a href="https://github.com/robopeak/rplidar_ros/wiki">rplidar_ros_wiki</a>に書いてある通りにやれば良い。</p>
+
+<p>まずビルド済みのpackageがあるので、installする。</p>
+
+<pre><code>$ sudo apt install ros-kinetic-rplidar-ros
+</code></pre>
+
+<p>USBポートにRPLIADRを指したら、ポートを確認して、権限を設定する。</p>
+
+<pre><code>$ ls -l /dev | grep ttyUSB
+$ sudo chmod 666 /dev/ttyUSB0
+</code></pre>
+
+<p>launchすると、Rvizが起動する。</p>
+
+<pre><code>$ roslaunch rplidar_ros view_rplidar.launch
+</code></pre>
+
+<p>こんな感じで部屋を計測できた。
+<img src="/images/2017/11/rviz_screenshot.png" alt="ros_rplidar" /></p>
 
       
       

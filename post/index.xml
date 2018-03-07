@@ -63,7 +63,7 @@ TOF(Time Of Flight)型の測距センサVL53L0Xを使った測距モジュール
       <description>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたいと思っている。 元ネタとして以下のサイト、書籍を参考にしている。
  Deep RL Bootcamp これからの強化学習 速習 強化学習  記事一覧
  MDPとベルマン方程式 反復による価値の推定 - TD学習 DQN, DDQNと実装 方策勾配 方策勾配に基づくアルゴリズム、Actor-Critic 自然方策勾配法とTRPO、PPO モデルベース強化学習  作成予定
- 逆強化学習 A3Cの実装 PPOの実装  </description>
+ pathwise derivative method (SVG, DPG) 逆強化学習 A3Cの実装 PPOの実装  </description>
     </item>
     
     <item>
@@ -175,14 +175,18 @@ Actor-Critic baselineを導入したとこで、方策の更新は、方策の�
       <pubDate>Thu, 16 Nov 2017 02:16:29 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/20171116-rplidar/</guid>
-      <description>RPLIDAR a2を買った。 アマゾンで買ったけど、今はちょっと値上がりしているみたい。 ROSを使って動かすのが正統派な使い方のようだが、もっと単純に不良品でないかくらい知りたいので、とりあえずセンサを回してそれっぽい値が取得できるか確かめた。
-とりあえずサンプルコードを動かしてみる (macで) セットアップ ここからDriverを持ってくる。 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers v5はうまく動かなかったので、V4を使ったらうまくいった。
+      <description> RPLIDAR a2を買った。 アマゾンで買ったけど、今はちょっと値上がりしているみたい。 ROSを使って動かすのが正統派な使い方のようだが、もっと単純に不良品でないかくらい知りたいので、とりあえずセンサを回してそれっぽい値が取得できるか確かめた。
+とりあえずサンプルコードを動かしてみる (macで) ここからDriverを持ってくる。 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers v5はうまく動かなかったので、V4を使ったらうまくいった。
 V5をインストールした後であれば、インストーラーを2回実行するとV5が消えてV4がインストールされるらしい。 https://www.silabs.com/community/interface/knowledge-base.entry.html/2017/01/10/legacy_os_softwarea-bgvU
 RPLIDAR SDKを落としてくる http://www.slamtec.com/en/Support#rplidar-a2
 ビルドする
 $ cd sdk $ make  macの場合、sdk/output/Darwin/Release 以下にバイナリが生成されている。
 UIに表示するプログラムはWindows向けのものしか無いらしい。 部屋の輪郭がなんとなく取れてるかくらい見たかったけど、それはROS使ってやったほうがよさそう。
-おわり。</description>
+ROSを使って動かしてみる  環境  Ubuntu 16.04 ROS Kinetic Kame   rplidar_ros packageを使う。 デバイスドライバのインストールは不要だった。 rplidar_ros_wikiに書いてある通りにやれば良い。
+まずビルド済みのpackageがあるので、installする。
+$ sudo apt install ros-kinetic-rplidar-ros  USBポートにRPLIADRを指したら、ポートを確認して、権限を設定する。
+$ ls -l /dev | grep ttyUSB $ sudo chmod 666 /dev/ttyUSB0  launchすると、Rvizが起動する。
+$ roslaunch rplidar_ros view_rplidar.launch  こんな感じで部屋を計測できた。 </description>
     </item>
     
     <item>
