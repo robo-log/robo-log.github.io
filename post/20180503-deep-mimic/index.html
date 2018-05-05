@@ -97,8 +97,8 @@
 足がついたら0にリセットするとのことだが、具体的にどうやってこの数値を与えるのかよくわからなかった。
 この部分はとてもヒューリスティックなように感じる。</p>
 
-<p>方策と価値の推定に別々のニューラルネットワーク(以下NN)を用いるActor-Critic方式で連続空間の行動を扱う。
-行動の生成にはproximal policy optimization algorithm(PPO)<a href="../20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/">解説</a>を用いている。
+<p>方策と価値の推定に別々のニューラルネットワーク(以下NN)を用いるActor-Critic方式<a href="../20171202-reinforcement-learning-policy-gradient-algorithms/">(解説)</a>で連続空間の行動を扱う。
+行動の生成にはproximal policy optimization algorithm(PPO)<a href="../20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/">(解説)</a>を用いている。
 方策用のNNの構造は以下のようになっている。
 ネットワークの構造自体は極めてオーソドックスといえる。</p>
 
@@ -176,6 +176,8 @@ $r^I_t$の内訳は、「関節角度」、「関節速度」、「手足など�
     
       <span class="previous">&larr; <a href="http://blog.syundo.org/post/20180204-open-ai-gym/" rel="prev">Open AI Gym &amp; MuJoCo を使う</a></span>
     
+    
+      <span class="next"><a href="http://blog.syundo.org/post/20180503-neural-episodic-control/" rel="next">論文 Neural Episodic Control</a> &rarr;</span>
     
   </nav>
 

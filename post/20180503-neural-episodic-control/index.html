@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    論文 Neural Episodic Control | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20180503-neural-episodic-control/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>論文 Neural Episodic Control</h1>
+      <div class="meta">
+        May 6, 2018 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p>DQNなどのDeep Networkを使った強化学習は高い性能を実現するなど成功しているが、人間がタスクを学習するのに比べると多くのデータが必要になるという問題がある。
+Pritzel らの提案するNeural Episodic Controlは学習初期におけるデータ不足をDND(Differentiable Neural Dictionary)というKey-Value型の記憶域に蓄積したデータを用いることで改善する。</p>
+
+<p>Pritzelによる<a href="https://rylanschaeffer.github.io/content/research/neural_episodic_control/main.html">解説</a> が分かりやすかったため、それをベースにまとめる。
+論文 <a href="https://arxiv.org/abs/1703.01988">arXiv</a></p>
+
+<h1 id="エピソード記憶の効果">エピソード記憶の効果</h1>
+
+<p>人間の記憶にはDeclarative memory(明示的な記憶)とprocedural memory(非明示的な記憶)がある (例えば、前者はロンドンがUKの首都であるという知識、後者は自転車の乗り方)。
+さらに、Declarative memoryには episodic memory(エピソード記憶)とsemantic memory(意味的記憶)がある (前者は過去にあったことの記憶、後者は単語の意味を知っているとか、一般的な知識)。
+なぜこのように人間は一般化された知識だけでなく、エピソードを記憶しているのだろうか？</p>
+
+<p><a href="https://papers.nips.cc/paper/3311-hippocampal-contributions-to-control-the-third-way.pdf">LengyelとDayan</a>は、長期的な報酬を最大化するためには、シーケンシャルな意思決定が必要になるが、そこに以下のトレードオフが存在するという仮設を立てた。</p>
+
+<ul>
+<li>Semantic memory は経験をうまく活かす(より効率的にする)</li>
+<li>Episodic memory は経験数が少ないほうがいい(それぞれの経験をより詳細に覚えていたい)</li>
+</ul>
+
+<p>これは2つのDeclarative memoryが補い合っている関係にあることを示唆している。</p>
+
+<p>検証のため、tree-structured Markov Decision Process (tMDPs) という、
+MDPをツリー状に展開した問題において以下の3種類のエージェントの性能が比較された。</p>
+
+<ul>
+<li>計算にノイズが含まれないモデルベースのエージェント(パフォーマンスの上限を見るため)</li>
+<li>ノイズが含まれるモデルベースのエージェント</li>
+<li>モデルフリーのエピソードを利用するエージェント</li>
+</ul>
+
+<p>比較により、2つのことが明らかになった。</p>
+
+<ul>
+<li>報酬の分散を大きくするとあるパフォーマンスを実現するまでの試行数が増加した。
+
+<ul>
+<li>=&gt; 環境が複雑になると、モデルベースの方法ではより多くの学習データが必要になる。</li>
+</ul></li>
+<li>エピソード型のエージェントは少ない試行数のうちはモデルベース型のエージェントより良い性能を示した。この傾向は報酬の分散が大きくなるにつれて顕著になった。</li>
+</ul>
+
+<h1 id="model-free-episodic-control">Model-Free Episodic Control</h1>
+
+<p>Lengyel、Dayanの結果には人間がいかに少ない試行で学習を進めるかの示唆があった。
+<a href="https://arxiv.org/abs/1606.04460">Model-Free Episodic Control</a> では、エピソード記憶を表現するために、(state, action)の組み合わせに対して、Q値を記録するテーブル状のメモリが用いられた。</p>
+
+<p>メモリから取得できる値を$Q_{EC}(s,a)$として、状態$s$は距離的に関連があると仮定して状態$s$の隣接点$k$を取得する。
+Q値の推定値$\hat{Q_{EC}(s_t, a_t)}$は以下のようにする。</p>
+
+<p>\begin{equation}
+\hat{Q_{EC}(s_t, a_t)} \leftarrow
+\left\{
+\begin{aligned}
+\frac{1}{k} \sum_{i=1}^k Q_{EC}(s^{(i)}, a_t)
+\text{ if } (s,a) \notin Q_{EC}\\<br />
+Q_{EC}(s, a)
+\text{ if } (s,a) \in Q_{EC}\\<br />
+\end{aligned}
+\right.
+\end{equation}</p>
+
+<p>近隣$k$状態を用いて近似することで、経験したことのない $(s,a)$の組み合わせに対してもエピソードからQ値を推定している。</p>
+
+<p>また、生理的研究によって、海馬は視野からの入力をそのまま処理していないことがわかっていたため、エピソード記憶の前段の部分に、生の観測$o_t$から状態$s_t$へのマッピング$\phi$を介すようにした。
+\begin{equation}
+s_t = \phi (o_t)
+\end{equation}</p>
+
+<p>著者らは2種類のマッピングを使うようにした。</p>
+
+<ul>
+<li>Model-Free Episodic Controller Random Projection (MFEC-RP)
+
+<ul>
+<li>$\phi : o \rightarrow Ao$ というようなランダムに次元を投影する変換</li>
+</ul></li>
+<li>Model-Free Episodic Controller Variational Autoencoder (MFEC-VAE)
+
+<ul>
+<li>Variational Autoencoderを用いた変換</li>
+</ul></li>
+</ul>
+
+<p>2種類のMFECはAtari-2600ゲームでテストされ、データ数が少ない領域(frame &lt; 20milion)のときに、DQNやA3Cの性能を凌駕した。</p>
+
+<p><img src="/images/2018/05/nec_mfec_perf.png" alt="MFEC" /></p>
+
+<h1 id="neural-episodic-control">Neural Episodic Control</h1>
+
+<p>Model-Free Episodic Controlの手法をより洗練させたのが、Neural Episodic Control(NEC)である。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20180503-deep-mimic/" rel="prev">論文 DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
