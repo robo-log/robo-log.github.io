@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    論文 DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20180503-deep-mimic/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>論文 DeepMimic: Example-Guided Deep Reinforcement Learning of Physics-Based Character Skills</h1>
+      <div class="meta">
+        May 5, 2018 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vppFvq2quQ0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<p>強化学習において、キャラクターのモデルの動作を参照してそれに近づける項を報酬に組み込むことによって、自然な動作を実現した論文。
+読んでみる。</p>
+
+<ul>
+<li><a href="https://xbpeng.github.io/projects/DeepMimic/index.html">DeepMimic index page</a></li>
+<li><a href="https://arxiv.org/abs/1804.02717">arXiv</a></li>
+</ul>
+
+<h2 id="状態-方策と報酬">状態、方策と報酬</h2>
+
+<p>MDPの状態として以下を用いる</p>
+
+<ul>
+<li>ゴール (複数あるタスクのうちのどのタスクを実行しているかを表すone-hot型のベクトル)</li>
+<li>親リンクからの各リンクの相対位置</li>
+<li>関節角度 (クォータニオン)</li>
+<li>関節速度</li>
+<li>位相を表す変数 $\phi$</li>
+</ul>
+
+<p>ここで、$\phi$は歩行などの周期的なタスクを1周期ごとに区切るように決められる$\phi \in [0, 1]$の変数だという。
+足がついたら0にリセットするとのことだが、具体的にどうやってこの数値を与えるのかよくわからなかった。
+この部分はとてもヒューリスティックなように感じる。</p>
+
+<p>方策と価値の推定に別々のニューラルネットワーク(以下NN)を用いるActor-Critic方式で連続空間の行動を扱う。
+行動の生成にはproximal policy optimization algorithm(PPO)<a href="../20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/">解説</a>を用いている。
+方策用のNNの構造は以下のようになっている。
+ネットワークの構造自体は極めてオーソドックスといえる。</p>
+
+<p><img src="/images/2018/05/deep_mimic_network.png" alt="Network" /></p>
+
+<p>&ldquo;H&rdquo;とある部分は、Height Map(地面の高さをグリッドに区切って表現したもの)を入力するためのもので、タスクに画像入力のような情報が必要かどうかによってあったりなかったりする。</p>
+
+<p>報酬の関数は以下の通り
+\begin{equation}
+r_t= \omega^I r^I_t + \omega^G r^G_t
+\end{equation}</p>
+
+<p>$\omega^I, r^I_t$が参照軌道に関する報酬と重みを表し、$\omega^G, r^G_t$がタスクのゴールについての報酬と重みを表す。
+$r^I_t$の内訳は、「関節角度」、「関節速度」、「手足などのエンドエフェクタ」、「重心位置」の参照とのずれとなっている(詳細は省く)。</p>
+
+<h2 id="学習方法の工夫">学習方法の工夫</h2>
+
+<p>複雑な動作をするような方策を学習するために、いくつかの工夫がしてある</p>
+
+<h3 id="初期状態の与え方">初期状態の与え方</h3>
+
+<p>エピソードごとの初期状態は、参照軌道のいずれかからランダムに選ぶようにしている。
+例えば、バックフリップなら空中で回転している状態とか、着地する直前の状態をを初期状態として与えることもあるということ。</p>
+
+<p>もし初期状態を常に原点で立っている状態から始めるとすると、タスクの終盤の部分の方策の学習がうまくできないという。
+バックフリップは、回転した&rdquo;後に&rdquo;着地をうまくすることがタスクの報酬に大きく関わってくるが、
+まず空中で回転できないと着地できる状態まで到達しない。
+重要な動作を学習するためのサンプル数が不足することになってしまう。</p>
+
+<h3 id="early-termination">Early Termination</h3>
+
+<p>胴体や頭などのいずれかの部位が地面に着いたり、胴体の高さが一定より低くなったりしたときにそのエピソードでの学習は打ち切るようにしている。
+好ましい状態についてだけ学習できるようにしているとのこと。</p>
+
+<h2 id="マルチタスクへの適用">マルチタスクへの適用</h2>
+
+<p>imitation learningの話とは関係が無いが、この論文ではタスクごとに学習したネットワークを切り替えることによって、復数のタスク間の切り替えをスムーズにできるようにしている。
+方策はそれぞれのタスク用の方策を合成したものを使う。</p>
+
+<h1 id="感想">感想</h1>
+
+<p>学習の試行回数を減らすために行っている様々な工夫が、実ロボットでの強化学習をするときに役に立ちそうだと思った。
+しかし、ヒューリスティックな部分が多いので、再現しようとすると苦労しそうではある。</p>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20180204-open-ai-gym/" rel="prev">Open AI Gym &amp; MuJoCo を使う</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+
