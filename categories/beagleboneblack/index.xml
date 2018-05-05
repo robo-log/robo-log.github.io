@@ -6,7 +6,6 @@
     <description>Recent content in Beagleboneblack on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Fri, 17 Oct 2014 23:57:16 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/categories/beagleboneblack/index.xml" rel="self" type="application/rss+xml" />
@@ -29,7 +28,7 @@ sudo apt-get install xawtv xawtv -c /dev/video0
 ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON . それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった． サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．
 sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．
-// cam.cpp #include &amp;lt;cv.h&amp;gt;#include &amp;lt;highgui.h&amp;gt;#include &amp;lt;ctype.h&amp;gt; #ifndef CV_WINDOW_FREERATIO #define CV_WINDOW_FREERATIO 0 #endif  int main( int argc, char **argv ) { cv::VideoCapture cap1(0); cap1.</description>
+// cam.cpp #include &amp;amp;lt;cv.h&amp;amp;gt;#include &amp;amp;lt;highgui.h&amp;amp;gt;#include &amp;amp;lt;ctype.h&amp;amp;gt; #ifndef CV_WINDOW_FREERATIO #define CV_WINDOW_FREERATIO 0 #endif  int main( int argc, char **argv ) { cv::VideoCapture cap1(0); cap1.</description>
     </item>
     
     <item>

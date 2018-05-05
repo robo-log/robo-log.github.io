@@ -100,7 +100,7 @@ yum install -y mysql-community-client mysql-community-devel mysql-community-serv
 <div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dd <span style="color:#815ba4">if</span><span style="color:#5bc4bf">=</span>/dev/zero <span style="color:#ef6155">of</span><span style="color:#5bc4bf">=</span>/swapfile <span style="color:#ef6155">bs</span><span style="color:#5bc4bf">=</span>1M <span style="color:#ef6155">count</span><span style="color:#5bc4bf">=</span><span style="color:#f99b15">1024</span>
 mkswap /swapfile
 swapon /swapfile
-sudo sh -c <span style="color:#48b685">&#34;echo &#39;/swapfile swap swap defaults 0 0&#39; &amp;gt;&amp;gt; /etc/fstab&#34;</span>
+sudo sh -c &amp;quot;echo <span style="color:#48b685">&#39;/swapfile swap swap defaults 0 0&#39;</span> &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;quot;
 chkconfig mysqld on
 service mysqld start</code></pre></div>
 <p>MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</p>
@@ -120,26 +120,26 @@ Aレコードにサブドメインを追加する．あとはApache側の設定�
 <p>以下の部分を編集してポート指定．</p>
 <div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NameVirtualHost *:80</code></pre></div>
 <p>あとは末尾に以下を追加してドメインごとのルートディレクトリを設定する．</p>
-<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;VirtualHost *:80&gt;
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&amp;lt;VirtualHost *:80&amp;gt;
     ServerName syundo.org
     DocumentRoot /var/www/html/
-  &lt;Directory /var/www/html/&gt;
+  &amp;lt;Directory /var/www/html/&amp;gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-&lt;VirtualHost *:80&gt;
+   &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;VirtualHost *:80&amp;gt;
     ServerName blog.syundo.org
     DocumentRoot /var/www/html/blog/
-  &lt;Directory /var/www/html/blog/&gt;
+  &amp;lt;Directory /var/www/html/blog/&amp;gt;
     AllowOverride All
     Options FollowSymLinks
     Order allow,deny
     Allow from all
-   &lt;/Directory&gt;
-&lt;/VirtualHost&gt;</code></pre></div>
+   &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;</code></pre></div>
 <p><h2>PHPmyadmin導入</h2>
 Wordpressの移行作業にPHPmyadminを使っている事例がほとんどだったのでそれに習って作業した．</p>
 <div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum -y install --enablerepo<span style="color:#5bc4bf">=</span>remi ImageMagick-last

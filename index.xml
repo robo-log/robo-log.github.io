@@ -6,7 +6,6 @@
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>Written by Shundo Kishi</copyright>
     <lastBuildDate>Sun, 04 Feb 2018 20:21:14 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
@@ -302,7 +301,7 @@ $ export GOPATH=$HOME/go $ go get -v github.com/spf13/hugo $HOME/go/bin にHugo�
 $ export PATH=$PATH:$HOME/go/bin Hugoがちゃんと入ったか動作確認する。
 $ hugo version Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-01T23:34:08+09:00 次にコードのハイライトを解析するPygmentsのインストールをする。
 $ pip install Pygments config.tomlにPygmentsを使うことを設定する。 Pygmentsのスタイルのプレビューは公式サイトで見ることができる。Pygments
-pygmentscodefences = true pygmentsstyle = &amp;#34;paraiso-light&amp;#34; ただし、Qiitaのmarkdown記法でbash:filenameとか書いてもファイル名は表示されない</description>
+pygmentscodefences = true pygmentsstyle = &amp;#34;paraiso-light&amp;#34;  ただし、Qiitaのmarkdown記法でbash:filenameとか書いてもファイル名は表示されない</description>
     </item>
     
     <item>
@@ -438,10 +437,10 @@ C++界隈の人たちというのは濃い、強い。 自分ももっと技術�
       <guid>http://blog.syundo.org/post/1143/</guid>
       <description>Effective Modern C++メモ (Moving to Modern C++ : Item 15) constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。
 constexprオブジェクトについて constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。
-int sz; // コンパイル時に存在しない ... constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。 std::array&amp;lt;int, sz&amp;gt; data1; // 同様なエラー constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。 std::array&amp;lt;int, arraySize&amp;gt; data2; // 良い。 constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。
+int sz; // コンパイル時に存在しない ... constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。 std::array&amp;amp;lt;int, sz&amp;amp;gt; data1; // 同様なエラー constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。 std::array&amp;amp;lt;int, arraySize&amp;amp;gt; data2; // 良い。  constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。
 constexpr関数について 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。 C++11の場合 関数内に1行、return文があるだけしか認められない。
-constexpr int pow(int base, int exp) noexcept { return (exp == 0 ? 1 : base*pow(base, exp-1)); } C++14の場合 複数行にわたって記述できる
-constexpr int pow(int base, int exp) noexcept { auto result = 1; for(int i = 0; i &amp;lt; exp; ++i) result *= base; return result; } 気をつけるべきこと constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</description>
+constexpr int pow(int base, int exp) noexcept { return (exp == 0 ? 1 : base*pow(base, exp-1)); }  C++14の場合 複数行にわたって記述できる
+constexpr int pow(int base, int exp) noexcept { auto result = 1; for(int i = 0; i &amp;amp;lt; exp; ++i) result *= base; return result; }  気をつけるべきこと constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</description>
     </item>
     
     <item>
@@ -555,7 +554,7 @@ DeepNNを使って何かやってみたい．</description>
 そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．
 まずはDigitalOceanに登録してDropletを作成する必要がある．今回は 512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64 のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．
 SSHの鍵の登録 DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る． ```bash ssh-keygen ``` で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく． Apache 導入 yum install -y httpd httpd-devel chkconfig httpd on service httpd start PHP 導入 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gdvi /etc/php.ini vi /etc/httpd/conf.d/php.conf MySQL 導入 yum install mysql-community-release-el6-5.noarch.rpm yum install -y mysql-community-client mysql-community-devel mysql-community-server Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．
-sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 mkswap /swapfile swapon /swapfile sudo sh -c &amp;#34;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;gt;&amp;amp;gt; /etc/fstab&amp;#34; chkconfig mysqld on service mysqld start MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</description>
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 mkswap /swapfile swapon /swapfile sudo sh -c &amp;amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;amp;gt;&amp;amp;amp;gt; /etc/fstab&amp;amp;quot; chkconfig mysqld on service mysqld start MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</description>
     </item>
     
     <item>
@@ -575,7 +574,7 @@ sudo apt-get install xawtv xawtv -c /dev/video0
 ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON . それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった． サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．
 sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．
-// cam.cpp #include &amp;lt;cv.h&amp;gt;#include &amp;lt;highgui.h&amp;gt;#include &amp;lt;ctype.h&amp;gt; #ifndef CV_WINDOW_FREERATIO #define CV_WINDOW_FREERATIO 0 #endif  int main( int argc, char **argv ) { cv::VideoCapture cap1(0); cap1.</description>
+// cam.cpp #include &amp;amp;lt;cv.h&amp;amp;gt;#include &amp;amp;lt;highgui.h&amp;amp;gt;#include &amp;amp;lt;ctype.h&amp;amp;gt; #ifndef CV_WINDOW_FREERATIO #define CV_WINDOW_FREERATIO 0 #endif  int main( int argc, char **argv ) { cv::VideoCapture cap1(0); cap1.</description>
     </item>
     
     <item>
@@ -687,7 +686,7 @@ Twitterでも絡んでいただいてありがとうございます．Facebook�
       <guid>http://blog.syundo.org/post/948/</guid>
       <description>C:/xampp/apache/conf/httpd.confに以下を追記．
 Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．
-Alias /(エイリアス名)/ &amp;#34;(ディレクトリ)/&amp;#34; &amp;lt;Directory &amp;#34;(ディレクトリ)&amp;#34;&amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;lt;/Directory&amp;gt;</description>
+Alias /(エイリアス名)/ &amp;amp;quot;(ディレクトリ)/&amp;amp;quot; &amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;amp;lt;/Directory&amp;amp;gt;</description>
     </item>
     
     <item>
@@ -867,7 +866,7 @@ Z軸はこのようにしました．
       <guid>http://blog.syundo.org/post/851/</guid>
       <description>CSVファイルを読み込んで，カンマを除いたデータを配列に書き込むプログラムです．
 　Split(string &amp;amp;src, string key)でカンマの読み飛ばし，readCSV(string filename, int* p)でファイルのOpenと文字列データの数値への変換，配列への書き込みを行います．
-#include &amp;lt;iostream&amp;gt;#include &amp;lt;fstream&amp;gt;#include &amp;lt;sstream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt; using namespace std; vector&amp;lt;string&amp;gt; Split(string &amp;amp;src, string key); bool readCSV(string filename, int* p); int main(void){ int data[256];//ファイルから読み込んだ数値を入れる配列  readCSV(&amp;#34;data.csv&amp;#34;, data);//ファイルから読み込み  //最初の10個を表示させてみる  for(int i = 0; i &amp;lt; 10; ++i) { cout &amp;lt;&amp;lt; data[i] &amp;lt;&amp;lt; endl; } } bool readCSV(string filename, int* p) { fstream file; string str; file.open(filename.c_str(), ios::in); if(! file.is_open()) { return false; } while(getline(file, str)) { vector&amp;lt;string&amp;gt; str_line = Split(str, (string)&amp;#34;,&amp;#34;); int size = str_line.</description>
+#include &amp;amp;lt;iostream&amp;gt;#include &amp;amp;lt;fstream&amp;gt;#include &amp;amp;lt;sstream&amp;gt;#include &amp;amp;lt;string&amp;gt;#include &amp;amp;lt;vector&amp;gt; using namespace std; vector&amp;amp;lt;string&amp;gt; Split(string &amp;amp;src, string key); bool readCSV(string filename, int* p) ; int main(void) { int data[256];//ファイルから読み込んだ数値を入れる配列  readCSV(&amp;#34;data.csv&amp;#34;, data);//ファイルから読み込み  //最初の10個を表示させてみる  for(int i = 0; i &amp;lt; 10; ++i) { cout &amp;lt;&amp;lt; data[i] &amp;lt;&amp;lt; endl; } } bool readCSV(string filename, int* p) { fstream file; string str; file.open(filename.c_str(), ios::in); if(! file.is_open()) { return false; } while(getline(file, str)) { vector&amp;amp;lt;string&amp;gt; str_line = Split(str, (string)&amp;#34;,&amp;#34;); int size = str_line.</description>
     </item>
     
     <item>
@@ -878,7 +877,7 @@ Z軸はこのようにしました．
       <guid>http://blog.syundo.org/post/850/</guid>
       <description>外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．
 　3次元として持つための領域を動的に確保しているのでサイズが可変です．
-#include &amp;lt;iostream&amp;gt;using namespace std; int data[256]; //元となるデータ領域 int main() { //データ領域への値の代入  for(int i = 0; i &amp;lt; 256; ++i) { data[i] = i; } //3次元配列の大きさ  char size_z = 3; char size_y = 4; char size_x = 5; //とりあえずポインタに元のデータ領域の先頭アドレスを代入  int* p = data; //3次元配列arrayへの整形  int*** array = new int**[size_z]; for (int i = 0; i &amp;lt; size_z; ++i) { array[i] = new int*[size_y]; for (int j = 0; j &amp;lt; size_y; ++j) { array[i][j] = p + size_x * j; } p += size_x * size_y; } //確認のため表示  for (int i = 0; i &amp;lt; size_z; ++i) { for (int j = 0; j &amp;lt; size_y; ++j) { for (int k = 0; k &amp;lt; size_x; ++k) { cout &amp;lt;&amp;lt; array[i][j][k] &amp;lt;&amp;lt; endl; } } } //メモリの解放  for (int i = 0; i &amp;lt; size_z; i++) { delete[] array[i]; } delete[] array; } (sizeof int) * (1 + size_z)だけのメモリを消費します．</description>
+#include &amp;amp;lt;iostream&amp;amp;gtusing namespace std; int data[256]; //元となるデータ領域 int main() { //データ領域への値の代入  for(int i = 0; i &amp;lt; 256; ++i) { data[i] = i; } //3次元配列の大きさ  char size_z = 3; char size_y = 4; char size_x = 5; //とりあえずポインタに元のデータ領域の先頭アドレスを代入  int* p = data; //3次元配列arrayへの整形  int*** array = new int**[size_z]; for (int i = 0; i &amp;lt; size_z; ++i) { array[i] = new int*[size_y]; for (int j = 0; j &amp;lt; size_y; ++j) { array[i][j] = p + size_x * j; } p += size_x * size_y; } //確認のため表示  for (int i = 0; i &amp;lt; size_z; ++i) { for (int j = 0; j &amp;lt; size_y; ++j) { for (int k = 0; k &amp;lt; size_x; ++k) { cout &amp;lt;&amp;lt; array[i][j][k] &amp;lt;&amp;lt; endl; } } } //メモリの解放  for (int i = 0; i &amp;lt; size_z; i++) { delete[] array[i]; } delete[] array; }  (sizeof int) * (1 + size_z)だけのメモリを消費します．</description>
     </item>
     
     <item>
@@ -1324,7 +1323,7 @@ CMT割り込みがなされる度にMTUの設定をしなくてはならない�
 TRWER、TOER、TCR、TMDR、TIOR
 まず最初にTSTRでMTUを停止し、TCNTをゼロクリアして、上記項目を設定し、TGRにデューティーに対応する数値を書き込んでから、TSTRでカウントスタートさせる。
 私のプログラムを載せておきます。
-#include &amp;#34;iodefine.h&amp;#34;//プロトタイプ宣言 void main(void); void initIo(void); void pwm(void); void initCMT0(void); //サーボの初期値 (1125-1)～(3487.5-1) #define RL0 2305.25f #define RL1 2305.25f #define RL2 2305.25f #define RL3 2305.25f #define RL4 2305.25f #define RL5 2305.25f #define LL0 2305.25f #define LL1 2305.25f #define LL2 2305.25f #define LL3 2305.25f #define LL4 2305.25f #define LL5 2305.25f  //大域変数の設定 int rl[]={RL0,RL1,RL2,RL3,RL4,RL5}; int ll[]={LL0,LL1,LL2,LL3,LL4,LL5}; //関数 void main(void){ //provide clock to cmt  STB.</description>
+#include &amp;#34;iodefine.h&amp;#34;//プロトタイプ宣言 void main(void) ; void initIo(void) ; void pwm(void) ; void initCMT0(void) ; //サーボの初期値 (1125-1)～(3487.5-1) #define RL0 2305.25f #define RL1 2305.25f #define RL2 2305.25f #define RL3 2305.25f #define RL4 2305.25f #define RL5 2305.25f #define LL0 2305.25f #define LL1 2305.25f #define LL2 2305.25f #define LL3 2305.25f #define LL4 2305.25f #define LL5 2305.</description>
     </item>
     
     <item>

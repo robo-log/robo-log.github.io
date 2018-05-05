@@ -110,10 +110,22 @@
 <p>私のプログラムを載せておきます。</p>
 <div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&#34;iodefine.h&#34;</span><span style="color:#8d8687">
 </span><span style="color:#8d8687"></span><span style="color:#8d8687">//プロトタイプ宣言
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">main</span>(<span style="color:#fec418">void</span>);
-<span style="color:#fec418">void</span> <span style="color:#06b6ef">initIo</span>(<span style="color:#fec418">void</span>);
-<span style="color:#fec418">void</span> <span style="color:#06b6ef">pwm</span>(<span style="color:#fec418">void</span>);
-<span style="color:#fec418">void</span> <span style="color:#06b6ef">initCMT0</span>(<span style="color:#fec418">void</span>);
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">main</span>(<span style="color:#fec418">void</span>)
+
+;
+<span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">initIo</span>(<span style="color:#fec418">void</span>)
+
+;
+<span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">pwm</span>(<span style="color:#fec418">void</span>)
+
+;
+<span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">initCMT0</span>(<span style="color:#fec418">void</span>)
+
+;
 <span style="color:#8d8687">//サーボの初期値 (1125-1)～(3487.5-1)
 </span><span style="color:#8d8687"></span><span style="color:#8d8687">#define RL0 2305.25f
 </span><span style="color:#8d8687">#define RL1 2305.25f
@@ -132,7 +144,10 @@
 </span><span style="color:#8d8687"></span><span style="color:#fec418">int</span> rl[]<span style="color:#5bc4bf">=</span>{RL0,RL1,RL2,RL3,RL4,RL5};
 <span style="color:#fec418">int</span> ll[]<span style="color:#5bc4bf">=</span>{LL0,LL1,LL2,LL3,LL4,LL5};
 <span style="color:#8d8687">//関数
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">main</span>(<span style="color:#fec418">void</span>){
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">main</span>(<span style="color:#fec418">void</span>)
+
+{
   <span style="color:#8d8687">//provide clock to cmt
 </span><span style="color:#8d8687"></span>  STB.CR4.BIT._CMT<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0</span>;
   <span style="color:#8d8687">//provide clock to mtu
@@ -143,7 +158,10 @@
   }
 }
 <span style="color:#8d8687">//端子の初期化
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">initIo</span>(<span style="color:#fec418">void</span>){
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">initIo</span>(<span style="color:#fec418">void</span>)
+
+{
   PFC.PECRL1.WORD<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0x1111</span>;
   PFC.PECRL2.WORD<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0x1111</span>;
   PFC.PECRL3.WORD<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0x1111</span>;
@@ -151,7 +169,10 @@
   PFC.PEIORL.WORD<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0xFFFF</span>;
 }
 <span style="color:#8d8687">//デューティー設定
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">pwm</span>(<span style="color:#fec418">void</span>){
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">pwm</span>(<span style="color:#fec418">void</span>)
+
+{
   <span style="color:#8d8687">//MTU stop
 </span><span style="color:#8d8687"></span>  MTU2.TSTR.BYTE<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0</span>;
   <span style="color:#8d8687">//MTU3,4のための設定(必須)
@@ -208,7 +229,10 @@
 </span><span style="color:#8d8687"></span>  MTU2.TSTR.BYTE<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0xc7</span>;
 }
 <span style="color:#8d8687">//CMTの設定
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">initCMT0</span>(<span style="color:#fec418">void</span>){
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">initCMT0</span>(<span style="color:#fec418">void</span>)
+
+{
   <span style="color:#8d8687">//優先度15
 </span><span style="color:#8d8687"></span>  INTC.IPRJ.BIT._CMT0<span style="color:#5bc4bf">=</span><span style="color:#f99b15">15</span>;
   <span style="color:#8d8687">//CMT stop
@@ -224,11 +248,15 @@
 </span><span style="color:#8d8687"></span>  CMT.CMSTR.BIT.STR0<span style="color:#5bc4bf">=</span><span style="color:#f99b15">1</span>;
 }
 <span style="color:#8d8687">//CMT0割り込み関数
-</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> <span style="color:#06b6ef">CMT0_interrupt</span>(<span style="color:#fec418">void</span>){
+</span><span style="color:#8d8687"></span><span style="color:#fec418">void</span> 
+<span style="color:#06b6ef">CMT0_interrupt</span>(<span style="color:#fec418">void</span>)
+
+{
   <span style="color:#8d8687">//割り込みフラグクリア
 </span><span style="color:#8d8687"></span>  CMT0.CMCSR.BIT.CMF<span style="color:#5bc4bf">=</span><span style="color:#f99b15">0</span>;
   pwm();
-}</code></pre></div>
+}
+</code></pre></div>
       
       
       <div id="share-this" class="col span_10">

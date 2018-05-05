@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    XAMPPのエイリアス設定 | ROBO LOG
+    Tags | ROBO LOG
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.syundo.org/post/948/"/>
+  <link rel="canonical" href="http://blog.syundo.org/tags/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -60,63 +60,10 @@
 
 
   
-  <main id="single" role="main">
-    <div class="article-header">
-      <h1>XAMPPのエイリアス設定</h1>
-      <div class="meta">
-        Dec 29, 2013 &nbsp;
-        
-      </div>
-    </div>
-    <article>
-      <p>C:/xampp/apache/conf/httpd.confに以下を追記．</p>
-
-<p>Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．</p>
-<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">Alias /(エイリアス名)/ &amp;quot;(ディレクトリ)/&amp;quot;
-    &amp;lt;Directory &amp;quot;(ディレクトリ)&amp;quot;&amp;gt;
-               Options Indexes FollowSymLinks Includes ExecCGI
-               AllowOverride All
-               Require all granted
-               Order allow,deny
-               Allow from all
-    &amp;lt;/Directory&amp;gt;</code></pre></div>
-      
-      
-      <div id="share-this" class="col span_10">
-        <span class='st_twitter_large' displayText='Tweet'></span>
-        <span class='st_facebook_large' displayText='Facebook'></span>
-        <span class='st_googleplus_large' displayText='Google +'></span>
-        <span class='st_pocket_large' displayText='Pocket'></span>
-        <span class='st_sharethis_large' displayText='ShareThis'></span>
-        <span class='st_email_large' displayText='Email'></span>  
-      </div>
-    </article>
+  <main id="list" role="main">
+    <div class="article-header light-gray"><h1>#Tags</h1></div>
     
- <aside><div id="disqus_thread"></div></aside> 
-
-<script type="text/javascript">
-     
-    var disqus_shortname = 'robolog';
-
-     
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
   </main>
-  
-  <nav class="pagination">
-    
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/925/" rel="prev">第23回ROBO-ONEに行ってきました</a></span>
-    
-    
-      <span class="next"><a href="http://blog.syundo.org/post/955/" rel="next">2013年の振り返り</a> &rarr;</span>
-    
-  </nav>
 
 
   

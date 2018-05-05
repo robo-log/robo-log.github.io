@@ -123,14 +123,14 @@ vncserver -kill :1</code></pre></div>
 </span><span style="color:#8d8687"># unset SESSION_MANAGER
 </span><span style="color:#8d8687"># exec /etc/X11/xinit/xinitrc
 </span><span style="color:#8d8687"></span>
-/usr/bin/lxsession &amp;
+/usr/bin/lxsession &amp;amp;
 
-<span style="color:#5bc4bf">[</span> -x /etc/vnc/xstartup <span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">&amp;&amp;</span> exec /etc/vnc/xstartup
-<span style="color:#5bc4bf">[</span> -r <span style="color:#ef6155">$HOME</span>/.Xresources <span style="color:#5bc4bf">]</span> <span style="color:#5bc4bf">&amp;&amp;</span> xrdb <span style="color:#ef6155">$HOME</span>/.Xresources
+<span style="color:#5bc4bf">[</span> -x /etc/vnc/xstartup <span style="color:#5bc4bf">]</span> &amp;amp;&amp;amp; exec /etc/vnc/xstartup
+<span style="color:#5bc4bf">[</span> -r <span style="color:#ef6155">$HOME</span>/.Xresources <span style="color:#5bc4bf">]</span> &amp;amp;&amp;amp; xrdb <span style="color:#ef6155">$HOME</span>/.Xresources
 xsetroot -solid grey
-vncconfig -iconic &amp;
-x-terminal-emulator -geometry 80x24+10+10 -ls -title <span style="color:#48b685">&#34;</span><span style="color:#ef6155">$VNCDESKTOP</span><span style="color:#48b685"> Desktop&#34;</span> &amp;
-x-window-manager &amp;</code></pre></div>
+vncconfig -iconic &amp;amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;<span style="color:#ef6155">$VNCDESKTOP</span> Desktop&amp;quot; &amp;amp;
+x-window-manager &amp;amp;</code></pre></div>
 <p>設定が終わればvncserverを立ち上げる</p>
 <div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vncserver :1 -geometry 1024x768</code></pre></div>
 <p>そして母艦のほうでBBBにリモートデスクトップ接続する．

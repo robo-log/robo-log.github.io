@@ -142,9 +142,9 @@ DeepDQN 記事 - 18:00
 
 <h2 id="未知のダイナミクスを用いた-guided-policy-search">未知のダイナミクスを用いた guided policy search</h2>
 
-<p>Levineら<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>はダイナミクス$f_{\phi}(s_t, a_t)$の学習と、guided policy search を組み合わせて、少ないサンプル数でもペグの穴への挿入や、歩行などの複雑なタスクをシミュレーション上で実現した。</p>
+<p>Levineら<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>はダイナミクス$f_{\phi}(s_t, a_t)$の学習と、guided policy search を組み合わせて、少ないサンプル数でもペグの穴への挿入や、歩行などの複雑なタスクをシミュレーション上で実現した。</p>
 
-<p>さらに前イテレーションでの方策と現在の方策の間のKLダイバージェンスによる制約を適応的に変化させることで更にサンプル数を減少させ、実機でのタスクも実現した。<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup></p>
+<p>さらに前イテレーションでの方策と現在の方策の間のKLダイバージェンスによる制約を適応的に変化させることで更にサンプル数を減少させ、実機でのタスクも実現した。<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup></p>
 
 <p>guided policy searchと組み合わせたモデルベース学習の概略を以下に示す。
 <!-- ただし、方策は前イテレーションと大きく乖離して学習を悪化させないようにKLダイバージェンスによる制約を加えている。 --></p>
@@ -176,7 +176,7 @@ f(s_t, a_t ) = \frac{df}{d s_t} s_t + \frac{df}{d a_t} a_t
 
 <p>ロボットの関節が多くモデルが複雑で、高次元のシステムの場合、時変のモデルをフィッティングさせるために非常に長い訓練時間が必要になってしまう。
 しかし、時間ステップ的に近いサンプルや、前イテレーションのサンプルも現在のイテレーションのある時間と強く関連していると想定できるならば、サンプル数をかさ増しし、訓練時間を短縮させることができる。
-Levineら<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>は方策更新ステップでのKLダイバージェンスの制約をコストに応じて適応的に変化させることで、現在時刻の周辺のサンプルと前イテレーションの同一時刻のサンプルを利用できるようにし、学習のイテレーション数を抑えている。</p>
+Levineら<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>は方策更新ステップでのKLダイバージェンスの制約をコストに応じて適応的に変化させることで、現在時刻の周辺のサンプルと前イテレーションの同一時刻のサンプルを利用できるようにし、学習のイテレーション数を抑えている。</p>
 
 <h3 id="パラメタライズされた任意の方策の利用">パラメタライズされた任意の方策の利用</h3>
 
@@ -223,7 +223,7 @@ f(s_t, a_t ) = \frac{df}{d s_t} s_t + \frac{df}{d a_t} a_t
 
 <h1 id="おまけ">おまけ</h1>
 
-<p>Levineら<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>の方策関数としてニューラルネットワークを使ったときの動画がYoutubeに上がっていたので、貼っておく。</p>
+<p>Levineら<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>の方策関数としてニューラルネットワークを使ったときの動画がYoutubeに上がっていたので、貼っておく。</p>
 
 <p>ペグの挿入、歩行</p>
 

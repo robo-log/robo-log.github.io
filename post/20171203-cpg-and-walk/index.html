@@ -103,17 +103,17 @@ CPGのモデルを歩行ロボットに組み込む試みも数多くなされ�
 大脳との神経的な接続を除去したネコをトレッドミルに乗せ、脊髄部分に電気的刺激を行うと、歩行動作を発現したという、除脳ネコの実験が有名であるが、
 この結果より、脳幹部分からの電気的な刺激によって、脊髄部の回路が周期的に活性化し、脚部の筋肉を活性化することで歩行運動が生成されているということを推察することができる。</p>
 
-<p>CPGをモデル化して歩行制御に用いた例としては、多賀<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> による2足歩行運動の生成がある。</p>
+<p>CPGをモデル化して歩行制御に用いた例としては、多賀<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> による2足歩行運動の生成がある。</p>
 
 <h3 id="ニューロンの発火モデル">ニューロンの発火モデル</h3>
 
 <p>ニューロンは神経系を構成する細胞の一つである。
 活動していないときのニューロンの細胞内電位(膜電位)は細胞外に対して低くなっており、逆に活性化すると細胞外に対して高くなる。
-この電位差は細胞内外のイオン濃度の差によって生じる。<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>
+この電位差は細胞内外のイオン濃度の差によって生じる。<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup>
 HodgkinとHuxleyはヤリイカの巨大軸索の電気的応答を調査することで、そのニューロンの非線形ダイナミクスを記述する微分方程式(Hodgkin-Huxley方程式)を導出した。
-詳細は述べないが、4変数でパラメタライズされ微分方程式となっている。<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>
+詳細は述べないが、4変数でパラメタライズされ微分方程式となっている。<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup>
 このHodgkin-Huxley方程式における膜電流(I)として適当な大きさの電流を加えると自励振動が生じる。
-宇佐美ら<sup class="footnote-ref" id="fnref:4"><a rel="footnote" href="#fn:4">4</a></sup>は自励振動に限らず周期的刺激に対するHodgkin-Huxleyのダイナミクスを示している。
+宇佐美ら<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup>は自励振動に限らず周期的刺激に対するHodgkin-Huxleyのダイナミクスを示している。
 <!-- メモ: HH方程式について解説
 http://www.hi.is.uec.ac.jp/rcb/paper/PDF/H18_wada.pdf --></p>
 
@@ -153,7 +153,7 @@ http://www.hi.is.uec.ac.jp/rcb/paper/PDF/H18_wada.pdf --></p>
 ファン・デル・ポール振動子に対して相互作用の項を加えて振動させると、同期現象を観察できる。</p>
 
 <p><img src="/images/2017/12/phase_douki.jpg" alt="同期現象" />
-画像は蔵本の書籍<sup class="footnote-ref" id="fnref:8"><a rel="footnote" href="#fn:8">5</a></sup>より引用</p>
+画像は蔵本の書籍<sup class="footnote-ref" id="fnref:8"><a href="#fn:8">5</a></sup>より引用</p>
 
 <p>周波数は元のどちらのものとも異なるものになる。
 このように同期していく振る舞いを引き込み効果と呼ぶ。</p>
@@ -167,7 +167,7 @@ http://www.hi.is.uec.ac.jp/rcb/paper/PDF/H18_wada.pdf --></p>
 
 <h2 id="同期システムを用いた歩行制御">同期システムを用いた歩行制御</h2>
 
-<p>森本らは、歩行の物理的周期運動と歩行パターンを蔵本モデルで記述し、その相互作用によって外乱に対してアダプティブな歩容が生成されることを示した。<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">6</a></sup> <sup class="footnote-ref" id="fnref:6"><a rel="footnote" href="#fn:6">7</a></sup> <sup class="footnote-ref" id="fnref:7"><a rel="footnote" href="#fn:7">8</a></sup></p>
+<p>森本らは、歩行の物理的周期運動と歩行パターンを蔵本モデルで記述し、その相互作用によって外乱に対してアダプティブな歩容が生成されることを示した。<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">6</a></sup> <sup class="footnote-ref" id="fnref:6"><a href="#fn:6">7</a></sup> <sup class="footnote-ref" id="fnref:7"><a href="#fn:7">8</a></sup></p>
 
 <p>ロボットの物理的特性から発現する振動の位相を$\phi_r$、歩行を制御する振動子の位相を$\phi_c$としたとき、以下の結合振動子系を導入する。
 ここで、$\omega_r, \omega_c$は固有角振動数、$K_c, K_r$は結合強度である。

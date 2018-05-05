@@ -72,10 +72,12 @@
       <p>外部RAMなんかに書き込んでおいたデータを扱いやすくするために3次元配列の形にしたいことがありました．案外てこずったのでメモしておきます．</p>
 
 <p>　3次元として持つための領域を動的に確保しているのでサイズが可変です．</p>
-<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&lt;iostream&gt;</span><span style="color:#8d8687">
+<div class="highlight"><pre style="color:#2f1e2e;background-color:#e7e9db;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#8d8687">#include</span> <span style="color:#8d8687">&amp;lt;iostream&amp;gt</span><span style="color:#8d8687">
 </span><span style="color:#8d8687"></span><span style="color:#815ba4">using</span> <span style="color:#815ba4">namespace</span> std;
 <span style="color:#fec418">int</span> data[<span style="color:#f99b15">256</span>]; <span style="color:#8d8687">//元となるデータ領域
-</span><span style="color:#8d8687"></span><span style="color:#fec418">int</span> <span style="color:#06b6ef">main</span>()
+</span><span style="color:#8d8687"></span><span style="color:#fec418">int</span> 
+<span style="color:#06b6ef">main</span>()
+
 {
   <span style="color:#8d8687">//データ領域への値の代入
 </span><span style="color:#8d8687"></span>  <span style="color:#815ba4">for</span>(<span style="color:#fec418">int</span> i <span style="color:#5bc4bf">=</span> <span style="color:#f99b15">0</span>; i <span style="color:#5bc4bf">&lt;</span> <span style="color:#f99b15">256</span>; <span style="color:#5bc4bf">++</span>i) {
@@ -109,7 +111,8 @@
     <span style="color:#815ba4">delete</span>[] array[i];
   }
   <span style="color:#815ba4">delete</span>[] array;
-}</code></pre></div>
+}
+</code></pre></div>
 <p>(sizeof int) * (1 + size_z)だけのメモリを消費します．</p>
 
       
