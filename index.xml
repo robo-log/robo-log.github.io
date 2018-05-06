@@ -18,15 +18,14 @@
       
       <guid>http://blog.syundo.org/post/20180503-neural-episodic-control/</guid>
       <description>DQNなどのDeep Networkを使った強化学習は高い性能を実現するなど成功しているが、人間がタスクを学習するのに比べると多くのデータが必要になるという問題がある。 Pritzel らの提案するNeural Episodic Controlは学習初期におけるデータ不足をDND(Differentiable Neural Dictionary)というKey-Value型の記憶域に蓄積したデータを用いることで改善する。
-Pritzelによる解説 が分かりやすかったため、それをベースにまとめる。 論文 arXiv
+Pritzelによる解説 が分かりやすかったため、それをベースにまとめる。 本記事の図表はすべてPritzelの記事からそのまま引用しているものである。 論文 arXiv
 エピソード記憶の効果 人間の記憶にはDeclarative memory(明示的な記憶)とprocedural memory(非明示的な記憶)がある (例えば、前者はロンドンがUKの首都であるという知識、後者は自転車の乗り方)。 さらに、Declarative memoryには episodic memory(エピソード記憶)とsemantic memory(意味的記憶)がある (前者は過去にあったことの記憶、後者は単語の意味を知っているとか、一般的な知識)。 なぜこのように人間は一般化された知識だけでなく、エピソードを記憶しているのだろうか？
 LengyelとDayanは、長期的な報酬を最大化するためには、シーケンシャルな意思決定が必要になるが、そこに以下のトレードオフが存在するという仮設を立てた。
  Semantic memory は経験をうまく活かす(より効率的にする) Episodic memory は経験数が少ないほうがいい(それぞれの経験をより詳細に覚えていたい)  これは2つのDeclarative memoryが補い合っている関係にあることを示唆している。
 検証のため、tree-structured Markov Decision Process (tMDPs) という、 MDPをツリー状に展開した問題において以下の3種類のエージェントの性能が比較された。
  計算にノイズが含まれないモデルベースのエージェント(パフォーマンスの上限を見るため) ノイズが含まれるモデルベースのエージェント モデルフリーのエピソードを利用するエージェント  比較により、2つのことが明らかになった。
  報酬の分散を大きくするとあるパフォーマンスを実現するまでの試行数が増加した。  =&amp;gt; 環境が複雑になると、モデルベースの方法ではより多くの学習データが必要になる。  エピソード型のエージェントは少ない試行数のうちはモデルベース型のエージェントより良い性能を示した。この傾向は報酬の分散が大きくなるにつれて顕著になった。  Model-Free Episodic Control Lengyel、Dayanの結果には人間がいかに少ない試行で学習を進めるかの示唆があった。 Model-Free Episodic Control では、エピソード記憶を表現するために、(state, action)の組み合わせに対して、Q値を記録するテーブル状のメモリが用いられた。
-メモリから取得できる値を$Q_{EC}(s,a)$として、状態$s$は距離的に関連があると仮定して状態$s$の隣接点$k$を取得する。 Q値の推定値$\hat{Q_{EC}(s_t, a_t)}$は以下のようにする。
-\begin{equation} \hat{Q_{EC}(s_t, a_t)} \leftarrow \left\{ \begin{aligned} \frac{1}{k} \sum_{i=1}^k Q_{EC}(s^{(i)}, a_t) \text{ if } (s,a) \notin Q_{EC}\\</description>
+メモリから取得できる値を$Q_{EC}(s,a)$として、状態$s$は距離的に関連があると仮定して状態$s$の隣接点$k$を取得する。 Q値の推定値$\hat{Q_{EC}(s_t, a_t)}$は以下のようにする。</description>
     </item>
     
     <item>

@@ -75,6 +75,7 @@
 Pritzel らの提案するNeural Episodic Controlは学習初期におけるデータ不足をDND(Differentiable Neural Dictionary)というKey-Value型の記憶域に蓄積したデータを用いることで改善する。</p>
 
 <p>Pritzelによる<a href="https://rylanschaeffer.github.io/content/research/neural_episodic_control/main.html">解説</a> が分かりやすかったため、それをベースにまとめる。
+本記事の図表はすべてPritzelの記事からそのまま引用しているものである。
 論文 <a href="https://arxiv.org/abs/1703.01988">arXiv</a></p>
 
 <h1 id="エピソード記憶の効果">エピソード記憶の効果</h1>
@@ -160,7 +161,75 @@ s_t = \phi (o_t)
 
 <h1 id="neural-episodic-control">Neural Episodic Control</h1>
 
-<p>Model-Free Episodic Controlの手法をより洗練させたのが、Neural Episodic Control(NEC)である。</p>
+<p>Model-Free Episodic Controlの手法をより洗練させたのが、Neural Episodic Control(NEC)である。
+NECでは、行動$a$ごとに以下のようなネットワークを割り当てて用いる。</p>
+
+<p><img src="/images/2018/05/nec_complete.png" alt="NEC complete" /></p>
+
+<p>前段は生の画像入力から、状態を簡潔に表現する変数$h$に投影するためのCNNである。
+このCNNにはDQNと同じものが用いられている。
+その後段でDifferentiable Neural Dictionar(DND)というメモリに入力される。
+DNDは以下のKeyとValue型の辞書型メモリである。</p>
+
+<p>\begin{equation}
+M_a = (K_a, V_a)
+\end{equation}</p>
+
+<p>$M_a$というように行動$a$のsubscriptが付いているのは、それが行動$a$のためのメモリであることを表している。
+$K_a, V_a$は学習に従って大きくなる可変長のベクトルであり、この2つの長さは同じで一対一に対応している。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+K_a = \{h_0, \dots, h_i, \dots, h_N\}\\<br />
+V_a = \{Q_0, \dots, Q_i, \dots, Q_N\}
+\end{aligned}
+\end{equation}</p>
+
+<h2 id="dndからの値の参照">DNDからの値の参照</h2>
+
+<p>状態、行動ペア$(s,a)$について、DNDから参照するときは以下の関係に従って値が取り出される。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+Q(s, a) = \sum_{i} w_i Q_i \\<br />
+w_i = \frac{k(h, h_i)}{\sum_j k(h, h_j)} \\<br />
+k(h, h_i) = \frac{1}{\|h - h_i\|^2 + \omega} \\<br />
+\end{aligned}
+\end{equation}</p>
+
+<p>MFECのように未経験の$(s,a)$についても、周辺のエピソードによって重み付けされた値を取り出すことができる。</p>
+
+<h2 id="dndへの値の追加">DNDへの値の追加</h2>
+
+<p>NECではQ値の推定にはNステップの値をを用いている。
+\begin{equation}
+Q^{(N)}(s_t, a) = \sum_{j=0}^{N-1} \gamma^j r_{t+j} +
+\gamma^N \max_{a&rsquo;} Q(s_{t+N}, a&rsquo;)
+\end{equation}</p>
+
+<p>もし、DNDに$(s, a)$のペアがすでに存在するとき(つまり、キー$h$に対して値$K_a$がある場合)、Q-Learningの要領で、DNDの値を上書きする。</p>
+
+<p>\begin{equation}
+Q_i \leftarrow Q_i + \alpha (Q^{(N)}(s,a) - Q_i)
+\end{equation}</p>
+
+<p>$(s,a)$がDNDに存在しない場合は、$Q^{(N)}(s_t,a)$が$V_a$に、$h$が$K_a$に追加される</p>
+
+<h2 id="実験結果">実験結果</h2>
+
+<p>学習フレーム数が少ない段階で、他の手法を凌ぐスコアを達成した。
+フレーム数が増えると結果的に抜かされてしまう。
+<img src="/images/2018/05/nec_performance_table.png" alt="NEC performance table" /></p>
+
+<p>ただし、MFECとNECには、報酬$r_t$を[0, 1]にクリッピングしなくても学習が安定するという特徴があるため、パックマンでは他手法を凌ぐ高い成果が得られた。
+<img src="/images/2018/05/nec_pac_man.png" alt="NEC pac man" />
+パックマンではドットを食べると少し報酬が得られて、ゴーストを食べると大きな報酬が得られるため。</p>
+
+<h1 id="感想">感想</h1>
+
+<p>エピソード記憶を使って学習を早めるのはロボット実機での学習に大いに応用していきたい部分である。
+一方で、離散の行動しか扱っていないのが残念だった。
+続行動空間への適用はもうひと工夫必要そう。</p>
 
       
       
