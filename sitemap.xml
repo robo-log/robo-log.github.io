@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.syundo.org/post/20180519-ydlidar-x4/</loc>
+    <lastmod>2018-05-19T12:29:39+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/20180503-neural-episodic-control/</loc>
     <lastmod>2018-05-06T00:38:27+09:00</lastmod>
   </url>
@@ -1120,13 +1125,13 @@
   
   <url>
     <loc>http://blog.syundo.org/post/</loc>
-    <lastmod>2018-05-06T00:38:27+09:00</lastmod>
+    <lastmod>2018-05-19T12:29:39+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2018-05-06T00:38:27+09:00</lastmod>
+    <lastmod>2018-05-19T12:29:39+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,23 @@
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 06 May 2018 00:38:27 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 19 May 2018 12:29:39 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>YDLIDAR X4を買った</title>
+      <link>http://blog.syundo.org/post/20180519-ydlidar-x4/</link>
+      <pubDate>Sat, 19 May 2018 12:29:39 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180519-ydlidar-x4/</guid>
+      <description>YDLIDAR X4をstrvさんが購入されていたのを見て衝動買いした。 Aliexpress で買った。
+以前、RPLIDARを買ったが、それと比べると軽い。 明らかに作りが雑で部品丸出しという感じなので、さもありなんという気はする。
+動かしてみたところ、振動は高級LIDARに比べると大きいだろうが、車輪ロボットに積むならそんなに問題は無さそうな感じだった。 2足に載せるなら、ある程度安定化の制御がしてあるものなら大丈夫かもしれない。 Rvizで見るとこんな感じ。 https://github.com/EAIBOT/ydlidarに書いてある通りにcatkin_wsにcloneして、ttyUSB0に静的リンク張って、
+roslaunch ydlidar lidar_view.launch  でrvizも含め色々立ち上がるようになっている。
+安いので雑にいろんなものに使っていきたい。</description>
+    </item>
     
     <item>
       <title>論文 Neural Episodic Control</title>
