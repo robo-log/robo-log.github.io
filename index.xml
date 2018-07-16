@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</title>
+      <title>方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</title>
       <link>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</link>
       <pubDate>Sat, 14 Jul 2018 21:33:33 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</guid>
-      <description>方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivertive method)について扱う。
-何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。 likelihood ratio methodとpathwise derivertive methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。
+      <description>方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative method)について扱う。
+何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。 likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。
 つまり、前者の場合は、方策勾配法の記事で述べたように
 \begin{equation} \nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)] = \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)] \end{equation} を計算する。
 後者の場合、後述するre-parametrization trickを使って

@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient) | ROBO LOG
+    方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient) | ROBO LOG
   </title>
 
 
@@ -62,7 +62,7 @@
   
   <main id="single" role="main">
     <div class="article-header">
-      <h1>方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</h1>
+      <h1>方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</h1>
       <div class="meta">
         Jul 14, 2018 &nbsp;
         
@@ -72,10 +72,10 @@
       
 
 <p><a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。
-本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivertive method)について扱う。</p>
+本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative method)について扱う。</p>
 
 <p>何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。
-likelihood ratio methodとpathwise derivertive methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。</p>
+likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。</p>
 
 <p>つまり、前者の場合は、<a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>で述べたように</p>
 
