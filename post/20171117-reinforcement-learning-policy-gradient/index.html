@@ -90,19 +90,14 @@
 
 <ul>
 <li>$V^{\pi}$や$Q^{\pi}$を求めるような複雑でメモリを消費する手法を使わなくて良い</li>
-<li>連続空間での行動が扱いやすくなる</li>
+<li>連続空間における行動を扱いやすくなる</li>
 </ul>
 
-<p>などの利点がある。
-一方で、</p>
+<p>などの利点がある。</p>
 
-<ul>
-<li>方策オン型の学習になるため、行動のタイミングで方策を更新しなくてはならず、学習効率が落ちる</li>
-<li>価値反復による方法と違って、最適な状態への収束を保証するものがない。つまり、局所最適に陥る可能性がある。</li>
-<li>行動に対して学習が敏感に影響を受けてしまうため、学習ステップの決定が難しい</li>
-</ul>
-
-<p>などの欠点がある。</p>
+<p>方策勾配法においては、確率的な方策を扱う場合と確定的な方策を扱う場合がある。本記事では方策は確率的なものを扱う。(これは確定的な方策の一般化したものであるため)。
+また後述するように、価値関数を最大化するように方策の勾配を求めたいが、そのときに方策(のlogを取ったもの)と報酬をかけ合わせたものの比率(これをここではscore functionと呼ぶ)を用いる方法、いわゆるlikelihood ratio methodあるいはscore function methodというものと、状態遷移パスの各点において勾配を計算することで直接価値関数の勾配を求める方法、いわゆるpathwise derivative methodと呼ばれ、DPG、SVGなどがこれにあたるものがある。
+本記事では前者について述べている。</p>
 
 <h1 id="方策のモデルと勾配">方策のモデルと勾配</h1>
 
@@ -111,45 +106,39 @@ $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動�
 
 <p>\begin{equation}
 \begin{aligned}
-U(\theta) &amp;=&amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\<br />
-&amp;=&amp; \sum_{\tau} P(\tau ; \theta) R(\tau)
+J(\theta) = \mathbb{E}_{\pi_{\theta}} [\sum_{t=0}^H R(s_t, a_t)] \\<br />
+= \sum_{\tau} P(\tau ; \theta) R(\tau)
 \end{aligned}
 \end{equation}
-ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$としている。
+ここで、$R(\tau) = \sum_{t=0}^H R(s_t, a_t)$としている。
 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より
 \begin{equation}
-P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t)
+P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, a_t) \pi_{\theta}(a_t | s_t)
 \label{eq:p_tau_theta}
 \end{equation}
 である。</p>
 
 <p>以上の設定において、方策の学習は最終的に
 \begin{equation}
-\max_{\theta} U(\theta) = \max_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau)
+\max_{\theta} J(\theta) = \max_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau)
 \end{equation}
 を求める問題となる。
 そこで、微小ステップごとに評価関数の$\theta$での微分方向
 \begin{equation}
-\nabla_{\theta} U(\theta) = \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau)
+\nabla_{\theta} J(\theta) = \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau)
 \end{equation}
 に方策を更新することで、方策を最適化することを考える。
 これは以下のように変形できる。</p>
 
 <p>\begin{equation}
 \begin{aligned}
-\nabla_{\theta} U(\theta) &amp;=&amp; \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau) \\<br />
+\nabla_{\theta} J(\theta) &amp;=&amp; \nabla_{\theta} \sum_{\tau} P(\tau ; \theta) R(\tau) \\<br />
 &amp;=&amp; \sum_{\tau} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\<br />
 &amp;=&amp; \sum_{\tau} \frac{P(\tau ; \theta)}{P(\tau ; \theta)} \nabla_{\theta} P(\tau ; \theta) R(\tau) \\<br />
 &amp;=&amp; \sum_{\tau} P(\tau ; \theta) \frac{\nabla_{\theta} P(\tau ; \theta)}{P(\tau ; \theta)} R(\tau) \\<br />
 &amp;=&amp; \sum_{\tau} P(\tau ; \theta) \nabla_{\theta} \log P(\tau ; \theta) R(\tau) \\<br />
+&amp;=&amp; \mathbb{E}_{\pi_{\theta}}[\nabla_{\theta} \log P(\tau ; \theta) R(s_t, a_t)] \\<br />
 \end{aligned}
-\end{equation}</p>
-
-<p>$P(\tau ; \theta)$で期待値を取る操作は、以下の平均を取る操作として近似する。
-\begin{equation}
-\nabla_{\theta} U(\theta)
-\approx
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \nabla_{\theta} \log P(\tau^{(i)} ; \theta) R(\tau^{(i)})
 \end{equation}</p>
 
 <p>この式を見ると、更新則によって、</p>
@@ -165,31 +154,31 @@ P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t)
 
 <p>\begin{equation}
 \begin{aligned}
-\nabla_{\theta} \log P(\tau^{(i)} ; \theta)
+\nabla_{\theta} \log P(\tau ; \theta)
 &amp;=&amp; \nabla_{\theta} \log
-\left[ \prod_{t=0}^H P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)}) \pi_{\theta}(u_t^{(i)} | s_t^{(i)}) \right] \\<br />
-&amp;=&amp; \nabla_{\theta} \left[ \sum_{t=0}^H \log P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)}) \right] +
-\nabla_{\theta} \left[ \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \right] \\<br />
-&amp;=&amp; \nabla_{\theta} \sum_{t=0}^H \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) \\<br />
-&amp;=&amp; \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)})
+\left[ \prod_{t=0}^H P(s_{t+1} | s_t, a_t) \pi_{\theta}(a_t | s_t) \right] \\<br />
+&amp;=&amp; \nabla_{\theta} \left[ \sum_{t=0}^H \log P(s_{t+1} | s_t, a_t) \right] +
+\nabla_{\theta} \left[ \sum_{t=0}^H \log \pi_{\theta} (a_t | s_t) \right] \\<br />
+&amp;=&amp; \nabla_{\theta} \sum_{t=0}^H \log \pi_{\theta} (a_t | s_t) \\<br />
+&amp;=&amp; \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (a_t | s_t)
 \end{aligned}
 \end{equation}</p>
 
-<p>となる。状態遷移確率$P(s_{t+1}^{(i)} | s_t^{(i)}, u_t^{(i)})$は$\theta$をパラメタとして持たないので、$\theta$で微分するとこの項が消えるのである。</p>
+<p>となる。状態遷移確率$P(s_{t+1} | s_t, a_t)$は$\theta$をパラメタとして持たないので、$\theta$で微分するとこの項が消えるのである。</p>
 
 <p>結局、勾配は
 \begin{equation}
 \begin{aligned}
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \nabla_{\theta} \log P(\tau^{(i)} ; \theta) R(\tau^{(i)}) \\<br />
+\hat{g} = \mathbb{E}_{\pi_{\theta}}[\nabla_{\theta} \log P(\tau ; \theta) R(s_t, a_t)] \\<br />
 where \hspace{15pt}
-\nabla_{\theta} \log P(\tau^{(i)} ; \theta) =
-\sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)})
+\nabla_{\theta} \log P(\tau ; \theta) =
+\sum_{t=0}^H \nabla_{\theta} \log \pi_\theta (a_t | s_t)
 \end{aligned}
 \end{equation}</p>
 
 <p>すなわち
 \begin{equation}
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) R(\tau^{(i)})
+\hat{g} = \mathbb{E}_{\pi_\theta}[\sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (a_t | s_t) R(s_t, a_t)]
 \label{eq:policy_gradient}
 \end{equation}</p>
 
@@ -199,13 +188,44 @@ where \hspace{15pt}
 
 <p>式\eqref{eq:policy_gradient}にbaseline $b$という値を追加する。
 \begin{equation}
-\hat{g} = \frac{1}{m} \sum_{i=0}^m \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)
+\hat{g} = \mathbb{E}_{\pi_\theta}[\sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (a_t | s_t) (R(s_t, a_t) - b)]
 \label{eq:base_lined_policy_gradient}
 \end{equation}</p>
 
-<p>baselineは$\hat{g}$の値には影響を与えないが、調整前に比べて$\nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)$の分散を減少させる効果がある。</p>
+<p>勾配の計算に$H$ステップの加算を含むため、分散は増大しやすくなる。
+baselineは$\hat{g}$の値には影響を与えないが、調整前に比べて$\hat{g}$の分散を減少させる効果がある。</p>
 
-<p>$R(\tau^{(i)}) - b$が小さいほど分散が小さくなるので、$b$の決定法としては、$R(\tau^{(i)})$との二乗距離を小さくするように調整すればよい。</p>
+<p>$R(s_t, a_t) - b$が小さいほど分散が小さくなるので、$b$の決定法としては、$R(s_t, a_t)$との二乗距離を小さくするように調整すればよい。</p>
+
+<h2 id="行動価値関数-q-s-t-a-t-との関係">行動価値関数 $Q(s_t, a_t)$ との関係</h2>
+
+<p>式\eqref{eq:policy_gradient}では、$H$ステップの累積を想定して立式したが、$H \rightarrow \infty$としても同様に成り立つ。
+また、報酬の加算についても割引報酬を用いても同様に導出される。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+\hat{g} &amp;=&amp; \mathbb{E}_{\pi_\theta}[\sum_{t=0}^{\infty} \nabla_{\theta} \log \pi_{\theta} (a_t | s_t) \gamma^t r(s_t, a_t)] \\<br />
+&amp;=&amp; \mathbb{E}_{\pi_\theta}[\sum_{t=0}^{\infty} \nabla_{\theta} \log \pi_{\theta} (a_t | s_t)
+[\sum_{k=0}^{t-1} \gamma^k r(s_k, a_k) + \sum_{k=t}^{\infty} \gamma^k r(s_k, a_k)]] \\<br />
+\label{eq:policy_gradient_q_func}
+\end{aligned}
+\end{equation}</p>
+
+<p>ここで、$\sum_{k=0}^{t-1} \gamma^k r(s_k, a_k)$の項は、時刻$t$においての行動$a_t$の影響を受けない部分であるため、除去する。
+これによって分散を増やす要素を削減することができる。</p>
+
+<p>すると、行動価値関数を用いて以下のように表すことができる。</p>
+
+<p>\begin{equation}
+\begin{aligned}
+\hat{g} &amp;=&amp; \mathbb{E}_{\pi_\theta}[\sum_{t=0}^{\infty} \nabla_{\theta} \log \pi_{\theta} (a_t | s_t)
+\sum_{k=t}^{\infty} \gamma^k r(s_k, a_k)] \\<br />
+&amp;=&amp; \mathbb{E}_{\pi_\theta}[\sum_{t=0}^{\infty} \nabla_{\theta} \log \pi_{\theta}(a_t | s_t)]
+Q(s, a) \\<br />
+\end{aligned}
+\end{equation}</p>
+
+<p>このように行動価値関数に方策のlog微分をかけ合わせたものが、勾配の不偏推定量であることは方策勾配定理として知られている。</p>
 
       
       

@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient) | ROBO LOG
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
+  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
+
+  
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
+        <h2>つくりたいものをつくる</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
+          
+          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</h1>
+      <div class="meta">
+        Jul 14, 2018 &nbsp;
+        
+      </div>
+    </div>
+    <article>
+      
+
+<p><a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。
+本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivertive method)について扱う。</p>
+
+<p>何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。
+likelihood ratio methodとpathwise derivertive methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。</p>
+
+<p>つまり、前者の場合は、<a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>で述べたように</p>
+
+<p>\begin{equation}
+\nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)]
+= \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)]
+\end{equation}
+を計算する。</p>
+
+<p>後者の場合、後述するre-parametrization trickを使って</p>
+
+<p>\begin{equation}
+\nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))]
+= \mathbb{E}_z [\nabla_\theta f(x(z, \theta))]
+\end{equation}
+を扱う。
+ここで、$f$は連続であるとしている。
+そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。
+また、$f$は微分可能であるものとして、勾配が0にならないようにする。</p>
+
+<h1 id="svg">SVG</h1>
+
+<p><a href="../20160410-reinforcement-learning-mdp-belman-equation">MDPとベルマン方程式</a>
+で導出したベルマン方程式において、終端状態を表現するためだけに事変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。
+このとき、連続空間におけるベルマン方程式は以下のようになる。</p>
+
+<p>\begin{equation}
+V^{(t)}(s) = \int [ r^{(t)} + \gamma \int V^{(t+1)} (s&rsquo;)p(s&rsquo;|s, a)ds&rsquo; ] p(a|s;\theta) da
+\label{eq:belman_continus}
+\end{equation}</p>
+
+<p>ここで、時間を表すために今までの記事のように下付き文字を使わずに、一貫性が無い上付き文字を用いているが、これは元論文の中で下付き文字はその変数での微分を表すために用いられているからである。
+なかなか累乗とわかりにくいので、悪あがきかもしれないが、時間については括弧で囲んでみた(汗)。</p>
+
+<h2 id="re-parametrization-trick-とベルマン方程式">re-parametrization trick とベルマン方程式</h2>
+
+<p>何らかの確率分布$\rho$から生成される確率変数$\eta \sim \rho(\eta)$、$\xi \sim \rho(\xi)$を使って、遷移確率$f$、方策$\pi$をre-parametrizationする。
+具体的には
+\begin{equation}
+\begin{aligned}
+a = \pi(s, \eta; \theta) = \mu(s; \theta) + \sigma(s; \theta) \eta \\<br />
+s&rsquo; = f(s, a, \xi) = \mu(s, a) + \sigma(s, a) \xi \\<br />
+\eta = \xi = \mathcal{N}(0, 1)
+\end{aligned}
+\end{equation}
+のように、確率分布を使って、ある値が生成されるというモデルを利用する。
+これによって、確率的な振る舞いを入れ込みながら、変数自体は決定論的に扱うことができる。
+これと、式\eqref{eq:belman_continus}より</p>
+
+<p>\begin{equation}
+V(s) = \mathbb{E}_{\rho(\eta)} \left[r(s, \pi(s, \eta; \theta))
++ \gamma \mathbb{E}_{\rho(\xi)}
+[V&rsquo;(f(s, \pi(s, \eta; \theta), \xi)) ]
+\right]
+\label{eq:belman_continus_det}
+\end{equation}</p>
+
+<p><a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>にあるように、累積報酬の最大化をするために、累積報酬のパラメタについての勾配を求めたい。
+累積報酬の期待値は状態価値関数$V$なので、その勾配を求めればよい。</p>
+
+<p>詳細は<a href="https://arxiv.org/abs/1510.09142">Hessら</a>のAppendix Aを参照していただくとして、パラメタ$\theta$についての勾配$V_\theta$は式\eqref{eq:belman_continus_det}より、</p>
+
+<p>\begin{equation}
+\begin{aligned}
+V_s &amp;=&amp; \mathbb{E}_{\rho(\eta)} [
+r_s +
+r_a \pi_s +
+\gamma \mathbb{E}_{\rho(\xi)}
+V&rsquo;_{s&rsquo;}(f_s + f_a \pi_s)
+] \\<br />
+V_{\theta} &amp;=&amp; \mathbb{E}_{\rho(\eta)} [
+r_a \pi_{\theta} +
+\gamma \mathbb{E}_{\rho(\xi)}
+[
+V&rsquo;_{s&rsquo;} f_a \pi_{\theta} +
+V&rsquo;_{\theta}
+]
+]
+\end{aligned}
+\label{eq:belman_continus_det_div}
+\end{equation}</p>
+
+<p>式\eqref{eq:belman_continus_det}の期待値の計算は、確率変数$\eta, \xi$に基づくサンプリングをするモンテカルロ法を使って行う。
+いちサンプルを$v_s, v_{\theta}$で表すと</p>
+
+<p>\begin{equation}
+\begin{aligned}
+v_s &amp;=&amp; [
+r_s +
+r_a \pi_s +
+\gamma v&rsquo;_{s&rsquo;}(f_s + f_a \pi_s)
+] |_{\eta, \xi&rsquo;} \\<br />
+v_{\theta} &amp;=&amp; [
+r_a \pi_{\theta} +
+\gamma v&rsquo;_{s&rsquo;} f_a \pi_{\theta} +
+v&rsquo;_{\theta}
+] |_{\eta, \xi&rsquo;}
+\end{aligned}
+\end{equation}</p>
+
+<p>となる。</p>
+
+<h2 id="svg-infty">SVG($\infty$)</h2>
+
+<p>以上の性質を利用して、SVG($\infty$)では、状態遷移確率関数$\hat{f}(s, a, \xi)$、方策$\pi(s, \eta)$を同時に学習する。
+<img src="/images/2018/07/svg_inf.png" width="400px"></p>
+
+<h2 id="動画">動画</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PYdL7bcn_cM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+      
+      
+      <div id="share-this" class="col span_10">
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_pocket_large' displayText='Pocket'></span>
+        <span class='st_sharethis_large' displayText='ShareThis'></span>
+        <span class='st_email_large' displayText='Email'></span>  
+      </div>
+    </article>
+    
+ <aside><div id="disqus_thread"></div></aside> 
+
+<script type="text/javascript">
+     
+    var disqus_shortname = 'robolog';
+
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+  </main>
+  
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="http://blog.syundo.org/post/20180519-ydlidar-x4/" rel="prev">YDLIDAR X4を買った</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      <img src="/images/profile.jpeg" width="64" height="64"><br>
+      Written by Shundo Kishi
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-21014159-4', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
+

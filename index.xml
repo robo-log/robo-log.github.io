@@ -6,10 +6,26 @@
     <description>Recent content on ROBO LOG</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 May 2018 12:29:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jul 2018 21:33:33 +0900</lastBuildDate>
     
 	<atom:link href="http://blog.syundo.org/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>方策勾配法 pathwise derivertive method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)</title>
+      <link>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</link>
+      <pubDate>Sat, 14 Jul 2018 21:33:33 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</guid>
+      <description>方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivertive method)について扱う。
+何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。 likelihood ratio methodとpathwise derivertive methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。
+つまり、前者の場合は、方策勾配法の記事で述べたように
+\begin{equation} \nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)] = \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)] \end{equation} を計算する。
+後者の場合、後述するre-parametrization trickを使って
+\begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続であるとしている。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。 また、$f$は微分可能であるものとして、勾配が0にならないようにする。
+SVG MDPとベルマン方程式 で導出したベルマン方程式において、終端状態を表現するためだけに事変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。 このとき、連続空間におけるベルマン方程式は以下のようになる。
+\begin{equation} V^{(t)}(s) = \int [ r^{(t)} + \gamma \int V^{(t+1)} (s&amp;rsquo;)p(s&amp;rsquo;|s, a)ds&amp;rsquo; ] p(a|s;\theta) da \label{eq:belman_continus} \end{equation}</description>
+    </item>
     
     <item>
       <title>YDLIDAR X4を買った</title>
@@ -212,11 +228,11 @@ Actor-Critic baselineを導入したとこで、方策の更新は、方策の�
       <description>前回、 前々回 では、価値関数を求め、それを基に行動を決定する手法について扱ってきた。 しかし、そもそもロボットの行動を決めるのは方策であるのだから、その方策を直接学習できないのだろうか？という疑問が湧く。
 今回は、前回までとは全く違うアプローチとして、方策勾配法 をまとめる。 方策勾配法は、方策をあるパラメタで表される関数とし、そのパラメタを学習することで、直接方策を学習していくアプローチである。
 方策を直接扱うことで
- $V^{\pi}$や$Q^{\pi}$を求めるような複雑でメモリを消費する手法を使わなくて良い 連続空間での行動が扱いやすくなる  などの利点がある。 一方で、
- 方策オン型の学習になるため、行動のタイミングで方策を更新しなくてはならず、学習効率が落ちる 価値反復による方法と違って、最適な状態への収束を保証するものがない。つまり、局所最適に陥る可能性がある。 行動に対して学習が敏感に影響を受けてしまうため、学習ステップの決定が難しい  などの欠点がある。
+ $V^{\pi}$や$Q^{\pi}$を求めるような複雑でメモリを消費する手法を使わなくて良い 連続空間における行動を扱いやすくなる  などの利点がある。
+方策勾配法においては、確率的な方策を扱う場合と確定的な方策を扱う場合がある。本記事では方策は確率的なものを扱う。(これは確定的な方策の一般化したものであるため)。 また後述するように、価値関数を最大化するように方策の勾配を求めたいが、そのときに方策(のlogを取ったもの)と報酬をかけ合わせたものの比率(これをここではscore functionと呼ぶ)を用いる方法、いわゆるlikelihood ratio methodあるいはscore function methodというものと、状態遷移パスの各点において勾配を計算することで直接価値関数の勾配を求める方法、いわゆるpathwise derivative methodと呼ばれ、DPG、SVGなどがこれにあたるものがある。 本記事では前者について述べている。
 方策のモデルと勾配 $\theta$でパラメタライズされた確率的な方策$\pi_{\theta}$を求める問題を考える。 $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動空間でのパス)$\tau=(s_0, a_0, \dots, s_H, a_H)$としたとき、方策の評価関数として以下を考える。
-\begin{equation} \begin{aligned} U(\theta) &amp;amp;=&amp;amp; E [\sum_{t=0}^H R(s_t, u_t) ; \pi_{\theta}] \\
-&amp;amp;=&amp;amp; \sum_{\tau} P(\tau ; \theta) R(\tau) \end{aligned} \end{equation} ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$としている。 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より \begin{equation} P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, u_t) \pi_{\theta}(u_t | s_t) \label{eq:p_tau_theta} \end{equation} である。</description>
+\begin{equation} \begin{aligned} J(\theta) = \mathbb{E}_{\pi_{\theta}} [\sum_{t=0}^H R(s_t, a_t)] \\
+= \sum_{\tau} P(\tau ; \theta) R(\tau) \end{aligned} \end{equation} ここで、$R(\tau) = \sum_{t=0}^H R(s_t, a_t)$としている。 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より \begin{equation} P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, a_t) \pi_{\theta}(a_t | s_t) \label{eq:p_tau_theta} \end{equation} である。</description>
     </item>
     
     <item>
@@ -267,7 +283,7 @@ $$ 状態: s_t\\
 を考える。
 価値関数 時刻$t$において将来($t \rightarrow \infty $)にわたって得られる報酬について、割引累積報酬$G_t$を定義する。 \begin{equation} G_t = \sum_{k=0}^{\infty} \gamma ^k R_{t+k+1} \end{equation} ここで、$R_{t+1}$は$r(s_t, a_t, s_{t+1})$の値とする。 また、$\gamma$は$0 \le \gamma &amp;lt; 1$の値で、遠い将来に得られるであろう報酬を低く見積もるために使う。
 状態$s$において、行動$a$が選択される確率を$\pi = \pi(a | s)$とする。 この$\pi$を方策と呼ぶ。 ロボットで言うと次の状態をどう選ぶかの判断を行う部分である。
-さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。 方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。 \begin{equation} V^{\pi}(s) = E[G_t|s_t=s] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s] \label{eq:v_func} \end{equation} これを状態価値関数(あるいは単に価値関数)と呼ぶ。 期待値を取っているのは、方策$\pi$は確率的であるから、$s_t=s$となるのも確率的であるため、$s_t$について周辺化して評価したいためである。</description>
+さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。 方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。 \begin{equation} V^{\pi}(s) = \mathbb{E}[G_t|s_t=s] = \mathbb{E}[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s] \label{eq:v_func} \end{equation} これを状態価値関数(あるいは単に価値関数)と呼ぶ。 期待値を取っているのは、方策$\pi$は確率的であるから、$s_t=s$となるのも確率的であるため、$s_t$について周辺化して評価したいためである。</description>
     </item>
     
     <item>

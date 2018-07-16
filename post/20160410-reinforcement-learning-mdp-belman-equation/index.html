@@ -108,7 +108,7 @@ G_t = \sum_{k=0}^{\infty} \gamma ^k R_{t+k+1}
 <p>さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。
 方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。
 \begin{equation}
-V^{\pi}(s) = E[G_t|s_t=s] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s]
+V^{\pi}(s) = \mathbb{E}[G_t|s_t=s] = \mathbb{E}[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s]
 \label{eq:v_func}
 \end{equation}
 これを<strong>状態価値関数</strong>(あるいは単に<strong>価値関数</strong>)と呼ぶ。
@@ -116,7 +116,7 @@ V^{\pi}(s) = E[G_t|s_t=s] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s]
 
 <p>同様に、状態だけでなく、行動についても条件として
 \begin{equation}
-Q^{\pi}(s,a) = E[G_t|s_t=s, a_t=a] = E[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s, a_t = a]
+Q^{\pi}(s,a) = \mathbb{E}[G_t|s_t=s, a_t=a] = \mathbb{E}[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s, a_t = a]
 \label{eq:q_func}
 \end{equation}
 も考える。これを、<strong>行動価値関数</strong> と呼ぶ。</p>
@@ -130,13 +130,13 @@ Q^{*}(s,a) = Q^{\pi^{*}}(s,a) = \max_{\pi} Q^{\pi}(s,a)
 
 <h2 id="ベルマン方程式の導出">ベルマン方程式の導出</h2>
 
-<p>\eqref{eq:v_func}式において$E[*]$は線形の演算のため、</p>
+<p>\eqref{eq:v_func}式において$\mathbb{E}[*]$は線形の演算のため、</p>
 
 <p>\begin{equation}
 \begin{aligned}
-V^{\pi}(s) &amp;=&amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
-&amp;=&amp; E[R_{t+1}\ | s_t = s] + E[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
-&amp;=&amp; E[R_{t+1}\ | s_t = s] + \gamma E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+V^{\pi}(s) &amp;=&amp;  \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
+&amp;=&amp; \mathbb{E}[R_{t+1}\ | s_t = s] + \mathbb{E}[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
+&amp;=&amp; \mathbb{E}[R_{t+1}\ | s_t = s] + \gamma \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
 \end{aligned}
 \label{eq:q_func_trans}
 \end{equation}</p>
@@ -147,7 +147,7 @@ V^{\pi}(s) &amp;=&amp;  E[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br
 
 <p>\begin{equation}
 \begin{aligned}
-E[R_{t+1}\ | s_t = s]
+\mathbb{E}[R_{t+1}\ | s_t = s]
 =\sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s, a) r(s, a, s&rsquo;)
 \end{aligned}
 \label{eq:q_func_trans_1}
@@ -160,9 +160,9 @@ $s_t=s$において行動$a$を取る確率が$\pi(a,|s)$、状態遷移して$s
 <p>次に、\eqref{eq:q_func_trans}式右辺第2項は
 \begin{equation}
 \begin{aligned}
-E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\<br />
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) E[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\<br />
+\mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\<br />
+&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\<br />
 &amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) V^{\pi}(s&rsquo;)
 \end{aligned}
 \label{eq:q_func_trans_2}
