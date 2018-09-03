@@ -1063,6 +1063,14 @@
   </url>
   
   <url>
+    <loc>http://blog.syundo.org/404/</loc>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/about/</loc>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/categories/apache/</loc>
     <lastmod>2015-04-12T23:19:51+09:00</lastmod>
     <priority>0</priority>

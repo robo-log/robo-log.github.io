@@ -1,150 +1,1516 @@
-
 <!DOCTYPE html>
 <html lang="ja">
-<head>
 
-  
-  <meta charset="UTF-8">
-  <title>
-    なんか出るココ！ | ROBO LOG
-  </title>
+<head><style>
+body {
+	display: block;
+	--colorBG: "#40e0d0, #ff8c00, #ff0080";
+		background-image: var(--bgImage) !important;
+	
+}
 
+body, body.pushable {
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover !important;
+}
 
-  
-  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+</style><title>
+なんか出るココ！
+</title><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="きゅんどう @ksyundo" />
+	<meta name="description" content="なんか弟が書いててくれたので補足。一応このブログは弟とのロボット関連共用になってるらしいですよ？弟と仲がいいねー。ですって？いやー。彼はKHR-1買う時にお金出してくれましたからねー。いやー。僕が信じているのはこれだけですよ・・・・・・ﾌﾌ。（人差指と、親指でわっかを作り、ほかの指をのばし手のひらが天井に向くように、胸の前で手を固定。眉毛は下げ、やらしい笑みをうかべる）
+さて補足。
+電池はニッケル水素。2300mAh、十個で約四千円。若松で買いました。
+容量の割に完成品より安くて夢のようなんですが、ハンダ付けが怖い。「ば、爆発しちまう・・・・・・っ！！」という機動戦士のキャノンのひとのセリフが頭をよぎります。
+充電器は秋月で。急速充電でいいのか不安な急速充電器です。ほんとに小一時間で完了しちゃいます。急速との切り替えができるようにスイッチつけてみようかな。
+で、題名の、なんか出るココ。についてですが、やっと練習会に出ることにしました。
+ロボットバトルin大同工業大学　に出ます。
+まだ歩けてないけど！！！やばいやん。なんとかしてー。
+休日は宿題の消化に追われてしまいまつ。集中力がたりないんだよなー。" />
+<meta name="generator" content="Hugo 0.48" />
 
-  
-  <link rel="canonical" href="http://blog.syundo.org/post/679/"/>
+<link rel="shortcut icon" href="/img/defaultFav.ico">
 
-  
-  <link rel="stylesheet" href="/css/sanitize.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/highlight_monokai.css">
-  <link rel="stylesheet" href="/css/theme.css">
-  <link rel="stylesheet" href="/css/custom.css">
-  
-  
-  <link href="http://blog.syundo.orgindex.xml" rel="alternate" type="application/rss+xml" title="ROBO LOG" />
-  <link href="http://blog.syundo.orgindex.xml" rel="feed" type="application/rss+xml" title="ROBO LOG" />
-
-  
-  <script type="text/javascript">var switchTo5x=true;</script>
-  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-  <script type="text/javascript">stLight.options({publisher: "2b9fffc6-b3fe-4988-a0ef-4f9dcce98eaa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
-
-
+<link rel="canonical" href="http://blog.syundo.org/post/679/" />
+<link rel="alternative" href="/index.xml" title="ROBO LOG" type="application/atom+xml"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<style>
+body.pushable {
+	display: block;
+		background-image: var(--bgImage) !important;
+	 ;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/css/site.css">
+<script>
+	var colorBG =  false 
+	var enabledPost = true
+	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
+</script>
 </head>
 
+<body><script>
+var prevBgIndex = 0;
+var bodyBgSwitchIndex = 0;
+		var bgImage = "url(" +  null  + ")"
+	
+	console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length));
+	document.body.style.setProperty('--blurEff', null );
+	document.body.style.setProperty('--bgImage', bgImage);
 
+	function getRandomInt(min, max) {
+	  min = Math.ceil(min)
+	  max = Math.floor(max)
+	  var random
+	  while (1) {
+	    random = Math.floor(Math.random() * (max - min)) + min
+	    if (random !== prevBgIndex) {
+	      prevBgIndex = random
+	      break
+	    }
+	  }
+	  return random
+	}
 
-<body>
-<div class="container">
+	function connect(arr) {
+	  var str = ''
+	  for (var i = 0; i < arr.length; i++) {
+	    if (i !== arr.length - 1) {
+	      str += arr[i] + ', '
+	    } else {
+	      str += arr[i]
+	    }
+	  }
+	  return str
+	}
+</script><div class="blur-overlay"></div><div id="sidebar" class="ui sidebar inverted vertical menu">
+	<section id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image"><img src="/img/avatar3.svg">
+</div>
+<h3 class="ui header">きゅんどう @ksyundo
+	<div class="sub header">A keen maker, programmer and an Instructables author.</div>
+</h3>
+</section>
+	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
+		<div class="ui inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/apache">apache</a>
+</div>
+<div class="content">
 
-  
-  <header role="banner">
-    <div class="row gutters">
-      <div id="site-title" class="col span_6">
-        <h1><a href="http://blog.syundo.org">ROBO LOG</a></h1>
-        <h2>つくりたいものをつくる</h2>
-      </div>
-      <div id="social" class="col span_6">
-        <ul>
-          <li><a href="https://twitter.com/ksyundo" target="_blank">Twitter</a></li>
-          
-          <li><a href="https://github.com/syundo0730" target="_blank">GitHub</a></li>
-          
-        </ul>
-      </div>
-    </div>
-  </header>
+	<a class="item" href="http://blog.syundo.org/post/1072/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>WordpressをロリポップからDigital Oceanに移した</p>
+		</div>
+	</a>
 
-
-  
-  <main id="single" role="main">
-    <div class="article-header">
-      <h1>なんか出るココ！</h1>
-      <div class="meta">
-        Jul 16, 2007 &nbsp;
-        
-      </div>
-    </div>
-    <article>
-      <p>なんか弟が書いててくれたので補足。一応このブログは弟とのロボット関連共用になってるらしいですよ？弟と仲がいいねー。ですって？いやー。彼はKHR-1買う時にお金出してくれましたからねー。いやー。僕が信じているのはこれだけですよ・・・・・・ﾌﾌ。（人差指と、親指でわっかを作り、ほかの指をのばし手のひらが天井に向くように、胸の前で手を固定。眉毛は下げ、やらしい笑みをうかべる）</p>
-
-<p>さて補足。</p>
-
-<p>電池はニッケル水素。2300mAh、十個で約四千円。若松で買いました。<br />容量の割に完成品より安くて夢のようなんですが、ハンダ付けが怖い。「ば、爆発しちまう・・・・・・っ！！」という機動戦士のキャノンのひとのセリフが頭をよぎります。</p>
-
-<p>充電器は秋月で。急速充電でいいのか不安な急速充電器です。ほんとに小一時間で完了しちゃいます。急速との切り替えができるようにスイッチつけてみようかな。</p>
-
-<p>で、題名の、なんか出るココ。についてですが、やっと練習会に出ることにしました。<br />ロボットバトルin大同工業大学　に出ます。<br />まだ歩けてないけど！！！やばいやん。なんとかしてー。</p>
-
-<p>休日は宿題の消化に追われてしまいまつ。集中力がたりないんだよなー。</p>
-
-<p></p>
-
-      
-      
-      <div id="share-this" class="col span_10">
-        <span class='st_twitter_large' displayText='Tweet'></span>
-        <span class='st_facebook_large' displayText='Facebook'></span>
-        <span class='st_googleplus_large' displayText='Google +'></span>
-        <span class='st_pocket_large' displayText='Pocket'></span>
-        <span class='st_sharethis_large' displayText='ShareThis'></span>
-        <span class='st_email_large' displayText='Email'></span>  
-      </div>
-    </article>
-    
- <aside><div id="disqus_thread"></div></aside> 
-
-<script type="text/javascript">
-     
-    var disqus_shortname = 'robolog';
-
-     
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-  </main>
-  
-  <nav class="pagination">
-    
-      <span class="previous">&larr; <a href="http://blog.syundo.org/post/678/" rel="prev">訂正</a></span>
-    
-    
-      <span class="next"><a href="http://blog.syundo.org/post/680/" rel="next">とっぷらんなー</a> &rarr;</span>
-    
-  </nav>
-
-
-  
-  <footer role="contentinfo">
-    <div style="text-align:center;">
-      <img src="/images/profile.jpeg" width="64" height="64"><br>
-      Written by Shundo Kishi
-    </div>
-  </footer>
-
+	<a class="item" href="http://blog.syundo.org/post/948/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>XAMPPのエイリアス設定</p>
+		</div>
+	</a>
 
 </div>
 
-<script src="/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/beagleboneblack">beagleboneblack</a>
+</div>
+<div class="content">
 
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-21014159-4', 'auto');
-	ga('send', 'pageview');
-</script>
+	<a class="item" href="http://blog.syundo.org/post/1033/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</p>
+		</div>
+	</a>
 
+	<a class="item" href="http://blog.syundo.org/post/971/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/cnc">cnc</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1111/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットを吊るアームを作った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1009/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　USBCNCで使う</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/852/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　設定編2</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/849/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　設定編</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/848/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　購入編</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/cpp">cpp</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1154/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>C&#43;&#43;初心者会に参加してきた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1143/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>できるだけconstexprを使おう</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/haskell">haskell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1162/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Haskellで高階関数を組み合わせて部分文字列を作る例が全然わからなかったから考えた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1128/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Haskellを入れる</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/hew">hew</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/890/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ルネサスHEWの使い方</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/hugo">hugo</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1140/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ブログも静的ページにしたらどうか</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/inventor">inventor</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/785/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>InventorのシートメタルからDXFの書き出し</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/pepper">pepper</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/984/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Pepper Tech Festival 2014に行ってきた</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2">アナスタシア</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/753/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>形がみえてきた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/752/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/751/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>加工経路</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/750/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっと</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/749/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>軌道戦士バンナム</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%82%BB%E3%83%B3%E3%82%B5">センサ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/895/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひずみゲージとその利用法</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/843/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>距離センサ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/882/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ジャイロセンサ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/881/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>加速度センサ</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0">デバッグ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/877/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RAMデバッグ(sh7125)</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B">ロボット紹介</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/891/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>正直舐めてた「X-RHex」</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/887/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>6足ロボット「X-RHex」</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E6%9C%AA%E5%88%86%E9%A1%9E">未分類</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1131/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ドコモを解約してIIJのみおふぉんにMNP転入した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1068/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近どうしているかということとROBO－ONEはどうだったかという話</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1090/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>機械学習プロフェッショナルシリーズ第1弾から2冊買った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/955/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2013年の振り返り</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/925/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>第23回ROBO-ONEに行ってきました</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/784/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>第22回ROBO-ONE</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/782/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/781/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>今年</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/851/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>[C&#43;&#43;]CSVファイルの読み込み</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/850/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>[C&#43;&#43;]1次元配列を3次元配列に整形する</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/778/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>倒立振子など</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/777/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2012謹賀新年</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/776/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットバトルin名古屋モーターショー観戦、中部ロボット忘年会</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/775/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>作業進んでなくても記事が書ける、だってASIMOの新型が出たんだもの</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/774/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>鳥人間→船場ロボコン</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/773/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あおいは！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/918/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>人形みたいな写真とかあるから注意</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/894/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>C言語のポインタについてまとめ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/772/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>サーボQ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/893/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>SH7125でPWM12本生成</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/771/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>非直交軸の逆キネ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/770/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>掲載場所移動のおしらせ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/884/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2足歩行ロボットキット一覧</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/880/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットの構成要素</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/769/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うっうー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/768/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます2011</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/767/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>OH～波、ばんばばんばん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/766/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ミニミニミクロ電子・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/765/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>溢れてくるのはこの気持ち</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/764/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぐるぐる使い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/763/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>山河あり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/762/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>your best clock</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/761/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近怠けすぎ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/760/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>この気持ちを今あえて言葉にするなら･･･</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/759/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>記者の善永と申します</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/758/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>角度計測</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/916/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>縮小粘土物語</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/915/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>パブロフの犬だ！パブロフの犬だ！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/757/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>おお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/914/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>部屋中粉だらけ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/913/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>船場ロボットファッションコンテスト及びパレード</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/756/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>船場ロボコン・パレード</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/755/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いてきま</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/754/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>せんばろぼこん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/912/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お洋服買った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/911/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>外装被せてみた。</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/910/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程５</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/909/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程４</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/908/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程３</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/907/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程２</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/906/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/905/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>設計だす</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/904/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はじまり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/748/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>絶望した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/746/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットのためのC言語</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/745/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>首が無いんだ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/744/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>動画紹介</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/743/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>辛いが旨い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/738/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やがて洪水がすべて夜の青の色に染めていくように</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/737/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>サーボ描いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/736/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>仮想パーティ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/735/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近読んだ本</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/734/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>泥沼から逃れる</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/733/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>倉庫</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/732/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ゾロ目見過ごし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/731/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>メリクリ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/730/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あわや</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/729/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ビルドできないとき</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/728/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やりたくねーったらやりたくねー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/727/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>算数のお時間</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/726/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うわー全然更新してない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/725/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Vstone速すぎ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/724/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっぱギリギリ（笑</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/723/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんかギリギリ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/722/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>更新したお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/720/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ちょｗｗｗローゼン凄すぎｗｗ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/719/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あまりにもショックだったから試験期間中のブログ更新禁止ルールを破った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/718/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>まいっちんぐ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/717/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>アニメじゃなくないしホントのことでもない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/716/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>おお眠い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/715/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/714/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>雛[hina]ちゃん週間ランク1位！！！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/713/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんというかデカルチャー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/712/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>頭が無いのは自分</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/711/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なかなか進まぬ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/708/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>3DCAD</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/707/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>まさにムダ状態！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/705/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RAMデバッグとか</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/703/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>HEW･･････なんて頼もしいの！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/701/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>アルミ塗装法</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/700/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/696/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>戦力確認</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/695/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>釈迦はいいひとだったから！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/694/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>仮定</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/693/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>帯鋸</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/692/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うまくいきました・・・・・・が</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/691/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うんざり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/690/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまたーりと(5)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/689/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>KRC-1&#43;KRR-1からの信号読み取り成功</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/688/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>つーてんかくの本棚</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/687/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>さようならさようならこんな遠い異国の果てでお別れするなんて本当に辛い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/686/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>宿題が倒せない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/685/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>自重汁！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/684/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>遅れた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/683/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いってくるお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/682/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまたーりと(4)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/681/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>月曜日なのに機嫌悪いのどうするよ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/680/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>とっぷらんなー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/679/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんか出るココ！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/678/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>訂正</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/677/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>バッテリー（あさのあつこ著ではない）</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/676/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと(3)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/675/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>色ついた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/674/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと(2)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/673/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/672/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/671/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>黄泉かえる</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/670/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>本</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/669/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>生存報告</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/668/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひとよひとよに</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/667/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新兵器は化けも！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/666/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>無題です</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/665/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひさし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/664/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/663/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぺ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/662/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>とほほ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/661/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なぜなぜ？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/660/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>涼宮ハルヒのＫＨＲ－1</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/659/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いいタイトル思いつかない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/658/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぬーん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/657/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっと終わったぜ・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/656/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はぁ・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/655/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>先生</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/654/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>近状</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/653/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB 動いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/652/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>フフフ・・・（なにやら不敵な笑み）</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/651/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あ、でけた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/650/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あふああ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/649/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>こ・ま・ん・ど？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/648/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>誕生日</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/647/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なぜ？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/646/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いっきに</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/645/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>野望（なんだか恥ずかしくなってきたので改題</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/643/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>プログラムしてみたお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/642/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>初めてユニバーサル基盤で</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/640/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>もうすこし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/639/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>超入門で・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/638/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>プレセット電圧に注意</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/637/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットってそもそも・・・・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/636/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>報告</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/634/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットの進化</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/632/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はじめまして</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E9%9B%91%E8%A8%98">雑記</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/961/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/896/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お掃除ロボットルンバ購入ガイド</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/892/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>NINTENDO3DSレビュー</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+	</section>
+	
+	
+	<section id="footer" class="ui bottom attached center aligned inverted segment">
+<p>© 2018 ROBO LOG</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -159,7 +1525,1609 @@
   });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</section>
+</div>
+<div class="pusher">
+		<div class="flipper">
+			<div class="front">
+<nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title=""></i>
+	</div><div class="item">
+		<a href="/">
+			<i class="inverted big link home icon" title="Home"></i>
+		</a>
+	</div>
+	<div class="item">
+		<a href="/post">
+			<i class="inverted big link archive icon" title=""></i>
+		</a>
+	</div>
+	<div class="item">
+		<a href="/tags">
+			<i class="inverted big link tags icon" title=""></i>
+		</a>
+	</div>
+	<div class="item">
+		<a href="/categories">
+			<i class="inverted big link cubes icon" title=""></i>
+		</a>
+    </div>
+	<div class="ui container tablet computer only grid">
+		<div class="item" onClick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+			<i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+		</div>
+	</div>
+	
+</nav>
+
+<div class="ui centered grid">
+	<div class="sixteen wide mobile only column"><div class="ui inverted accordion">
+	<div id="header" class="ui inverted segment column box">
+		<header id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image"><img src="/img/avatar1.svg">
+</div>
+<h3 class="ui header">きゅんどう @ksyundo
+	<div class="sub header">A keen maker, programmer and an Instructables author.</div>
+</h3>
+</header>
+		<div class=" title header-title"><div id="tag-category-pop" class="ui red right corner label">		
+				<i class="hand point icon down"title=""></i>		
+			</div></div>
+		<div id="tag-category" class=" content"><section class="ui attached inverted segment dream-categories both flexbox">
+			<div class="inverted accordion">
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/apache">apache</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1072/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>WordpressをロリポップからDigital Oceanに移した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/948/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>XAMPPのエイリアス設定</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/beagleboneblack">beagleboneblack</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1033/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/971/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/cnc">cnc</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1111/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットを吊るアームを作った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1009/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　USBCNCで使う</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/852/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　設定編2</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/849/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　設定編</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/848/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>中華CNC CNC3020導入記　購入編</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/cpp">cpp</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1154/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>C&#43;&#43;初心者会に参加してきた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1143/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>できるだけconstexprを使おう</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/haskell">haskell</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1162/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Haskellで高階関数を組み合わせて部分文字列を作る例が全然わからなかったから考えた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1128/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Haskellを入れる</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/hew">hew</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/890/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ルネサスHEWの使い方</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/hugo">hugo</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1140/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ブログも静的ページにしたらどうか</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/inventor">inventor</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/785/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>InventorのシートメタルからDXFの書き出し</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/pepper">pepper</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/984/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Pepper Tech Festival 2014に行ってきた</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2">アナスタシア</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/753/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>形がみえてきた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/752/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/751/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>加工経路</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/750/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっと</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/749/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>軌道戦士バンナム</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%82%BB%E3%83%B3%E3%82%B5">センサ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/895/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひずみゲージとその利用法</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/843/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>距離センサ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/882/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ジャイロセンサ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/881/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>加速度センサ</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%83%87%E3%83%90%E3%83%83%E3%82%B0">デバッグ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/877/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RAMデバッグ(sh7125)</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E7%B4%B9%E4%BB%8B">ロボット紹介</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/891/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>正直舐めてた「X-RHex」</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/887/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>6足ロボット「X-RHex」</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E6%9C%AA%E5%88%86%E9%A1%9E">未分類</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/1131/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ドコモを解約してIIJのみおふぉんにMNP転入した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1068/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近どうしているかということとROBO－ONEはどうだったかという話</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/1090/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>機械学習プロフェッショナルシリーズ第1弾から2冊買った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/955/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2013年の振り返り</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/925/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>第23回ROBO-ONEに行ってきました</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/784/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>第22回ROBO-ONE</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/782/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/781/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>今年</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/851/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>[C&#43;&#43;]CSVファイルの読み込み</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/850/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>[C&#43;&#43;]1次元配列を3次元配列に整形する</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/778/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>倒立振子など</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/777/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2012謹賀新年</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/776/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットバトルin名古屋モーターショー観戦、中部ロボット忘年会</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/775/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>作業進んでなくても記事が書ける、だってASIMOの新型が出たんだもの</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/774/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>鳥人間→船場ロボコン</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/773/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あおいは！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/918/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>人形みたいな写真とかあるから注意</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/894/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>C言語のポインタについてまとめ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/772/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>サーボQ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/893/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>SH7125でPWM12本生成</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/771/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>非直交軸の逆キネ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/770/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>掲載場所移動のおしらせ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/884/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>2足歩行ロボットキット一覧</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/880/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットの構成要素</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/769/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うっうー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/768/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます2011</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/767/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>OH～波、ばんばばんばん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/766/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ミニミニミクロ電子・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/765/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>溢れてくるのはこの気持ち</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/764/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぐるぐる使い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/763/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>山河あり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/762/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>your best clock</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/761/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近怠けすぎ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/760/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>この気持ちを今あえて言葉にするなら･･･</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/759/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>記者の善永と申します</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/758/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>角度計測</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/916/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>縮小粘土物語</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/915/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>パブロフの犬だ！パブロフの犬だ！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/757/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>おお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/914/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>部屋中粉だらけ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/913/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>船場ロボットファッションコンテスト及びパレード</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/756/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>船場ロボコン・パレード</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/755/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いてきま</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/754/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>せんばろぼこん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/912/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お洋服買った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/911/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>外装被せてみた。</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/910/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程５</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/909/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程４</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/908/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程３</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/907/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程２</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/906/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お人形制作過程</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/905/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>設計だす</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/904/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はじまり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/748/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>絶望した</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/746/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットのためのC言語</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/745/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>首が無いんだ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/744/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>動画紹介</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/743/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>辛いが旨い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/738/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やがて洪水がすべて夜の青の色に染めていくように</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/737/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>サーボ描いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/736/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>仮想パーティ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/735/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>最近読んだ本</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/734/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>泥沼から逃れる</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/733/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>倉庫</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/732/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ゾロ目見過ごし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/731/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>メリクリ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/730/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あわや</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/729/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ビルドできないとき</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/728/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やりたくねーったらやりたくねー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/727/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>算数のお時間</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/726/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うわー全然更新してない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/725/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Vstone速すぎ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/724/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっぱギリギリ（笑</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/723/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんかギリギリ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/722/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>更新したお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/720/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ちょｗｗｗローゼン凄すぎｗｗ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/719/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あまりにもショックだったから試験期間中のブログ更新禁止ルールを破った</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/718/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>まいっちんぐ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/717/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>アニメじゃなくないしホントのことでもない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/716/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>おお眠い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/715/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/714/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>雛[hina]ちゃん週間ランク1位！！！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/713/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんというかデカルチャー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/712/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>頭が無いのは自分</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/711/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なかなか進まぬ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/708/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>3DCAD</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/707/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>まさにムダ状態！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/705/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RAMデバッグとか</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/703/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>HEW･･････なんて頼もしいの！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/701/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>アルミ塗装法</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/700/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/696/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>戦力確認</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/695/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>釈迦はいいひとだったから！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/694/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>仮定</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/693/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>帯鋸</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/692/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うまくいきました・・・・・・が</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/691/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>うんざり</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/690/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまたーりと(5)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/689/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>KRC-1&#43;KRR-1からの信号読み取り成功</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/688/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>つーてんかくの本棚</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/687/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>さようならさようならこんな遠い異国の果てでお別れするなんて本当に辛い</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/686/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>宿題が倒せない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/685/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>自重汁！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/684/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>遅れた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/683/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いってくるお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/682/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまたーりと(4)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/681/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>月曜日なのに機嫌悪いのどうするよ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/680/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>とっぷらんなー</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/679/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なんか出るココ！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/678/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>訂正</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/677/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>バッテリー（あさのあつこ著ではない）</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/676/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと(3)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/675/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>色ついた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/674/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと(2)</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/673/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB-1を攻略しようぜまた-りと</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/672/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>届いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/671/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>黄泉かえる</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/670/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>本</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/669/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>生存報告</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/668/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひとよひとよに</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/667/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>新兵器は化けも！！</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/666/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>無題です</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/665/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ひさし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/664/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/663/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぺ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/662/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>とほほ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/661/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なぜなぜ？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/660/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>涼宮ハルヒのＫＨＲ－1</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/659/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いいタイトル思いつかない</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/658/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ぬーん</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/657/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>やっと終わったぜ・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/656/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はぁ・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/655/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>先生</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/654/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>近状</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/653/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>RCB 動いた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/652/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>フフフ・・・（なにやら不敵な笑み）</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/651/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あ、でけた</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/650/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あふああ</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/649/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>こ・ま・ん・ど？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/648/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>誕生日</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/647/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>なぜ？</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/646/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>いっきに</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/645/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>野望（なんだか恥ずかしくなってきたので改題</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/643/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>プログラムしてみたお</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/642/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>初めてユニバーサル基盤で</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/640/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>もうすこし</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/639/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>超入門で・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/638/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>プレセット電圧に注意</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/637/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットってそもそも・・・・・・</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/636/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>報告</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/634/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>ロボットの進化</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/632/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>はじめまして</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E9%9B%91%E8%A8%98">雑記</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/961/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>あけましておめでとうございます</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/896/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>お掃除ロボットルンバ購入ガイド</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/892/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>NINTENDO3DSレビュー</p>
+		</div>
+	</a>
+
+</div>
+
+</div>
+			</section></div>
+		<footer class="ui bottom attached center aligned inverted segment">
+<p>© 2018 ROBO LOG</p>
+    
+<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    displayAlign: "left",
+    displayIndent: "2em",
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    TeX: { equationNumbers: { autoNumber: "AMS" }}
+  });
+  MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+  });
+  MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</footer>
+	</div>
+</div></div>
+	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+		<section class="ui secondary top attached black segment post-head">
+			<h1 class="post-title">
+				なんか出るココ！
+			</h1>
+			<div class="sub header">
+					<div><span><i class="calendar outline icon"></i>Jul 16, 2007</span></div><div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://blog.syundo.org/post/679/#disqus_thread" class="disqus-comment-count" data-disqus-identifier="688997b4ba4c03127a12c57e75fc8e9c"></a></span></div>
+					<div><span><i class="clock outline icon"></i>1 min read</span></div>
+					<div><span><i class="angle double up icon"></i> Jul 16, 2007</span></div>
+			</div>
+			<hr>
+			
+			<article class="post-content twemoji">
+				<p>なんか弟が書いててくれたので補足。一応このブログは弟とのロボット関連共用になってるらしいですよ？弟と仲がいいねー。ですって？いやー。彼はKHR-1買う時にお金出してくれましたからねー。いやー。僕が信じているのはこれだけですよ・・・・・・ﾌﾌ。（人差指と、親指でわっかを作り、ほかの指をのばし手のひらが天井に向くように、胸の前で手を固定。眉毛は下げ、やらしい笑みをうかべる）</p>
+
+<p>さて補足。</p>
+
+<p>電池はニッケル水素。2300mAh、十個で約四千円。若松で買いました。<br />容量の割に完成品より安くて夢のようなんですが、ハンダ付けが怖い。「ば、爆発しちまう・・・・・・っ！！」という機動戦士のキャノンのひとのセリフが頭をよぎります。</p>
+
+<p>充電器は秋月で。急速充電でいいのか不安な急速充電器です。ほんとに小一時間で完了しちゃいます。急速との切り替えができるようにスイッチつけてみようかな。</p>
+
+<p>で、題名の、なんか出るココ。についてですが、やっと練習会に出ることにしました。<br />ロボットバトルin大同工業大学　に出ます。<br />まだ歩けてないけど！！！やばいやん。なんとかしてー。</p>
+
+<p>休日は宿題の消化に追われてしまいまつ。集中力がたりないんだよなー。</p>
+
+<p></p>
+
+			</article>
+		</section>
+		<section class="ui secondary attached segment dream-tags">
+			<span></span>
+			
+		</section><section class="ui secondary  attached segment share row box">
+	
+
+<div class="author"><img class="avatar" src="/img/avatar3.svg">
+	
+</div>
+<div class="info grow flexbox">
+	<p class="name">きゅんどう @ksyundo</p>
+	<p class="desc">A keen maker, programmer and an Instructables author.</p>		
+</div>
+<section class="buttons row box">
+	<div class="facebook none flexbox" href="#" onclick="window.open(
+			'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+			'facebook-share-dialog',
+			'width=626,height=436'); return false;">
+		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+	</div>
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;なんか出るココ！ &quot; by @ksyundo http:\/\/blog.syundo.org\/post\/679\/','_self')">
+		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
+	</div>
+</section>
+</section>
+		<section class="ui secondary attached segment copyright">
+			
+		</section>
+		<div class="ui secondary bottom attached stacked segment disqus"><div id="disqus_thread"></div>
+<script>
+	var disqus_config = function () {
+		this.page.url = 'http:\/\/blog.syundo.org\/post\/679\/';
+		this.page.identifier = '688997b4ba4c03127a12c57e75fc8e9c';
+	};
+	(function() {
+   	var d = document, s = d.createElement('script');
+   	s.src = 'https://' + 'robolog' + '.disqus.com/embed.js';
+   	s.setAttribute('data-timestamp', +new Date());
+   	(d.head || d.body).appendChild(s);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+		
+	</div>
+</div>
+
+			</div>
+			<div class="back"><nav class="ui top secondary menu bar">
+	<div class="item">
+		<i class="inverted big link bullseye icon dream-flip-toggle" title=""></i>
+	</div><div class="item">
+	<a href="https://github.com/syundo0730" target="_blank">
+		<i id="ico" class="inverted big link github icon" title="GitHub"></i>
+	</a>
+</div>
+<div class="item">
+	<a href="https://twitter.com/ksyundo" target="_blank">
+		<i id="ico" class="inverted big link twitter icon" title="Twitter"></i>
+	</a>
+</div>
+
+</nav>
+<div class="ui centered grid about">
+	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+		<section class="ui stacked segments"><div class="ui inverted segment">
+	<article class="twemoji"><h1>So, Who Am I?</h1>
+
+<hr />
+
+<p><br>
+I&rsquo;m ksyundo.
+<br>
+My Site: <a href="http://syundo.org">http://syundo.org</a></article>
+</div></section>
+	</div>
+</div></div>
+		</div>
+	</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
+<script id="dsq-count-scr" src="//robolog.disqus.com/count.js" async></script>
+
+<script>
+	(function () {
+	  console.log("Twemoji up and making stuff colourful!");
+	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
+		twemoji.parse(b[a]);
+	  }
+	})();
+</script>
 
 </body>
-</html>
 
+</html>
