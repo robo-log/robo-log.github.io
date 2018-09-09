@@ -27,7 +27,8 @@ M5Stack Gray で無線IMU  https://github.com/m5stack/M5Stack/blob/master/exampl
 sdptool browse  そして以下でrfcomm0に対応付ける。この場合はアドレスが84:0D:8E:20:49:BE、チャンネルが2であった。
 sudo rfcomm bind 0 84:0D:8E:20:49:BE 2  ちゃんと送られているか、試しにscreenで見てみる。
 screen /dev/rfcomm0  catとechoを使っても送受信できる。
-cat /dev/rfcomm0  echo &amp;quot;Hello World&amp;quot; &amp;gt; /dev/rfcomm0  pythonで受信してみる まとめ M5Stack、あらゆるプロトタイピングの場面で活躍しそう。 特にいわゆるIoTのものを作るのに取っ掛かりとして最高だと思う。 願わくばお値段が5000円くらいするのを2000円にしてくれたら泣いて喜ぶ。</description>
+cat /dev/rfcomm0  echo &amp;quot;Hello World&amp;quot; &amp;gt; /dev/rfcomm0  pythonで受信してみる 受け取ったデータをcsvとかに書き出せると便利だと思うので、pythonで受け取ったデータをcsvに保存するやつ書きました。 モーションの解析とかできそう。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55  import time import datetime import serial import pandas as pd class IMUBTRecorder: def __init__(self, port, baudrate): self.</description>
     </item>
     
   </channel>
