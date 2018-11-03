@@ -30,11 +30,29 @@
     </item>
     
     <item>
+      <title>Ddp</title>
+      <link>http://blog.syundo.org/tags/ddp/</link>
+      <pubDate>Mon, 17 Sep 2018 15:22:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/tags/ddp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Esp32</title>
       <link>http://blog.syundo.org/tags/esp32/</link>
       <pubDate>Sat, 08 Sep 2018 15:26:57 +0900</pubDate>
       
       <guid>http://blog.syundo.org/tags/esp32/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ilqr</title>
+      <link>http://blog.syundo.org/tags/ilqr/</link>
+      <pubDate>Mon, 17 Sep 2018 15:22:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/tags/ilqr/</guid>
       <description></description>
     </item>
     
@@ -71,6 +89,15 @@
       <pubDate>Sat, 08 Sep 2018 15:26:57 +0900</pubDate>
       
       <guid>http://blog.syundo.org/tags/mpu-9250/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slq</title>
+      <link>http://blog.syundo.org/tags/slq/</link>
+      <pubDate>Mon, 17 Sep 2018 15:22:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/tags/slq/</guid>
       <description></description>
     </item>
     

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.syundo.org/post/20180917-ddp-ilqr-slq/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</loc>
     <lastmod>2018-09-08T15:26:57+09:00</lastmod>
   </url>
@@ -1118,6 +1123,12 @@
   </url>
   
   <url>
+    <loc>http://blog.syundo.org/tags/ddp/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/tags/esp32/</loc>
     <lastmod>2018-09-08T15:26:57+09:00</lastmod>
     <priority>0</priority>
@@ -1138,6 +1149,12 @@
   <url>
     <loc>http://blog.syundo.org/categories/hugo/</loc>
     <lastmod>2015-05-14T01:27:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/ilqr/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1185,19 +1202,31 @@
   
   <url>
     <loc>http://blog.syundo.org/post/</loc>
-    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/slq/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.syundo.org/tags/</loc>
     <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%81%BE%E3%81%A8%E3%82%81/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
     <priority>0</priority>
   </url>
   

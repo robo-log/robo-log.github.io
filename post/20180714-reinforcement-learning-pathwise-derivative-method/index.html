@@ -16,7 +16,7 @@ body, body.pushable {
 }
 
 </style><title>
-方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)
+pathwise derivative method: Stocastic Value Gradient(SVG), (Deep) Deterministic Policy Gradient(DPG/DDPG)
 </title><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,7 +27,7 @@ body, body.pushable {
 \begin{equation} \nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)] = \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)] \end{equation} を計算する。
 後者の場合、後述するre-parametrization trickを使って
 \begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続であるとしている。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。 また、$f$は微分可能であるものとして、勾配が0にならないようにする。
-SVG MDPとベルマン方程式 で導出したベルマン方程式において、終端状態を表現するためだけに事変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。 このとき、連続空間におけるベルマン方程式は以下のようになる。
+Stocastic Value Gradient(SVG) MDPとベルマン方程式 で導出したベルマン方程式において、終端状態を表現するためだけに時変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。 このとき、連続空間におけるベルマン方程式は以下のようになる。
 \begin{equation} V^{(t)}(s) = \int [ r^{(t)} &#43; \gamma \int V^{(t&#43;1)} (s&amp;rsquo;)p(s&amp;rsquo;|s, a)ds&amp;rsquo; ] p(a|s;\theta) da \label{eq:belman_continus} \end{equation}" />
 <meta name="generator" content="Hugo 0.48" />
 
@@ -97,7 +97,11 @@ var bodyBgSwitchIndex = 0;
 
 <a class="ui label" href="/tags/bluetooth" title="bluetooth">bluetooth</a>
 
+<a class="ui label" href="/tags/ddp" title="ddp">ddp</a>
+
 <a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/ilqr" title="ilqr">ilqr</a>
 
 <a class="ui label" href="/tags/imu" title="imu">imu</a>
 
@@ -106,6 +110,8 @@ var bodyBgSwitchIndex = 0;
 <a class="ui label" href="/tags/m5stack-gray" title="m5stack-gray">m5stack-gray</a>
 
 <a class="ui label" href="/tags/mpu-9250" title="mpu-9250">mpu-9250</a>
+
+<a class="ui label" href="/tags/slq" title="slq">slq</a>
 
 </section>
 	<section class="ui attached inverted segment sidebar-dream-categories both flexbox">
@@ -296,6 +302,21 @@ var bodyBgSwitchIndex = 0;
 		<div>
 			<i class="cocktail icon"></i>
 			<p>Pepper Tech Festival 2014に行ってきた</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/20180917-ddp-ilqr-slq/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Differential Dynamic Programming(DDP)/iterative LQR(iLQR)/Sequential LQR(SLQ)</p>
 		</div>
 	</a>
 
@@ -1623,7 +1644,11 @@ if (!doNotTrack) {
 
 <a class="ui label" href="/tags/bluetooth" title="bluetooth">bluetooth</a>
 
+<a class="ui label" href="/tags/ddp" title="ddp">ddp</a>
+
 <a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+
+<a class="ui label" href="/tags/ilqr" title="ilqr">ilqr</a>
 
 <a class="ui label" href="/tags/imu" title="imu">imu</a>
 
@@ -1632,6 +1657,8 @@ if (!doNotTrack) {
 <a class="ui label" href="/tags/m5stack-gray" title="m5stack-gray">m5stack-gray</a>
 
 <a class="ui label" href="/tags/mpu-9250" title="mpu-9250">mpu-9250</a>
+
+<a class="ui label" href="/tags/slq" title="slq">slq</a>
 
 </section><section class="ui attached inverted segment dream-categories both flexbox">
 					<div class="inverted accordion">
@@ -1821,6 +1848,21 @@ if (!doNotTrack) {
 		<div>
 			<i class="cocktail icon"></i>
 			<p>Pepper Tech Festival 2014に行ってきた</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/20180917-ddp-ilqr-slq/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>Differential Dynamic Programming(DDP)/iterative LQR(iLQR)/Sequential LQR(SLQ)</p>
 		</div>
 	</a>
 
@@ -3099,7 +3141,7 @@ if (!doNotTrack) {
 	<div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
 		<section class="ui secondary top attached black segment post-head">
 			<h1 class="post-title">
-				方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient)
+				pathwise derivative method: Stocastic Value Gradient(SVG), (Deep) Deterministic Policy Gradient(DPG/DDPG)
 			</h1>
 			<div class="sub header">
 					<div><span><i class="calendar outline icon"></i>Jul 14, 2018</span></div><div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/#disqus_thread" class="disqus-comment-count" data-disqus-identifier="25a014b951bdb6847c5b9eaa062aa23d"></a></span></div>
@@ -3108,12 +3150,15 @@ if (!doNotTrack) {
 			</div>
 			<hr><div class="toc"><nav id="TableOfContents">
 <ul>
-<li><a href="#svg">SVG</a>
+<li><a href="#stocastic-value-gradient-svg">Stocastic Value Gradient(SVG)</a>
 <ul>
 <li><a href="#re-parametrization-trick-とベルマン方程式">re-parametrization trick とベルマン方程式</a></li>
 <li><a href="#svg-infty">SVG($\infty$)</a></li>
-<li><a href="#動画">動画</a></li>
+<li><a href="#svg-1">SVG(1)</a></li>
+<li><a href="#svg-0-と-dpg-ddpg">SVG(0) と DPG/DDPG</a></li>
 </ul></li>
+<li><a href="#動画">動画</a></li>
+<li><a href="#まとめ">まとめ</a></li>
 </ul>
 </nav></div>
 			
@@ -3145,10 +3190,10 @@ likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$
 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。
 また、$f$は微分可能であるものとして、勾配が0にならないようにする。</p>
 
-<h1 id="svg">SVG&nbsp;<a class="anchor" href="#svg"><i class="small linkify icon"></i></a> </h1>
+<h1 id="stocastic-value-gradient-svg">Stocastic Value Gradient(SVG)&nbsp;<a class="anchor" href="#stocastic-value-gradient-svg"><i class="small linkify icon"></i></a> </h1>
 
 <p><a href="../20160410-reinforcement-learning-mdp-belman-equation">MDPとベルマン方程式</a>
-で導出したベルマン方程式において、終端状態を表現するためだけに事変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。
+で導出したベルマン方程式において、終端状態を表現するためだけに時変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。
 このとき、連続空間におけるベルマン方程式は以下のようになる。</p>
 
 <p>\begin{equation}
@@ -3223,18 +3268,70 @@ r_a \pi_{\theta} +
 v&rsquo;_{\theta}
 ] |_{\eta, \xi&rsquo;}
 \end{aligned}
+\label{eq:sample_v}
 \end{equation}</p>
 
 <p>となる。</p>
 
 <h2 id="svg-infty">SVG($\infty$)&nbsp;<a class="anchor" href="#svg-infty"><i class="small linkify icon"></i></a> </h2>
 
-<p>以上の性質を利用して、SVG($\infty$)では、状態遷移確率関数$\hat{f}(s, a, \xi)$、方策$\pi(s, \eta)$を同時に学習する。
-<img src="/images/2018/07/svg_inf.png" width="400px"></p>
+<p>時間ステップ$T$について、式\eqref{eq:sample_v}を用いて逆向きに計算し、$v^{(0)}_{\theta}$を実際に用いるのがSVG($\infty$)である。
+SVG($\infty$)のアルゴリズムを見ると、以下のようになっている。
+<img src="/images/2018/07/svg_inf.png" width="400px">
+つまり、</p>
 
-<h2 id="動画">動画&nbsp;<a class="anchor" href="#動画"><i class="small linkify icon"></i></a> </h2>
+<ol>
+<li>$t=0 \dots T$の順方向パスにおいて、現在の方策$\pi$を実行し、$(s,a,r,s&rsquo;)$のペアを$\mathcal{D}$に記録する。</li>
+<li>$\mathcal{D}$から近似モデル$\hat{f}$を推定する。モデルとしては微分可能であれば、何でも使うことができる。論文ではNeural Networkを用いている。</li>
+<li>$t=T+1$での初期値として$v&rsquo;s_s=0, v&rsquo;_{\theta}=0$とする</li>
+<li>$t=T \dots 0$について、$\xi, \eta$の推定、式\eqref{eq:sample_v}の計算を時間ステップの逆方向にしていく。$\xi, \eta$は\mathcal{D}における同じ時刻$t$の情報を用いて推定できる。</li>
+<li>$v^{(0)}_{\theta}$を用いてパラメタ$\theta$を更新する</li>
+</ol>
+
+<p>以上の1. - 5.を収束するまで繰り返し計算する。</p>
+
+<p>ちなみに、SVG($\infty$)の$\infty$はモデル$f$を使ってどれだけの時間ステップ軌道を計算しているかということを表している。
+そうすると、$\infty$でなく$T$な気がするが、私はそのあたりのニュアンスはよく理解できていない。</p>
+
+<h2 id="svg-1">SVG(1)&nbsp;<a class="anchor" href="#svg-1"><i class="small linkify icon"></i></a> </h2>
+
+<p>SVG(1)では、SVG($\inf$)とは違い、$\mathcal{D}$から価値関数$V$を学習する。
+これによって、SVG($\inf$)にあった$v_s$の時間方向の更新は必要なくなる。
+また、$v_s$の更新はモデル$f$を用いて1時間ステップのみ行われる。
+さらに、重点サンプリングを用いて$v_{\theta}$を更新する。
+この重点サンプリングを用いる方法を論文中では特にSVG(1)-ER(Experience Replay)と呼んでいる。
+論文中では$SVG(1)-ER$が最も性能が高いと報告している。</p>
+
+<p>SVG(1)のアルゴリズムを以下に引用する。
+<img src="/images/2018/07/svg_1_er.png" width="400px"></p>
+
+<p>価値関数$\hat{V}$の推定にはFitted Policy Evaluationが用いられている。
+<img src="/images/2018/07/fitted_policy_eval.png" width="400px"></p>
+
+<h2 id="svg-0-と-dpg-ddpg">SVG(0) と DPG/DDPG&nbsp;<a class="anchor" href="#svg-0-と-dpg-ddpg"><i class="small linkify icon"></i></a> </h2>
+
+<p>SVG(0)はSVG(1)と似通った手法だが、モデル$f$を用いない、モデルフリーな手法である。
+そのかわりに、$V$でなく行動価値関数$Q$を学習する。
+<img src="/images/2018/07/svg_0.png" width="400px"></p>
+
+<p>SVG(0)はDeterministic Policy Gradient(DPG)あるいは特にActor, CriticにDeep Neural Networkを用いるDeep Deterministic Policy Gradient(DDPG)とほとんど同じ手法となっている。
+DPGとの違いは、SVG(0)では方策$\pi$を確率的なものとして扱っているので、</p>
+
+<p>$\pi$の確率変数$\eta$を推定し、
+$\mathbb{E}_{\rho(\eta)} \left[
+  Q_a \pi_{\theta} | \eta
+\right]$
+を求める。
+これは実際には上記のアルゴリズムにあるようにモンテカルロ法で計算される。</p>
+
+<h1 id="動画">動画&nbsp;<a class="anchor" href="#動画"><i class="small linkify icon"></i></a> </h1>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PYdL7bcn_cM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<h1 id="まとめ">まとめ&nbsp;<a class="anchor" href="#まとめ"><i class="small linkify icon"></i></a> </h1>
+
+<p>SVGとその亜種についてまとめた。
+DPG/DDPGと非常に近い手法であることが理解できてよかった。</p>
 
 			</article>
 		</section>
@@ -3258,7 +3355,7 @@ v&rsquo;_{\theta}
 			'width=626,height=436'); return false;">
 		<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
 	</div>
-	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;方策勾配法 pathwise derivative method, SVG(Stocastic Value Gradient), DPG(Deterministic Policy Gradient) &quot; by @ksyundo http:\/\/blog.syundo.org\/post\/20180714-reinforcement-learning-pathwise-derivative-method\/','_self')">
+	<div class="twitter none flexbox" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;pathwise derivative method: Stocastic Value Gradient(SVG), (Deep) Deterministic Policy Gradient(DPG\/DDPG) &quot; by @ksyundo http:\/\/blog.syundo.org\/post\/20180714-reinforcement-learning-pathwise-derivative-method\/','_self')">
 		<button class="ui twitter button"><i class="twitter icon"></i>Tweet</button>
 	</div>
 </section>
