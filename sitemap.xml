@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.syundo.org/post/20181104-pipenv/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/20180917-ddp-ilqr-slq/</loc>
     <lastmod>2018-09-17T15:22:07+09:00</lastmod>
   </url>
@@ -1201,14 +1206,26 @@
   </url>
   
   <url>
+    <loc>http://blog.syundo.org/tags/pipenv/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/</loc>
-    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/python/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.syundo.org/</loc>
-    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1221,6 +1238,12 @@
   <url>
     <loc>http://blog.syundo.org/tags/</loc>
     <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/tools/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
     <priority>0</priority>
   </url>
   
