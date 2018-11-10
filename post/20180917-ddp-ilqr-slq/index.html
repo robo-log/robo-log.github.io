@@ -108,6 +108,8 @@ var bodyBgSwitchIndex = 0;
 
 <a class="ui label" href="/tags/python" title="python">python</a>
 
+<a class="ui label" href="/tags/reinforcement-learning" title="reinforcement-learning">reinforcement-learning</a>
+
 <a class="ui label" href="/tags/slq" title="slq">slq</a>
 
 </section>
@@ -1524,6 +1526,21 @@ var bodyBgSwitchIndex = 0;
 
 <div class="title">
 	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AB%96%E6%96%87%E8%AA%AD%E3%81%BF">論文読み</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/20181107-exploration-by-random-network-distillation/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>論文 Exploration by Random Network Distillation</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
 	<a class="link" href="/categories/%E9%9B%91%E8%A8%98">雑記</a>
 </div>
 <div class="content">
@@ -1673,6 +1690,8 @@ if (!doNotTrack) {
 <a class="ui label" href="/tags/pipenv" title="pipenv">pipenv</a>
 
 <a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/reinforcement-learning" title="reinforcement-learning">reinforcement-learning</a>
 
 <a class="ui label" href="/tags/slq" title="slq">slq</a>
 
@@ -3089,6 +3108,21 @@ if (!doNotTrack) {
 
 <div class="title">
 	<i class="dropdown icon"></i>
+	<a class="link" href="/categories/%E8%AB%96%E6%96%87%E8%AA%AD%E3%81%BF">論文読み</a>
+</div>
+<div class="content">
+
+	<a class="item" href="http://blog.syundo.org/post/20181107-exploration-by-random-network-distillation/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>論文 Exploration by Random Network Distillation</p>
+		</div>
+	</a>
+
+</div>
+
+<div class="title">
+	<i class="dropdown icon"></i>
 	<a class="link" href="/categories/%E9%9B%91%E8%A8%98">雑記</a>
 </div>
 <div class="content">
@@ -3454,17 +3488,17 @@ V_{xx} &amp;= Q_{xx} - \mathrm{K}^{\mathrm{T}} Q_{uu} \mathrm{K} \\<br />
 
 <h1 id="線形システムへの近似とquadratic-cost-functionの採用">線形システムへの近似とQuadratic Cost functionの採用&nbsp;<a class="anchor" href="#線形システムへの近似とquadratic-cost-functionの採用"><i class="small linkify icon"></i></a> </h1>
 
-<p>非線形システム$f(x, u)$をstep $i$の状態$x_i$, 入力$u_i$において線形化することを考える</p>
+<p>非線形システム$f(x, u)$をstep $i$の状態$x_k$, 入力$u_k$において線形化することを考える</p>
 
 <p>\begin{equation}
-(x - x_i) = \mathrm{A_i} (x - x_i) + \mathrm{B_i} (u - u_i)
+(x - x_k) = \mathrm{A_k} (x - x_k) + \mathrm{B_k} (u - u_k)
 \end{equation}</p>
 
 <p>ここで、
 \begin{equation}
 \begin{aligned}
-\mathrm{A_i} = \frac{\partial f_i}{\partial x} (x_i, u_i) \\<br />
-\mathrm{B_i} = \frac{\partial f_i}{\partial u} (x_i, u_i)
+\mathrm{A_k} = \frac{\partial f_k}{\partial x} (x_k, u_k) \\<br />
+\mathrm{B_k} = \frac{\partial f_k}{\partial u} (x_k, u_k)
 \end{aligned}
 \end{equation}</p>
 
@@ -3473,17 +3507,22 @@ V_{xx} &amp;= Q_{xx} - \mathrm{K}^{\mathrm{T}} Q_{uu} \mathrm{K} \\<br />
 線形システムの最適化問題としては、LQR(Linear Quadratic Regrator)がよく知られており、そのコスト関数は</p>
 
 <p>\begin{equation}
-l_i(x_i, u_i) = \frac{1}{2} x^{\mathrm{T}} \mathrm{Q} x +
+l_k(x_k, u_k) = \frac{1}{2} x^{\mathrm{T}} \mathrm{Q} x +
 \frac{1}{2} u^{\mathrm{T}} \mathrm{R} u
 \end{equation}</p>
 
-<p>この離散システムを最小化する解は以下のRecatti方程式を解くことで得られることが知られている。</p>
+<p>この離散システムを最小化する解は以下のRicatti方程式を解くことで得られることが知られている。</p>
+
+<p>\begin{equation}
+S(k) = Q + A_k^{\mathrm{T}} S(k+1) A_k
+- A_k^{\mathrm{T}}S(k+1)B_k(R + B_k^{\mathrm{T}}S(k+1)B_k)^{-1}B_k^{\mathrm{T}}S(k+1)A_k
+\label{eq:ricatti_eq}
+\end{equation}</p>
 
 <h1 id="iterative-lqr-ilqr">iterative LQR(iLQR)&nbsp;<a class="anchor" href="#iterative-lqr-ilqr"><i class="small linkify icon"></i></a> </h1>
 
-<p>式の解は
-式から$f$の二階微分の項を除いたものになっている。
-これはDDPがニュートン法であったのに対してiLQRはガウスニュートン法を用いたものであるとも言える。
+<p>式\eqref{eq:ricatti_eq}を満たす最適制御入力は式\eqref{eq:optimal_input_k}から$f$の二階微分の項を除いたものになっている。
+このため、DDPがニュートン法であったのに対してiLQRはガウスニュートン法を用いたものであるとも言える。
 iLQRはDDPのようにヘッシアンを計算する必要も逆行列を計算する必要もないため、DDPに比べて高速に処理できる。
 一方で、DDPよりも収束は遅いため、iteration数は大きくなるようだ。</p>
 
@@ -3501,6 +3540,8 @@ iLQRはDDPのようにヘッシアンを計算する必要も逆行列を計算�
 
 <p>DDP, iLQR, SLQの関係をまとめた。
 どれも、2次の近似における最適化だということがわかった。</p>
+
+<p>EXPLORATION BY RANDOM NETWORK DISTILLATION</p>
 
 			</article>
 		</section>
@@ -3526,6 +3567,8 @@ iLQRはDDPのようにヘッシアンを計算する必要も逆行列を計算�
 <a class="ui label" href="/tags/pipenv" title="pipenv">pipenv</a>
 
 <a class="ui label" href="/tags/python" title="python">python</a>
+
+<a class="ui label" href="/tags/reinforcement-learning" title="reinforcement-learning">reinforcement-learning</a>
 
 <a class="ui label" href="/tags/slq" title="slq">slq</a>
 
