@@ -48,5 +48,128 @@ arxivを読む。
 \begin{equation} w(s, a) = \lambda_0 \lambda_1^k \max_{(s&amp;rsquo;, a&amp;rsquo;) \in \rho_{\pi}} A^{\pi}(s&amp;rsquo;, a&amp;rsquo;) \hspace{5mm} \forall (s, a) \in \rho_D \end{equation}</description>
     </item>
     
+    <item>
+      <title>強化学習についてまとめる</title>
+      <link>http://blog.syundo.org/post/20180115-reinforcement-learning/</link>
+      <pubDate>Mon, 15 Jan 2018 04:09:32 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180115-reinforcement-learning/</guid>
+      <description>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたいと思っている。 元ネタとして以下のサイト、書籍を参考にしている。
+ Deep RL Bootcamp これからの強化学習 速習 強化学習  記事一覧
+ MDPとベルマン方程式 反復による価値の推定 - TD学習 DQN, DDQNと実装 方策勾配 方策勾配に基づくアルゴリズム、Actor-Critic 自然方策勾配法とTRPO、PPO モデルベース強化学習  作成予定
+ pathwise derivative method (SVG, DPG) 逆強化学習 A3Cの実装 PPOの実装  </description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(7) DQNとDDQN</title>
+      <link>http://blog.syundo.org/post/20171208-reinforcement-learning-dqn-and-impl/</link>
+      <pubDate>Thu, 28 Dec 2017 20:37:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171208-reinforcement-learning-dqn-and-impl/</guid>
+      <description>今回はQ-Learningの回で取り上げた手法をニューラルネットを使って近似するように発展させたもの(DQN)についてまとめる。
+DQN(Deep Q-Network)は行動価値関数$Q(s,a)$を深層ニューラルネットワークを用いて推定し、Q-Learningを行う手法である。 DQNでは行動と状態の組$(s,a)$に対してスカラー値$Q^{*}(s,a)$を割り当てるのではなく、 状態$s$において行動$a_1, \dots, a_N$を採用したときの値$Q^{*}(s,a_1), \dots, Q^{*}(s,a_N)$を予測している。 つまり、入力が状態、出力が各行動を採用した時のQ値となっているニューラルネットワークを使ってQ関数の代わりとする。
+この工夫によって、例えば、状態としてニューラルに多次元の画像をそのまま入力することができるようになり、ゲーム画面を入力としてそのままゲームを学習することができるようになった。 Atariのいくつかのゲームにおいて人間より良いスコアを記録するなど目覚しい成果を上げた。
+関数近似を用いたQ-Learningのアルゴリズムは以下になる。
+\begin{equation} \begin{aligned} \delta_t = R_{t+1} + \gamma \max_{a^{\prime} \in A} Q_{\theta_t}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t) \\
+\theta_{t+1} = \theta_t + \alpha_t \delta_{t+1} \nabla_{\theta} Q_{\theta_t} (s_t, a_t) \end{aligned} \end{equation}
+関数近似を用いた場合、つまりDQNのような場合でもQ-Learningのアルゴリズムはほぼ同じだが、Q関数を近似しているために、最適行動価値関数への収束は保証されない。
+DQN そこで、DQNでは学習が収束しない問題に対処するためや、学習されたネットワークを他のタスクに転用しやすくするためにいくつかの工夫をしている。
+ Experience Replayの利用  観測したサンプル $(s_t, s_{t+1}, a_t, R_{t+1})$ をリプレイバッファに蓄積し、それをランダムに並べ替えてからバッチ的に学習する。 これによって、サンプルの系列において時間的相関があると確率的勾配法がうまく働かなくなる問題を緩和している。  Target Networkの利用  Q-Learningの更新則における目標値の計算において、学習中のネットワーク$Q_{\theta_t}$の代わりに、パラメータが古いもので固定されたネットワーク$Q_{\theta_t^{-}}$を利用する。 これによって、Q-Learningの目標値$R_{t+1}+\gamma \max_{a^{\prime} \in A} Q_{\theta_t}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t)$と現在推定している行動価値関数$Q_{\theta_t}$の間の相関があるために、学習が発散、振動しやすくなる問題を緩和している。  報酬のクリッピング  得られる報酬を$[-1, 1]$の範囲にしている。 これによって、復数のゲーム間で同じネットワークを使って学習をすることができる。   結局、DQNのTD誤差は以下のようになる。 \begin{equation} \delta_t = R_{t+1} + \gamma \max_{a^{\prime} \in A} Q_{\theta_t^{-}}(s_{t+1}, a^{\prime}) - Q_{\theta_t}(s_t, a_t) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(6) モデルベース強化学習</title>
+      <link>http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/</link>
+      <pubDate>Wed, 06 Dec 2017 03:41:20 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/</guid>
+      <description>前回までは、MDPにおける状態遷移について、何の仮定も置かない方法を扱ってきた。 例えば、TD誤差を用いる方法では、状態遷移確率はサンプリングによって近似していたし、 方策勾配法では状態遷移確率は扱わなくても良いものであった。 今回は、状態遷移確率をモデルとして陽に扱う手法を扱う。 これをモデルベース強化学習と呼ぶ。
+さて、強化学習全般の大まかな流れは以下のようになっていると言える。
+ 適当な方策を実行し、サンプルを集める モデルを更新する(Q-Learning, Actor-Criticでは$Q$の更新, モデルベースでは$P(s&amp;rsquo;|s,a)$の推定) 方策を更新する(方策の更新、最大のQ値を取る$a$の選択)  モデルベース強化学習では、上記2.については教師あり学習で行う。 そして、3.の部分で状態遷移確率を使って方策を更新する。
+そのため、モデルベース強化学習の利点として
+ サンプル数が少なくても学習できる 学習したモデルを他のタスクに転移して利用することができる。つまり汎用的な学習ができる。  ということが挙げられる。
+基本的なアルゴリズム 現在の状態$s_t$と行動$a_t$を取って、次の状態$s_{t+1}$を生成する関数を$f_{\phi}(s_t, a_t)$とする。 以下にモデルベース学習で用いられるアルゴリズムの概要を示す。 以下では、学習したいタスクの一連の系列を一イテレーションとして、そのindexを$k$としている。
+ サンプル$\mathcal{D}=\left\{ (s, a, s&amp;rsquo; )_i \right\}$を集めるために、何らかの方策$\pi_0(a_t|s_t)$(例えばランダム)を実行する $for$ $k=1,2,\dots$ $do$ $f_{\phi}(s_t, a_t)$ を学習する ($\sum_i \| f_{\phi}(s_t, a_t) -s&amp;rsquo;_i\|^2$ を最小化) $f_{\phi}(s_t, a_t)$ を使って$\pi_{\theta}(a_t | s_t)$を最適化する $\pi_{\theta}(a_t | s_t)$実行して、タプル$(s, a, s&amp;rsquo;)$を$\mathcal{D}$に記録する $end$ $for$  ただし、以上のように、全イテレーションにおいて、共通の$f_{\phi}(s_t, a_t)$を学習する方法では
+ すべての状態において収束する性質の良いモデルを学習しなければならない モデルが未学習のため、状態を楽観的に評価してしまうなどして、誤った方向に方策を学習してしまう  などの問題がある。 そこで、時変の関数として$f_{\phi}(s_t, a_t)$を学習するようにする。 そのようなモデルをlocal modelと呼ぶ。</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(5) 自然方策勾配法とTRPO, PPO</title>
+      <link>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/</link>
+      <pubDate>Mon, 04 Dec 2017 22:39:35 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/</guid>
+      <description>前回 は方策勾配法のアルゴリズムについてまとめた。 今回も前回同様、アルゴリズムについてまとめるが、 最適解に収束しない方策勾配を用いる方法において、いかに勾配を改良するかという部分に軸を置く。 方策勾配を用いる方法では、方策の更新方向の決定が非常に重要になる。 悪い方策を採用したことで低い報酬しか取れないようにずれてくると、回復が難しくなってしまうからだ。 方策の勾配の決定をKLダイバージェンスに基いて決定する方法やその近似を用いたについてまとめる。
+自然勾配 方策の確率分布のパラメタ$\theta$のうち、あるパラメタ$\theta_1, \theta_2$の距離を$\|\theta_1 - \theta_2\|^2$とする、ユークリッド距離において定めたのが、以下の方策の更新方向であった。
+\begin{equation} \hat{g} = E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) A^{\pi}(s, a)] \label{eq:policy_gradient} \end{equation}
+ここで、確率分布間の疑距離をKLダイバージェンスで定めると、自然勾配という勾配方法が導出される。 自然勾配は、通常の勾配にフィッシャー行列の逆行列を掛けたものになる
+\begin{equation} \tilde{\nabla_{\theta}} J (\theta) = F^{-1} (\theta) \nabla_{\theta} J(\theta) \end{equation}
+ここで、$F(\theta)$はフィッシャー行列である。 一般的に、勾配法において、自然勾配を用いると良い性能が得られることが知られている。
+Natural Actor-Critic 式\eqref{eq:policy_gradient}のアドバンテージ関数を線形モデル
+\begin{equation} A^{\pi}(s, a) = w^{\mathrm{T}} \nabla_{\theta} \log \pi_{\theta} (a | s) \end{equation} で近似することにすると、
+\begin{equation} \nabla_{\theta} J (\theta) = E_{\pi}[\nabla_{\theta} \log \pi_{\theta} (a | s) \nabla_{\theta} \log \pi_{\theta} (a | s) ^ {\mathrm{T}} ] w \\</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(4) 方策勾配に基づくアルゴリズム、Actor-Critic</title>
+      <link>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</link>
+      <pubDate>Sat, 02 Dec 2017 16:41:14 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</guid>
+      <description>前回 は方策の勾配の求め方、勾配の分散を減少させるための、baselineを導入するところまでまとめた。 今回は、方策勾配を用いて方策を更新する実際のアルゴリズムについて扱う。
+vanilla policy gradient baselineの調整と方策の更新を逐次的に更新していくという、方策勾配法の基本的な方法に則った基本的なアルゴリズムを、vanilla policy gradient method と呼ぶことにする。 vanilla policy gradient methodの擬似コードは以下のようになる。
+ パラメタ $\theta$, ベースライン$b$の初期化 $for$ $i=1,2,\dots$ $do$ 現在の方策に従って行動し、復数パスを収集し、$R_t = \sum_{t&amp;rsquo;=t}^{H-1} \gamma^{t&amp;rsquo;-t} R_{t&amp;rsquo;}$を計算する。 $|R_t - b|^2$ を最小にするようにbaselineを調整する $\hat{g} = \sum_{t=0}^H \nabla_{\theta} \log \pi_{\theta} (u_t^{(i)} | s_t^{(i)}) (R(\tau^{(i)}) - b)$で勾配を更新する $end$ $for$  baselineの調整と、勾配の更新を繰り返していき、方策を最適化する。
+REINFORCE アルゴリズム 上記の復数パスの情報を使って計算した$R_t$の代わりに、そのときどきの報酬$r_t$を使う方法は REINFORCE アルゴリズムとして知られている。 baselineとしては報酬の平均値$\bar{b} = \frac{1}{MT} \sum_{m=1}^M \sum_{t=1}^T R_t^m$がよく用いられるらしい。
+Actor-Critic baselineを導入したとこで、方策の更新は、方策の分散を小さくする評価部と、方策を更新する部分の2つに分けられることがわかる。 ここで、baselineとして、価値関数$V^{\pi}$を使うと ここで、$R(\tau) = \sum_{t=0}^H R(s_t, u_t)$の代わりに行動価値関数$Q^{\pi}(s, a)$を、baselineとして価値関数$V^{\pi}(s)$を使うことにする。 baselineとして状態$s$の関数を用いても、勾配の平均値には影響がないため、baselineとして採用できる。
+以下の行動価値感数と状態価値関数の差分$A^{\pi}(s, a)$をアドバンテージ関数と呼ぶ。 \begin{equation} A^{\pi}(s, a) = Q^{\pi}(s, a) - V^{\pi}(s) \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(3) 方策勾配</title>
+      <link>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</link>
+      <pubDate>Fri, 17 Nov 2017 03:15:08 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</guid>
+      <description>前回、 前々回 では、価値関数を求め、それを基に行動を決定する手法について扱ってきた。 しかし、そもそもロボットの行動を決めるのは方策であるのだから、その方策を直接学習できないのだろうか？という疑問が湧く。
+今回は、前回までとは全く違うアプローチとして、方策勾配法 をまとめる。 方策勾配法は、方策をあるパラメタで表される関数とし、そのパラメタを学習することで、直接方策を学習していくアプローチである。
+方策を直接扱うことで
+ $V^{\pi}$や$Q^{\pi}$を求めるような複雑でメモリを消費する手法を使わなくて良い 連続空間における行動を扱いやすくなる  などの利点がある。
+方策勾配法においては、確率的な方策を扱う場合と確定的な方策を扱う場合がある。本記事では方策は確率的なものを扱う。(これは確定的な方策の一般化したものであるため)。 また後述するように、価値関数を最大化するように方策の勾配を求めたいが、そのときに方策(のlogを取ったもの)と報酬をかけ合わせたものの比率(これをここではscore functionと呼ぶ)を用いる方法、いわゆるlikelihood ratio methodあるいはscore function methodというものと、状態遷移パスの各点において勾配を計算することで直接価値関数の勾配を求める方法、いわゆるpathwise derivative methodと呼ばれ、DPG、SVGなどがこれにあたるものがある。 本記事では前者について述べている。
+方策のモデルと勾配 $\theta$でパラメタライズされた確率的な方策$\pi_{\theta}$を求める問題を考える。 $\tau$をステップ$0$から$H$までの状態-行動の系列(状態-行動空間でのパス)$\tau=(s_0, a_0, \dots, s_H, a_H)$としたとき、方策の評価関数として以下を考える。
+\begin{equation} \begin{aligned} J(\theta) = \mathbb{E}_{\pi_{\theta}} [\sum_{t=0}^H R(s_t, a_t)] \\
+= \sum_{\tau} P(\tau ; \theta) R(\tau) \end{aligned} \end{equation} ここで、$R(\tau) = \sum_{t=0}^H R(s_t, a_t)$としている。 また$P(\tau ; \theta)$はパスの生成モデルであり、定義より \begin{equation} P(\tau ; \theta) = \prod_{t=0}^H P(s_{t+1} | s_t, a_t) \pi_{\theta}(a_t | s_t) \label{eq:p_tau_theta} \end{equation} である。</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(2) 反復による価値の推定</title>
+      <link>http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/</link>
+      <pubDate>Fri, 10 Nov 2017 19:54:59 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/</guid>
+      <description>前回はMDPとベルマン方程式について扱った。 ベルマン方程式を解くことができれば、$Q^{\pi}$を計算できるのだが、どう計算するのか、価値関数からどのように方策を決定するのかという問題がある。 今回は、多数のデータを使って反復的に計算することでこれを求める方法について扱いたい。 価値推定と反復 価値関数についてのベルマン方程式において、常に最適な方策を取るという前提を置けば、以下の最適ベルマン方程式を定めることができる。 \begin{equation} \begin{aligned} V^{\pi}(s) = \max_{a \in A} \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right) \end{aligned} \label{eq:belman_value_func_max} \end{equation}
+\begin{equation} \begin{aligned} Q^{\pi}(s, a) = \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma \max_{a&amp;rsquo; \in A} Q^{*}(s&amp;rsquo;,a&amp;rsquo;) \right) \end{aligned} \label{eq:belman_q_func_max} \end{equation}
+あるいは、取り得る方策が確率的でない、常に方策が決まっている定常方策を取るとすると、以下のようになる。 \begin{equation} \begin{aligned} V^{\pi}(s) = \sum_{s&amp;rsquo; \in S} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma V^{\pi}(s&amp;rsquo;) \right) \end{aligned} \label{eq:belman_value_func_const} \end{equation}
+\begin{equation} \begin{aligned} Q^{\pi}(s, a) = \sum_{s&amp;rsquo;} P(s&amp;rsquo;|s, a) \left(r(s, a, s&amp;rsquo;) + \gamma Q^{\pi}(s&amp;rsquo;,a&amp;rsquo;) \right) \end{aligned} \label{eq:belman_q_func_const} \end{equation}</description>
+    </item>
+    
+    <item>
+      <title>強化学習についてまとめる(1) MDPとベルマン方程式</title>
+      <link>http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/</link>
+      <pubDate>Sun, 10 Apr 2016 15:19:17 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/</guid>
+      <description>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたい。
+マルコフ決定過程 マルコフ決定過程(Markov Decision Process; MDP)は状態の遷移が確率的に起こり、マルコフ過程を満たす過程のことをいう。 MDPは状態$s$、行動$a$、遷移先の状態を$s&amp;rsquo;$、状態遷移確率$P(s&amp;rsquo;|s, a)$の組で表現される。 また、状態$s$において行動$a$を選択したとき、即時報酬$r(s, a, s&amp;rsquo;)$が得られるとする。
+とくに時間的な過程の進展を表すため、特に時刻$t$から$t+1$の状態の遷移について
+$$ 状態: s_t\\
+行動: a_t\\
+状態遷移確率: P(s_{t+1}|s_t, a_t)\\
+報酬関数: r_t = r(s_t, a_t, s_{t+1}) $$
+を考える。
+価値関数 時刻$t$において将来($t \rightarrow \infty $)にわたって得られる報酬について、割引累積報酬$G_t$を定義する。 \begin{equation} G_t = \sum_{k=0}^{\infty} \gamma ^k R_{t+k+1} \end{equation} ここで、$R_{t+1}$は$r(s_t, a_t, s_{t+1})$の値とする。 また、$\gamma$は$0 \le \gamma &amp;lt; 1$の値で、遠い将来に得られるであろう報酬を低く見積もるために使う。
+状態$s$において、行動$a$が選択される確率を$\pi = \pi(a | s)$とする。 この$\pi$を方策と呼ぶ。 ロボットで言うと次の状態をどう選ぶかの判断を行う部分である。
+さて、ある方策$\pi$を採用したときの報酬がどの程度のものか見積もりたい。 方策$\pi$のもとで、以下のように関数$V^{\pi}$を定義する。 \begin{equation} V^{\pi}(s) = \mathbb{E}[G_t|s_t=s] = \mathbb{E}[R_{t+1}\ + \gamma R_{t+2} + \dots | s_t = s] \label{eq:v_func} \end{equation} これを状態価値関数(あるいは単に価値関数)と呼ぶ。 期待値を取っているのは、方策$\pi$は確率的であるから、$s_t=s$となるのも確率的であるため、$s_t$について周辺化して評価したいためである。</description>
+    </item>
+    
   </channel>
 </rss>
