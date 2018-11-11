@@ -3324,9 +3324,9 @@ Q^{*}(s,a) = Q^{\pi^{*}}(s,a) = \max_{\pi} Q^{\pi}(s,a)
 
 <p>\begin{equation}
 \begin{aligned}
-V^{\pi}(s) &amp;=&amp;  \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
-&amp;=&amp; \mathbb{E}[R_{t+1}\ | s_t = s] + \mathbb{E}[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
-&amp;=&amp; \mathbb{E}[R_{t+1}\ | s_t = s] + \gamma \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
+V^{\pi}(s) &amp;=  \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
+&amp;= \mathbb{E}[R_{t+1}\ | s_t = s] + \mathbb{E}[\sum_{k=1}^{\infty} \gamma^k R_{t+k+1} | s_t = s]\\<br />
+&amp;= \mathbb{E}[R_{t+1}\ | s_t = s] + \gamma \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
 \end{aligned}
 \label{eq:q_func_trans}
 \end{equation}</p>
@@ -3351,9 +3351,9 @@ $s_t=s$において行動$a$を取る確率が$\pi(a,|s)$、状態遷移して$s
 \begin{equation}
 \begin{aligned}
 \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_t = s]
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\<br />
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\<br />
-&amp;=&amp; \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) V^{\pi}(s&rsquo;)
+&amp;= \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=1}^{\infty} \gamma^{k-1} R_{t+k+1} | s_{t+1} = s&rsquo;]\\<br />
+&amp;= \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) \mathbb{E}[\sum_{k=0}^{\infty} \gamma^k R_{(t+1)+k+1} | s_{t+1} = s&rsquo;]\\<br />
+&amp;= \sum_{a \in A(s)} \pi(a|s) \sum_{s&rsquo; \in S} P(s&rsquo;|s,a) V^{\pi}(s&rsquo;)
 \end{aligned}
 \label{eq:q_func_trans_2}
 \end{equation}</p>
@@ -3380,8 +3380,8 @@ V^{\pi}(s) = \sum_{a \in A(s)} \pi(a|s) Q^{\pi}(s,a)
 <p>であるから、
 \begin{equation}
 \begin{aligned}
-Q^{\pi}(s, a) &amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)\\<br />
-&amp;=&amp; \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma \sum_{a \in A(s&rsquo;)} \pi(a&rsquo;|s&rsquo;) Q^{\pi}(s&rsquo;,a&rsquo;) \right)
+Q^{\pi}(s, a) &amp;= \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma V^{\pi}(s&rsquo;) \right)\\<br />
+&amp;= \sum_{s&rsquo;} P(s&rsquo;|s, a) \left(r(s, a, s&rsquo;) + \gamma \sum_{a \in A(s&rsquo;)} \pi(a&rsquo;|s&rsquo;) Q^{\pi}(s&rsquo;,a&rsquo;) \right)
 \end{aligned}
 \end{equation}</p>
 
