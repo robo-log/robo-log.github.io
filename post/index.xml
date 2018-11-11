@@ -164,6 +164,23 @@ import gym env = gym.</description>
     </item>
     
     <item>
+      <title>論文 Learning Complex Dexterous Manipulation With Deep Reinforcement Learning and Demonstrations</title>
+      <link>http://blog.syundo.org/post/20180120-learning-complex-dexterous-manipulation-with-deep-reinforcement-learning-and-demonstrations/</link>
+      <pubDate>Sat, 20 Jan 2018 20:15:22 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180120-learning-complex-dexterous-manipulation-with-deep-reinforcement-learning-and-demonstrations/</guid>
+      <description>Learning Complex Dexterous Manipulation With Deep Reinforcement Learning and Demonstrations
+arxivを読む。
+以下の動画のようにハンドを使った複雑なタスクの学習を少ない学習ステップ数で実現している。 人間のデモンストレーションを学習に用いることで、他手法と比べて人間らしい動作になっている。 例えば変に指先が曲がったりしていない。
+ この論文では、
+ 自然方策勾配法を使って、方策の学習をしている 方策をbehavior closingを使って事前学習している RLのプロセスにおける方策の更新でも人間によるデモとの類似を使っている  behavior closingはimitation learningの一種の方法で、人間によるデモを再現できるように方策を教師あり学習することである。
+事前学習が終わったらMDPにおける学習を始める。 方策勾配は以下のようにする。
+\begin{equation} g_{aug} = \sum_{(s, a) \in \rho_{\pi}} \nabla_{\theta} \log \pi_{\theta} (a | s) A^{\pi}(s, a) + \sum_{(s, a) \in \rho_D} \nabla_{\theta} \log \pi_{\theta} (a | s) w(s, a) \end{equation}
+ここで、$rho_{\pi}$はMDPにおいて得られたデータセット、$\rho_D$は事前学習に用いたデータセットである。 $w(s, a)$は重みづけ関数であり、スケール的には $w(s, a) = A^{\pi}(s,a) \hspace{5mm} \forall (s, a) \in \rho_D$を用いるのが妥当だが、計算できないので、ヒューリスティック的に以下を用いる。
+\begin{equation} w(s, a) = \lambda_0 \lambda_1^k \max_{(s&amp;rsquo;, a&amp;rsquo;) \in \rho_{\pi}} A^{\pi}(s&amp;rsquo;, a&amp;rsquo;) \hspace{5mm} \forall (s, a) \in \rho_D \end{equation}</description>
+    </item>
+    
+    <item>
       <title>TOF型距離センサVL53L0Xを使って測域センサを作った</title>
       <link>http://blog.syundo.org/post/20180118-home-maid-lrf/</link>
       <pubDate>Thu, 18 Jan 2018 22:48:02 +0900</pubDate>

@@ -48,6 +48,11 @@
   </url>
   
   <url>
+    <loc>http://blog.syundo.org/post/20180120-learning-complex-dexterous-manipulation-with-deep-reinforcement-learning-and-demonstrations/</loc>
+    <lastmod>2018-01-20T20:15:22+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.syundo.org/post/20180118-home-maid-lrf/</loc>
     <lastmod>2018-01-18T22:48:02+09:00</lastmod>
   </url>
@@ -1165,6 +1170,12 @@
   <url>
     <loc>http://blog.syundo.org/tags/ilqr/</loc>
     <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/imitation-learning/</loc>
+    <lastmod>2018-01-20T20:15:22+09:00</lastmod>
     <priority>0</priority>
   </url>
   
