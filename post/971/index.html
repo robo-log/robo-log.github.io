@@ -27,12 +27,16 @@ Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストール�
 Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．
 以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい． 作業環境：VMware Player，64bit Ubuntu 14.04
 下準備が終わったら，次にUbuntuのboot用SDカードを作成する． 以下のサイトを参考にして作業を進める． http://elinux.org/BeagleBoardUbuntu
-1 2 3 4 5  wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz cd ubuntu-14.04-console-armhf-2014-05-06 sudo ./setup_sdcard.sh --probe-mmc   以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む
-1  sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone   SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．
+wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz cd ubuntu-14.04-console-armhf-2014-05-06 sudo ./setup_sdcard.sh --probe-mmc 以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む
+sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．
 とりあえずBBBにSSHでログインする．
-1  ssh ubuntu@192.168.7.2   BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．
+ssh ubuntu@192.168.7.2 BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．
 さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）
-今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．" />
+今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．
+以下のサイトを参考にして作業を進める． http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring
+BBBにLXDE関係のものをインストールして再起動する．
+sudo apt-get -y install lxde lxde-core lxde-icon-theme sudo reboot さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい． 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．
+BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．" />
 <meta name="generator" content="Hugo 0.48" />
 
 <link rel="shortcut icon" href="/img/defaultFav.ico">
@@ -3288,42 +3292,17 @@ if (!doNotTrack) {
 <p>下準備が終わったら，次にUbuntuのboot用SDカードを作成する．
 以下のサイトを参考にして作業を進める．
 <a href="http://elinux.org/BeagleBoardUbuntu">http://elinux.org/BeagleBoardUbuntu</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz
 tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz
-<span class="nb">cd</span> ubuntu-14.04-console-armhf-2014-05-06
-sudo ./setup_sdcard.sh --probe-mmc</code></pre></td></tr></table>
-</div>
-</div>
+cd ubuntu-14.04-console-armhf-2014-05-06
+sudo ./setup_sdcard.sh --probe-mmc</code></pre></div>
 <p>以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone</code></pre></div>
 <p>SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．</p>
 
 <p>とりあえずBBBにSSHでログインする．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ssh ubuntu@192.168.7.2</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh ubuntu@192.168.7.2</code></pre></div>
 <p>BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．</p>
 
 <p>さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）</p>
@@ -3334,88 +3313,36 @@ sudo ./setup_sdcard.sh --probe-mmc</code></pre></td></tr></table>
 <a href="http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring">http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring</a></p>
 
 <p>BBBにLXDE関係のものをインストールして再起動する．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get -y install lxde lxde-core lxde-icon-theme
-sudo reboot</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get -y install lxde lxde-core lxde-icon-theme
+sudo reboot</code></pre></div>
 <p>さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい．
 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．</p>
 
 <p>BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install vnc4server
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install vnc4server
 vncserver
-vncserver -kill :1</code></pre></td></tr></table>
-</div>
-</div>
+vncserver -kill :1</code></pre></div>
 <p>~/.vnc/xstartupにある，設定ファイルをLXDE向けに以下のように編集する．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># !/bin/sh
-</span><span class="c1"></span>
-<span class="c1"># Uncomment the following two lines for normal desktop:
-</span><span class="c1"># unset SESSION_MANAGER
-</span><span class="c1"># exec /etc/X11/xinit/xinitrc
-</span><span class="c1"></span>
-/usr/bin/lxsession <span class="p">&amp;</span>amp<span class="p">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># !/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># Uncomment the following two lines for normal desktop:
+</span><span style="color:#75715e"># unset SESSION_MANAGER
+</span><span style="color:#75715e"># exec /etc/X11/xinit/xinitrc
+</span><span style="color:#75715e"></span>
+/usr/bin/lxsession &amp;amp;
 
-<span class="o">[</span> -x /etc/vnc/xstartup <span class="o">]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">exec</span> /etc/vnc/xstartup
-<span class="o">[</span> -r <span class="nv">$HOME</span>/.Xresources <span class="o">]</span> <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> xrdb <span class="nv">$HOME</span>/.Xresources
+<span style="color:#f92672">[</span> -x /etc/vnc/xstartup <span style="color:#f92672">]</span> &amp;amp;&amp;amp; exec /etc/vnc/xstartup
+<span style="color:#f92672">[</span> -r $HOME/.Xresources <span style="color:#f92672">]</span> &amp;amp;&amp;amp; xrdb $HOME/.Xresources
 xsetroot -solid grey
-vncconfig -iconic <span class="p">&amp;</span>amp<span class="p">;</span>
-x-terminal-emulator -geometry 80x24+10+10 -ls -title <span class="p">&amp;</span>quot<span class="p">;</span><span class="nv">$VNCDESKTOP</span> Desktop<span class="p">&amp;</span>quot<span class="p">;</span> <span class="p">&amp;</span>amp<span class="p">;</span>
-x-window-manager <span class="p">&amp;</span>amp<span class="p">;</span></code></pre></td></tr></table>
-</div>
-</div>
+vncconfig -iconic &amp;amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &amp;quot;$VNCDESKTOP Desktop&amp;quot; &amp;amp;
+x-window-manager &amp;amp;</code></pre></div>
 <p>設定が終わればvncserverを立ち上げる</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">vncserver :1 -geometry 1024x768</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vncserver :1 -geometry 1024x768</code></pre></div>
 <p>そして母艦のほうでBBBにリモートデスクトップ接続する．
 リモートデスクトップクライアントにはRemminaを使った．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install remmina
-remmina</code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install remmina
+remmina</code></pre></div>
 <p>新規リモートデスクトップの作成で，VNC用の設定する．アドレスではVNCのポート：5901を指定する．VNCのパスワードとかも入れる．
 <a href="/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png"><img class="alignnone size-full wp-image-1027" src="/images/2014/10/5a8c200f943d785a7efdf8d57fa3fd99.png" alt="スクリーンショット 2014-10-16 21.20.09"   /></a></p>
 

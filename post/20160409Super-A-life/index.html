@@ -28,7 +28,7 @@ body, body.pushable {
 セットアップ ここらへんを見よう！
  https://github.com/wbap/lis http://qiita.com/nakamuu_m/items/2a2ba63cbd546ca2ea80  mac環境でしかやってないけど、とくにハマることもなくできた。 シミュレーションが起動するまで数分待たないといけないので、根気よく待つ。
 簡単にできるカスタマイズ アクションを増やす この部分 を
-1  actions = [0,1,2,3]   にしてみる。ジャンプもするようになるぞ！同じ要領で この部分 を変更すると、動作を追加できる。
+actions = [0,1,2,3] にしてみる。ジャンプもするようになるぞ！同じ要領で この部分 を変更すると、動作を追加できる。
 負の報酬も与えるようにする Hierarchey &amp;gt; SceneController &amp;gt; items にMinusRewardItem を追加する。 ResetItemは触ると死ぬようになるぞ！
 使われている技術 今回のハッカソンでは中村政義氏が開発した、「Lis」(リズ)というプログラムを使うことになっていた。Lisはpython側のサーバとUnity側のエージェントで構成されており、この２つはWebsocket通信によってやりとりして、うまく役割分担をしている。
  python側  Unity側から画像データを受け取る ImageNet &#43; DQNを組み合わせたネットワークを使ってエージェントの行動を決定し、Unity側に送る。  Unity側  python側から行動の命令を受け取って、実際のエージェントの動作に反映する。 エージェントの望ましい行動に対して与える報酬を決定する。 エージェントに固定されたカメラから得られる画像と、報酬をpython側に送る   というような役割になっている。
@@ -3354,14 +3354,7 @@ if (!doNotTrack) {
 <h4 id="アクションを増やす">アクションを増やす&nbsp;<a class="anchor" href="#アクションを増やす"><i class="small linkify icon"></i></a> </h4>
 
 <p><a href="https://github.com/wbap/lis/blob/master/python-agent/cnn_dqn_agent.py#L18">この部分</a> を</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">actions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">actions <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]</code></pre></div>
 <p>にしてみる。ジャンプもするようになるぞ！同じ要領で
 <a href="https://github.com/wbap/lis/blob/master/unity-sample-environment/Assets/Scripts/Action.cs#L14">この部分</a>
 を変更すると、動作を追加できる。</p>

@@ -167,9 +167,10 @@ Qiitaに記事を移しました。
       <guid>http://blog.syundo.org/post/1143/</guid>
       <description>Effective Modern C++メモ (Moving to Modern C++ : Item 15) constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。
 constexprオブジェクトについて constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。
-1 2 3 4 5 6 7  int sz; // コンパイル時に存在しない ... constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。 std::array&amp;amp;lt;int, sz&amp;amp;gt; data1; // 同様なエラー constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。 std::array&amp;amp;lt;int, arraySize&amp;amp;gt; data2; // 良い。    constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。
+int sz; // コンパイル時に存在しない ... constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。 std::array&amp;amp;lt;int, sz&amp;amp;gt; data1; // 同様なエラー constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。 std::array&amp;amp;lt;int, arraySize&amp;amp;gt; data2; // 良い。  constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。
 constexpr関数について 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。 C++11の場合 関数内に1行、return文があるだけしか認められない。
-1 2 3 4  constexpr int pow(int base, int exp) noexcept { return (exp == 0 ?</description>
+constexpr int pow(int base, int exp) noexcept { return (exp == 0 ? 1 : base*pow(base, exp-1)); }  C++14の場合 複数行にわたって記述できる
+constexpr int pow(int base, int exp) noexcept { auto result = 1; for(int i = 0; i &amp;amp;lt; exp; ++i) result *= base; return result; }  気をつけるべきこと constexprであると示すことはオブジェクトや関数のインターフェースをユーザーに通知するという意味で重要である。ユーザーはコンパイル時にそれが必要となるようなコンテキストでconstexprなものを利用するだろう。</description>
     </item>
     
     <item>

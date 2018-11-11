@@ -3255,7 +3255,7 @@ if (!doNotTrack) {
 			</h1>
 			<div class="sub header">
 					<div><span><i class="calendar outline icon"></i>Sep 8, 2018</span></div><div><span class="disqusComment"><i class="comment outline icon"></i><a href="http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/#disqus_thread" class="disqus-comment-count" data-disqus-identifier="b59b0936a97dac25ede1b29b9e831fc3"></a></span></div>
-					<div><span><i class="clock outline icon"></i>2 min read</span></div>
+					<div><span><i class="clock outline icon"></i>1 min read</span></div>
 					<div><span><i class="angle double up icon"></i> Sep 8, 2018</span></div>
 			</div>
 			<hr><div class="toc"><nav id="TableOfContents">
@@ -3338,122 +3338,61 @@ Mahony filterというのを使ってクオータニオンを算出し、Yaw-Pit
 
 <p>受け取ったデータをcsvとかに書き出せると便利だと思うので、pythonで受け取ったデータをcsvに保存するやつ書きました。
 モーションの解析とかできそう。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> time
+<span style="color:#f92672">import</span> datetime
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span style="color:#f92672">import</span> serial
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 
 
-<span class="k">class</span> <span class="nc">IMUBTRecorder</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">port</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_baudrate</span> <span class="o">=</span> <span class="n">baudrate</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ax&#39;</span><span class="p">,</span> <span class="s1">&#39;ay&#39;</span><span class="p">,</span> <span class="s1">&#39;az&#39;</span><span class="p">,</span> <span class="s1">&#39;gx&#39;</span><span class="p">,</span> <span class="s1">&#39;gy&#39;</span><span class="p">,</span> <span class="s1">&#39;gz&#39;</span><span class="p">,</span> <span class="s1">&#39;yaw&#39;</span><span class="p">,</span> <span class="s1">&#39;pitch&#39;</span><span class="p">,</span> <span class="s1">&#39;roll&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_columns</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_start_at</span> <span class="o">=</span> <span class="bp">None</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IMUBTRecorder</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, port, baudrate):
+        self<span style="color:#f92672">.</span>_port <span style="color:#f92672">=</span> port
+        self<span style="color:#f92672">.</span>_baudrate <span style="color:#f92672">=</span> baudrate
+        self<span style="color:#f92672">.</span>_columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;ax&#39;</span>, <span style="color:#e6db74">&#39;ay&#39;</span>, <span style="color:#e6db74">&#39;az&#39;</span>, <span style="color:#e6db74">&#39;gx&#39;</span>, <span style="color:#e6db74">&#39;gy&#39;</span>, <span style="color:#e6db74">&#39;gz&#39;</span>, <span style="color:#e6db74">&#39;yaw&#39;</span>, <span style="color:#e6db74">&#39;pitch&#39;</span>, <span style="color:#e6db74">&#39;roll&#39;</span>]
+        self<span style="color:#f92672">.</span>_data_frame <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(columns<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_columns)
+        self<span style="color:#f92672">.</span>_start_at <span style="color:#f92672">=</span> None
     
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_baudrate</span><span class="p">)</span> <span class="k">as</span> <span class="n">se</span><span class="p">:</span>
-            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-                <span class="n">line</span> <span class="o">=</span> <span class="n">se</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-                <span class="c1"># remove return and line feed</span>
-                <span class="n">str_data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">r</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">str_data</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="c1"># split by tag</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">str_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">t&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="c1"># remove data name column</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_at</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_start_at</span> <span class="o">=</span> <span class="n">now</span>
-                <span class="n">elapsed</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_at</span>
-                <span class="n">parsed_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_columns</span><span class="p">,</span> <span class="n">data</span><span class="p">)}</span>
-                <span class="n">parsed_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elapsed</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_on_data_recieved</span><span class="p">(</span><span class="n">parsed_data</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mf">2.0</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
-                    <span class="k">break</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start</span>(self):
+        <span style="color:#66d9ef">with</span> serial<span style="color:#f92672">.</span>Serial(self<span style="color:#f92672">.</span>_port, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, baudrate<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_baudrate) <span style="color:#66d9ef">as</span> se:
+            <span style="color:#66d9ef">while</span> True:
+                line <span style="color:#f92672">=</span> se<span style="color:#f92672">.</span>readline()
+                <span style="color:#75715e"># remove return and line feed</span>
+                str_data <span style="color:#f92672">=</span> str(line)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">r</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">n&#39;</span>)[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> str_data:
+                    <span style="color:#66d9ef">continue</span>
+                <span style="color:#75715e"># split by tag</span>
+                data <span style="color:#f92672">=</span> str_data[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">t&#39;</span>)
+                <span style="color:#66d9ef">if</span> len(data) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>:
+                    <span style="color:#66d9ef">continue</span>
+                <span style="color:#75715e"># remove data name column</span>
+                data <span style="color:#f92672">=</span> data[<span style="color:#ae81ff">1</span>:]
+                now <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>_start_at:
+                    self<span style="color:#f92672">.</span>_start_at <span style="color:#f92672">=</span> now
+                elapsed <span style="color:#f92672">=</span> now <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>_start_at
+                parsed_data <span style="color:#f92672">=</span> {k: float(v) <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> zip(self<span style="color:#f92672">.</span>_columns, data)}
+                parsed_data[<span style="color:#e6db74">&#39;time&#39;</span>] <span style="color:#f92672">=</span> elapsed
+                self<span style="color:#f92672">.</span>_on_data_recieved(parsed_data)
+                <span style="color:#66d9ef">if</span> elapsed <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2.0</span>:
+                    self<span style="color:#f92672">.</span>_save()
+                    <span style="color:#66d9ef">break</span>
 
-    <span class="k">def</span> <span class="nf">_on_data_recieved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="c1"># print(data)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_make_log</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_on_data_recieved</span>(self, data):
+        <span style="color:#75715e"># print(data)</span>
+        self<span style="color:#f92672">.</span>_make_log(data)
 
-    <span class="k">def</span> <span class="nf">_make_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_frame</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_make_log</span>(self, data):
+        s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(data)
+        self<span style="color:#f92672">.</span>_data_frame <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_data_frame<span style="color:#f92672">.</span>append(s, ignore_index<span style="color:#f92672">=</span>True)
 
-    <span class="k">def</span> <span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data_frame</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;analytics/log/log-{0:%Y-%m-</span><span class="si">%d</span><span class="s2">-%H-%M-%S}.csv&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_save</span>(self):
+        self<span style="color:#f92672">.</span>_data_frame<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#34;analytics/log/log-{0:%Y-%m-</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">-%H-%M-%S}.csv&#34;</span><span style="color:#f92672">.</span>format(datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()))
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">recorder</span> <span class="o">=</span> <span class="n">IMUBTRecorder</span><span class="p">(</span><span class="s1">&#39;/dev/rfcomm0&#39;</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>
-    <span class="n">recorder</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></code></pre></td></tr></table>
-</div>
-</div>
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    recorder <span style="color:#f92672">=</span> IMUBTRecorder(<span style="color:#e6db74">&#39;/dev/rfcomm0&#39;</span>, <span style="color:#ae81ff">115200</span>)
+    recorder<span style="color:#f92672">.</span>start()</code></pre></div>
 <h1 id="まとめ">まとめ&nbsp;<a class="anchor" href="#まとめ"><i class="small linkify icon"></i></a> </h1>
 
 <p>M5Stack、あらゆるプロトタイピングの場面で活躍しそう。

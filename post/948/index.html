@@ -23,7 +23,7 @@ XAMPPのエイリアス設定
 	<meta name="author" content="きゅんどう @ksyundo" />
 	<meta name="description" content="C:/xampp/apache/conf/httpd.confに以下を追記．
 Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．
-1 2 3 4 5 6 7 8  Alias /(エイリアス名)/ &amp;amp;quot;(ディレクトリ)/&amp;amp;quot; &amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;amp;lt;/Directory&amp;amp;gt;  " />
+Alias /(エイリアス名)/ &amp;amp;quot;(ディレクトリ)/&amp;amp;quot; &amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;amp;lt;/Directory&amp;amp;gt;" />
 <meta name="generator" content="Hugo 0.48" />
 
 <link rel="shortcut icon" href="/img/defaultFav.ico">
@@ -3265,28 +3265,14 @@ if (!doNotTrack) {
 				<p>C:/xampp/apache/conf/httpd.confに以下を追記．</p>
 
 <p>Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">Alias /(エイリアス名)/ <span class="ni">&amp;quot;</span>(ディレクトリ)/<span class="ni">&amp;quot;</span>
-    <span class="ni">&amp;lt;</span>Directory <span class="ni">&amp;quot;</span>(ディレクトリ)<span class="ni">&amp;quot;&amp;gt;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">Alias /(エイリアス名)/ &amp;quot;(ディレクトリ)/&amp;quot;
+    &amp;lt;Directory &amp;quot;(ディレクトリ)&amp;quot;&amp;gt;
                Options Indexes FollowSymLinks Includes ExecCGI
                AllowOverride All
                Require all granted
                Order allow,deny
                Allow from all
-    <span class="ni">&amp;lt;</span>/Directory<span class="ni">&amp;gt;</span></code></pre></td></tr></table>
-</div>
-</div>
+    &amp;lt;/Directory&amp;gt;</code></pre></div>
 			</article>
 		</section>
 		<section class="ui secondary attached segment dream-tags">
