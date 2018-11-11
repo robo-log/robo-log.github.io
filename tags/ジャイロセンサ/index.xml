@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ジャイロセンサ on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AD%E3%82%BB%E3%83%B3%E3%82%B5/</link>
+    <description>Recent content in ジャイロセンサ on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 21 Jan 2011 18:39:41 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AD%E3%82%BB%E3%83%B3%E3%82%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ジャイロセンサ</title>
+      <link>http://blog.syundo.org/post/882/</link>
+      <pubDate>Fri, 21 Jan 2011 18:39:41 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/882/</guid>
+      <description>ジャイロセンサは計測対象の動き、特に回転方向の動きを検出するのに用いられるセンサです。一昔前は‘ジャイロ’と言われればコマのジャイロ効果を用いた機器、だと考えれば良かったのですが、近年ではMEMS技術の発達などにより小型化が進み、他の方式のジャイロが主流になりつつあります。
+・ジャイロセンサの測定原理 ジャイロセンサとは角速度を検知するセンサである。
+一般にジャイロセンサは角速度に比例した電圧を出力端子から出力する。
+しかし、ホビーロボット界ではRCジャイロのことも単にジャイロと呼ぶことがある。
+RCジャイロは入力されたパルス幅に検知した角速度に比例した幅を加減して出力するものである。
+RCジャイロで角速度を検知するにはRCジャイロに特定のパルス幅の信号を入力し、出力信号ともとの信号の差を取ればよい。
+RCジャイロでない普通のジャイロセンサでは、角速度に応じた電圧が出力されるわけだが、角速度に対する電圧の変化の割合、すなわち感度はデータシートを読めば分かる。
+・使い方 このジャイロセンサの使い方として主に２つ考えられる。
+１．「角速度をゲインを通してフィードバックする」
+電圧を読み取ってそれに適当な値を乗じた物をサーボ信号値に加える。
+２．「積分して角度を求める」
+出力電圧を読み取って、感度を参考にして、角速度を正確に求める。それを一定周期の割り込みで積分していけば角度が求まる。
+その場合、温度ドリフトや積分誤差が問題になってくる。
+・ジャイロセンサリンク RCジャイロ
+ＧＷＳジャイロユニット
+ジャイロ
+AE-GYRO-SMD
+ＩＤＧ－３００
+司21:HS-EG3</description>
+    </item>
+    
+  </channel>
+</rss>

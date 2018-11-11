@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cnc on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/cnc/</link>
+    <description>Recent content in Cnc on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 19 Apr 2015 22:46:39 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/cnc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ロボットを吊るアームを作った</title>
+      <link>http://blog.syundo.org/post/1111/</link>
+      <pubDate>Sun, 19 Apr 2015 22:46:39 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1111/</guid>
+      <description>作業をしやすくするために、棚に固定できるロボット用のアームを作りました。こんなんです。
+
+4mmの合板をCNCで切削しました。穴がいっぱいあいてるのは、CNCが脱調したか何かで穴の位置がずれてしまったため、ボール盤で開け直したからです。  ワイヤーで吊ります。
+ちなみに現在の作業環境はこんな感じです。
+CNC 
+ボール盤と折り曲げ機  CNCに関しては防音箱の性能向上を図る必要があると考えています。
+10mm厚の合板で箱が作ってあるので、低音域の騒音のカットはかなりできていると思うんですが、中高音が筒抜けな感じです。 吸音材をヤフオクで買って貼りつけようと思います。
+ではでは。
+&amp;nbsp;
+&amp;nbsp;</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　USBCNCで使う</title>
+      <link>http://blog.syundo.org/post/1009/</link>
+      <pubDate>Mon, 13 Apr 2015 01:19:34 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1009/</guid>
+      <description>
+ </description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　設定編2</title>
+      <link>http://blog.syundo.org/post/852/</link>
+      <pubDate>Sat, 08 Dec 2012 03:21:56 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/852/</guid>
+      <description>前回：中華CNC CNC3020導入記 設定編
+LinuxCNCの設定 一応，送られてきたCNCの箱の中にはA4一枚のMach3での設定方法が入っていたのですが，LinuxCNC(EMC2)のものはありません．設定についてはメールで問い合わせよ，と商品ページには書いてあったものの，とてもLinuxCNC用の資料が貰える気はしません．ですのでMach3の説明を見ながら推測してLinuxCNCでの設定値を決めていきます．
+CNCタブから「Setting」を選んでCNCの設定を始めます．
+
+設定の名前はCNC-3020T-DJにしました．自由です．
+First Parport Addressのところには前に調べたPCIExpress-パラレル変換ボードに割り当てられたアドレスを指定します．
+Base Period Max…のところは，「Test Base Period Jitter」を押した後，ブラウザ開いたり動画見たり数分間PCに負荷を与えて出た値よりちょっとだけ大きい値に設定します．
+次です．これはそのままで次行きます．
+
+パラレルポートのピンの割り当てをします．
+
+このように設定しました．今のところうまく動いているので間違いは無いようです．
+各軸のステッピングモータの回転数と軸方向への移動距離を対応づけます．
+
+台形ネジの精度が良くなく，ピッチが実測で3.965くらいらしいのでそのように設定します．
+Table Travelは実際の可動範囲の2倍に設定しました．これはデータによって可動範囲外に出たぞ，という警告が出てきて作業が進まなくなったからです．データの作り方や原点の合わせ方が間違っている可能性があるのでここは要検討です．
+Y軸はTable Travelは-300～300に設定し，それ以外はX軸と同じように設定しました．
+Z軸はこのようにしました．
+
+「Test This Axis」というボタンを押して，移動量を決めてから試験的に各軸を動かしてみることができます．
+ちなみにY軸に関しては，ノギスを当てて移動距離を測ってみました．何回か繰り返しましたが，無負荷の状態では指令値との誤差は±0.02mm以下でした．ホントか？バックラッシを作るように動かしてから測っても同じでした．まぁ切削しながら測ってないからわからないです．
+
+設定はこれで終わりです．
+
+適用押します．</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　設定編</title>
+      <link>http://blog.syundo.org/post/849/</link>
+      <pubDate>Wed, 14 Nov 2012 02:14:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/849/</guid>
+      <description>前回：中華CNC CNC3020導入記　購入編
+組み立て終わったので，動かしてみたいと思います．
+まず基板を見てみる とりあえず，一度見てみないと心配なので，コントロールBOXを開けてみました．
+
+大きなトランスと，電源基板，ステッピングモータ制御基板が入ってました．
+
+モータドライバは東芝 TB6560AHQでした．アルミの放熱板に固定されています．
+基板をよく見ると，
+[bash gutter=&amp;ldquo;false&amp;rdquo;]
+LIMIT X Y Z
+GND PWM VCC
+PROBE
+[/bash]
+などと書かれているピンがありました．リミットスイッチや，スピンドルの回転数の操作，切削Z軸センサの追加が可能なのかもしれません．
+コントロールBOX内で見つけた不具合なんですが，EMERGENCY STOPのスイッチに繋がる配線が抜けていたのでESTOPと書いてあるピンに差し直しました．
+それ以外はハンダ付けもきれいですし，問題ないようです．
+パラレルポートの増設 コントロールボードはPCのD-sub25pinのパラレルポートに繋がなければなりません．しかし，そんなもの手持ちのPCに付いてないので，PCI Express接続のパラレルポート変換基板を用いました．
+変換基板はこれに似たものをヤフオクで買いました．「PCI-Express　パラレル」とヤフオクで検索して出品されていればそれですhttp://auctions.search.yahoo.co.jp/search?p=PCIExpress+%E3%83%91%E3%83%A9%E3%83%AC%E3%83%AB&amp;amp;auccat=&amp;amp;aq=-1&amp;amp;oq=&amp;amp;ei=UTF-8&amp;amp;tab_ex=commerce&amp;amp;slider=0．Ubuntuの入ったPCで使うので，Linux対応と書いてあるのがポイントでした．
+OSについて CNC制御用のPCのOSにはUbuntu10.04を使います．
+この理由なんですが，
+・手持ちのPCでPCIExpressポートが空いてるのがたまたまUbuntuの入ってるPCだった．
+・Windowsで使えるCNC制御ソフトのMach3は32bitOSでないと使えなくて，しかもXP推奨だが，手持ちのWindowsは64bit版のWindows7しかない→Linuxしかない
+・せっかく激安CNCなんだからフリーのソフトにこだわりたい．
+・Ubuntuで使えるCNC制御ソフトのLinuxCNCがUbuntu10.04じゃないとだめだった．
+という感じです．
+Ubuntu10.04をインストールしていなければ，ここから日本語Remix版のISOを入手して，インストールしてください．
+さて，UbuntuをインストールしたPCの，PCI(Express)スロットに変換ボードを挿したら，端末より
+[bash gutter=&amp;ldquo;false&amp;rdquo;]
+$ lspci -v
+[/bash]
+と入力してパラレルポートのアドレスを調べます．私の場合は1000と1008の二つ出てきたんですが，どちらが使えるのかやってみないとわかりません．
+後で使うのでアドレスをメモしておきます．
+LinuxCNCのインストール LinuxCNCをlinuxcnc.org/からダウンロードします．
+HOME&amp;gt;Download&amp;gt;Other Installation Options　と進んでいって，
+If you prefer to start with the distributed Ubuntu CD, you can install LinuxCNC yourself with these instructions:</description>
+    </item>
+    
+    <item>
+      <title>中華CNC CNC3020導入記　購入編</title>
+      <link>http://blog.syundo.org/post/848/</link>
+      <pubDate>Tue, 09 Oct 2012 00:14:50 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/848/</guid>
+      <description>CNCが欲しい！ 最近作りたいものが増える一方で，実際に工作する時間が無くなってきて，CNCが欲しいなぁと思うようになってきました．ろぼとま，ロボスポット，ヴィストン，アミエなどで加工サービスがありますが，板厚に制限があったりして案外作れるものが少なく感じます．加工サービスにも一回1万円程度かかりますので，それならばいっそCNCを買ってしまおうと決断しました．
+何を買うか 現在ホビー向けに小型CNCがいくつか売られています．
+ローランド：　MODELAシリーズ
+オリジナルマインド：　KitMillシリーズ
+秘密基地：　黒い奴
+中国製(不明)：　Sable-2015
+中国製(不明)：　CNC3020，3040，6040
+Edward氏：　Shapeoko
+etc…
+今回は値段の安さや，人柱的チャレンジ精神から，中華製のCNC～シリーズの中から購入しようと決めました．
+この中華CNCには3040Tとか3040Nとか，命名規則のほどはよく分かりませんが，種類がいろいろあります．3040とかいう数字はX,Yの加工範囲を表しています．3020はDCモータ，台形ネジ駆動です．3040，6040にはDCモータ，台形ネジ駆動のものと，ACモータ，ボールネジ駆動のものがあって，後者のほうがお値段が高いです．またACモータのものにはインバータがセットになっていて，大抵AC200Vが必要になります．
+今回はサイズや値段を考えて，2012年新モデルのCNC3020T-DJを購入しました．
+中華CNC3020T-DJ CNC3020T-DJのスペックは以下の通りです．
+CNC3020T-DJスペック
+X,Y,Z 加工範囲: 300×200×45mm
+最大材料高さ: ≤60mm
+外形n: 520×400×370mm
+テーブルサイズ: 440×240mm
+構造材: 6061&amp;frasl;6063 アルミニウム合金
+ステッピングモータ: 2相(バイポーラ型) 57&amp;frasl;1.8A
+ドライブユニット: 1204 2条台形ネジ
+スライドユニット: Chromeplate shaft
+最大速度: 4000mm/min
+切削速度: 300-3000mm/min
+繰り返し位置精度: 0.05mm
+主軸モータ: 230W DC スピンドルモータ
+主軸速度: 11000RPM/MIN
+ツールホルダ: ER11/3.175mm
+インターフェース:パラレルポート
+利用可能なソフト:Mach3/Emc2,(Type3,Wentai, ArtCAM)
+コマンド: G code/.nc/.ncc/.tab/.txt
+重量: 21kg(梱包含む)
+AliExpressに出品してる会社のうちここ
+http://www.aliexpress.com/item/110V-230W-CNC-3020T-DJ-upgrade-from-3020T-3020-Router-Engraver-Milling-Drilling-Machine/434982856.html
+から購入しました．購入時最安でした．
+購入時は本体535.00ドル，送料153.97ドルでした． AliExpressからの請求は，クレジットカードの明細を見ると，54677円でした．安い！また，荷物到着から1週間後くらいにFedEXから封筒が届き，消費税/付加価値税　500円，関税・消費税特別手数料　500円の計1000円を請求されました．コンビニや銀行で払えます．</description>
+    </item>
+    
+  </channel>
+</rss>

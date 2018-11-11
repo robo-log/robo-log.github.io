@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/cpp/</link>
+    <description>Recent content in Cpp on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 18 May 2015 01:26:10 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;初心者会に参加してきた</title>
+      <link>http://blog.syundo.org/post/1154/</link>
+      <pubDate>Mon, 18 May 2015 01:26:10 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1154/</guid>
+      <description>歌舞伎座.tech#8「C++初心者会」に参加してきた。 http://kbkz.connpass.com/event/13905/
+初めて勉強会での発表ということもした（ただしLT)
+発表資料はこちら http://www.slideshare.net/syundo/c-48237620
+ニコ生はこちら http://live.nicovideo.jp/gate/lv220960718
+メモを取って即時公開してくださっているひとがいた。 http://www.shigemk2.com/archive/category/C%2B%2B
+私はLTでC++を使って開発できるマイコンボードの例としてmbedを紹介した。 だが、問題はmbedのコンパイラにあった。 C++界隈の人たちの興味はC++11，14、さらにはC++17にあるのだ。 対してmbedオンラインコンパイラはC++98だ。 C++98のことなんてもう忘却の彼方にあるし、取るに足りないことなのだ（実際僕もそう思う）。
+mbedの開発環境は不自由だ。 ネット環境がないとコンパイルできないとかザコだ。 なぜそんな環境に拘っているのか？ そのご指摘はまさにその通りだと思う。
+arm向けの自由なコンパイラがあるんだから、mbedはオンラインコンパイラに頼るエコシステムにすべきじゃなかったのだ。 オンラインコンパイラが無ければmbedは広まらなかったか？ 僕はそうは思わない。Arduinoの開発環境はローカルの開発環境だが超流行っているじゃないか。 Coretex-M3の強い計算機能力を発揮して楽しくC++開発できることがmbedの強みだ。 Arduinoなんて目じゃない。
+それなのにコンパイラがC++98/03準拠というのはあんまりじゃないか。 mbedのコミュニティのことを考え、自分のしたい開発のことを考え、もやもやしている&amp;hellip;
+C++界隈の人たちというのは濃い、強い。 自分ももっと技術力を高めて本当のプログラマになりたいと思った。
+これまで聞いたこと無いキーワードや，聞いたことあったがよく知らないことをたくさん知れた。 調べて勉強してもっとC++をわかりたい。</description>
+    </item>
+    
+    <item>
+      <title>できるだけconstexprを使おう</title>
+      <link>http://blog.syundo.org/post/1143/</link>
+      <pubDate>Fri, 15 May 2015 02:59:51 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1143/</guid>
+      <description>Effective Modern C++メモ (Moving to Modern C++ : Item 15) constexprがオブジェクトに付加されたときはそのオブジェクトはconstのようなものになる一方で、関数に付加されたときはそれとは少し違う性質のものになるから紛らわしい。
+constexprオブジェクトについて constexprをオブジェクトの前に付けるとコンパイル時に用いることができる値になる。このような値は読み取り専用のメモリに配置されるだろうから、特に組み込みの分野で重宝されるだろう。
+1 2 3 4 5 6 7  int sz; // コンパイル時に存在しない ... constexpr auto arraySize1 = sz; // エラー。szはコンパイル時には使えない。 std::array&amp;amp;lt;int, sz&amp;amp;gt; data1; // 同様なエラー constexpr auto arraySize2 = 10; // 良い。10はコンパイル時定数。 std::array&amp;amp;lt;int, arraySize&amp;amp;gt; data2; // 良い。    constは同じ役割を果たせない。コンパイル時には値が無いからだ。constexprオブジェクトはconstだが、その逆は成り立たないのである。
+constexpr関数について 引数がコンパイル時定数ならばコンパイル時に、そうでなければ実行時に計算される関数。 C++11の場合 関数内に1行、return文があるだけしか認められない。
+1 2 3 4  constexpr int pow(int base, int exp) noexcept { return (exp == 0 ?</description>
+    </item>
+    
+  </channel>
+</rss>

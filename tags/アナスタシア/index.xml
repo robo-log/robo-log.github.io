@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>アナスタシア on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/</link>
+    <description>Recent content in アナスタシア on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 04 Sep 2010 02:13:01 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>形がみえてきた</title>
+      <link>http://blog.syundo.org/post/753/</link>
+      <pubDate>Sat, 04 Sep 2010 02:13:01 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/753/</guid>
+      <description>船場ﾛﾎﾞﾌｧｯｼｮﾝｺﾝﾃｽﾄへの応募がテスト期間中に締め切られてしまってがっかりした＋鳥人間で忙しかった（そうでもない）とかで夏休みに入って1ヶ月近く経ってしまった。
+気分転換として部品を集めてロボットの形にしてみた。
+ 腰のヨー軸はロッドで回る。ちょっと曲がってるのは後で修正せねば。
+  うわあぁ・・・。配線するのめんどくさぁい。
+ </description>
+    </item>
+    
+    <item>
+      <title>届いた</title>
+      <link>http://blog.syundo.org/post/752/</link>
+      <pubDate>Fri, 09 Jul 2010 02:19:09 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/752/</guid>
+      <description>Vstoneさんから切削サービスの届いた。
+速すぎだろｗｗｗ
+オプション付けてないよｗ
+しかもなんかおまけで外国のおもちゃが入ってたし。
+エクスプレスサービスなんていらんかったんや・・・・・・。</description>
+    </item>
+    
+    <item>
+      <title>加工経路</title>
+      <link>http://blog.syundo.org/post/751/</link>
+      <pubDate>Tue, 06 Jul 2010 21:52:13 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/751/</guid>
+      <description>わくわく
+ 待つのみ！！</description>
+    </item>
+    
+    <item>
+      <title>やっと</title>
+      <link>http://blog.syundo.org/post/750/</link>
+      <pubDate>Mon, 05 Jul 2010 18:26:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/750/</guid>
+      <description>やっとVstoneさんに発注した
+ これから徐々にテスト期間に突入していくだろうから、ちょうど良いタイミングで届くだろう。
+あとはAD変換関係のデバッグ。
+モーションを組み込むためのポインタか配列。
+足裏センサは、最近のしまけんさんの記事を読むと、どうも難しそう。
+アナログ値を取る以前の問題らしい。まいったなあ。</description>
+    </item>
+    
+    <item>
+      <title>軌道戦士バンナム</title>
+      <link>http://blog.syundo.org/post/749/</link>
+      <pubDate>Tue, 06 Apr 2010 22:18:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/749/</guid>
+      <description>もうタイトルつけるのが面倒で仕方がない。
+支持脚が入れ替わる度に倒立振子の原点も入れ替わることを忘れていた。
+また、左右方向の軌道エネルギーが正になるとコケるということでもあるんだと分かった。山を越えていくのは前後方向の軌道。
+というわけで重心のx､y方向の軌道が求まった。
+左右方向
+前後方向
+二歩分。やっぱ両足支持期間が必要だなあ。
+それに遊脚をどうするかも悩みどころ。
+メモ
+Tc=sqrt(Zg/g);
+ex=exp(Tp/Tc);
+y=-y_FP;
+dy0=(1.0/Tc)*((1-ex)/(1+ex))*y0;
+y=y0*cosh(t/Tc)+Tc*dy0*sinh(t/Tc)+y_FP;
+dx0=(1.0/Tc)*((1+ex)/(1-ex))*x0;
+x=x0*cosh(t/Tc)+Tc*dx0*sinh(t/Tc);</description>
+    </item>
+    
+  </channel>
+</rss>
