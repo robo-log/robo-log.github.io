@@ -30,10 +30,8 @@
       <pubDate>Mon, 15 Jan 2018 04:09:32 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/20180115-reinforcement-learning/</guid>
-      <description>強化学習について古典的なものからDeepNNを使ったものまでまとめていきたいと思っている。 元ネタとして以下のサイト、書籍を参考にしている。
- Deep RL Bootcamp これからの強化学習 速習 強化学習  記事一覧
- MDPとベルマン方程式 反復による価値の推定 - TD学習 DQN, DDQNと実装 方策勾配 方策勾配に基づくアルゴリズム、Actor-Critic 自然方策勾配法とTRPO、PPO モデルベース強化学習  作成予定
- pathwise derivative method (SVG, DPG) 逆強化学習 A3Cの実装 PPOの実装  </description>
+      <description> 強化学習について古典的なものからDeepNNを使ったものまでまとめていきたいと思っている。 元ネタとして以下のサイト、書籍を参考にしている。
+ Deep RL Bootcamp これからの強化学習 速習 強化学習  解説記事一覧  MDPとベルマン方程式 反復による価値の推定 - TD学習 DQN, DDQNと実装 方策勾配 方策勾配に基づくアルゴリズム、Actor-Critic 自然方策勾配法とTRPO、PPO モデルベース強化学習 pathwise derivative method  論文まとめ  A3C Learning Complex Dexterous Manipulation With Deep Reinforcement Learning and Demonstrations Exploration by Random Network Distillation  </description>
     </item>
     
     <item>
