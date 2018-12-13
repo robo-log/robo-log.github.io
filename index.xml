@@ -84,12 +84,13 @@ import time import datetime import serial import pandas as pd class IMUBTRecorde
       <pubDate>Sat, 14 Jul 2018 21:33:33 +0900</pubDate>
       
       <guid>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</guid>
-      <description>方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative method)について扱う。
+      <description>方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative metho)について扱う。
 何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。 likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。
 つまり、前者の場合は、方策勾配法の記事で述べたように
 \begin{equation} \nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)] = \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)] \end{equation} を計算する。
 後者の場合、後述するre-parametrization trickを使って
-\begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続であるとしている。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。 また、$f$は微分可能であるものとして、勾配が0にならないようにする。
+\begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続で微分可能であるものとする。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。
+Q-Learningでは、値を求めてその最急方向を得たいがために離散行動の中からQ functionの$argmax$を計算していたが、 Q functionの微分を取ることによって、連続行動の問題についても扱えるようにしたのがpathwise derivative methodである。 よって、Q-Learningとよく関連している手法である。 また、行動と方策の更新が必ずしも同期する必要が無いため、方策オフの手法である。
 Stocastic Value Gradient(SVG) MDPとベルマン方程式 で導出したベルマン方程式において、終端状態を表現するためだけに時変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。 このとき、連続空間におけるベルマン方程式は以下のようになる。
 \begin{equation} V^{(t)}(s) = \int [ r^{(t)} + \gamma \int V^{(t+1)} (s&amp;rsquo;)p(s&amp;rsquo;|s, a)ds&amp;rsquo; ] p(a|s;\theta) da \label{eq:belman_continus} \end{equation}</description>
     </item>
@@ -143,6 +144,23 @@ $\omega^I, r^I_t$が参照軌道に関する報酬と重みを表し、$\omega^G
 Early Termination 胴体や頭などのいずれかの部位が地面に着いたり、胴体の高さが一定より低くなったりしたときにそのエピソードでの学習は打ち切るようにしている。 好ましい状態についてだけ学習できるようにしているとのこと。
 マルチタスクへの適用 imitation learningの話とは関係が無いが、この論文ではタスクごとに学習したネットワークを切り替えることによって、復数のタスク間の切り替えをスムーズにできるようにしている。 方策はそれぞれのタスク用の方策を合成したものを使う。
 感想 学習の試行回数を減らすために行っている様々な工夫が、実ロボットでの強化学習をするときに役に立ちそうだと思った。 しかし、ヒューリスティックな部分が多いので、再現しようとすると苦労しそうではある。</description>
+    </item>
+    
+    <item>
+      <title>論文 Asynchronous Methods for Deep Reinforcement Learning</title>
+      <link>http://blog.syundo.org/post/20180303-asynchronous-methods-for-deep-reinforcement-learning/</link>
+      <pubDate>Sat, 03 Mar 2018 16:28:53 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180303-asynchronous-methods-for-deep-reinforcement-learning/</guid>
+      <description>Asynchronous Methods for Deep Reinforcement Learning を読んだ。
+Arxivリンク https://arxiv.org/abs/1602.01783
+Actor-Criticを並列に学習することによって、Atariのタスクにおいて好成績を出せるようになったというのがこの論文のcontribute。 いわゆるA3Cと呼ばれるアルゴリズムにあたる。
+方策オン型の強化学習は、更新前後の方策が時間的に強く相関しているために、安定して収束しないというのは共通認識であった。 そこで、方策オフ型の手法とExperience Bufferを使って、相関を除去するという手法が取られていた。 しかし、このような手法は、方策オフ型の学習に限られてしまうし、経験の保持のために多くのメモリを必要としてしまう。
+そこで、復数のエージェントを並列で走らせ、その結果を使って学習することで時間的相関を緩和する手法が考えられた。 これはSarsaやActor-Criticのような方策オン型学習にも、Q-Learningのような方策オフ型の手法にも、もちろんDeep Learningを使う方法にも適用できる考え方である。 この方法の副次的な利点として、従来は１台の強力なGPUを持ったコンピュータを使ってExperience Replayを行う必要があったが、分散的に学習できるようになったために、通常のCPUを持った復数のコンピューターがあれば性能の高い学習を実現することができる、ということも確認されている。
+学習手法 コンポーネントとしては、複数のActor-Learnerがあり、そのパラメタを動悸する Actor-Learner では数ステップ分の勾配を蓄積する。 これによって、Actor-Learnerがお互いにパラメタを上書きしてしまうのを防止する。 蓄積をどれだけするかというのは、計算量とデータ量のどちらを優先するかというトレードオフになる。 蓄積してバッチ的にパラメタを更新することで計算量を減らすことができるが、一方で学習のために必要なデータ量が増えるということである。
+探索 各Actor-Learnerでの探索の方法は、それぞれ違っていたほうがロバスト性の高い方策を学習できるという。 この論文では、$\epsilon$-greedy 法において各Learnerで$\epsilon$をある分布からサンプルして決定することでLearnerごとの探索方法に差異をもたせた。
+また、目的関数に方策$\pi$のエントロピーが用いられている。 目的関数にエントロピーの項を加え、正則化項として働かせることで、すぐに局所最適解に陥ってしまうのを防ぐ効果があることが、(Williams &amp;amp; Peng, 1991)によって確認されている。
+実験  57 Atari games TORCS Car Racing Simulator Continuous Action Control Using the MuJoCo Physics Simulator Labyrinth  の課題を解いた。 16個のCPUを用いて、当時のSOTAを達成した。</description>
     </item>
     
     <item>

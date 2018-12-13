@@ -21,12 +21,13 @@ pathwise derivative method: Stocastic Value Gradient(SVG), (Deep) Deterministic 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="author" content="きゅんどう @ksyundo" />
-	<meta name="description" content="方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative method)について扱う。
+	<meta name="description" content="方策勾配法の記事では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。 本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative metho)について扱う。
 何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。 likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。
 つまり、前者の場合は、方策勾配法の記事で述べたように
 \begin{equation} \nabla_{\theta} \mathbb{E}_{x \sim p(\cdot | \theta)} [f(x)] = \mathbb{E}_x [\nabla_\theta \log p(x; \theta) f(x)] \end{equation} を計算する。
 後者の場合、後述するre-parametrization trickを使って
-\begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続であるとしている。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。 また、$f$は微分可能であるものとして、勾配が0にならないようにする。
+\begin{equation} \nabla_{\theta} \mathbb{E}_{z \sim \mathcal{N}(0, 1)} [f(x(z, \theta))] = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))] \end{equation} を扱う。 ここで、$f$は連続で微分可能であるものとする。 そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。
+Q-Learningでは、値を求めてその最急方向を得たいがために離散行動の中からQ functionの$argmax$を計算していたが、 Q functionの微分を取ることによって、連続行動の問題についても扱えるようにしたのがpathwise derivative methodである。 よって、Q-Learningとよく関連している手法である。 また、行動と方策の更新が必ずしも同期する必要が無いため、方策オフの手法である。
 Stocastic Value Gradient(SVG) MDPとベルマン方程式 で導出したベルマン方程式において、終端状態を表現するためだけに時変の報酬$r^{(t)} = r(s^{(t)}, a^{(t)}, t)$を用いることを想定する(一連の動作のうち最後の状態遷移で報酬$r^{(t)}$が得られるイメージ)。 このとき、連続空間におけるベルマン方程式は以下のようになる。
 \begin{equation} V^{(t)}(s) = \int [ r^{(t)} &#43; \gamma \int V^{(t&#43;1)} (s&amp;rsquo;)p(s&amp;rsquo;|s, a)ds&amp;rsquo; ] p(a|s;\theta) da \label{eq:belman_continus} \end{equation}" />
 <meta name="generator" content="Hugo 0.48" />
@@ -1482,6 +1483,13 @@ var bodyBgSwitchIndex = 0;
 		<div>
 			<i class="cocktail icon"></i>
 			<p>論文 Exploration by Random Network Distillation</p>
+		</div>
+	</a>
+
+	<a class="item" href="http://blog.syundo.org/post/20180303-asynchronous-methods-for-deep-reinforcement-learning/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>論文 Asynchronous Methods for Deep Reinforcement Learning</p>
 		</div>
 	</a>
 
@@ -3086,6 +3094,13 @@ if (!doNotTrack) {
 		</div>
 	</a>
 
+	<a class="item" href="http://blog.syundo.org/post/20180303-asynchronous-methods-for-deep-reinforcement-learning/">
+		<div>
+			<i class="cocktail icon"></i>
+			<p>論文 Asynchronous Methods for Deep Reinforcement Learning</p>
+		</div>
+	</a>
+
 	<a class="item" href="http://blog.syundo.org/post/20180120-learning-complex-dexterous-manipulation-with-deep-reinforcement-learning-and-demonstrations/">
 		<div>
 			<i class="cocktail icon"></i>
@@ -3283,7 +3298,7 @@ if (!doNotTrack) {
 				
 
 <p><a href="../20171117-reinforcement-learning-policy-gradient">方策勾配法の記事</a>では、確率的な方策についてその勾配を評価するためのscore functionを直接求める方法について述べた。
-本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative method)について扱う。</p>
+本記事では、方策勾配を求めるために価値関数の微分を計算する手法(pathwise derivative metho)について扱う。</p>
 
 <p>何らかの関数$F$があるときに、その期待値の勾配$\nabla_{\theta} \mathbb{E}[F]$を求めたいとする。
 likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$\theta$が期待値にかかってくる確率分布に設定されているか、モデル$F$に存在すると考えるか、ということだといえる。</p>
@@ -3303,9 +3318,13 @@ likelihood ratio methodとpathwise derivative methodの違いは、パラメタ$
 = \mathbb{E}_z [\nabla_\theta f(x(z, \theta))]
 \end{equation}
 を扱う。
-ここで、$f$は連続であるとしている。
-そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。
-また、$f$は微分可能であるものとして、勾配が0にならないようにする。</p>
+ここで、$f$は連続で微分可能であるものとする。
+そうでなければ、期待値計算の中に微分の操作を入れるような入れ替えを行うことはできない。</p>
+
+<p>Q-Learningでは、値を求めてその最急方向を得たいがために離散行動の中からQ functionの$argmax$を計算していたが、
+Q functionの微分を取ることによって、連続行動の問題についても扱えるようにしたのがpathwise derivative methodである。
+よって、Q-Learningとよく関連している手法である。
+また、行動と方策の更新が必ずしも同期する必要が無いため、方策オフの手法である。</p>
 
 <h1 id="stocastic-value-gradient-svg">Stocastic Value Gradient(SVG)&nbsp;<a class="anchor" href="#stocastic-value-gradient-svg"><i class="small linkify icon"></i></a> </h1>
 
