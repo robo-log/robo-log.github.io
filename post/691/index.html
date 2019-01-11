@@ -3313,6 +3313,17 @@ if (!doNotTrack) {
 <p>void main(void)// メイン関数<br />{<br />&nbsp; rs_init (br2400, txb, sizeof(txb), rxb, sizeof(rxb));<br />&nbsp; fdevopen(rs_putchar, rs_getchar, 0);<br />&nbsp; SREG |= (1&lt;&lt;SREG_I); <br />&nbsp; unsigned char a,b;//受信データ用<br /><br />&nbsp; while(1){<br />&nbsp; &nbsp;&nbsp; &nbsp;rs_rx_purge ();//受信バッファクリア<br />&nbsp; &nbsp; if (rs_rx_buff ()) {//受信バイト数が０でなければ真<br />&nbsp; &nbsp;&nbsp; &nbsp;a=rs_getc();//前１バイト受信<br />&nbsp; &nbsp;&nbsp; &nbsp;b=rs_getc();//後１バイト受信<br />&nbsp; &nbsp;&nbsp; &nbsp;<br />&nbsp; &nbsp;&nbsp; &nbsp;switch(a){//前一バイトチェック<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; case 0xf1 :<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; switch(b){//後一バイトチェック<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;case 0x01 :send_command(0xf1,0x01);//２バイト送信<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;break;<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;case 0x02 :send_command(0xf1,0x02);<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}break;<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; }<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }<br />&nbsp; &nbsp; <br />&nbsp; &nbsp; else{//受信データ無し<br />&nbsp; &nbsp;&nbsp; &nbsp;send_command(0xf0,0x00);//データ無し<br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; }<br />&nbsp; }<br />}</p>
 
 			</article>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-6465822539616589"
+			     data-ad-slot="9735320808"
+			     data-ad-format="auto"
+			     data-full-width-responsive="true"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 		</section>
 		<section class="ui secondary attached segment dream-tags">
 			<span></span>
