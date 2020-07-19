@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ROS on ROBO LOG</title>
+    <link>http://blog.syundo.org/categories/ros/</link>
+    <description>Recent content in ROS on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 18 Jul 2020 23:48:14 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/categories/ros/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>macOS 10.15 Catalina に ROS2 Foxy Fitzroyをインストールする</title>
+      <link>http://blog.syundo.org/post/20200718-osx-catalina-ros-foxy-fitzroy/</link>
+      <pubDate>Sat, 18 Jul 2020 23:48:14 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20200718-osx-catalina-ros-foxy-fitzroy/</guid>
+      <description>OSX 10.15 Catalina に ROS2 Foxy Fitzroyをインストールしてサンプルプログラムのビルドまで行います。 ROS2 Foxy FitzroyはmacOS Mojave (10.14)までの対応となっていますが、Catalinaでも動作させることができます。
+ROS2 セットアップ 基本手順 ROS2のビルド済みバイナリを用いるセットアップをまず行います。 以下のサイトの手順通りで問題ありませんでした。 https://index.ros.org/doc/ros2/Installation/Foxy/macOS-Install-Binary/
+ビルドすると起こる問題の対処 Qt5について Qt用のcmake fileが見つからない以下のエラーが出ます。
+--- stderr: turtlesim CMake Error at CMakeLists.txt:15 (find_package): By not providing &amp;quot;FindQt5.cmake&amp;quot; in CMAKE_MODULE_PATH this project has asked CMake to find a package configuration file provided by &amp;quot;Qt5&amp;quot;, but CMake did not find one. Could not find a package configuration file provided by &amp;quot;Qt5&amp;quot; with any of the following names: Qt5Config.</description>
+    </item>
+    
+  </channel>
+</rss>
