@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ESP32 on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/esp32/</link>
+    <description>Recent content in ESP32 on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 08 Sep 2018 15:26:57 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>M5stack Gray で MPU9250 で取得した角度を Bluetooth SPPで送る</title>
+      <link>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</link>
+      <pubDate>Sat, 08 Sep 2018 15:26:57 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</guid>
+      <description>M5Stack Gray M5Stack Grayを買ったので使ってみている。 M5Stack GrapyはESP32にLCDとスピーカーとバッテリー、スイッチ、microSDスロットを付けてコンパクトに纏めたM5Stackに、MPU-9250 9軸IMUを搭載したモジュールである。 もちろん、ESP32が搭載されているのでBluetoothもWifiも使える。 また、ESP32向けに用意されているArduino拡張を流用してM5Stak向けにもArduino開発環境が用意されている。 Arduinoでなく、C/C++, micropythonを利用して開発する環境もある。 GPIOなどにアクセスするためのピンも本体パッケージ側面や、本体下部のアダプターに用意されているため、拡張性も高い。 M5Stackは色々なやってみたいことをサクッと実装するために、非常に強力な道具になってくれるのではないかと思う。
+今回は、IMUで本体の姿勢を取得して、Bluetooth (SPP)で送信するというのをやってみた。
+開発環境の準備 基本的にGetting Startedに書いてあることに従って作業すれば良いのでそんなに難しいことはない。 初心者向けにArduinoに標準対応してくれればもっと敷居が低くなるのになぁとは思った。
+M5Stack Gray で無線IMU  https://github.com/m5stack/M5Stack/blob/master/examples/Modules/MPU9250/MPU9250BasicAHRS/MPU9250BasicAHRS.ino https://github.com/espressif/arduino-esp32/blob/master/libraries/BluetoothSerial/examples/SerialToSerialBT/SerialToSerialBT.ino  以上のコードを組み合わせれば簡単に姿勢をBluetoothで送れる。 Mahony filterというのを使ってクオータニオンを算出し、Yaw-Pitch-Rollに変換しているようだ。
+元のコードそのままだとかなり煩雑になっているので、整理した。 https://github.com/hackathon201808/hackathon201808/blob/master/arduino/m5stackgray/imu_bt/imu_bt.ino これで姿勢について様々な処理を追加する見通しが立てやすくなったと思う。
+接続先PCがUbuntu16.04の場合 Bluetooth接続をシリアルポートを介した通信のように扱うSPP(Serial Protocol Profile)を使うために、Ubuntu側で準備が必要になる。
+以下でBluetoothアドレスとChannelを調べる。
+sdptool browse そして以下でrfcomm0に対応付ける。この場合はアドレスが84:0D:8E:20:49:BE、チャンネルが2であった。
+sudo rfcomm bind 0 84:0D:8E:20:49:BE 2 ちゃんと送られているか、試しにscreenで見てみる。
+screen /dev/rfcomm0 catとechoを使っても送受信できる。
+cat /dev/rfcomm0 echo &amp;quot;Hello World&amp;quot; &amp;gt; /dev/rfcomm0 pythonで受信してみる 受け取ったデータをcsvとかに書き出せると便利だと思うので、pythonで受け取ったデータをcsvに保存するやつ書きました。 モーションの解析とかできそう。
+import time import datetime import serial import pandas as pd class IMUBTRecorder: def __init__(self, port, baudrate): self.</description>
+    </item>
+    
+  </channel>
+</rss>

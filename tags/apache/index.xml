@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apache on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/apache/</link>
+    <description>Recent content in Apache on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 12 Apr 2015 23:19:51 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/apache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WordpressをロリポップからDigital Oceanに移した</title>
+      <link>http://blog.syundo.org/post/1072/</link>
+      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1072/</guid>
+      <description>今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．
+そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．
+まずはDigitalOceanに登録してDropletを作成する必要がある．今回は 512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64 のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．
+SSHの鍵の登録 DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る． ```bash ssh-keygen ``` で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく． Apache 導入 yum install -y httpd httpd-devel chkconfig httpd on service httpd start PHP 導入 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd vi /etc/php.ini vi /etc/httpd/conf.d/php.conf MySQL 導入 yum install mysql-community-release-el6-5.noarch.rpm yum install -y mysql-community-client mysql-community-devel mysql-community-server Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 mkswap /swapfile swapon /swapfile sudo sh -c &amp;amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;amp;gt;&amp;amp;amp;gt; /etc/fstab&amp;amp;quot; chkconfig mysqld on service mysqld start MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</description>
+    </item>
+    
+    <item>
+      <title>XAMPPのエイリアス設定</title>
+      <link>http://blog.syundo.org/post/948/</link>
+      <pubDate>Sun, 29 Dec 2013 15:49:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/948/</guid>
+      <description>C:/xampp/apache/conf/httpd.confに以下を追記．
+Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．
+Alias /(エイリアス名)/ &amp;amp;quot;(ディレクトリ)/&amp;amp;quot; &amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;amp;lt;/Directory&amp;amp;gt; </description>
+    </item>
+    
+  </channel>
+</rss>

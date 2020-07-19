@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/hugo/</link>
+    <description>Recent content in Hugo on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 14 May 2015 01:27:58 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ブログも静的ページにしたらどうか</title>
+      <link>http://blog.syundo.org/post/1140/</link>
+      <pubDate>Thu, 14 May 2015 01:27:58 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1140/</guid>
+      <description>以前から気になっていたのだが、ブログのようだけども決してWordpressで構成されているわけでもなく、読み込みが速くて、しかもモダンなデザインのウェブサイトをよく見かける。 ああいったものをどういうフレームワークで作っているのか全然良くわかっていなかったのだが、TLを眺めていたらふいに知ることとなった。 あれらはMarkdownなどからビルドして静的ページを生成したものを公開しているそうなのだ。 DBやらphpやら準備しなくて良いので環境の構築は楽だろう。 静的ページだけなので非力なサーバでも運用できるだろう。 俄然興味が湧いてきた。
+こういったツールは色々あって https://staticsitegenerators.net/ ここを見るとどれが人気があるのかわかる。
+だが私は今のところgolangで動くHugoに興味がある。 機能がシンプルであるし、他に比べてサイトの生成が爆速でできるらしい。
+ソースはGitHubで管理するのが良かろう。 werckerやらTravis CIなどのCI Webツールを使ってCIできると更にかっこいいだろう。 werckerはBitbucketも使えるしGitHubのprivateリポジトリも使えるらしい。 Travis CIはGitHubのみでprivateリポジトリは有料らしい。
+ちなみにちょっと文脈が違うがWebサイトに数式を含めるならばMathJaxが良いという電波をキャッチした。
+参考にしたところ http://task-blog.net/2015/01/25/remove-blog-rails-to-hexo/ http://re-dzine.net/2015/01/hugo/ http://rcmdnk.github.io/blog/2015/02/25/blog-octopress/ http://oku.edu.mie-u.ac.jp/~okumura/javascript/mathjax.html </description>
+    </item>
+    
+  </channel>
+</rss>

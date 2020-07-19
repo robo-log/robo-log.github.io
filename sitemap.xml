@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/foxy-fitzroy/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20200718-osx-catalina-ros-foxy-fitzroy/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/ros/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/ros2/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/</loc>
+    <lastmod>2020-07-18T23:48:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20191130-tech-book-fes-7-log/</loc>
+    <lastmod>2019-11-30T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E6%8A%80%E8%A1%93%E6%9B%B8%E5%B1%957/</loc>
+    <lastmod>2019-11-30T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E9%9B%91%E8%A8%98/</loc>
+    <lastmod>2019-11-30T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/reinforcement-learning/</loc>
+    <lastmod>2018-11-10T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20181107-exploration-by-random-network-distillation/</loc>
+    <lastmod>2018-11-10T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E8%AB%96%E6%96%87%E8%AA%AD%E3%81%BF/</loc>
+    <lastmod>2018-11-10T18:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/pipenv/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20181104-pipenv/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/python/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/</loc>
+    <lastmod>2018-11-04T14:42:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/ddp/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180917-ddp-ilqr-slq/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/ilqr/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/slq/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E3%81%BE%E3%81%A8%E3%82%81/</loc>
+    <lastmod>2018-09-17T15:22:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/arduino/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/bluetooth/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/esp32/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/imu/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/m5stack/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/m5stack-gray/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/mpu-9250/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</loc>
+    <lastmod>2018-09-08T15:26:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180714-reinforcement-learning-pathwise-derivative-method/</loc>
+    <lastmod>2018-07-14T21:33:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180519-ydlidar-x4/</loc>
+    <lastmod>2018-05-19T12:29:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180503-neural-episodic-control/</loc>
+    <lastmod>2018-05-06T00:38:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180503-deep-mimic/</loc>
+    <lastmod>2018-05-05T23:15:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180303-asynchronous-methods-for-deep-reinforcement-learning/</loc>
+    <lastmod>2018-03-03T16:28:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180204-open-ai-gym/</loc>
+    <lastmod>2018-02-04T20:21:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/imitation-learning/</loc>
+    <lastmod>2018-01-20T20:15:22+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180120-learning-complex-dexterous-manipulation-with-deep-reinforcement-learning-and-demonstrations/</loc>
+    <lastmod>2018-01-20T20:15:22+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180118-home-maid-lrf/</loc>
+    <lastmod>2018-01-18T22:48:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20180115-reinforcement-learning/</loc>
+    <lastmod>2018-01-15T04:09:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171208-reinforcement-learning-dqn-and-impl/</loc>
+    <lastmod>2017-12-28T20:37:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171206-reinforcement-learning-model-based-rl/</loc>
+    <lastmod>2017-12-06T03:41:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171204-reinforcement-learning-natural-policy-gradient-trpo-ppo/</loc>
+    <lastmod>2017-12-04T22:39:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171203-cpg-and-walk/</loc>
+    <lastmod>2017-12-03T23:41:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171202-reinforcement-learning-policy-gradient-algorithms/</loc>
+    <lastmod>2017-12-02T16:41:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171117-reinforcement-learning-policy-gradient/</loc>
+    <lastmod>2017-11-17T03:15:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171116-rplidar/</loc>
+    <lastmod>2017-11-16T02:16:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20171110-reinforcement-value-policy-iteration/</loc>
+    <lastmod>2017-11-10T19:54:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20160410-reinforcement-learning-mdp-belman-equation/</loc>
+    <lastmod>2016-04-10T15:19:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20160409super-a-life/</loc>
+    <lastmod>2016-04-09T10:17:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2016-02-28-lcddisplay/</loc>
+    <lastmod>2016-02-28T23:32:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2016-01-31-port-6050-library/</loc>
+    <lastmod>2016-01-31T15:32:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2016-01-22-goods-memo/</loc>
+    <lastmod>2016-01-22T23:57:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2016-01-01-hugoformula/</loc>
+    <lastmod>2016-01-01T23:41:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/20151220nulladipiugrande/</loc>
+    <lastmod>2015-12-20T04:15:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2015-11-23masteringtcpip/</loc>
+    <lastmod>2015-11-24T00:18:47+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/souhatu20151123/</loc>
+    <lastmod>2015-11-23T10:17:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/ros%E5%8B%89%E5%BC%B7%E4%BC%9A/</loc>
+    <lastmod>2015-10-04T13:06:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/robo-one-27th/</loc>
+    <lastmod>2015-10-03T22:46:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/haskell/</loc>
+    <lastmod>2015-05-21T22:27:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1162/</loc>
+    <lastmod>2015-05-21T22:27:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1154/</loc>
+    <lastmod>2015-05-18T01:26:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/cpp/</loc>
+    <lastmod>2015-05-18T01:26:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E7%B4%B9%E4%BB%8B%E8%A8%98%E4%BA%8B/</loc>
+    <lastmod>2015-05-18T01:26:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1143/</loc>
+    <lastmod>2015-05-15T02:59:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/hugo/</loc>
+    <lastmod>2015-05-14T01:27:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1140/</loc>
+    <lastmod>2015-05-14T01:27:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E9%96%8B%E7%99%BA%E6%97%A5%E8%AA%8C/</loc>
+    <lastmod>2015-05-14T01:27:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1128/</loc>
+    <lastmod>2015-05-12T02:04:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1131/</loc>
+    <lastmod>2015-05-07T00:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E6%9C%AA%E5%88%86%E9%A1%9E/</loc>
+    <lastmod>2015-05-07T00:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/cnc/</loc>
+    <lastmod>2015-04-19T22:46:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/cnc3020/</loc>
+    <lastmod>2015-04-19T22:46:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1111/</loc>
+    <lastmod>2015-04-19T22:46:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/categories/%E6%A9%9F%E6%A2%B0/</loc>
+    <lastmod>2015-04-19T22:46:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1068/</loc>
+    <lastmod>2015-04-13T02:12:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1009/</loc>
+    <lastmod>2015-04-13T01:19:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1090/</loc>
+    <lastmod>2015-04-12T23:42:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/apache/</loc>
+    <lastmod>2015-04-12T23:19:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1072/</loc>
+    <lastmod>2015-04-12T23:19:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/1033/</loc>
+    <lastmod>2014-10-17T23:57:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/beagleboneblack/</loc>
+    <lastmod>2014-10-17T23:57:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/971/</loc>
+    <lastmod>2014-10-16T21:42:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/pepper/</loc>
+    <lastmod>2014-09-21T23:49:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/984/</loc>
+    <lastmod>2014-09-21T23:49:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/961/</loc>
+    <lastmod>2014-01-01T20:46:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/955/</loc>
+    <lastmod>2013-12-31T21:46:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/948/</loc>
+    <lastmod>2013-12-29T15:49:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/925/</loc>
+    <lastmod>2013-09-25T00:25:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/page/2/</loc>
+    <lastmod>2013-08-25T09:19:47+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/page/</loc>
+    <lastmod>2013-08-25T09:19:47+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/inventor/</loc>
+    <lastmod>2013-08-22T22:38:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/785/</loc>
+    <lastmod>2013-08-22T22:38:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/784/</loc>
+    <lastmod>2013-02-26T02:09:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/782/</loc>
+    <lastmod>2013-01-03T23:29:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/781/</loc>
+    <lastmod>2012-12-31T22:05:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/852/</loc>
+    <lastmod>2012-12-08T03:21:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/851/</loc>
+    <lastmod>2012-11-30T02:15:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/850/</loc>
+    <lastmod>2012-11-16T01:15:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/849/</loc>
+    <lastmod>2012-11-14T02:14:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/848/</loc>
+    <lastmod>2012-10-09T00:14:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/778/</loc>
+    <lastmod>2012-04-02T00:47:26+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/777/</loc>
+    <lastmod>2012-01-04T15:10:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/776/</loc>
+    <lastmod>2011-12-23T21:54:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/775/</loc>
+    <lastmod>2011-11-08T20:35:36+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/774/</loc>
+    <lastmod>2011-08-22T00:53:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/896/</loc>
+    <lastmod>2011-07-01T01:57:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E3%81%B2%E3%81%9A%E3%81%BF%E3%82%B2%E3%83%BC%E3%82%B8/</loc>
+    <lastmod>2011-06-04T03:59:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/895/</loc>
+    <lastmod>2011-06-04T03:59:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E3%82%BB%E3%83%B3%E3%82%B5/</loc>
+    <lastmod>2011-06-04T03:59:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/773/</loc>
+    <lastmod>2011-05-14T15:51:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/918/</loc>
+    <lastmod>2011-05-06T01:58:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/894/</loc>
+    <lastmod>2011-04-14T22:54:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/772/</loc>
+    <lastmod>2011-04-10T13:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/893/</loc>
+    <lastmod>2011-04-09T00:21:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/771/</loc>
+    <lastmod>2011-03-20T03:23:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/892/</loc>
+    <lastmod>2011-02-26T16:45:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/770/</loc>
+    <lastmod>2011-01-30T01:33:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/891/</loc>
+    <lastmod>2011-01-30T00:53:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/hew/</loc>
+    <lastmod>2011-01-28T14:14:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/890/</loc>
+    <lastmod>2011-01-28T14:14:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/887/</loc>
+    <lastmod>2011-01-25T21:37:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/884/</loc>
+    <lastmod>2011-01-23T23:57:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E8%B7%9D%E9%9B%A2%E3%82%BB%E3%83%B3%E3%82%B5/</loc>
+    <lastmod>2011-01-21T19:33:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/843/</loc>
+    <lastmod>2011-01-21T19:33:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AD%E3%82%BB%E3%83%B3%E3%82%B5/</loc>
+    <lastmod>2011-01-21T18:39:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/882/</loc>
+    <lastmod>2011-01-21T18:39:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/881/</loc>
+    <lastmod>2011-01-19T15:44:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/880/</loc>
+    <lastmod>2011-01-19T14:51:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/ram%E3%83%87%E3%83%90%E3%83%83%E3%82%B0/</loc>
+    <lastmod>2011-01-19T00:00:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/877/</loc>
+    <lastmod>2011-01-19T00:00:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/sh7125/</loc>
+    <lastmod>2011-01-19T00:00:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/769/</loc>
+    <lastmod>2011-01-17T02:22:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/768/</loc>
+    <lastmod>2011-01-04T22:49:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/767/</loc>
+    <lastmod>2010-12-29T01:05:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/766/</loc>
+    <lastmod>2010-12-28T01:33:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/765/</loc>
+    <lastmod>2010-12-27T01:58:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/764/</loc>
+    <lastmod>2010-12-26T03:48:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/763/</loc>
+    <lastmod>2010-12-24T00:26:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/762/</loc>
+    <lastmod>2010-12-23T03:27:26+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/761/</loc>
+    <lastmod>2010-12-21T23:06:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/760/</loc>
+    <lastmod>2010-12-21T02:16:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/2010-12-18-vacuum-forming/</loc>
+    <lastmod>2010-12-18T00:44:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/759/</loc>
+    <lastmod>2010-12-17T00:14:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/758/</loc>
+    <lastmod>2010-12-12T23:53:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/916/</loc>
+    <lastmod>2010-11-28T23:33:19+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/915/</loc>
+    <lastmod>2010-11-27T03:28:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/757/</loc>
+    <lastmod>2010-10-26T00:59:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/914/</loc>
+    <lastmod>2010-10-21T01:19:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/913/</loc>
+    <lastmod>2010-10-12T03:25:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/756/</loc>
+    <lastmod>2010-10-10T20:56:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/755/</loc>
+    <lastmod>2010-10-10T08:04:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/754/</loc>
+    <lastmod>2010-10-09T23:41:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/912/</loc>
+    <lastmod>2010-10-04T00:31:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/911/</loc>
+    <lastmod>2010-09-04T02:36:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/tags/%E3%82%A2%E3%83%8A%E3%82%B9%E3%82%BF%E3%82%B7%E3%82%A2/</loc>
+    <lastmod>2010-09-04T02:13:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/753/</loc>
+    <lastmod>2010-09-04T02:13:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/910/</loc>
+    <lastmod>2010-07-15T01:31:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/909/</loc>
+    <lastmod>2010-07-15T01:30:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/908/</loc>
+    <lastmod>2010-07-15T01:20:43+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/907/</loc>
+    <lastmod>2010-07-15T01:09:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/752/</loc>
+    <lastmod>2010-07-09T02:19:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/906/</loc>
+    <lastmod>2010-07-08T01:24:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/905/</loc>
+    <lastmod>2010-07-08T01:08:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/751/</loc>
+    <lastmod>2010-07-06T21:52:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/750/</loc>
+    <lastmod>2010-07-05T18:26:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/904/</loc>
+    <lastmod>2010-07-04T12:43:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/749/</loc>
+    <lastmod>2010-04-06T22:18:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/748/</loc>
+    <lastmod>2010-04-04T02:29:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/746/</loc>
+    <lastmod>2010-03-14T03:20:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/745/</loc>
+    <lastmod>2010-03-13T02:14:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/744/</loc>
+    <lastmod>2010-03-01T04:26:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/743/</loc>
+    <lastmod>2010-02-26T16:50:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/738/</loc>
+    <lastmod>2010-02-15T22:10:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/737/</loc>
+    <lastmod>2010-02-15T03:08:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/736/</loc>
+    <lastmod>2010-02-14T02:41:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/735/</loc>
+    <lastmod>2010-01-17T14:52:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/734/</loc>
+    <lastmod>2010-01-09T13:30:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/733/</loc>
+    <lastmod>2010-01-06T22:41:26+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/732/</loc>
+    <lastmod>2010-01-05T12:06:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/731/</loc>
+    <lastmod>2009-12-24T00:49:22+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/730/</loc>
+    <lastmod>2009-12-20T01:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/729/</loc>
+    <lastmod>2009-12-19T18:30:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/728/</loc>
+    <lastmod>2009-12-14T23:34:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/727/</loc>
+    <lastmod>2009-12-10T03:12:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/726/</loc>
+    <lastmod>2009-10-28T21:46:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/725/</loc>
+    <lastmod>2009-08-31T20:01:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/724/</loc>
+    <lastmod>2009-08-12T16:55:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/723/</loc>
+    <lastmod>2009-08-10T23:42:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/722/</loc>
+    <lastmod>2009-08-09T23:54:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/720/</loc>
+    <lastmod>2009-07-26T01:30:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/719/</loc>
+    <lastmod>2009-07-18T17:21:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/718/</loc>
+    <lastmod>2009-07-01T12:31:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/717/</loc>
+    <lastmod>2009-06-28T17:47:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/716/</loc>
+    <lastmod>2009-06-24T02:27:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/715/</loc>
+    <lastmod>2009-06-23T22:46:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/714/</loc>
+    <lastmod>2009-06-22T15:54:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/713/</loc>
+    <lastmod>2009-06-18T22:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/712/</loc>
+    <lastmod>2009-06-17T22:13:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/711/</loc>
+    <lastmod>2009-06-17T00:21:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/708/</loc>
+    <lastmod>2009-05-24T01:34:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/707/</loc>
+    <lastmod>2009-05-18T01:45:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/705/</loc>
+    <lastmod>2009-05-16T22:03:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/703/</loc>
+    <lastmod>2009-03-31T11:19:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/701/</loc>
+    <lastmod>2009-03-29T15:13:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/700/</loc>
+    <lastmod>2009-03-29T11:41:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/696/</loc>
+    <lastmod>2009-03-13T00:14:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/695/</loc>
+    <lastmod>2008-03-30T19:05:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/694/</loc>
+    <lastmod>2008-02-12T16:53:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/693/</loc>
+    <lastmod>2007-12-15T19:56:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/692/</loc>
+    <lastmod>2007-11-21T22:14:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/691/</loc>
+    <lastmod>2007-11-18T00:26:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/690/</loc>
+    <lastmod>2007-09-30T18:20:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/689/</loc>
+    <lastmod>2007-09-29T23:29:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/688/</loc>
+    <lastmod>2007-09-27T23:24:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/687/</loc>
+    <lastmod>2007-08-27T22:17:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/686/</loc>
+    <lastmod>2007-08-18T20:55:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/685/</loc>
+    <lastmod>2007-08-11T20:17:51+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/684/</loc>
+    <lastmod>2007-08-09T20:36:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/683/</loc>
+    <lastmod>2007-08-02T20:18:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/682/</loc>
+    <lastmod>2007-07-30T10:36:41+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/681/</loc>
+    <lastmod>2007-07-30T09:23:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/680/</loc>
+    <lastmod>2007-07-21T19:03:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/679/</loc>
+    <lastmod>2007-07-16T20:18:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/678/</loc>
+    <lastmod>2007-07-15T21:05:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/677/</loc>
+    <lastmod>2007-07-15T18:34:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/676/</loc>
+    <lastmod>2007-07-02T19:14:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/675/</loc>
+    <lastmod>2007-07-01T22:30:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/674/</loc>
+    <lastmod>2007-06-30T19:46:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/673/</loc>
+    <lastmod>2007-06-29T00:28:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/672/</loc>
+    <lastmod>2007-06-26T22:03:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/671/</loc>
+    <lastmod>2007-06-25T21:48:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/670/</loc>
+    <lastmod>2007-06-25T21:46:48+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/669/</loc>
+    <lastmod>2007-04-04T18:55:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/668/</loc>
+    <lastmod>2007-02-28T22:01:22+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/667/</loc>
+    <lastmod>2007-02-16T17:44:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/666/</loc>
+    <lastmod>2007-01-31T17:44:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/665/</loc>
+    <lastmod>2007-01-21T08:11:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/664/</loc>
+    <lastmod>2007-01-01T01:11:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/663/</loc>
+    <lastmod>2006-12-30T20:24:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/662/</loc>
+    <lastmod>2006-12-29T21:48:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/661/</loc>
+    <lastmod>2006-12-23T21:03:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/660/</loc>
+    <lastmod>2006-12-15T20:22:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/659/</loc>
+    <lastmod>2006-12-15T19:56:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/658/</loc>
+    <lastmod>2006-12-05T18:33:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/657/</loc>
+    <lastmod>2006-12-05T18:22:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/656/</loc>
+    <lastmod>2006-11-18T14:55:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/655/</loc>
+    <lastmod>2006-11-15T17:02:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/654/</loc>
+    <lastmod>2006-11-06T21:07:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/653/</loc>
+    <lastmod>2006-10-28T17:37:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/652/</loc>
+    <lastmod>2006-10-04T18:06:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/651/</loc>
+    <lastmod>2006-09-30T15:54:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/650/</loc>
+    <lastmod>2006-09-29T21:05:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/649/</loc>
+    <lastmod>2006-08-19T21:11:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/648/</loc>
+    <lastmod>2006-08-05T11:59:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/647/</loc>
+    <lastmod>2006-08-01T15:52:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/646/</loc>
+    <lastmod>2006-08-01T15:46:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/645/</loc>
+    <lastmod>2006-07-31T15:44:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/643/</loc>
+    <lastmod>2006-07-31T15:00:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/642/</loc>
+    <lastmod>2006-07-31T14:38:59+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/640/</loc>
+    <lastmod>2006-07-25T14:38:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/639/</loc>
+    <lastmod>2006-07-23T15:59:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/638/</loc>
+    <lastmod>2006-07-18T15:59:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/637/</loc>
+    <lastmod>2006-07-14T18:53:12+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/636/</loc>
+    <lastmod>2006-07-09T19:24:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/634/</loc>
+    <lastmod>2006-07-04T19:56:36+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/post/632/</loc>
+    <lastmod>2006-06-24T23:08:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/404/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.syundo.org/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

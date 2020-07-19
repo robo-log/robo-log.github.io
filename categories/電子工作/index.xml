@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>電子工作 on ROBO LOG</title>
+    <link>http://blog.syundo.org/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/</link>
+    <description>Recent content in 電子工作 on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 08 Sep 2018 15:26:57 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/categories/%E9%9B%BB%E5%AD%90%E5%B7%A5%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>M5stack Gray で MPU9250 で取得した角度を Bluetooth SPPで送る</title>
+      <link>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</link>
+      <pubDate>Sat, 08 Sep 2018 15:26:57 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20180908-m5stack-gray-bt-mpu-9250/</guid>
+      <description>M5Stack Gray M5Stack Grayを買ったので使ってみている。 M5Stack GrapyはESP32にLCDとスピーカーとバッテリー、スイッチ、microSDスロットを付けてコンパクトに纏めたM5Stackに、MPU-9250 9軸IMUを搭載したモジュールである。 もちろん、ESP32が搭載されているのでBluetoothもWifiも使える。 また、ESP32向けに用意されているArduino拡張を流用してM5Stak向けにもArduino開発環境が用意されている。 Arduinoでなく、C/C++, micropythonを利用して開発する環境もある。 GPIOなどにアクセスするためのピンも本体パッケージ側面や、本体下部のアダプターに用意されているため、拡張性も高い。 M5Stackは色々なやってみたいことをサクッと実装するために、非常に強力な道具になってくれるのではないかと思う。
+今回は、IMUで本体の姿勢を取得して、Bluetooth (SPP)で送信するというのをやってみた。
+開発環境の準備 基本的にGetting Startedに書いてあることに従って作業すれば良いのでそんなに難しいことはない。 初心者向けにArduinoに標準対応してくれればもっと敷居が低くなるのになぁとは思った。
+M5Stack Gray で無線IMU  https://github.com/m5stack/M5Stack/blob/master/examples/Modules/MPU9250/MPU9250BasicAHRS/MPU9250BasicAHRS.ino https://github.com/espressif/arduino-esp32/blob/master/libraries/BluetoothSerial/examples/SerialToSerialBT/SerialToSerialBT.ino  以上のコードを組み合わせれば簡単に姿勢をBluetoothで送れる。 Mahony filterというのを使ってクオータニオンを算出し、Yaw-Pitch-Rollに変換しているようだ。
+元のコードそのままだとかなり煩雑になっているので、整理した。 https://github.com/hackathon201808/hackathon201808/blob/master/arduino/m5stackgray/imu_bt/imu_bt.ino これで姿勢について様々な処理を追加する見通しが立てやすくなったと思う。
+接続先PCがUbuntu16.04の場合 Bluetooth接続をシリアルポートを介した通信のように扱うSPP(Serial Protocol Profile)を使うために、Ubuntu側で準備が必要になる。
+以下でBluetoothアドレスとChannelを調べる。
+sdptool browse そして以下でrfcomm0に対応付ける。この場合はアドレスが84:0D:8E:20:49:BE、チャンネルが2であった。
+sudo rfcomm bind 0 84:0D:8E:20:49:BE 2 ちゃんと送られているか、試しにscreenで見てみる。
+screen /dev/rfcomm0 catとechoを使っても送受信できる。
+cat /dev/rfcomm0 echo &amp;quot;Hello World&amp;quot; &amp;gt; /dev/rfcomm0 pythonで受信してみる 受け取ったデータをcsvとかに書き出せると便利だと思うので、pythonで受け取ったデータをcsvに保存するやつ書きました。 モーションの解析とかできそう。
+import time import datetime import serial import pandas as pd class IMUBTRecorder: def __init__(self, port, baudrate): self.</description>
+    </item>
+    
+    <item>
+      <title>Beagle Bone Blackにカメラを繋げてOpenCVで顔検出した</title>
+      <link>http://blog.syundo.org/post/1033/</link>
+      <pubDate>Fri, 17 Oct 2014 23:57:16 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1033/</guid>
+      <description>Beagle Bone Blackの環境が整ったので次はカメラが使えるか試してみた． そしてOpenCVで顔検出することを目指す．
+今回使うカメラはこれ． 
+大須のジャンク屋で売っていたもので，正体不明だったがとりあえず3個購入．1個800円．かなり古そうなので少なくともUVCには対応していないだろう． 何者か調べるためにUSBの情報を見てみる．
+lsusb ID 046d:08d9 Logitech, Inc. QuickCam IM/Connect どうやらこの製品らしいhttps://support.logitech.com/en_us/product/222
+どんな画像が取れるのか試しに見てみる．
+sudo apt-get install xawtv xawtv -c /dev/video0 
+ロボットの目として使うには十分な画質はありそうだ． ちなみにレンズ周りにあるリング部分でピント調節することができる．ジャンクだったためリングの動きが渋くて，なかなかピント調節の方法を見つけられなかった．
+さて次はBBBの上でOpenCVをビルドして使えるようにする． OpenCV2.4.9のセットアップは大方このサイトhttp://www.kkaneko.com/rinkou/opencv/opencvinstalllinux.html の通りに進めた(執筆現在は最新の2.4.10のものに置き換わっている)．
+ただし，ダウンロードに時間がかかったり，エラーが出たりしたのでcmakeの部分は以下に変えた
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DWITH_TBB=ON -DWITH_GTK=ON -DWITH_OPENGL=ON -DWITH_OPENCL=OFF -DWITH_CUDA=OFF -DWITH_UNICAP=ON -DWITH_V4L=ON -DWITH_XINE=ON . それでもBBB上では一連のセットアップに16時間程度かかった．もうどれだけ時間が掛かろうと寝るだけだったのでサンプル等一緒に入れておけばよかった． サンプル画像が無いと不便なので母艦のOpenCV環境からコピーした．トホホ．
+sudo scp -P 22 /usr/local/share/OpenCV/samples/c/*.png ubuntu@192.168.7.2:/usr/local/share/OpenCV/samples/c まずOpenCVからカメラが読めるか試してみる．以下のコードを使った．
+// cam.cpp #include &amp;amp;lt;cv.h&amp;amp;gt;#include &amp;amp;lt;highgui.h&amp;amp;gt;#include &amp;amp;lt;ctype.h&amp;amp;gt; #ifndef CV_WINDOW_FREERATIO #define CV_WINDOW_FREERATIO 0 #endif  int main( int argc, char **argv ) { cv::VideoCapture cap1(0); cap1.</description>
+    </item>
+    
+    <item>
+      <title>Beagle Bone BlackにUbuntu14.04とデスクトップ環境をインストールした</title>
+      <link>http://blog.syundo.org/post/971/</link>
+      <pubDate>Thu, 16 Oct 2014 21:42:07 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/971/</guid>
+      <description>死蔵していたBeagle Bone Blackをやっと引っ張り出してきて，とりあえずUbuntuを入れてみたので作業のメモを残したい．BBB(Beagle Bone Blackのこと)のリビジョンはA5Aということで，いかに無駄に積まれていたのか察せられる．(在庫が無い時期で，わざわざ海外から共同購入したんだよなぁ…)
+まずGetting Started(http://beagleboard.org/Getting%20Started)に従ってみようとするも，そもそもBBBがUSBストレージとしてWindowsに認識されない．なぜだかわからないが，抜き差ししているとやっと認識された．それ以後は順調だった(?)．USBケーブルをつなげば仮想的にLANが繋がってる状態になるらしい．
+リビジョンが古いボードであるので，まずeMMCにあらかじめ書き込んであるAngstromのバージョンアップをしなければならない． http://beagleboard.org/latest-images にある，Angstrom Distribution (BeagleBone Black - 2GB eMMC) をmicroSDカードに書き込む．
+Angstromのイメージを書き込んだSDカードをBBBに挿入して差入口付近にあるboot用のボタンを押しながら電源を投入すると，4つのLEDが順番に点いていき一瞬4つ同時に光った後，ランダムに光るパターンになる．この状態のまま1時間程度放置する．書き換えが終われば再び4つのLEDが同時に点灯したままの状態になる．SDカードを抜いて電源を投入すれば，新しいImageで動くようになっている．
+以上はWindows上でもできる作業だが，後の作業はLinux環境から行うほうが都合がいい． 作業環境：VMware Player，64bit Ubuntu 14.04
+下準備が終わったら，次にUbuntuのboot用SDカードを作成する． 以下のサイトを参考にして作業を進める． http://elinux.org/BeagleBoardUbuntu
+wget https://rcn-ee.net/deb/rootfs/trusty/ubuntu-14.04-console-armhf-2014-05-06.tar.xz md5sum ubuntu-14.04-console-armhf-2014-05-06.tar.xz tar xf ubuntu-14.04-console-armhf-2014-05-06.tar.xz cd ubuntu-14.04-console-armhf-2014-05-06 sudo ./setup_sdcard.sh --probe-mmc 以上でSDカードがどこにあるのか表示してくれるので，そこに書き込む
+sudo ./setup_sdcard.sh --mmc /dev/sdX --uboot bone SDカードをBBBに挿入して電源を入れると，Ubuntuが起動するようになる．毎回bootボタンを押すべしと書いてある古い情報もあるが，新しいAngstromのイメージに更新してあるので，ボタンを押さなくてもSDカードに入っているOSが勝手に起動する．
+とりあえずBBBにSSHでログインする．
+ssh ubuntu@192.168.7.2 BBBと母艦PCをUSBでつなげるとアドレスは192.168.7.2になる．デフォルトのユーザー名は「ubuntu」，パスワードは「temppwd」になっている．
+さて，以上でインストールしたUbuntuはX window systemが含まれないリモートで操作することが想定されたイメージであった．（ubuntu-14.04-consoleとある）
+今後OpenCVを用いた画像処理等を行っていきたいと考えているので，デスクトップがあるのが好ましい．そこで，BeagleBoneBlackでもストレスなく動くような軽量なWindow systemである，LXDEを入れることにした．
+以下のサイトを参考にして作業を進める． http://elinux.org/Beagleboard:Installing_LXDE#LXDE_On_A_Micro_SD_with_Ubuntu_Raring
+BBBにLXDE関係のものをインストールして再起動する．
+sudo apt-get -y install lxde lxde-core lxde-icon-theme sudo reboot さてここで，BeagleBoneBlackにHDMIケーブルを繋いでディスプレイを見てみると，残念なことに何も表示されない．LXDEが無くてもログイン画面は表示されるらしいが，それも表示されない．何が悪いのか分からないが，ディスプレイとの相性もあってBBBではハマりやすい問題らしい． 結局解決できなかったので，諦めてVNCサーバーを使ってリモートデスクトップで運用することにした．考えてみるとBBBにディスプレイが専有されないからこちらのほうが便利である．
+BBBにvncserverをインストールし，一旦起動して設定ファイルを生成する．初回起動時にはVNCでアクセスするためのパスワードを設定するように言われる．</description>
+    </item>
+    
+    <item>
+      <title>RAMデバッグ(sh7125)</title>
+      <link>http://blog.syundo.org/post/877/</link>
+      <pubDate>Wed, 19 Jan 2011 00:00:27 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/877/</guid>
+      <description>RAMデバッグの方法を解説したいと思います。
+更新履歴
+2009　8/9ひとまず完成
+2009　8/10非公開にした後復活
+2010　12/26一部修正
+2011　1/18公開場所変更
+１．はじめに ここでは、開発環境としてHEW4を使っていることを前提とします。
+私の手元にSTK-7125があるので具体的なことはSTK-7125について書きます。
+ルネサスのモニタプログラムとHtermを使ってRAMデバッグ環境を整えていきましょう。
+２．なぜRAMデバッグするのか マイコンのROMというものには実は書き込み回数に制限があります。制限というのは具体的には、書き込み回数100回までしか動作は保証しかねるよ、というようなことです。10万回書き込めるようなマイコンもあります。しかしそうでないマイコンの場合は困ってしまいます。そんなときにRAMにプログラムを書き込むと便利です。RAMは書き込み回数には制限が無いので、安心してプログラムを書き換えられます。
+RAMに書き込むといっても、マイコンは普通RAMだけを使って動作することはしません。RAMに書き込んでプログラムを実行させるためには何か他に手助けが要るわけです。その手助けをするものがエミュレーターだったりモニタプログラムだったりします。ここではモニタプログラムを使います。
+３．モニタプログラムとは モニタプログラムとは、マイコンに組み込まれて、ユーザープログラム（あなたが実行したいプログラム）をRAM上で実行できるようにしてくれるプログラムです。
+このような組み込み型モニタの利点はマイコンのほかにエミュレータと呼ばれるデバッグを行うための機器を必要としないところです。もちろんエミュレータとは機能的には違うところもあるけど、とりあえず気にしなくていいです。
+４．ソフトを揃えよう 必要なものをダウンロードしていきましょう。
+ルネサステクノロジに行って、右上の検索BOXから「Hterm」と検索してください。
+四つぐらい候補が出てきます。その中から自分のマイコン向けのページを選んでください。
+そこで自分のマイコン向けのモニタプログラムとHtermをダウンロードします。自己解凍ファイルなので2つとも実行して好きなとこに解凍してください。解凍先にhtermというフォルダと、sh2というフォルダが出来ています（SHｰ2シリーズを選んだ場合）。
+５．モニタプログラムの設定をしよう フォルダsh2の中のmonitorという名前のHEWWorkSpaceFileを開いてください。プロジェクトの中にmonitor.cとmonitor.sub、そしてdependenciesには7040s.hというファイルがあります。
+まずmonitor.cを編集しましょう
+/*********************************************************/ /* SH7600 Monitor Program Ver. 2.0A */
+/* Copyright (C) 2003 Renesas Technology Corp. */
+/*********************************************************/
+#include &amp;quot;7125s.h&amp;quot;//① /* */
+/*********************************************************/
+/* User Initialize Module */
+/* Input PR &amp;lt;&amp;ndash; Return Address */
+/* Output Nothing */
+/* Used Stack Area &amp;ndash;&amp;gt; 0(0) Byte */</description>
+    </item>
+    
+  </channel>
+</rss>

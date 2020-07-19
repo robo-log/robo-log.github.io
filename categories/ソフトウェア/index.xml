@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ソフトウェア on ROBO LOG</title>
+    <link>http://blog.syundo.org/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/</link>
+    <description>Recent content in ソフトウェア on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 04 Nov 2018 14:42:19 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pipenvを使う</title>
+      <link>http://blog.syundo.org/post/20181104-pipenv/</link>
+      <pubDate>Sun, 04 Nov 2018 14:42:19 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/20181104-pipenv/</guid>
+      <description>Pipenvはpythonのパッケージ管理システムで、従来requirements.txtで管理していた依存関係をより使いやすく管理してくれる夢のシステムである。 そのうえ、pyenvと組み合わせてpythonの仮想環境も同時に管理することができるので、pythonバージョンも含めた依存性も管理することができる。 これはsuperすごいやつ。 javascriptで言うところのnpmのようなもので、この存在を知ったおかげで私はpython開発が楽しくなった。 ありがたいありがたい。
+セットアップ pyenvのセットアップ pyenvがあると便利なのでインストールしておく
+macOSの場合 $ brew install pyenv linuxの場合 $ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash .bashrcとかに以下を書いて初期化する必要がある。
+export PATH=&amp;quot;~/.pyenv/bin:$PATH&amp;quot; eval &amp;quot;$(pyenv init -)&amp;quot; eval &amp;quot;$(pyenv virtualenv-init -)&amp;quot; Windowsの場合 どうすりゃいいんですかね。誰かなんとかしてください。
+pipenv のセットアップ pipenvをインストールする。
+pip install pipenv プロジェクトの作成 # これでprojectで使われるpythonのバージョンが固定される $ pipenv --python 3.6.5 # ただし、minor versionまで、例えばこの場合「3.6」に固定される # 指定したバージョンのpythonがなくてもpyenvでinstallしてくれる # 必要なpackageを追加していく $ pipenv install pandas matplotlib numpy scipy # もちろん一個づつ追加していける $ pipenv install scikit-learn # 開発のためだけに使うpackageは `--dev` をつける $ pipenv install --dev jupyter # pypiに登録されていないpackageもgithubのurlを指定することで管理できる $ pipenv install -e git+https://github.</description>
+    </item>
+    
+    <item>
+      <title>WordpressをロリポップからDigital Oceanに移した</title>
+      <link>http://blog.syundo.org/post/1072/</link>
+      <pubDate>Sun, 12 Apr 2015 23:19:51 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/1072/</guid>
+      <description>今までHPとブログに使っていたロリポップのレンタルサーバをやめて，DigitalOceanの最安プランを使うことにした．VPSを借りてWEBアプリ作れるようになりたかったからである．それにともなってブログとHPのサーバを移行する作業が必要だった．
+そこで新しいサーバでWordpressを使えるようにして以前のサーバから移行するまでの手順をメモしておく．
+まずはDigitalOceanに登録してDropletを作成する必要がある．今回は 512MB Ram 20GB SSD Disk Singapore 1 CentOS 6.5 x64 のものを作った．1時間1円くらいのプランだから月に500円くらいになる．案内に沿ってボタンを押すだけなので簡単だ．セットアップの途中にSSHの設定項目があるので，先に以下のSSHの設定をしておくとスムーズで良い．
+SSHの鍵の登録 DigitalOceanのマイページから仮想コンソールを使ってマシンにアクセスすることもできるが，反応が緩慢なのでSSH接続したほうが色々と捗る． ```bash ssh-keygen ``` で公開鍵ができるので中身をコピペしてDropletの生成時に登録しておく．生成時にしていなかった場合は，YourSetting-&amp;gt;Securityより設定しておく． Apache 導入 yum install -y httpd httpd-devel chkconfig httpd on service httpd start PHP 導入 rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm yum --enablerepo=remi,remi-php55 install php php-devel php-mysql php-mbstring php-gd vi /etc/php.ini vi /etc/httpd/conf.d/php.conf MySQL 導入 yum install mysql-community-release-el6-5.noarch.rpm yum install -y mysql-community-client mysql-community-devel mysql-community-server Digital Oceanの最安プランではメモリが不足がちらしい．スワップファイルを作る．
+sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 mkswap /swapfile swapon /swapfile sudo sh -c &amp;amp;quot;echo &amp;#39;/swapfile swap swap defaults 0 0&amp;#39; &amp;amp;amp;gt;&amp;amp;amp;gt; /etc/fstab&amp;amp;quot; chkconfig mysqld on service mysqld start MySQLの設定とかする．全部Yesと答える．ただしパスワードは空欄にしておいた．</description>
+    </item>
+    
+    <item>
+      <title>XAMPPのエイリアス設定</title>
+      <link>http://blog.syundo.org/post/948/</link>
+      <pubDate>Sun, 29 Dec 2013 15:49:55 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/948/</guid>
+      <description>C:/xampp/apache/conf/httpd.confに以下を追記．
+Apache2.4以降の場合は，「Require all granted」書かないとアクセス権くれない．
+Alias /(エイリアス名)/ &amp;amp;quot;(ディレクトリ)/&amp;amp;quot; &amp;amp;lt;Directory &amp;amp;quot;(ディレクトリ)&amp;amp;quot;&amp;amp;gt; Options Indexes FollowSymLinks Includes ExecCGI AllowOverride All Require all granted Order allow,deny Allow from all &amp;amp;lt;/Directory&amp;amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>InventorのシートメタルからDXFの書き出し</title>
+      <link>http://blog.syundo.org/post/785/</link>
+      <pubDate>Thu, 22 Aug 2013 22:38:37 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/785/</guid>
+      <description>Inventorでシートメタルを作成、フラットパターンに変換してから切り抜きのためにDXFを書き出すときは、
+  フラットパターンを右クリックし、「コピーに名前を付けて保存」でDXFを書き出す。   InventorからのDXFの書き出しにはいくつか方法があるが、 以下のようにするとうまくいかない。  面を右クリックして   「面に名前を付けてエクスポート」でDXFを書き出したり、  面にスケッチを貼り付けて、  「スケッチに名前を付けてエクスポート」でDXFを書き出したりすると、  後にCAMで読み込んだときにポリラインが切れて認識されてしまう。  久しぶりに触ったらはまった。  </description>
+    </item>
+    
+    <item>
+      <title>ルネサスHEWの使い方</title>
+      <link>http://blog.syundo.org/post/890/</link>
+      <pubDate>Fri, 28 Jan 2011 14:14:35 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/890/</guid>
+      <description>目次 ・HEWとは
+・ワークスペース、プロジェクトの新規作成
+・HEWの生成するファイル群
+・メイン関数のありか
+・IOレジスタを操作する！！
+・割り込み処理はどこに？
+・math.hが使えない！？
+・スタック領域を変える
+・最適化オプション
+・ルネサスコンパイラ固有の関数など
+・割り込みが動かない！？
+・プロジェクトの複製
+・プロジェクトの追加
+HEWとは 　HEW（High-performance Embedded Workshop）はルネサスが提供しているエディタ、コンパイラ、エミュレータといったツールを、使いやすくまとめてくれている統合開発環境です。
+コンパイラ、リンカなど、各工程ごとに用意された複数のツールを、 あたかも多機能な一つのツールであるかのように 操作できます。
+　HEWをインストールすればコンパイラもリンカも入っているので、HEWがあればルネサスエレクトロニクスのマイコンの開発はできるということになります。
+プロジェクトの新規作成 　プロジェクトの作成についてはこのサイト↓に詳しく解説されています。
+HEWでAKI-H8/3048Fのプログラミング
+　色々な設定のうち、プロジェクト生成後に変更できないのはCPUの種類と、「Use Heap Memory」、「Use I/O Library」にチェックを入れるかどうかというところです。メモリ管理ライブラリや入出力関連のライブラリが要らない場合はいいです。しかしライブラリを生成しておいても後でプロジェクトから外すこともできますからチェックを入れてもいいかもしれません。
+HEWの生成するファイル群 　HEWは初期設定が終わった段階で、ターゲットに合わせたファイルを自動的に生成します。以下のようなファイルです。
+　初期設定の時にチェックマークを付けなければ生成されないものもあります。sbrk.c、sbrk.h、lowlvl.src、lowsrc.c、lowsrc.hは必ずしも要りません。
+dbsct.c･･･_初期値がある変数、初期値がない変数のセクション初期化テーブルの設定。 ○○○.c（○○○はプロジェクト名）･･･メイン関数がある。
+intprg.c･･･割り込み関数がある。
+resetprg.c･･･パワーオンリセット時の処理が記述してある。
+sbrk.c･･･メモリ管理ライブラリの低水準インターフェースルーチンなど。「Use Heap Memory」にチェックを入れると生成される。
+sbrk.h
+lowlvl.src･･･入出力関連の低水準インターフェースルーチン。「Use I/O Library」にチェックを入れると生成される。
+lowsrc.c
+lowsrc.h
+vecttble.c･･･ベクタテーブルがある。
+vect.h･･･vecttble.cにある関数のプロトタイプ宣言
+stacksct.h･･･スタックサイズが記述してある。ここは直接触らない。
+typedefine.h･･･typedefを使って変数の型に別の名前をつけている。他のファイルでインクルードされて使われている。
+iodefine.h･･･IO操作用の構造体などが定義されている。
+
+　初心者の方は特にファイルの細部については気にしなくていいと思います。そのためのHEWなんですから。
+でも一応、詳細はここにあります↓
+http://documentation.renesas.com/jpn/products/tool/rjj10j0929_hew_s.pdf
+メイン関数のありか 　HEWでプログラミングするとき、メイン関数はどこに書けばいいのでしょう？実はメイン関数は○○○.c（○○○はプロジェクト名）に自動生成で用意されています。では中身を見てみましょう。
+○○○.c（○○○はプロジェクト名）を見ると、以下のようになっています。
+//○○○.c //#include &amp;ldquo;typedefine.h&amp;rdquo;
+#ifdef __cplusplus</description>
+    </item>
+    
+  </channel>
+</rss>

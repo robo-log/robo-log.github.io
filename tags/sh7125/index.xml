@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SH7125 on ROBO LOG</title>
+    <link>http://blog.syundo.org/tags/sh7125/</link>
+    <description>Recent content in SH7125 on ROBO LOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 19 Jan 2011 00:00:27 +0900</lastBuildDate>
+    
+	<atom:link href="http://blog.syundo.org/tags/sh7125/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RAMデバッグ(sh7125)</title>
+      <link>http://blog.syundo.org/post/877/</link>
+      <pubDate>Wed, 19 Jan 2011 00:00:27 +0900</pubDate>
+      
+      <guid>http://blog.syundo.org/post/877/</guid>
+      <description>RAMデバッグの方法を解説したいと思います。
+更新履歴
+2009　8/9ひとまず完成
+2009　8/10非公開にした後復活
+2010　12/26一部修正
+2011　1/18公開場所変更
+１．はじめに ここでは、開発環境としてHEW4を使っていることを前提とします。
+私の手元にSTK-7125があるので具体的なことはSTK-7125について書きます。
+ルネサスのモニタプログラムとHtermを使ってRAMデバッグ環境を整えていきましょう。
+２．なぜRAMデバッグするのか マイコンのROMというものには実は書き込み回数に制限があります。制限というのは具体的には、書き込み回数100回までしか動作は保証しかねるよ、というようなことです。10万回書き込めるようなマイコンもあります。しかしそうでないマイコンの場合は困ってしまいます。そんなときにRAMにプログラムを書き込むと便利です。RAMは書き込み回数には制限が無いので、安心してプログラムを書き換えられます。
+RAMに書き込むといっても、マイコンは普通RAMだけを使って動作することはしません。RAMに書き込んでプログラムを実行させるためには何か他に手助けが要るわけです。その手助けをするものがエミュレーターだったりモニタプログラムだったりします。ここではモニタプログラムを使います。
+３．モニタプログラムとは モニタプログラムとは、マイコンに組み込まれて、ユーザープログラム（あなたが実行したいプログラム）をRAM上で実行できるようにしてくれるプログラムです。
+このような組み込み型モニタの利点はマイコンのほかにエミュレータと呼ばれるデバッグを行うための機器を必要としないところです。もちろんエミュレータとは機能的には違うところもあるけど、とりあえず気にしなくていいです。
+４．ソフトを揃えよう 必要なものをダウンロードしていきましょう。
+ルネサステクノロジに行って、右上の検索BOXから「Hterm」と検索してください。
+四つぐらい候補が出てきます。その中から自分のマイコン向けのページを選んでください。
+そこで自分のマイコン向けのモニタプログラムとHtermをダウンロードします。自己解凍ファイルなので2つとも実行して好きなとこに解凍してください。解凍先にhtermというフォルダと、sh2というフォルダが出来ています（SHｰ2シリーズを選んだ場合）。
+５．モニタプログラムの設定をしよう フォルダsh2の中のmonitorという名前のHEWWorkSpaceFileを開いてください。プロジェクトの中にmonitor.cとmonitor.sub、そしてdependenciesには7040s.hというファイルがあります。
+まずmonitor.cを編集しましょう
+/*********************************************************/ /* SH7600 Monitor Program Ver. 2.0A */
+/* Copyright (C) 2003 Renesas Technology Corp. */
+/*********************************************************/
+#include &amp;quot;7125s.h&amp;quot;//① /* */
+/*********************************************************/
+/* User Initialize Module */
+/* Input PR &amp;lt;&amp;ndash; Return Address */
+/* Output Nothing */
+/* Used Stack Area &amp;ndash;&amp;gt; 0(0) Byte */</description>
+    </item>
+    
+  </channel>
+</rss>
